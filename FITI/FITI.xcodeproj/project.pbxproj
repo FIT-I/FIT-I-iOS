@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D2E296184AA00F29DA5 /* AppDelegate.swift */; };
 		91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D30296184AA00F29DA5 /* SceneDelegate.swift */; };
-		91C32D33296184AA00F29DA5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D32296184AA00F29DA5 /* ViewController.swift */; };
 		91C32D38296184AD00F29DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C32D37296184AD00F29DA5 /* Assets.xcassets */; };
 		91C32D3B296184AD00F29DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */; };
 		91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D422961857400F29DA5 /* SignInViewController.swift */; };
@@ -27,7 +26,6 @@
 		91C32D2B296184AA00F29DA5 /* FITI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FITI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C32D2E296184AA00F29DA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91C32D30296184AA00F29DA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		91C32D32296184AA00F29DA5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		91C32D37296184AD00F29DA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91C32D3A296184AD00F29DA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91C32D3C296184AD00F29DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +51,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		910182B929618C7900FC10DB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				91C32D492961863E00F29DA5 /* UIColor+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		910182BA29618C8300FC10DB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				91C32D4B2961866100F29DA5 /* TabBarController.swift */,
+				910182BB29618C9100FC10DB /* Component */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		910182BB29618C9100FC10DB /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				910182BC29618CA100FC10DB /* Home */,
+				910182BD29618CA700FC10DB /* Community */,
+				910182BE29618CAF00FC10DB /* Chat */,
+				910182BF29618CB500FC10DB /* MyPage */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		910182BC29618CA100FC10DB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				91C32D4D2961867600F29DA5 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		910182BD29618CA700FC10DB /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				91C32D4F2961868500F29DA5 /* CommunityViewController.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		910182BE29618CAF00FC10DB /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				91C32D512961869000F29DA5 /* ChatViewController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		910182BF29618CB500FC10DB /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				91C32D532961869C00F29DA5 /* MyPageViewController.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		910182C029618CCA00FC10DB /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				91C32D472961860800F29DA5 /* StartViewController.swift */,
+				91C32D422961857400F29DA5 /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		910182C129618CD100FC10DB /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		91C32D22296184AA00F29DA5 = {
 			isa = PBXGroup;
 			children = (
@@ -72,20 +146,15 @@
 		91C32D2D296184AA00F29DA5 /* FITI */ = {
 			isa = PBXGroup;
 			children = (
+				910182BA29618C8300FC10DB /* Main */,
+				910182C129618CD100FC10DB /* SignUp */,
+				910182C029618CCA00FC10DB /* SignIn */,
+				910182B929618C7900FC10DB /* Extension */,
 				91C32D2E296184AA00F29DA5 /* AppDelegate.swift */,
 				91C32D30296184AA00F29DA5 /* SceneDelegate.swift */,
-				91C32D32296184AA00F29DA5 /* ViewController.swift */,
 				91C32D37296184AD00F29DA5 /* Assets.xcassets */,
 				91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */,
 				91C32D3C296184AD00F29DA5 /* Info.plist */,
-				91C32D422961857400F29DA5 /* SignInViewController.swift */,
-				91C32D472961860800F29DA5 /* StartViewController.swift */,
-				91C32D492961863E00F29DA5 /* UIColor+.swift */,
-				91C32D4B2961866100F29DA5 /* TabBarController.swift */,
-				91C32D4D2961867600F29DA5 /* HomeViewController.swift */,
-				91C32D4F2961868500F29DA5 /* CommunityViewController.swift */,
-				91C32D512961869000F29DA5 /* ChatViewController.swift */,
-				91C32D532961869C00F29DA5 /* MyPageViewController.swift */,
 			);
 			path = FITI;
 			sourceTree = "<group>";
@@ -169,7 +238,6 @@
 				91C32D482961860800F29DA5 /* StartViewController.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
-				91C32D33296184AA00F29DA5 /* ViewController.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
