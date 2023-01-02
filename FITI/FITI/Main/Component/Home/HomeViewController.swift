@@ -165,13 +165,13 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: TrainerTabelCell.identifier, for: indexPath) as? TrainerTabelCell ?? TrainerTabelCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: TrainerTabelCell.identifier, for: indexPath)
 //        cell.binding()
 //        cell.selectionStyle = .none
-        
-        let cell = TrainerTabelCell()
+    
 
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

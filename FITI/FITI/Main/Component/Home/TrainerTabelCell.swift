@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import SnapKit
-//import Kingfisher
 
 class TrainerTabelCell: UITableViewCell {
 
@@ -19,16 +18,18 @@ class TrainerTabelCell: UITableViewCell {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
+        view.image = UIImage(systemName: "figure.soccer")
         view.snp.makeConstraints { make in
-            make.height.equalTo(70)
-            make.width.equalTo(70)
+            make.height.equalTo(110)
+            make.width.equalTo(100)
         }
         return view
     }()
     
     var name : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Noto Sans", size: 15)
+//        label.font = UIFont(name: "Noto Sans", size: 15)
+        label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "김동현"
         label.textColor = UIColor.black
         return label
@@ -60,7 +61,9 @@ class TrainerTabelCell: UITableViewCell {
     
     var purpose : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Noto Sans", size: 10)
+//        label.font = UIFont(name: "Noto Sans", size: 30.0)
+        label.font = UIFont.systemFont(ofSize: 10.0)
+        
         label.text = "개인PT"
         label.textColor = UIColor.black
         return label
@@ -68,7 +71,8 @@ class TrainerTabelCell: UITableViewCell {
     
     var distance : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Noto Sans", size: 10)
+//        label.font = UIFont(name: "Noto Sans", size: 7)
+        label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "1Km"
         label.textColor = UIColor.customColor(.gray)
         return label
@@ -76,7 +80,8 @@ class TrainerTabelCell: UITableViewCell {
     
     private let dot : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Noto Sans", size: 10)
+//        label.font = UIFont(name: "Noto Sans", size: 7)
+        label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "."
         label.textColor = UIColor.customColor(.gray)
         return label
@@ -90,24 +95,27 @@ class TrainerTabelCell: UITableViewCell {
     
     private let grade : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Noto Sans", size: 10)
-        label.text = "4.3"
+//        label.font = UIFont(name: "Noto Sans", size: 5)
+        label.font = UIFont.systemFont(ofSize: 10.0)
+        label.text = "평점4.3"
         label.textColor = UIColor.customColor(.gray)
         return label
     }()
     
     private let license : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Noto Sans", size: 10)
-        label.text = "보유 자격증 5개"
+//        label.font = UIFont(name: "Noto Sans", size: 5)
+        label.font = UIFont.systemFont(ofSize: 10.0)
+        label.text = "자격증 5개"
         label.textColor = UIColor.customColor(.gray)
         return label
     }()
     
     private let school : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Noto Sans", size: 10)
-        label.text = "숭실대학교"
+//        label.font = UIFont(name: "Noto Sans", size: 5)
+        label.font = UIFont.systemFont(ofSize: 10.0)
+        label.text = "숭실대"
         label.textColor = UIColor.customColor(.gray)
         return label
     }()
@@ -117,16 +125,18 @@ class TrainerTabelCell: UITableViewCell {
         textView.textColor = UIColor.black
         textView.isEditable = false
         textView.isScrollEnabled = false
-        textView.font = UIFont(name: "Noto Sans", size: 10)
-        textView.snp.makeConstraints { make in
-            make.height.equalTo(30)
-        }
+//        textView.font = UIFont(name: "Noto Sans", size: 10)
+        textView.font = UIFont.systemFont(ofSize: 10.0)
+        // 더미 데이터
+        textView.text = "Pt 센터 경력 3년. 스포애니 상도점에서 대표 트레이너로 근무한 경험이 있습니다. 가르치는 것은 자신있습니다. 중앙대학교 체육대학 지난학기 수석 학생입니다. 배운 내용을 토대로 안전하게 지도해드립니다."
+//        textView.backgroundColor = .red
         return textView
     }()
     
     private let price : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Noto Sans", size: 10)
+//        label.font = UIFont(name: "Noto Sans", size: 10)
+        label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "2만원~"
         label.textColor = UIColor.black
         return label
@@ -134,54 +144,55 @@ class TrainerTabelCell: UITableViewCell {
     
     private let time : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Noto Sans", size: 10)
+//        label.font = UIFont(name: "Noto Sans", size: 10)
+        label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "/1시간"
         label.textColor = UIColor.customColor(.gray)
         return label
     }()
     
-    private let iconStackView : UIStackView = {
-        let stackView = UIStackView()
+    lazy var iconStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [starIcon,purpose])
         stackView.axis = .horizontal
         stackView.spacing = 2
-        stackView.alignment = .fill
+        stackView.alignment = .center
         return stackView
     }()
     
-    private let nameStackView : UIStackView = {
-        let stackView = UIStackView()
+    lazy var nameStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [name,iconStackView])
         stackView.axis = .horizontal
         stackView.spacing = 13
-        stackView.alignment = .fill
+        stackView.alignment = .leading
         return stackView
     }()
     
-    private let distanceStackView : UIStackView = {
-        let stackView = UIStackView()
+    lazy var gradeStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [grade,license,school])
         stackView.axis = .horizontal
-        stackView.spacing = 3
-        stackView.alignment = .fill
+        stackView.spacing = 8
+        stackView.alignment = .leading
         return stackView
     }()
     
-    private let priceStackView : UIStackView = {
-        let stackView = UIStackView()
+    lazy var priceStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [price,time])
         stackView.axis = .horizontal
-        stackView.spacing = 5
-        stackView.alignment = .fill
+        stackView.spacing = 2
+        stackView.alignment = .leading
         return stackView
     }()
     
-    private let rightStackView : UIStackView = {
-        let stackView = UIStackView()
+    lazy var rightStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [nameStackView,gradeStackView,introTextView,priceStackView])
         stackView.axis = .vertical
         stackView.spacing = 5
-        stackView.alignment = .fill
+        stackView.alignment = .leading
         return stackView
     }()
     
-    private let globalStackView : UIStackView = {
-        let stackView = UIStackView()
+    lazy var globalStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [imgView,rightStackView])
         stackView.axis = .horizontal
         stackView.spacing = 15
         stackView.alignment = .fill
@@ -194,38 +205,16 @@ class TrainerTabelCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        // 어떻게 이 코드가.... 뭐지..
-//        print(GlobalstackView)
-//        print(iconStackView)
-        
-        iconStackView.addArrangedSubview(starIcon)
-        iconStackView.addArrangedSubview(purpose)
-        
-        nameStackView.addArrangedSubview(name)
-        nameStackView.addArrangedSubview(iconStackView)
-        
-        distanceStackView.addArrangedSubview(distance)
-        distanceStackView.addArrangedSubview(dot)
-        distanceStackView.addArrangedSubview(yellowStarIcon)
-        distanceStackView.addArrangedSubview(grade)
-        distanceStackView.addArrangedSubview(dot)
-        distanceStackView.addArrangedSubview(license)
-        distanceStackView.addArrangedSubview(dot)
-        distanceStackView.addArrangedSubview(school)
-        
-        priceStackView.addArrangedSubview(price)
-        priceStackView.addArrangedSubview(time)
-        
-        rightStackView.addArrangedSubview(nameStackView)
-        rightStackView.addArrangedSubview(distanceStackView)
-        rightStackView.addArrangedSubview(introTextView)
-        rightStackView.addArrangedSubview(priceStackView)
-        
-        globalStackView.addArrangedSubview(imgView)
-        globalStackView.addArrangedSubview(rightStackView)
+        self.contentView.addSubview(self.globalStackView)
+
+        globalStackView.snp.makeConstraints { make in
+//            make.top.leading.trailing.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
+            make.leading.trailing.equalToSuperview()
+        }
         
         print(globalStackView)
-        
 
     }
     
