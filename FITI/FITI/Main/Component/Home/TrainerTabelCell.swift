@@ -28,7 +28,6 @@ class TrainerTabelCell: UITableViewCell {
     
     var name : UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: "Noto Sans", size: 15)
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "김동현"
         label.textColor = UIColor.black
@@ -61,9 +60,7 @@ class TrainerTabelCell: UITableViewCell {
     
     var purpose : UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: "Noto Sans", size: 30.0)
         label.font = UIFont.systemFont(ofSize: 10.0)
-        
         label.text = "개인PT"
         label.textColor = UIColor.black
         return label
@@ -71,7 +68,6 @@ class TrainerTabelCell: UITableViewCell {
     
     var distance : UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: "Noto Sans", size: 7)
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "1Km"
         label.textColor = UIColor.customColor(.gray)
@@ -80,7 +76,6 @@ class TrainerTabelCell: UITableViewCell {
     
     private let dot : UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: "Noto Sans", size: 7)
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "."
         label.textColor = UIColor.customColor(.gray)
@@ -95,7 +90,6 @@ class TrainerTabelCell: UITableViewCell {
     
     private let grade : UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: "Noto Sans", size: 5)
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "평점4.3"
         label.textColor = UIColor.customColor(.gray)
@@ -104,7 +98,6 @@ class TrainerTabelCell: UITableViewCell {
     
     private let license : UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: "Noto Sans", size: 5)
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "자격증 5개"
         label.textColor = UIColor.customColor(.gray)
@@ -113,7 +106,6 @@ class TrainerTabelCell: UITableViewCell {
     
     private let school : UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: "Noto Sans", size: 5)
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "숭실대"
         label.textColor = UIColor.customColor(.gray)
@@ -125,7 +117,6 @@ class TrainerTabelCell: UITableViewCell {
         textView.textColor = UIColor.black
         textView.isEditable = false
         textView.isScrollEnabled = false
-//        textView.font = UIFont(name: "Noto Sans", size: 10)
         textView.font = UIFont.systemFont(ofSize: 10.0)
         // 더미 데이터
         textView.text = "Pt 센터 경력 3년. 스포애니 상도점에서 대표 트레이너로 근무한 경험이 있습니다. 가르치는 것은 자신있습니다. 중앙대학교 체육대학 지난학기 수석 학생입니다. 배운 내용을 토대로 안전하게 지도해드립니다."

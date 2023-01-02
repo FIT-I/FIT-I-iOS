@@ -167,7 +167,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TrainerTabelCell.identifier, for: indexPath)
 //        cell.binding()
-//        cell.selectionStyle = .none
+        cell.selectionStyle = .none
     
 
         return cell
