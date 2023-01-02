@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTabelCell.swift */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
+		913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C929634641001CC92B /* TrainerDetailViewController.swift */; };
+		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
 		91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D2E296184AA00F29DA5 /* AppDelegate.swift */; };
 		91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D30296184AA00F29DA5 /* SceneDelegate.swift */; };
 		91C32D38296184AD00F29DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C32D37296184AD00F29DA5 /* Assets.xcassets */; };
@@ -27,6 +29,7 @@
 /* Begin PBXFileReference section */
 		910182C22961961D00FC10DB /* TrainerTabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTabelCell.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		913E02C929634641001CC92B /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
 		91C32D2B296184AA00F29DA5 /* FITI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FITI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C32D2E296184AA00F29DA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91C32D30296184AA00F29DA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91C32D46296185B900F29DA5 /* SnapKit in Frameworks */,
+				913E02CD2963505A001CC92B /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +137,14 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		913E02C829634607001CC92B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				913E02C929634641001CC92B /* TrainerDetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		91C32D22296184AA00F29DA5 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +164,7 @@
 		91C32D2D296184AA00F29DA5 /* FITI */ = {
 			isa = PBXGroup;
 			children = (
+				913E02C829634607001CC92B /* Detail */,
 				910182BA29618C8300FC10DB /* Main */,
 				910182C129618CD100FC10DB /* SignUp */,
 				910182C029618CCA00FC10DB /* SignIn */,
@@ -183,6 +196,7 @@
 			name = FITI;
 			packageProductDependencies = (
 				91C32D45296185B900F29DA5 /* SnapKit */,
+				913E02CC2963505A001CC92B /* Then */,
 			);
 			productName = FITI;
 			productReference = 91C32D2B296184AA00F29DA5 /* FITI.app */;
@@ -214,6 +228,7 @@
 			mainGroup = 91C32D22296184AA00F29DA5;
 			packageReferences = (
 				91C32D44296185B900F29DA5 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 91C32D2C296184AA00F29DA5 /* Products */;
 			projectDirPath = "";
@@ -253,6 +268,7 @@
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
 				91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */,
 				91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */,
+				913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +478,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		91C32D44296185B900F29DA5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -473,6 +497,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		913E02CC2963505A001CC92B /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
 		91C32D45296185B900F29DA5 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 91C32D44296185B900F29DA5 /* XCRemoteSwiftPackageReference "SnapKit" */;
