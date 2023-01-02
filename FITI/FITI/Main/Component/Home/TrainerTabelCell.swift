@@ -82,9 +82,10 @@ class TrainerTabelCell: UITableViewCell {
         return label
     }()
     
-    private let yellowStarIcon : UIImage = {
-        let image = UIImage(systemName: "star")
-        return image!
+    var yellowStarIcon : UIImageView = {
+        let image = UIImageView()
+        image.image =  UIImage(systemName: "star")
+        return image
     }()
     
     private let grade : UILabel = {
@@ -149,24 +150,24 @@ class TrainerTabelCell: UITableViewCell {
     
     private let nameStackView : UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.axis = .horizontal
+        stackView.spacing = 13
         stackView.alignment = .fill
         return stackView
     }()
     
     private let distanceStackView : UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.axis = .horizontal
+        stackView.spacing = 3
         stackView.alignment = .fill
         return stackView
     }()
     
     private let priceStackView : UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.axis = .horizontal
+        stackView.spacing = 5
         stackView.alignment = .fill
         return stackView
     }()
@@ -174,18 +175,19 @@ class TrainerTabelCell: UITableViewCell {
     private let rightStackView : UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = 5
         stackView.alignment = .fill
         return stackView
     }()
     
     private let globalStackView : UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.axis = .horizontal
+        stackView.spacing = 15
         stackView.alignment = .fill
         return stackView
     }()
+    
     
     
 
@@ -199,6 +201,31 @@ class TrainerTabelCell: UITableViewCell {
         iconStackView.addArrangedSubview(starIcon)
         iconStackView.addArrangedSubview(purpose)
         
+        nameStackView.addArrangedSubview(name)
+        nameStackView.addArrangedSubview(iconStackView)
+        
+        distanceStackView.addArrangedSubview(distance)
+        distanceStackView.addArrangedSubview(dot)
+        distanceStackView.addArrangedSubview(yellowStarIcon)
+        distanceStackView.addArrangedSubview(grade)
+        distanceStackView.addArrangedSubview(dot)
+        distanceStackView.addArrangedSubview(license)
+        distanceStackView.addArrangedSubview(dot)
+        distanceStackView.addArrangedSubview(school)
+        
+        priceStackView.addArrangedSubview(price)
+        priceStackView.addArrangedSubview(time)
+        
+        rightStackView.addArrangedSubview(nameStackView)
+        rightStackView.addArrangedSubview(distanceStackView)
+        rightStackView.addArrangedSubview(introTextView)
+        rightStackView.addArrangedSubview(priceStackView)
+        
+        globalStackView.addArrangedSubview(imgView)
+        globalStackView.addArrangedSubview(rightStackView)
+        
+        print(globalStackView)
+        
 
     }
     
@@ -208,8 +235,9 @@ class TrainerTabelCell: UITableViewCell {
     
 }
 
-extension TrainerTabelCell {
-    public func binding(){
-        //
-    }
-}
+//
+//extension TrainerTabelCell {
+//    public func binding(){
+//        //
+//    }
+//}
