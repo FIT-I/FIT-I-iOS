@@ -10,6 +10,11 @@ import SnapKit
 
 class HomeViewController: UIViewController {
     
+    var appImage : UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "appIcon.svg")
+        return imgView
+    }()
 
     // 상단 5개 버튼 구현
     private let selectBtn1 : UIButton = {
@@ -123,6 +128,9 @@ class HomeViewController: UIViewController {
     }
     
     func signInViewAddUI(){
+        
+        view.addSubview(appImage)
+        
         selectBtnsStackView.addArrangedSubview(selectBtn1)
         selectBtnsStackView.addArrangedSubview(selectBtn2)
         selectBtnsStackView.addArrangedSubview(selectBtn3)
@@ -134,8 +142,16 @@ class HomeViewController: UIViewController {
     }
     
     func signInViewSetUI(){
+        
+        appImage.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(70)
+            make.leading.equalToSuperview().offset(62)
+            make.trailing.equalToSuperview().offset(-62)
+            make.height.equalTo(20)
+        }
+        
         selectBtnsStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(94)
+            make.top.equalTo(appImage.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-21)
         }

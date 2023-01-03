@@ -343,6 +343,17 @@ class TrainerDetailViewController: UIViewController {
         btn.addTarget(self, action: #selector(matchingRequestTouched), for: .touchUpInside)
         return btn
     }()
+    
+    private let heartBtn : UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = UIColor.systemBackground
+        btn.layer.cornerRadius = 8
+        btn.setImage(UIImage(named: "heart"), for: .normal)
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.customColor(.blue).cgColor
+        return btn
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -358,6 +369,8 @@ class TrainerDetailViewController: UIViewController {
     }
     
     func signInViewAddUI(){
+        
+        toolBarContainerView.addSubview(heartBtn)
         toolBarContainerView.addSubview(matchingRequest)
         
         priceView.addSubview(priceStackView)
@@ -383,28 +396,21 @@ class TrainerDetailViewController: UIViewController {
             make.top.equalTo(topStackView.snp.bottom).offset(65)
             make.leading.equalToSuperview().offset(21)
             make.trailing.equalToSuperview().offset(-20)
-            make.bottom.equalToSuperview().offset(-89)
+            make.bottom.equalToSuperview().offset(-130)
         }
         
-        toolBarContainerView.snp.makeConstraints { make in
-            make.top.equalTo(middleStackView.snp.bottom).offset(5)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
+        // priceView 내부
+        priceStackView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(18)
         }
         
-        matchingRequest.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-40)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-14)
-        }
-
         // introView 내부
         introStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(17)
-            make.leading.equalTo(topStackView)
-            make.trailing.equalTo(topStackView)
+//            make.leading.equalTo(topStackView)
+//            make.trailing.equalTo(topStackView)
+            make.leading.equalToSuperview().offset(18)
+            make.trailing.equalToSuperview().offset(-18)
         }
         
         // reviewView 내부
@@ -412,6 +418,27 @@ class TrainerDetailViewController: UIViewController {
             make.top.equalToSuperview().offset(17)
             make.leading.equalTo(topStackView)
             make.trailing.equalTo(topStackView)
+        }
+        
+        toolBarContainerView.snp.makeConstraints { make in
+            make.top.equalTo(middleStackView.snp.bottom).offset(50)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        heartBtn.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-40)
+            make.leading.equalToSuperview().offset(16)
+            make.width.equalTo(50)
+        }
+        
+        matchingRequest.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-40)
+            make.leading.equalTo(heartBtn.snp.trailing).offset(10)
+            make.trailing.equalToSuperview().offset(-14)
         }
 
     }
@@ -428,7 +455,4 @@ class TrainerDetailViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
-    
-
-
 }
