@@ -219,7 +219,7 @@ class TrainerDetailViewController: UIViewController {
         let btn = UIButton()
         btn.backgroundColor = UIColor.systemBackground
         btn.setImage(UIImage(named: "rightBtn"), for: .normal)
-        
+        btn.addTarget(self, action: #selector(moveToReviewTableView), for: .touchUpInside)
         return btn
     }()
     
@@ -454,5 +454,10 @@ class TrainerDetailViewController: UIViewController {
         alert.addAction(noAction)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func moveToReviewTableView(){
+        let nextVC = ReviewViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 }
