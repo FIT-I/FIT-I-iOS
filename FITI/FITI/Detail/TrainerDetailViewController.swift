@@ -10,6 +10,8 @@ import Then
 import SnapKit
 
 class TrainerDetailViewController: UIViewController {
+    
+    var isHeartFull : Bool = false
 
     // 상단 뷰
     var name : UILabel = {
@@ -351,6 +353,7 @@ class TrainerDetailViewController: UIViewController {
         btn.setImage(UIImage(named: "heart"), for: .normal)
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.customColor(.blue).cgColor
+        btn.addTarget(self, action: #selector(heartTouchEvent), for: .touchUpInside)
         return btn
     }()
     
@@ -459,5 +462,15 @@ class TrainerDetailViewController: UIViewController {
     @objc func moveToReviewTableView(){
         let nextVC = ReviewViewController()
         navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    @objc func heartTouchEvent(){
+        if isHeartFull == false {
+            self.isHeartFull = true
+            self.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+        }else{
+            self.isHeartFull = false
+            self.heartBtn.setImage(UIImage(named: "heart.svg"), for: .normal)
+        }
     }
 }
