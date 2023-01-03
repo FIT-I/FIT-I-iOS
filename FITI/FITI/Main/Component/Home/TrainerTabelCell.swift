@@ -189,17 +189,12 @@ class TrainerTabelCell: UITableViewCell {
         stackView.alignment = .fill
         return stackView
     }()
-    
-    
-    
-
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.globalStackView)
 
         globalStackView.snp.makeConstraints { make in
-//            make.top.leading.trailing.bottom.equalToSuperview()
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
             make.leading.trailing.equalToSuperview()

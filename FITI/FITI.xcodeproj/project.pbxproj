@@ -25,6 +25,8 @@
 		91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D4F2961868500F29DA5 /* CommunityViewController.swift */; };
 		91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D512961869000F29DA5 /* ChatViewController.swift */; };
 		91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D532961869C00F29DA5 /* MyPageViewController.swift */; };
+		91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C51029649C78005AF859 /* ReviewViewController.swift */; };
+		91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C5152964A034005AF859 /* ReviewTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		91C32D4F2961868500F29DA5 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		91C32D512961869000F29DA5 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		91C32D532961869C00F29DA5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		91D7C51029649C78005AF859 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		91D7C5152964A034005AF859 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 			children = (
 				913E02C929634641001CC92B /* TrainerDetailViewController.swift */,
 				91593F4629642C8500AE7CF1 /* PriceStackView.swift */,
+				91D7C51229649F94005AF859 /* Review */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -167,8 +172,8 @@
 		91C32D2D296184AA00F29DA5 /* FITI */ = {
 			isa = PBXGroup;
 			children = (
-				913E02C829634607001CC92B /* Detail */,
 				910182BA29618C8300FC10DB /* Main */,
+				913E02C829634607001CC92B /* Detail */,
 				910182C129618CD100FC10DB /* SignUp */,
 				910182C029618CCA00FC10DB /* SignIn */,
 				910182B929618C7900FC10DB /* Extension */,
@@ -179,6 +184,15 @@
 				91C32D3C296184AD00F29DA5 /* Info.plist */,
 			);
 			path = FITI;
+			sourceTree = "<group>";
+		};
+		91D7C51229649F94005AF859 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				91D7C51029649C78005AF859 /* ReviewViewController.swift */,
+				91D7C5152964A034005AF859 /* ReviewTableCell.swift */,
+			);
+			path = Review;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,12 +275,14 @@
 			files = (
 				91C32D482961860800F29DA5 /* StartViewController.swift in Sources */,
 				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
+				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
 				913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */,
+				91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */,
 				91593F4729642C8500AE7CF1 /* PriceStackView.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
