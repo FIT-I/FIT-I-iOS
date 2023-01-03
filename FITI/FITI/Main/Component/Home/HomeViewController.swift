@@ -155,13 +155,15 @@ class HomeViewController: UIViewController {
 extension HomeViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("cell did touched")
+        let nextVC = TrainerDetailViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

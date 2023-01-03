@@ -88,7 +88,7 @@ class TrainerTabelCell: UITableViewCell {
         return image
     }()
     
-    private let grade : UILabel = {
+    var grade : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "평점4.3"
@@ -96,7 +96,7 @@ class TrainerTabelCell: UITableViewCell {
         return label
     }()
     
-    private let license : UILabel = {
+    var license : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "자격증 5개"
@@ -104,7 +104,7 @@ class TrainerTabelCell: UITableViewCell {
         return label
     }()
     
-    private let school : UILabel = {
+    var school : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "숭실대"
@@ -112,7 +112,7 @@ class TrainerTabelCell: UITableViewCell {
         return label
     }()
     
-    private let introTextView : UITextView = {
+    var introTextView : UITextView = {
         let textView = UITextView()
         textView.textColor = UIColor.black
         textView.isEditable = false
@@ -124,7 +124,7 @@ class TrainerTabelCell: UITableViewCell {
         return textView
     }()
     
-    private let price : UILabel = {
+    var price : UILabel = {
         let label = UILabel()
 //        label.font = UIFont(name: "Noto Sans", size: 10)
         label.font = UIFont.systemFont(ofSize: 10.0)
@@ -133,7 +133,7 @@ class TrainerTabelCell: UITableViewCell {
         return label
     }()
     
-    private let time : UILabel = {
+    let time : UILabel = {
         let label = UILabel()
 //        label.font = UIFont(name: "Noto Sans", size: 10)
         label.font = UIFont.systemFont(ofSize: 10.0)
