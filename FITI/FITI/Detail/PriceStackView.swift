@@ -11,10 +11,6 @@ import Then
 
 class PriceStackView: UIView {
     
-    private let contentView = UIView().then {
-        $0.layer.backgroundColor = UIColor.white.cgColor
-    }
-    
     var priceImage : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "priceIcon.svg")
@@ -117,7 +113,6 @@ class PriceStackView: UIView {
     private func setConstraints(){
         priceStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(17)
-            make.leading.equalToSuperview().offset(18)
         }
     }
 }
