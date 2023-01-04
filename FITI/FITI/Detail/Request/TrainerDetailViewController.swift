@@ -366,6 +366,8 @@ class TrainerDetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.topItem?.title = ""
         
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
+        
         signInViewAddUI()
         signInViewSetUI()
         
@@ -447,16 +449,8 @@ class TrainerDetailViewController: UIViewController {
     }
     
     @objc func matchingRequestTouched(){
-        let alert = UIAlertController(title: "같이 운동해요!", message: "트레이너에게 매칭 요청을 보내겠습니까?", preferredStyle: UIAlertController.Style.alert)
-
-        let okAction = UIAlertAction(title: "예", style: .default, handler: { okAction in
-        })
-        let noAction = UIAlertAction(title: "아니요", style: .destructive, handler: { okAction in
-        })
-        
-        alert.addAction(noAction)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
+        let nextVC = PickServiceViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc func moveToReviewTableView(){
@@ -472,5 +466,9 @@ class TrainerDetailViewController: UIViewController {
             self.isHeartFull = false
             self.heartBtn.setImage(UIImage(named: "heart.svg"), for: .normal)
         }
+    }
+    
+    @objc func backTapped(sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: false)
     }
 }

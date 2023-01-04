@@ -32,6 +32,9 @@ class ReviewViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.topItem?.title = ""
         
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
+        
+        
         reviewTableView.register(ReviewTableCell.self, forCellReuseIdentifier: ReviewTableCell.identifier)
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
@@ -58,6 +61,10 @@ class ReviewViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-20)
             make.bottom.equalToSuperview().offset(-10)
         }
+    }
+    
+    @objc func backTapped(sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
     }
 
 

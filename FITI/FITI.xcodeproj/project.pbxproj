@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTabelCell.swift */; };
+		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
+		910D805629656AA400828E4B /* PickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805529656AA400828E4B /* PickDateViewController.swift */; };
+		910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805829656ACE00828E4B /* PickPlaceViewController.swift */; };
+		910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805A2965878300828E4B /* RequestResultViewController.swift */; };
+		910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805C2965DBEE00828E4B /* PickServiceView.swift */; };
+		910D80652965E5C200828E4B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 910D80642965E5C200828E4B /* FSCalendar */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
 		913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C929634641001CC92B /* TrainerDetailViewController.swift */; };
 		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
@@ -31,6 +37,11 @@
 
 /* Begin PBXFileReference section */
 		910182C22961961D00FC10DB /* TrainerTabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTabelCell.swift; sourceTree = "<group>"; };
+		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
+		910D805529656AA400828E4B /* PickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewController.swift; sourceTree = "<group>"; };
+		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
+		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
+		910D805C2965DBEE00828E4B /* PickServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceView.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		913E02C929634641001CC92B /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
 		91593F4629642C8500AE7CF1 /* PriceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceStackView.swift; sourceTree = "<group>"; };
@@ -58,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91C32D46296185B900F29DA5 /* SnapKit in Frameworks */,
+				910D80652965E5C200828E4B /* FSCalendar in Frameworks */,
 				913E02CD2963505A001CC92B /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,11 +155,56 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		910D80522965667100828E4B /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				91593F4629642C8500AE7CF1 /* PriceStackView.swift */,
+				913E02C929634641001CC92B /* TrainerDetailViewController.swift */,
+				910D805E2965E26200828E4B /* PickService */,
+				910D805F2965E2DC00828E4B /* PickDate */,
+				910D80602965E2EB00828E4B /* PickPlace */,
+				910D80622965E30600828E4B /* RequestResult */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		910D805E2965E26200828E4B /* PickService */ = {
+			isa = PBXGroup;
+			children = (
+				910D805C2965DBEE00828E4B /* PickServiceView.swift */,
+				910D8053296566D100828E4B /* PickServiceViewController.swift */,
+			);
+			path = PickService;
+			sourceTree = "<group>";
+		};
+		910D805F2965E2DC00828E4B /* PickDate */ = {
+			isa = PBXGroup;
+			children = (
+				910D805529656AA400828E4B /* PickDateViewController.swift */,
+			);
+			path = PickDate;
+			sourceTree = "<group>";
+		};
+		910D80602965E2EB00828E4B /* PickPlace */ = {
+			isa = PBXGroup;
+			children = (
+				910D805829656ACE00828E4B /* PickPlaceViewController.swift */,
+			);
+			path = PickPlace;
+			sourceTree = "<group>";
+		};
+		910D80622965E30600828E4B /* RequestResult */ = {
+			isa = PBXGroup;
+			children = (
+				910D805A2965878300828E4B /* RequestResultViewController.swift */,
+			);
+			path = RequestResult;
+			sourceTree = "<group>";
+		};
 		913E02C829634607001CC92B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				913E02C929634641001CC92B /* TrainerDetailViewController.swift */,
-				91593F4629642C8500AE7CF1 /* PriceStackView.swift */,
+				910D80522965667100828E4B /* Request */,
 				91D7C51229649F94005AF859 /* Review */,
 			);
 			path = Detail;
@@ -214,6 +271,7 @@
 			packageProductDependencies = (
 				91C32D45296185B900F29DA5 /* SnapKit */,
 				913E02CC2963505A001CC92B /* Then */,
+				910D80642965E5C200828E4B /* FSCalendar */,
 			);
 			productName = FITI;
 			productReference = 91C32D2B296184AA00F29DA5 /* FITI.app */;
@@ -246,6 +304,7 @@
 			packageReferences = (
 				91C32D44296185B900F29DA5 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */,
+				910D80632965E5C200828E4B /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 91C32D2C296184AA00F29DA5 /* Products */;
 			projectDirPath = "";
@@ -275,20 +334,25 @@
 			files = (
 				91C32D482961860800F29DA5 /* StartViewController.swift in Sources */,
 				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
+				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
+				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,
 				913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */,
+				910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */,
 				91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */,
 				91593F4729642C8500AE7CF1 /* PriceStackView.swift in Sources */,
+				910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
 				91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */,
 				91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */,
 				913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */,
+				910D805629656AA400828E4B /* PickDateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +562,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		910D80632965E5C200828E4B /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then.git";
@@ -517,6 +589,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		910D80642965E5C200828E4B /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 910D80632965E5C200828E4B /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
 		913E02CC2963505A001CC92B /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */;
