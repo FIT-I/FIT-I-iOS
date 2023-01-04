@@ -58,14 +58,14 @@ class PickServiceView: UIView {
         let stackView = UIStackView(arrangedSubviews: [firstPickBtn,hourLabel])
         stackView.axis = .horizontal
         stackView.spacing = 15
-        stackView.alignment = .leading
+        stackView.alignment = .center
         return stackView
     }()
     
     lazy var firstStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [firstLeftStackView,hourPriceLabel])
         stackView.axis = .horizontal
-        stackView.alignment = .leading
+        stackView.alignment = .center
         stackView.spacing = 157
         return stackView
     }()
@@ -73,7 +73,7 @@ class PickServiceView: UIView {
     lazy var secondLeftStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [secondPickBtn,addLabel])
         stackView.axis = .horizontal
-        stackView.alignment = .leading
+        stackView.alignment = .center
         stackView.spacing = 15
         return stackView
     }()
@@ -81,6 +81,7 @@ class PickServiceView: UIView {
     lazy var secondStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [secondLeftStackView,addPriceLabel])
         stackView.axis = .horizontal
+        stackView.alignment = .center
         stackView.spacing = 123
         return stackView
     }()

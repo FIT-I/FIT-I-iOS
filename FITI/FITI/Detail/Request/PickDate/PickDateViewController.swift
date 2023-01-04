@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import FSCalendar
 
 class PickDateViewController: UIViewController {
 
@@ -50,6 +51,11 @@ class PickDateViewController: UIViewController {
         return btn
     }()
     
+    // calendar
+    let fsCalendar = FSCalendar()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,6 +65,8 @@ class PickDateViewController: UIViewController {
         navigationController?.navigationBar.topItem?.title = ""
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
+        
+        calendarSetting()
         
         // Do any additional setup after loading the view.
         setViewHierarchy()
@@ -70,6 +78,7 @@ class PickDateViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(progressView)
         progressView.addSubview(grayView)
+        view.addSubview(fsCalendar)
         view.addSubview(nextBtn)
     }
     
@@ -87,8 +96,15 @@ class PickDateViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().dividedBy(3)
         }
+        fsCalendar.snp.makeConstraints { make in
+            make.top.equalTo(progressView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().offset(-30)
+            make.bottom.equalToSuperview().offset(-324)
+        }
         nextBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(770)
+//            make.top.equalToSuperview().offset(770)
+            make.top.equalTo(fsCalendar.snp.bottom).offset(250)
             make.leading.equalToSuperview().offset(14)
             make.trailing.equalToSuperview().offset(-14)
             make.bottom.equalToSuperview().offset(-40)
@@ -103,5 +119,19 @@ class PickDateViewController: UIViewController {
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: false)
     }
+    
+    func calendarSetting(){
+        
+        fsCalendar.delegate = self
+        fsCalendar.dataSource = self
+        
+        fsCalendar.appearance.weekdayTextColor = .black
+        fsCalendar.appearance.headerTitleColor = .black
+    }
 
+}
+
+
+extension PickDateViewController: FSCalendarDataSource, FSCalendarDelegate{
+    
 }

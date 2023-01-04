@@ -56,73 +56,7 @@ class PickServiceViewController: UIViewController {
         btn.addTarget(self, action: #selector(nextEvent), for: .touchUpInside)
         return btn
     }()
-    
-//    private let firstPickBtn : UIButton = {
-//        let btn = UIButton()
-//        btn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
-//        return btn
-//    }()
-//
-//    private let secondPickBtn : UIButton = {
-//        let btn = UIButton()
-//        btn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
-//        return btn
-//    }()
-//
-//    var hourLabel : UILabel = {
-//        let label = UILabel()
-//        label.font = UIFont.systemFont(ofSize: 20.0)
-//        label.text = "1시간"
-//        label.textColor = UIColor.black
-//        return label
-//    }()
-//
-//    var addLabel : UILabel = {
-//        let label = UILabel()
-//        label.font = UIFont.systemFont(ofSize: 20.0)
-//        label.text = "추가관리"
-//        label.textColor = UIColor.black
-//        return label
-//    }()
-//
-//    var hourPriceLabel : UILabel = {
-//        let label = UILabel()
-//        label.font = UIFont.systemFont(ofSize: 20.0)
-//        label.text = "20,000원"
-//        label.textColor = UIColor.black
-//        return label
-//    }()
-//
-//    var addPriceLabel : UILabel = {
-//        let label = UILabel()
-//        label.font = UIFont.systemFont(ofSize: 20.0)
-//        label.text = "+10,000원"
-//        label.textColor = UIColor.black
-//        return label
-//    }()
-//
-//    private let firstStackView : UIStackView = {
-//        let stackView = UIStackView()
-//        stackView.axis = .horizontal
-//        stackView.distribution = .equalSpacing
-//        return stackView
-//    }()
-//
-//    private let secondStackView : UIStackView = {
-//        let stackView = UIStackView()
-//        stackView.axis = .horizontal
-//        stackView.distribution = .equalSpacing
-//        return stackView
-//    }()
-//
-//    private let globalStackView : UIStackView = {
-//        let stackView = UIStackView()
-//        stackView.axis = .vertical
-//        stackView.distribution = .fill
-//        stackView.alignment = .leading
-//        return stackView
-//    }()
-    
+
     var pickStackView : UIView = PickServiceView()
     
     override func viewDidLoad() {
