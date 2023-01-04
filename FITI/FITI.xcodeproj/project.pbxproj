@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTabelCell.swift */; };
+		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
+		910D805629656AA400828E4B /* PickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805529656AA400828E4B /* PickDateViewController.swift */; };
+		910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805829656ACE00828E4B /* PickPlaceViewController.swift */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
 		913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C929634641001CC92B /* TrainerDetailViewController.swift */; };
 		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
@@ -31,6 +34,9 @@
 
 /* Begin PBXFileReference section */
 		910182C22961961D00FC10DB /* TrainerTabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTabelCell.swift; sourceTree = "<group>"; };
+		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
+		910D805529656AA400828E4B /* PickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewController.swift; sourceTree = "<group>"; };
+		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		913E02C929634641001CC92B /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
 		91593F4629642C8500AE7CF1 /* PriceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceStackView.swift; sourceTree = "<group>"; };
@@ -143,9 +149,20 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		910D80522965667100828E4B /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				910D8053296566D100828E4B /* PickServiceViewController.swift */,
+				910D805529656AA400828E4B /* PickDateViewController.swift */,
+				910D805829656ACE00828E4B /* PickPlaceViewController.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		913E02C829634607001CC92B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				910D80522965667100828E4B /* Request */,
 				913E02C929634641001CC92B /* TrainerDetailViewController.swift */,
 				91593F4629642C8500AE7CF1 /* PriceStackView.swift */,
 				91D7C51229649F94005AF859 /* Review */,
@@ -275,12 +292,14 @@
 			files = (
 				91C32D482961860800F29DA5 /* StartViewController.swift in Sources */,
 				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
+				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
+				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,
 				913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */,
 				91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */,
 				91593F4729642C8500AE7CF1 /* PriceStackView.swift in Sources */,
@@ -289,6 +308,7 @@
 				91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */,
 				91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */,
 				913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */,
+				910D805629656AA400828E4B /* PickDateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

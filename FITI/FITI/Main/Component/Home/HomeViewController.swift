@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         btn.setTitleColor(UIColor.customColor(.gray), for: .normal)
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.customColor(.gray).cgColor
+        btn.addTarget(self, action: #selector(selectBtn1Event), for: .touchUpInside)
         return btn
     }()
     
@@ -46,6 +47,7 @@ class HomeViewController: UIViewController {
         btn.setTitleColor(UIColor.customColor(.gray), for: .normal)
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.customColor(.gray).cgColor
+        btn.addTarget(self, action: #selector(selectBtn2Event), for: .touchUpInside)
         return btn
     }()
     
@@ -62,6 +64,7 @@ class HomeViewController: UIViewController {
         btn.setTitleColor(UIColor.customColor(.gray), for: .normal)
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.customColor(.gray).cgColor
+        btn.addTarget(self, action: #selector(selectBtn3Event), for: .touchUpInside)
         return btn
     }()
     
@@ -78,6 +81,7 @@ class HomeViewController: UIViewController {
         btn.setTitleColor(UIColor.customColor(.gray), for: .normal)
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.customColor(.gray).cgColor
+        btn.addTarget(self, action: #selector(selectBtn4Event), for: .touchUpInside)
         return btn
     }()
     
@@ -94,6 +98,7 @@ class HomeViewController: UIViewController {
         btn.setTitleColor(UIColor.customColor(.gray), for: .normal)
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.customColor(.gray).cgColor
+        btn.addTarget(self, action: #selector(selectBtn5Event), for: .touchUpInside)
         return btn
     }()
     
@@ -116,7 +121,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.\
+        
         
         trainerTableView.register(TrainerTabelCell.self, forCellReuseIdentifier: TrainerTabelCell.identifier)
         trainerTableView.delegate = self
@@ -163,6 +169,51 @@ class HomeViewController: UIViewController {
             make.bottom.equalToSuperview().offset(-140)
         }
     }
+    
+    @objc func selectBtn1Event(){
+        if selectBtn1.backgroundColor == UIColor.systemBackground {
+            selectBtn1.backgroundColor = UIColor.customColor(.blue)
+        }else{
+            selectBtn1.backgroundColor = UIColor.systemBackground
+        }
+    }
+    
+    @objc func selectBtn2Event(){
+        if selectBtn2.backgroundColor == UIColor.systemBackground {
+            selectBtn2.backgroundColor = UIColor.customColor(.blue)
+        }else{
+            selectBtn2.backgroundColor = UIColor.systemBackground
+        }
+    }
+    
+    @objc func selectBtn3Event(){
+        if selectBtn3.backgroundColor == UIColor.systemBackground {
+            selectBtn3.backgroundColor = UIColor.customColor(.blue)
+        }else{
+            selectBtn3.backgroundColor = UIColor.systemBackground
+        }
+    }
+    
+    @objc func selectBtn4Event(){
+        if selectBtn4.backgroundColor == UIColor.systemBackground {
+            selectBtn4.backgroundColor = UIColor.customColor(.blue)
+        }else{
+            selectBtn4.backgroundColor = UIColor.systemBackground
+        }
+    }
+    
+    @objc func selectBtn5Event(){
+        if selectBtn5.backgroundColor == UIColor.systemBackground {
+            selectBtn5.backgroundColor = UIColor.customColor(.blue)
+        }else{
+            selectBtn5.backgroundColor = UIColor.systemBackground
+        }
+    }
+    
+    @objc func tapped(sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+    
 
     
 

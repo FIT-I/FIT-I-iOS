@@ -28,6 +28,7 @@ extension UIColor {
             return UIColor(red:0.345, green:0.38, blue:0.467, alpha:1.00)
         case .boxGray:
             return UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1.00)
+
         }
     }
 }
