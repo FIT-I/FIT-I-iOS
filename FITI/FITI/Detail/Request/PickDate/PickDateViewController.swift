@@ -103,8 +103,7 @@ class PickDateViewController: UIViewController {
             make.bottom.equalToSuperview().offset(-324)
         }
         nextBtn.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(770)
-            make.top.equalTo(fsCalendar.snp.bottom).offset(250)
+            make.top.equalToSuperview().offset(770)
             make.leading.equalToSuperview().offset(14)
             make.trailing.equalToSuperview().offset(-14)
             make.bottom.equalToSuperview().offset(-40)

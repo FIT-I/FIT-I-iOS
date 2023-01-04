@@ -10,6 +10,9 @@ import SnapKit
 import Then
 
 class PickPlaceViewController: UIViewController {
+    
+    var isIWillGoSelected : Bool = false
+    var isComeHereSelected : Bool = false
 
     var titleLabel : UILabel = {
         let label = UILabel()
@@ -36,6 +39,30 @@ class PickPlaceViewController: UIViewController {
         }
         return view
     }()
+
+    lazy var iWillGoBtn : UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(named: "iWillGoIcon.svg"), for: .normal)
+        btn.addTarget(self, action: #selector(iWillGoEvent), for: .touchUpInside)
+        return btn
+    }()
+    
+    lazy var comeHereBtn : UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(named: "comeHereIcon.svg"), for: .normal)
+        btn.addTarget(self, action: #selector(comeHereEvent), for: .touchUpInside)
+        return btn
+    }()
+    
+    lazy var globalStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [iWillGoBtn,comeHereBtn])
+        stackView.axis = .horizontal
+        stackView.spacing = 20
+        stackView.alignment = .bottom
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
     
     private let nextBtn : UIButton = {
         let btn = UIButton()
@@ -69,6 +96,7 @@ class PickPlaceViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(progressView)
         progressView.addSubview(grayView)
+        view.addSubview(globalStackView)
         view.addSubview(nextBtn)
     }
     
@@ -85,6 +113,12 @@ class PickPlaceViewController: UIViewController {
         grayView.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
             make.width.equalToSuperview().dividedBy(3)
+        }
+        globalStackView.snp.makeConstraints { make in
+            make.top.equalTo(progressView.snp.bottom).offset(65)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().offset(-430)
         }
         nextBtn.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(770)
@@ -103,4 +137,24 @@ class PickPlaceViewController: UIViewController {
         navigationController?.popViewController(animated: false)
     }
 
+    @objc func iWillGoEvent(sender: UIBarButtonItem) {
+        if isIWillGoSelected == false && isComeHereSelected == false {
+            isIWillGoSelected = true
+            iWillGoBtn.setImage(UIImage(named: "selectedIWillGoIcon.svg"), for: .normal)
+        }else{
+            isIWillGoSelected = false
+            iWillGoBtn.setImage(UIImage(named: "iWillGoIcon.svg"), for: .normal)
+        }
+    }
+    
+    @objc func comeHereEvent(sender: UIBarButtonItem) {
+        if isComeHereSelected == false && isIWillGoSelected == false {
+            isComeHereSelected = true
+            comeHereBtn.setImage(UIImage(named: "selectedComeHereIcon.svg"), for: .normal)
+        }else{
+            isComeHereSelected = false
+            comeHereBtn.setImage(UIImage(named: "comeHereIcon.svg"), for: .normal)
+        }
+    }
+    
 }
