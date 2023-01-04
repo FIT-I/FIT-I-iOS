@@ -30,7 +30,7 @@ class PickDateViewController: UIViewController {
     
     var grayView : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.customColor(.darkGray)
+        view.backgroundColor = UIColor.lightGray
         view.snp.makeConstraints { make in
             make.height.equalTo(5)
         }

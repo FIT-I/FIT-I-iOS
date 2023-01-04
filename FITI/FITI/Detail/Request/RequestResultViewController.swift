@@ -1,5 +1,5 @@
 //
-//  PickPlaceViewController.swift
+//  RequestResultViewController.swift
 //  FITI
 //
 //  Created by 홍준혁 on 2023/01/04.
@@ -7,14 +7,13 @@
 
 import UIKit
 import SnapKit
-import Then
 
-class PickPlaceViewController: UIViewController {
-
+class RequestResultViewController: UIViewController {
+    
     var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20.0)
-        label.text = "픽업 형태"
+        label.text = "매칭요청 확인"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
@@ -28,28 +27,11 @@ class PickPlaceViewController: UIViewController {
         return view
     }()
     
-    var grayView : UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.lightGray
-        view.snp.makeConstraints { make in
-            make.height.equalTo(5)
-        }
-        return view
-    }()
-    
-    var subTitleLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20.0)
-        label.text = "서비스 선택하기"
-        label.textColor = UIColor.black
-        return label
-    }()
-    
     private let nextBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.blue)
         btn.layer.cornerRadius = 8
-        btn.setTitle("매칭 요청", for: .normal)
+        btn.setTitle("요청하기", for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.layer.borderWidth = 1
@@ -57,8 +39,7 @@ class PickPlaceViewController: UIViewController {
         btn.addTarget(self, action: #selector(nextEvent), for: .touchUpInside)
         return btn
     }()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -73,15 +54,14 @@ class PickPlaceViewController: UIViewController {
         setConstraints()
     }
     
-    private func setViewHierarchy() {
+    
+    func setViewHierarchy(){
         view.addSubview(titleLabel)
-        view.addSubview(progressView)
-        progressView.addSubview(grayView)
-        view.addSubview(subTitleLabel)
         view.addSubview(nextBtn)
+        view.addSubview(progressView)
     }
     
-    private func setConstraints(){
+    func setConstraints(){
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(70)
             make.centerX.equalToSuperview()
@@ -91,15 +71,6 @@ class PickPlaceViewController: UIViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
-        grayView.snp.makeConstraints { make in
-            make.trailing.equalToSuperview()
-            make.width.equalToSuperview().dividedBy(3)
-        }
-        subTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(grayView.snp.bottom).offset(33)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-220)
-        }
         nextBtn.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(770)
             make.leading.equalToSuperview().offset(14)
@@ -107,14 +78,23 @@ class PickPlaceViewController: UIViewController {
             make.bottom.equalToSuperview().offset(-40)
         }
     }
-
+    
     @objc func nextEvent(){
-        let nextVC = RequestResultViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
+        let alert = UIAlertController(title: "매칭 요청", message: "매칭을 요청하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+
+        let okAction = UIAlertAction(title: "요청", style: .default, handler: { okAction in
+        })
+        let noAction = UIAlertAction(title: "취소", style: .destructive, handler: { okAction in
+        })
+        
+        alert.addAction(noAction)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
     
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: false)
     }
+
 
 }

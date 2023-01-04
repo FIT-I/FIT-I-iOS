@@ -11,6 +11,7 @@
 		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
 		910D805629656AA400828E4B /* PickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805529656AA400828E4B /* PickDateViewController.swift */; };
 		910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805829656ACE00828E4B /* PickPlaceViewController.swift */; };
+		910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805A2965878300828E4B /* RequestResultViewController.swift */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
 		913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C929634641001CC92B /* TrainerDetailViewController.swift */; };
 		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
@@ -37,6 +38,7 @@
 		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
 		910D805529656AA400828E4B /* PickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewController.swift; sourceTree = "<group>"; };
 		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
+		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		913E02C929634641001CC92B /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
 		91593F4629642C8500AE7CF1 /* PriceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceStackView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				910D8053296566D100828E4B /* PickServiceViewController.swift */,
 				910D805529656AA400828E4B /* PickDateViewController.swift */,
 				910D805829656ACE00828E4B /* PickPlaceViewController.swift */,
+				910D805A2965878300828E4B /* RequestResultViewController.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */,
 				91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */,
 				91593F4729642C8500AE7CF1 /* PriceStackView.swift in Sources */,
+				910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
 				91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */,
