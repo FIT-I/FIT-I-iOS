@@ -115,9 +115,6 @@ class HomeViewController: UIViewController {
         return tableview
     }()
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground

@@ -37,19 +37,11 @@ class PickPlaceViewController: UIViewController {
         return view
     }()
     
-    var subTitleLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20.0)
-        label.text = "서비스 선택하기"
-        label.textColor = UIColor.black
-        return label
-    }()
-    
     private let nextBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.blue)
         btn.layer.cornerRadius = 8
-        btn.setTitle("매칭 요청", for: .normal)
+        btn.setTitle("다음", for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.layer.borderWidth = 1
@@ -77,7 +69,6 @@ class PickPlaceViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(progressView)
         progressView.addSubview(grayView)
-        view.addSubview(subTitleLabel)
         view.addSubview(nextBtn)
     }
     
@@ -94,11 +85,6 @@ class PickPlaceViewController: UIViewController {
         grayView.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
             make.width.equalToSuperview().dividedBy(3)
-        }
-        subTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(grayView.snp.bottom).offset(33)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-220)
         }
         nextBtn.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(770)
