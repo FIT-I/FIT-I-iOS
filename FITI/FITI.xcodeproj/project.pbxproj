@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		052021FE2966AE4F00559FEC /* TrainerCertifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052021FD2966AE4F00559FEC /* TrainerCertifyViewController.swift */; };
 		910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTabelCell.swift */; };
 		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
 		910D805629656AA400828E4B /* PickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805529656AA400828E4B /* PickDateViewController.swift */; };
@@ -15,6 +14,7 @@
 		910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805A2965878300828E4B /* RequestResultViewController.swift */; };
 		910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805C2965DBEE00828E4B /* PickServiceView.swift */; };
 		910D80652965E5C200828E4B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 910D80642965E5C200828E4B /* FSCalendar */; };
+		910D80682966C9AA00828E4B /* TrainerCertifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D80672966C9AA00828E4B /* TrainerCertifyViewController.swift */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
 		913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C929634641001CC92B /* TrainerDetailViewController.swift */; };
 		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
@@ -37,13 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		052021FD2966AE4F00559FEC /* TrainerCertifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrainerCertifyViewController.swift; path = ../../../../../TrainerCertifyViewController.swift; sourceTree = "<group>"; };
 		910182C22961961D00FC10DB /* TrainerTabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTabelCell.swift; sourceTree = "<group>"; };
 		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
 		910D805529656AA400828E4B /* PickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewController.swift; sourceTree = "<group>"; };
 		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
 		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
 		910D805C2965DBEE00828E4B /* PickServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceView.swift; sourceTree = "<group>"; };
+		910D80672966C9AA00828E4B /* TrainerCertifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerCertifyViewController.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		913E02C929634641001CC92B /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
 		91593F4629642C8500AE7CF1 /* PriceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceStackView.swift; sourceTree = "<group>"; };
@@ -79,14 +79,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		052021FC2966AE3500559FEC /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				052021FD2966AE4F00559FEC /* TrainerCertifyViewController.swift */,
-			);
-			path = SignUp;
-			sourceTree = "<group>";
-		};
 		910182B929618C7900FC10DB /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +196,14 @@
 			path = RequestResult;
 			sourceTree = "<group>";
 		};
+		910D80662966C98E00828E4B /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				910D80672966C9AA00828E4B /* TrainerCertifyViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		913E02C829634607001CC92B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +232,7 @@
 		91C32D2D296184AA00F29DA5 /* FITI */ = {
 			isa = PBXGroup;
 			children = (
-				052021FC2966AE3500559FEC /* SignUp */,
+				910D80662966C98E00828E4B /* SignUp */,
 				910182BA29618C8300FC10DB /* Main */,
 				913E02C829634607001CC92B /* Detail */,
 				910182C029618CCA00FC10DB /* SignIn */,
@@ -348,7 +348,7 @@
 				913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */,
 				910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */,
 				91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */,
-				052021FE2966AE4F00559FEC /* TrainerCertifyViewController.swift in Sources */,
+				910D80682966C9AA00828E4B /* TrainerCertifyViewController.swift in Sources */,
 				91593F4729642C8500AE7CF1 /* PriceStackView.swift in Sources */,
 				910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
