@@ -38,7 +38,18 @@ class MyPageViewController: UIViewController {
     // 알림 뷰
     let notiView = NotificationSwitch()
     
-    //
+    // line 뷰
+    let lineView : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.customColor(.boxGray)
+        view.snp.makeConstraints { make in
+            make.height.equalTo(3)
+        }
+        return view
+    }()
+    
+    // 하단 뷰
+    let bottomView = BottomView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +65,8 @@ class MyPageViewController: UIViewController {
         view.addSubview(topStackView)
         view.addSubview(midProfileStackView)
         view.addSubview(notiView)
+        view.addSubview(lineView)
+        view.addSubview(bottomView)
     }
     
     func setConstraints(){
@@ -73,6 +86,16 @@ class MyPageViewController: UIViewController {
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(50)
+        }
+        lineView.snp.makeConstraints { make in
+            make.top.equalTo(notiView.snp.bottom).offset(15)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        bottomView.snp.makeConstraints { make in
+            make.top.equalTo(lineView.snp.bottom).offset(30)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
         }
     }
 
