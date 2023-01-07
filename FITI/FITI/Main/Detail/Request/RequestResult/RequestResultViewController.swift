@@ -12,7 +12,7 @@ class RequestResultViewController: UIViewController {
     
     var titleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20.0)
+        label.font = UIFont(name: "Avenir-Black", size: 20.0)
         label.text = "매칭요청 확인"
         label.textColor = UIColor.customColor(.blue)
         return label
@@ -26,6 +26,8 @@ class RequestResultViewController: UIViewController {
         }
         return view
     }()
+    
+    var requestSheetView : UIView = RequestSheet()
     
     private let nextBtn : UIButton = {
         let btn = UIButton()
@@ -59,6 +61,7 @@ class RequestResultViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(nextBtn)
         view.addSubview(progressView)
+        view.addSubview(requestSheetView)
     }
     
     func setConstraints(){
@@ -70,6 +73,13 @@ class RequestResultViewController: UIViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(38)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
+        }
+        requestSheetView.snp.makeConstraints { make in
+            make.top.equalTo(progressView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+//            make.bottom.equalToSuperview().offset(-350)
+            make.height.equalTo(340)
         }
         nextBtn.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(770)
@@ -98,3 +108,4 @@ class RequestResultViewController: UIViewController {
 
 
 }
+

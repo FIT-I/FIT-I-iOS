@@ -1,5 +1,5 @@
 //
-//  PickServiceViewController.swift
+//  PickDateViewController.swift
 //  FITI
 //
 //  Created by 홍준혁 on 2023/01/04.
@@ -7,13 +7,15 @@
 
 import UIKit
 import SnapKit
+import Then
+import FSCalendar
 
-class PickServiceViewController: UIViewController {
+class PickDateViewController: UIViewController {
 
     var titleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20.0)
-        label.text = "서비스 선택"
+        label.font = UIFont(name: "Avenir-Black", size: 20.0)
+        label.text = "매칭기간 선택"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
@@ -36,14 +38,6 @@ class PickServiceViewController: UIViewController {
         return view
     }()
     
-    var subTitleLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20.0)
-        label.text = "서비스 선택하기"
-        label.textColor = UIColor.black
-        return label
-    }()
-    
     private let nextBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.blue)
@@ -56,11 +50,15 @@ class PickServiceViewController: UIViewController {
         btn.addTarget(self, action: #selector(nextEvent), for: .touchUpInside)
         return btn
     }()
-
-    var pickStackView : UIView = PickServiceView()
+    
+    // calendar
+    let fsCalendar = FSCalendar()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         view.backgroundColor = .systemBackground
         
         navigationController?.navigationBar.tintColor = .black
@@ -68,18 +66,20 @@ class PickServiceViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
         
+        calendarSetting()
+        
         // Do any additional setup after loading the view.
         setViewHierarchy()
         setConstraints()
+
     }
     
     private func setViewHierarchy() {
         view.addSubview(titleLabel)
         view.addSubview(progressView)
         progressView.addSubview(grayView)
-        view.addSubview(subTitleLabel)
+        view.addSubview(fsCalendar)
         view.addSubview(nextBtn)
-        view.addSubview(pickStackView)
     }
     
     private func setConstraints(){
@@ -93,19 +93,14 @@ class PickServiceViewController: UIViewController {
             make.trailing.equalToSuperview()
         }
         grayView.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
+            make.centerX.equalToSuperview()
             make.width.equalToSuperview().dividedBy(3)
         }
-        subTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(grayView.snp.bottom).offset(33)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-220)
-        }
-        pickStackView.snp.makeConstraints { make in
-            make.top.equalTo(subTitleLabel.snp.bottom).offset(40)
+        fsCalendar.snp.makeConstraints { make in
+            make.top.equalTo(progressView.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(30)
             make.trailing.equalToSuperview().offset(-30)
-            make.height.equalTo(80)
+            make.bottom.equalToSuperview().offset(-324)
         }
         nextBtn.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(770)
@@ -116,12 +111,26 @@ class PickServiceViewController: UIViewController {
     }
     
     @objc func nextEvent(){
-        let nextVC = PickDateViewController()
+        let nextVC = PickPlaceViewController()
         navigationController?.pushViewController(nextVC, animated: false)
     }
-    
+
     @objc func backTapped(sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: false)
+    }
+    
+    func calendarSetting(){
+        
+        fsCalendar.delegate = self
+        fsCalendar.dataSource = self
+        
+        fsCalendar.appearance.weekdayTextColor = .black
+        fsCalendar.appearance.headerTitleColor = .black
     }
 
+}
+
+
+extension PickDateViewController: FSCalendarDataSource, FSCalendarDelegate{
+    
 }

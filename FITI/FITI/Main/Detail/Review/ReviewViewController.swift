@@ -78,7 +78,7 @@ extension ReviewViewController : UITableViewDelegate {
 }
 
 
-extension ReviewViewController: UITableViewDataSource {
+extension ReviewViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }

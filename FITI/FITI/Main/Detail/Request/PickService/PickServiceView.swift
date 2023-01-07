@@ -106,20 +106,20 @@ class PickServiceView: UIView {
     
 
     private func setViewHierarchy() {
-        firstLeftStackView.addSubview(firstPickBtn)
-        firstLeftStackView.addSubview(hourLabel)
-        
-        firstStackView.addSubview(firstLeftStackView)
-        firstStackView.addSubview(hourPriceLabel)
-        
-        secondLeftStackView.addSubview(secondPickBtn)
-        secondLeftStackView.addSubview(addLabel)
-        
-        secondStackView.addSubview(secondLeftStackView)
-        secondStackView.addSubview(addPriceLabel)
-        
-        globalStackView.addSubview(firstStackView)
-        globalStackView.addSubview(secondStackView)
+//        firstLeftStackView.addSubview(firstPickBtn)
+//        firstLeftStackView.addSubview(hourLabel)
+//
+//        firstStackView.addSubview(firstLeftStackView)
+//        firstStackView.addSubview(hourPriceLabel)
+//
+//        secondLeftStackView.addSubview(secondPickBtn)
+//        secondLeftStackView.addSubview(addLabel)
+//
+//        secondStackView.addSubview(secondLeftStackView)
+//        secondStackView.addSubview(addPriceLabel)
+//
+//        globalStackView.addSubview(firstStackView)
+//        globalStackView.addSubview(secondStackView)
         
         self.addSubview(globalStackView)
     }
