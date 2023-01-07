@@ -93,7 +93,10 @@ class RequestResultViewController: UIViewController {
         let alert = UIAlertController(title: "매칭 요청", message: "매칭을 요청하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
 
         let okAction = UIAlertAction(title: "요청", style: .default, handler: { okAction in
+            let nextVC = TabBarController()
+            self.navigationController?.pushViewController(nextVC, animated: true)
         })
+        
         let noAction = UIAlertAction(title: "취소", style: .destructive, handler: { okAction in
         })
         
