@@ -79,7 +79,7 @@ class RequestSheet : UIView {
     var meetingDate : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 15.0)
-        label.text = "23.1.18~23.1.25(8일)"
+        label.text = "23.1.18~23.1.25 (8일)"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
@@ -166,7 +166,7 @@ class RequestSheet : UIView {
     lazy var meetingDateStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [meetingDateLabel,meetingDate])
         stackView.axis = .horizontal
-        stackView.spacing = 108
+        stackView.spacing = 103
         stackView.alignment = .leading
         return stackView
     }()

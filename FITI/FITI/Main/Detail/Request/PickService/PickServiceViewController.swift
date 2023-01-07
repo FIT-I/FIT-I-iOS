@@ -38,7 +38,7 @@ class PickServiceViewController: UIViewController {
     
     var subTitleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20.0)
+        label.font = UIFont(name: "Avenir-Black", size: 20.0)
         label.text = "서비스 선택하기"
         label.textColor = UIColor.black
         return label
@@ -57,7 +57,7 @@ class PickServiceViewController: UIViewController {
         return btn
     }()
 
-    var pickStackView : UIView = PickServiceView()
+    var pickStackView = PickServiceView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,5 +123,5 @@ class PickServiceViewController: UIViewController {
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
-
+    
 }

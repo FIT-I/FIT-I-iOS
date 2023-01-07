@@ -10,15 +10,20 @@ import SnapKit
 
 class PickServiceView: UIView {
 
+    var isFirstPickBtnTouched : Bool = false
+    var isSecondPickBtnTouched : Bool = false
+    
     var firstPickBtn : UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
+        btn.addTarget(self, action: #selector(hourBtnClicked), for: .touchUpInside)
         return btn
     }()
     
     var secondPickBtn : UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
+        btn.addTarget(self, action: #selector(addBtnClicked), for: .touchUpInside)
         return btn
     }()
     
@@ -106,27 +111,31 @@ class PickServiceView: UIView {
     
 
     private func setViewHierarchy() {
-//        firstLeftStackView.addSubview(firstPickBtn)
-//        firstLeftStackView.addSubview(hourLabel)
-//
-//        firstStackView.addSubview(firstLeftStackView)
-//        firstStackView.addSubview(hourPriceLabel)
-//
-//        secondLeftStackView.addSubview(secondPickBtn)
-//        secondLeftStackView.addSubview(addLabel)
-//
-//        secondStackView.addSubview(secondLeftStackView)
-//        secondStackView.addSubview(addPriceLabel)
-//
-//        globalStackView.addSubview(firstStackView)
-//        globalStackView.addSubview(secondStackView)
-        
         self.addSubview(globalStackView)
     }
     
     private func setConstraints(){
         globalStackView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview()
+        }
+    }
+    
+    @objc func hourBtnClicked(sender: UIBarButtonItem) {
+        if isFirstPickBtnTouched == false {
+            firstPickBtn.setImage(UIImage(named: "fillBox.svg"), for: .normal)
+            isFirstPickBtnTouched = true
+        }else {
+            firstPickBtn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
+            isFirstPickBtnTouched = false
+        }
+    }
+    @objc func addBtnClicked(sender: UIBarButtonItem) {
+        if isSecondPickBtnTouched == false {
+            secondPickBtn.setImage(UIImage(named: "fillBox.svg"), for: .normal)
+            isSecondPickBtnTouched = true
+        }else {
+            secondPickBtn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
+            isSecondPickBtnTouched = false
         }
     }
 }
