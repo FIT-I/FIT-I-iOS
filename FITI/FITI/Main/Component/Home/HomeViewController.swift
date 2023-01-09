@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
         }
         trainerTableView.snp.makeConstraints { make in
-            make.top.equalTo(lineView.snp.bottom).offset(25)
+            make.top.equalTo(lineView.snp.bottom)
             make.leading.equalToSuperview().offset(10)
             make.trailing.equalToSuperview().offset(-10)
             make.bottom.equalToSuperview().offset(-50)
