@@ -133,7 +133,7 @@ class MyPageViewController: UIViewController {
     
     @objc func localtionBtnEvent(){
         let nextVC = SearchViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
+        self.present(nextVC, animated: true, completion: nil)
     }
     
     @objc func noticeBtnEvent(){
