@@ -1,4 +1,4 @@
-# FIT-I-iOS
+# FIT-I-iOS (For Customer)
 # 협업 규칙
 
 
