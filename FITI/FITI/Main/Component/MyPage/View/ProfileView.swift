@@ -14,20 +14,23 @@ class ProfileView : UIView {
     var reviewerImage : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "reviewerIcon.svg")
+        imgView.snp.makeConstraints { make in
+            make.height.width.equalTo(45)
+        }
         return imgView
     }()
 
     var name : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-Black", size: 12.0)
+        label.font = UIFont(name: "Avenir-Black", size: 25.0)
         label.text = "홍준혁"
-        label.textColor = UIColor.black
+        label.textColor = UIColor.customColor(.blue)
         return label
     }()
     
     var userId : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12.0)
+        label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "junhyeon2111@daum.net"
         label.textColor = UIColor.customColor(.darkGray)
         return label
@@ -36,7 +39,7 @@ class ProfileView : UIView {
     lazy var leftStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [name,userId])
         stackView.axis = .vertical
-        stackView.spacing = 3
+        stackView.spacing = 1
         stackView.alignment = .leading
         return stackView
     }()
@@ -44,7 +47,7 @@ class ProfileView : UIView {
     lazy var midLeftStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [reviewerImage,leftStackView])
         stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.spacing = 10
         stackView.alignment = .center
         return stackView
     }()
@@ -61,7 +64,7 @@ class ProfileView : UIView {
     lazy var midStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [midLeftStackView,fixProfileBtn])
         stackView.axis = .horizontal
-        stackView.spacing = 50
+        stackView.spacing = 45
 //        stackView.alignment = .center
         return stackView
     }()

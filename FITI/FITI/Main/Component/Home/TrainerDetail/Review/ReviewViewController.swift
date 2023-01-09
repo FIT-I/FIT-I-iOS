@@ -52,11 +52,11 @@ class ReviewViewController: UIViewController {
     
     func setConstraints(){
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(70)
+            make.top.equalToSuperview().offset(60)
             make.centerX.equalToSuperview()
         }
         reviewTableView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(45)
+            make.top.equalTo(titleLabel.snp.bottom).offset(40)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.bottom.equalToSuperview().offset(-10)

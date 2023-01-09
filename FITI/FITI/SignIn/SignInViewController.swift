@@ -58,7 +58,7 @@ class SignInViewController: UIViewController {
         btn.setTitleColor(UIColor.customColor(.blue), for: .normal)
         btn.titleLabel?.font = UIFont(name: "Noto Sans", size: 0)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-
+        btn.addTarget(self, action: #selector(signUpBtnEvent), for: .touchUpInside)
         return btn
     }()
 
@@ -137,6 +137,11 @@ class SignInViewController: UIViewController {
         }
 
 
+    }
+    
+    @objc func signUpBtnEvent(){
+        let nextVC = TermsOfUseViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 
 }

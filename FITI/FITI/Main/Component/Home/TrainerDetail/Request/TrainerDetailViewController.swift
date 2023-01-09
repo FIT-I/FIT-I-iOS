@@ -469,6 +469,6 @@ class TrainerDetailViewController: UIViewController {
     }
     
     @objc func backTapped(sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: false)
+        navigationController?.popViewController(animated: true)
     }
 }
