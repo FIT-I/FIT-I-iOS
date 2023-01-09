@@ -20,9 +20,12 @@ class SearchViewController: UIViewController {
     
     var titleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-Black", size: 14.0)
+        label.font = UIFont(name: "Avenir-Black", size: 15.0)
         label.text = "도시, 우편번호 또는 공항 위치 입력"
         label.textColor = UIColor.customColor(.blue)
+        label.snp.makeConstraints { make in
+            make.height.equalTo(20)
+        }
         return label
     }()
     
@@ -32,24 +35,26 @@ class SearchViewController: UIViewController {
         $0.keyboardAppearance = .dark
         $0.showsCancelButton = false
         $0.searchBarStyle = .minimal
-        $0.searchTextField.leftView?.tintColor = .systemBackground
-        $0.searchTextField.backgroundColor = .lightGray
+        $0.searchTextField.leftView?.tintColor = .customColor(.blue)
         $0.searchTextField.textColor = .black
         $0.searchTextField.tintColor = .black
         $0.searchTextField.font = .systemFont(ofSize: 14)
         $0.searchTextField.attributedPlaceholder = NSAttributedString(string: "검색",
-                                                                      attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.5)])
+                                                                      attributes: [NSAttributedString.Key.foregroundColor : UIColor.customColor(.blue).withAlphaComponent(0.5)])
     }
+
+    var cancelButton : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("취소", for: .normal)
+        btn.setTitleColor(UIColor.customColor(.blue), for: .normal)
+        btn.titleLabel?.font = .systemFont(ofSize: 13, weight: .medium)
+        btn.addTarget(self, action: #selector(touchupCancelButton(_:)), for: .touchUpInside)
+        return btn
+    }()
     
-    let cancelButton = UIButton().then {
-        $0.setTitle("취소", for: .normal)
-        $0.tintColor = .black
-        $0.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        $0.addTarget(self, action: #selector(touchupCancelButton(_:)), for: .touchUpInside)
-    }
     
     let lineView = UIView().then {
-        $0.backgroundColor = .darkGray
+        $0.backgroundColor = .customColor(.boxGray)
     }
     
     let searchTV = UITableView().then {
@@ -98,13 +103,13 @@ class SearchViewController: UIViewController {
         topView.addSubview(lineView)
         
         topView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(40)
+            make.top.equalToSuperview().offset(30)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(100)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(10)
+            make.top.equalToSuperview().offset(10)
             make.centerX.equalToSuperview()
         }
         
@@ -121,12 +126,13 @@ class SearchViewController: UIViewController {
         }
         
         lineView.snp.makeConstraints { make in
+            make.top.equalTo(cancelButton.snp.bottom).offset(20)
             make.leading.bottom.trailing.equalToSuperview()
-            make.height.equalTo(2)
+            make.height.equalTo(3)
         }
         
         searchTV.snp.makeConstraints { make in
-            make.top.equalTo(topView.snp.bottom)
+            make.top.equalTo(lineView.snp.bottom).offset(10)
             make.leading.bottom.trailing.equalToSuperview()
         }
     }
@@ -173,15 +179,21 @@ extension SearchViewController: UITableViewDelegate {
             guard let placeMark = response?.mapItems[0].placemark else {
                 return
             }
-            let searchLatitude = placeMark.coordinate.latitude
-            let searchLongtitude = placeMark.coordinate.longitude
-            let vc = ResultViewController()
-//            vc.isAddNewCityView = true
-//            vc.location = (placeMark.locality ?? placeMark.title!)
-//            vc.searchLatitude = searchLatitude
-//            vc.searchLongtitude = searchLongtitude
-//            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
+            
+            // 위치의 풀네임 출력
+            print(placeMark.title ?? placeMark.title!)
+            
+            let alert = UIAlertController(title: "매칭 위치", message: "\(placeMark.title ?? placeMark.title!) 위치로 변경할건가요?", preferredStyle: UIAlertController.Style.alert)
+            
+            let noAction = UIAlertAction(title: "아니요", style: .destructive, handler: { okAction in
+            })
+            
+            let okAction = UIAlertAction(title: "예", style: .default, handler: { okAction in
+            })
+            
+            alert.addAction(noAction)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -202,9 +214,6 @@ extension SearchViewController: UITableViewDataSource {
         cell.countryLabel.text = searchResults[indexPath.row].title
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
-//        if let highlightText = searchBar.text {
-//            cell.countryLabel.setHighlighted(searchResults[indexPath.row].title, with: highlightText)
-//        }
         return cell
     }
 }

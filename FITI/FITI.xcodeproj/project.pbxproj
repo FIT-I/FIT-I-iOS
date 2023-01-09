@@ -31,7 +31,6 @@
 		9130CA1D296B3CAF00FC5107 /* BottomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA1C296B3CAF00FC5107 /* BottomInfoView.swift */; };
 		9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */; };
 		9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA23296B558900FC5107 /* SearchTVC.swift */; };
-		9130CA26296B587700FC5107 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA25296B587700FC5107 /* ResultViewController.swift */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
 		913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C929634641001CC92B /* TrainerDetailViewController.swift */; };
 		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
@@ -81,7 +80,6 @@
 		9130CA1C296B3CAF00FC5107 /* BottomInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomInfoView.swift; sourceTree = "<group>"; };
 		9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserNameViewController.swift; sourceTree = "<group>"; };
 		9130CA23296B558900FC5107 /* SearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVC.swift; sourceTree = "<group>"; };
-		9130CA25296B587700FC5107 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		913E02C929634641001CC92B /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
 		91593F4629642C8500AE7CF1 /* PriceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceStackView.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 			children = (
 				9130CA08296B055100FC5107 /* SearchViewController.swift */,
 				9130CA23296B558900FC5107 /* SearchTVC.swift */,
-				9130CA25296B587700FC5107 /* ResultViewController.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -471,7 +468,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				91C32D482961860800F29DA5 /* StartViewController.swift in Sources */,
-				9130CA26296B587700FC5107 /* ResultViewController.swift in Sources */,
 				91877D6C2969A0A00074386B /* ProfileView.swift in Sources */,
 				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
 				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
