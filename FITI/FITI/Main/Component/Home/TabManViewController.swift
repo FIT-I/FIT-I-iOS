@@ -33,13 +33,6 @@ class TabManViewController: TabmanViewController {
         self.bounces = false
         
         settingTabBar(ctBar: bar)
-        addBar(bar, dataSource: self, at: .custom(view: customContainer, layout: { (bar) in
-            bar.snp.makeConstraints { make in
-//                make.top.equalToSuperview()
-                make.leading.equalToSuperview()
-                make.trailing.equalToSuperview()
-            }
-            }))
         
         print("HomeTabView")
         setUI()
@@ -49,11 +42,20 @@ class TabManViewController: TabmanViewController {
         view.addSubview(customContainer)
 
         customContainer.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(60)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
-            make.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(50)
+            make.leading.equalToSuperview().offset(25)
+            make.trailing.equalToSuperview().offset(-25)
+//            make.bottom.equalToSuperview()
         }
+        
+        addBar(bar, dataSource: self, at: .custom(view: customContainer, layout: { (bar) in
+            bar.snp.makeConstraints { make in
+//                make.height.equalTo(50)
+                make.leading.equalToSuperview()
+                make.trailing.equalToSuperview()
+            }
+            }))
+        
     }
     
     func settingTabBar (ctBar : TMBar.ButtonBar) {
@@ -62,7 +64,7 @@ class TabManViewController: TabmanViewController {
         ctBar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         
         // 간격
-        ctBar.layout.interButtonSpacing = 60
+        ctBar.layout.interButtonSpacing = 30
             
         ctBar.backgroundView.style = .blur(style: .light)
         

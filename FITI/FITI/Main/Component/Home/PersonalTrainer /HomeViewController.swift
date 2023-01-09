@@ -43,19 +43,19 @@ class HomeViewController: UIViewController {
     }
     
     func signInViewAddUI(){
-        view.addSubview(lineView)
+//        view.addSubview(lineView)
         view.addSubview(trainerTableView)
     }
     
     func signInViewSetUI(){
-        lineView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-            make.leading.trailing.equalToSuperview()
-        }
+//        lineView.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(100)
+//            make.leading.trailing.equalToSuperview()
+//        }
         trainerTableView.snp.makeConstraints { make in
-            make.top.equalTo(lineView.snp.bottom)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
+            make.top.equalToSuperview().offset(100)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
             make.bottom.equalToSuperview().offset(-50)
         }
     }
