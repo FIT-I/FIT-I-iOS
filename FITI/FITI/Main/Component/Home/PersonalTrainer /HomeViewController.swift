@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+// 개인 PT
 class HomeViewController: UIViewController {
 
     // line 뷰

@@ -54,6 +54,12 @@
 		91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D532961869C00F29DA5 /* MyPageViewController.swift */; };
 		91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C51029649C78005AF859 /* ReviewViewController.swift */; };
 		91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C5152964A034005AF859 /* ReviewTableCell.swift */; };
+		91F75B00296C109200B31F3B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 91F75AFF296C109200B31F3B /* Tabman */; };
+		91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B01296C10A800B31F3B /* TabManViewController.swift */; };
+		91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B04296C111900B31F3B /* DietTrainerViewController.swift */; };
+		91F75B07296C116500B31F3B /* FoodTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B06296C116500B31F3B /* FoodTrainerViewController.swift */; };
+		91F75B09296C11A800B31F3B /* RehabilitationTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B08296C11A800B31F3B /* RehabilitationTrainerViewController.swift */; };
+		91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B0A296C11D700B31F3B /* FriendTrainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +109,11 @@
 		91C32D532961869C00F29DA5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		91D7C51029649C78005AF859 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		91D7C5152964A034005AF859 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
+		91F75B01296C10A800B31F3B /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
+		91F75B04296C111900B31F3B /* DietTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietTrainerViewController.swift; sourceTree = "<group>"; };
+		91F75B06296C116500B31F3B /* FoodTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrainerViewController.swift; sourceTree = "<group>"; };
+		91F75B08296C11A800B31F3B /* RehabilitationTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RehabilitationTrainerViewController.swift; sourceTree = "<group>"; };
+		91F75B0A296C11D700B31F3B /* FriendTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTrainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91C32D46296185B900F29DA5 /* SnapKit in Frameworks */,
+				91F75B00296C109200B31F3B /* Tabman in Frameworks */,
 				910D80652965E5C200828E4B /* FSCalendar in Frameworks */,
 				913E02CD2963505A001CC92B /* Then in Frameworks */,
 			);
@@ -151,8 +163,12 @@
 		910182BC29618CA100FC10DB /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				91C32D4D2961867600F29DA5 /* HomeViewController.swift */,
-				910182C22961961D00FC10DB /* TrainerTabelCell.swift */,
+				91F75B01296C10A800B31F3B /* TabManViewController.swift */,
+				91F75B0C296C126000B31F3B /* PersonalTrainer  */,
+				91F75B0E296C128A00B31F3B /* DietTrainer */,
+				91F75B0F296C129400B31F3B /* FoodTrainer */,
+				91F75B10296C12AA00B31F3B /* RehabilitationTrainer */,
+				91F75B11296C12C100B31F3B /* FriendTrainer */,
 				913E02C829634607001CC92B /* TrainerDetail */,
 			);
 			path = Home;
@@ -387,6 +403,47 @@
 			path = Review;
 			sourceTree = "<group>";
 		};
+		91F75B0C296C126000B31F3B /* PersonalTrainer  */ = {
+			isa = PBXGroup;
+			children = (
+				91C32D4D2961867600F29DA5 /* HomeViewController.swift */,
+				910182C22961961D00FC10DB /* TrainerTabelCell.swift */,
+			);
+			path = "PersonalTrainer ";
+			sourceTree = "<group>";
+		};
+		91F75B0E296C128A00B31F3B /* DietTrainer */ = {
+			isa = PBXGroup;
+			children = (
+				91F75B04296C111900B31F3B /* DietTrainerViewController.swift */,
+			);
+			path = DietTrainer;
+			sourceTree = "<group>";
+		};
+		91F75B0F296C129400B31F3B /* FoodTrainer */ = {
+			isa = PBXGroup;
+			children = (
+				91F75B06296C116500B31F3B /* FoodTrainerViewController.swift */,
+			);
+			path = FoodTrainer;
+			sourceTree = "<group>";
+		};
+		91F75B10296C12AA00B31F3B /* RehabilitationTrainer */ = {
+			isa = PBXGroup;
+			children = (
+				91F75B08296C11A800B31F3B /* RehabilitationTrainerViewController.swift */,
+			);
+			path = RehabilitationTrainer;
+			sourceTree = "<group>";
+		};
+		91F75B11296C12C100B31F3B /* FriendTrainer */ = {
+			isa = PBXGroup;
+			children = (
+				91F75B0A296C11D700B31F3B /* FriendTrainerViewController.swift */,
+			);
+			path = FriendTrainer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -407,6 +464,7 @@
 				91C32D45296185B900F29DA5 /* SnapKit */,
 				913E02CC2963505A001CC92B /* Then */,
 				910D80642965E5C200828E4B /* FSCalendar */,
+				91F75AFF296C109200B31F3B /* Tabman */,
 			);
 			productName = FITI;
 			productReference = 91C32D2B296184AA00F29DA5 /* FITI.app */;
@@ -440,6 +498,7 @@
 				91C32D44296185B900F29DA5 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */,
 				910D80632965E5C200828E4B /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				91F75AFE296C109200B31F3B /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = 91C32D2C296184AA00F29DA5 /* Products */;
 			projectDirPath = "";
@@ -474,14 +533,18 @@
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
 				91877D6A2969269D0074386B /* RequestSheet.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
+				91F75B07296C116500B31F3B /* FoodTrainerViewController.swift in Sources */,
 				9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
+				91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */,
+				91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */,
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
 				9130C9FF296AF31400FC5107 /* privacyAcceptViewController.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
 				9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */,
+				91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */,
 				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,
 				91877D702969B1970074386B /* BottomView.swift in Sources */,
 				9130CA14296B0F9F00FC5107 /* WithdrawViewController.swift in Sources */,
@@ -504,6 +567,7 @@
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
 				9130C9FB296AF25800FC5107 /* TermsOfUseViewController.swift in Sources */,
 				91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */,
+				91F75B09296C11A800B31F3B /* RehabilitationTrainerViewController.swift in Sources */,
 				91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */,
 				913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */,
 				9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */,
@@ -742,6 +806,14 @@
 				kind = branch;
 			};
 		};
+		91F75AFE296C109200B31F3B /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -759,6 +831,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91C32D44296185B900F29DA5 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		91F75AFF296C109200B31F3B /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91F75AFE296C109200B31F3B /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
