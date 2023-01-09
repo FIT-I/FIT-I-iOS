@@ -189,6 +189,7 @@ extension SearchViewController: UITableViewDelegate {
             })
             
             let okAction = UIAlertAction(title: "예", style: .default, handler: { okAction in
+                self.dismiss(animated: true)
             })
             
             alert.addAction(noAction)

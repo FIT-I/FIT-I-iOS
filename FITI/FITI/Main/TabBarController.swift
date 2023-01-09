@@ -10,7 +10,7 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
-    let homeVC = HomeViewController()
+    let homeVC = TabManViewController()
     let communityVC = CommunityViewController()
     let chatVC = ChatViewController()
     let myPageVC = MyPageViewController()
