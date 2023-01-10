@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class BookDetailVC: UIViewController {
+class TrainerDetailViewController: UIViewController {
     
     var isHeartFull : Bool = false
     
@@ -244,7 +244,7 @@ extension BookDetailVC {
 }
 
 //MARK: - ReviewTableView Delegate
-extension BookDetailVC : UITableViewDataSource {
+extension TrainerDetailViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reviewDummy.count
@@ -259,7 +259,7 @@ extension BookDetailVC : UITableViewDataSource {
     }
 }
 
-extension BookDetailVC : UITableViewDelegate {
+extension TrainerDetailViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 87
     }

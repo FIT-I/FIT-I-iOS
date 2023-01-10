@@ -15,6 +15,18 @@
 		910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805C2965DBEE00828E4B /* PickServiceView.swift */; };
 		910D80652965E5C200828E4B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 910D80642965E5C200828E4B /* FSCalendar */; };
 		910D80682966C9AA00828E4B /* TrainerCertifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D80672966C9AA00828E4B /* TrainerCertifyViewController.swift */; };
+		91185FBB296D58180099B641 /* PickServicePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FBA296D58180099B641 /* PickServicePrice.swift */; };
+		91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FBC296D7E3A0099B641 /* HeadView.swift */; };
+		91185FBF296D83330099B641 /* BodyPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FBE296D83330099B641 /* BodyPriceView.swift */; };
+		91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FC0296D85160099B641 /* BodyIntroView.swift */; };
+		91185FC3296D86900099B641 /* BodyIntroAboutServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FC2296D86900099B641 /* BodyIntroAboutServiceView.swift */; };
+		91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FC4296D87930099B641 /* BodyReviewView.swift */; };
+		91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FC6296D88DA0099B641 /* BottomPhotoView.swift */; };
+		91185FC9296D8C360099B641 /* BookCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FC8296D8C360099B641 /* BookCVC.swift */; };
+		91185FCC296DBCC80099B641 /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */; };
+		91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCD296DBD2A0099B641 /* UIView+.swift */; };
+		91185FD0296DBD6C0099B641 /* BookReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCF296DBD6C0099B641 /* BookReviewTableViewCell.swift */; };
+		91185FD2296DBDCC0099B641 /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FD1296DBDCC0099B641 /* ReviewModel.swift */; };
 		9130C9FB296AF25800FC5107 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130C9FA296AF25800FC5107 /* TermsOfUseViewController.swift */; };
 		9130C9FD296AF2F700FC5107 /* serviceAcceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130C9FC296AF2F700FC5107 /* serviceAcceptViewController.swift */; };
 		9130C9FF296AF31400FC5107 /* privacyAcceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130C9FE296AF31400FC5107 /* privacyAcceptViewController.swift */; };
@@ -32,9 +44,7 @@
 		9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */; };
 		9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA23296B558900FC5107 /* SearchTVC.swift */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
-		913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C929634641001CC92B /* TrainerDetailViewController.swift */; };
 		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
-		91593F4729642C8500AE7CF1 /* PriceStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91593F4629642C8500AE7CF1 /* PriceStackView.swift */; };
 		91877D6A2969269D0074386B /* RequestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D692969269D0074386B /* RequestSheet.swift */; };
 		91877D6C2969A0A00074386B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6B2969A0A00074386B /* ProfileView.swift */; };
 		91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6D2969A9260074386B /* NotificationSwitch.swift */; };
@@ -70,6 +80,18 @@
 		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
 		910D805C2965DBEE00828E4B /* PickServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceView.swift; sourceTree = "<group>"; };
 		910D80672966C9AA00828E4B /* TrainerCertifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerCertifyViewController.swift; sourceTree = "<group>"; };
+		91185FBA296D58180099B641 /* PickServicePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServicePrice.swift; sourceTree = "<group>"; };
+		91185FBC296D7E3A0099B641 /* HeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadView.swift; sourceTree = "<group>"; };
+		91185FBE296D83330099B641 /* BodyPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPriceView.swift; sourceTree = "<group>"; };
+		91185FC0296D85160099B641 /* BodyIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyIntroView.swift; sourceTree = "<group>"; };
+		91185FC2296D86900099B641 /* BodyIntroAboutServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyIntroAboutServiceView.swift; sourceTree = "<group>"; };
+		91185FC4296D87930099B641 /* BodyReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyReviewView.swift; sourceTree = "<group>"; };
+		91185FC6296D88DA0099B641 /* BottomPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPhotoView.swift; sourceTree = "<group>"; };
+		91185FC8296D8C360099B641 /* BookCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCVC.swift; sourceTree = "<group>"; };
+		91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
+		91185FCD296DBD2A0099B641 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		91185FCF296DBD6C0099B641 /* BookReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReviewTableViewCell.swift; sourceTree = "<group>"; };
+		91185FD1296DBDCC0099B641 /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		9130C9FA296AF25800FC5107 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
 		9130C9FC296AF2F700FC5107 /* serviceAcceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serviceAcceptViewController.swift; sourceTree = "<group>"; };
 		9130C9FE296AF31400FC5107 /* privacyAcceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyAcceptViewController.swift; sourceTree = "<group>"; };
@@ -87,8 +109,6 @@
 		9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserNameViewController.swift; sourceTree = "<group>"; };
 		9130CA23296B558900FC5107 /* SearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVC.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
-		913E02C929634641001CC92B /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
-		91593F4629642C8500AE7CF1 /* PriceStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceStackView.swift; sourceTree = "<group>"; };
 		91877D692969269D0074386B /* RequestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSheet.swift; sourceTree = "<group>"; };
 		91877D6B2969A0A00074386B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		91877D6D2969A9260074386B /* NotificationSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSwitch.swift; sourceTree = "<group>"; };
@@ -136,6 +156,7 @@
 			children = (
 				91C32D492961863E00F29DA5 /* UIColor+.swift */,
 				913E02C6296334C4001CC92B /* UIStackView+.swift */,
+				91185FCD296DBD2A0099B641 /* UIView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -212,8 +233,10 @@
 		910D80522965667100828E4B /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				91593F4629642C8500AE7CF1 /* PriceStackView.swift */,
-				913E02C929634641001CC92B /* TrainerDetailViewController.swift */,
+				91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */,
+				91185FCF296DBD6C0099B641 /* BookReviewTableViewCell.swift */,
+				91185FD1296DBDCC0099B641 /* ReviewModel.swift */,
+				91185FCA296D8CB10099B641 /* View */,
 				910D805E2965E26200828E4B /* PickService */,
 				910D805F2965E2DC00828E4B /* PickDate */,
 				910D80602965E2EB00828E4B /* PickPlace */,
@@ -227,6 +250,7 @@
 			children = (
 				910D8053296566D100828E4B /* PickServiceViewController.swift */,
 				910D805C2965DBEE00828E4B /* PickServiceView.swift */,
+				91185FBA296D58180099B641 /* PickServicePrice.swift */,
 			);
 			path = PickService;
 			sourceTree = "<group>";
@@ -266,6 +290,20 @@
 				910D80672966C9AA00828E4B /* TrainerCertifyViewController.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		91185FCA296D8CB10099B641 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91185FBC296D7E3A0099B641 /* HeadView.swift */,
+				91185FBE296D83330099B641 /* BodyPriceView.swift */,
+				91185FC0296D85160099B641 /* BodyIntroView.swift */,
+				91185FC2296D86900099B641 /* BodyIntroAboutServiceView.swift */,
+				91185FC4296D87930099B641 /* BodyReviewView.swift */,
+				91185FC6296D88DA0099B641 /* BottomPhotoView.swift */,
+				91185FC8296D8C360099B641 /* BookCVC.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9130CA10296B07D900FC5107 /* DetailView */ = {
@@ -531,22 +569,31 @@
 				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
 				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
+				91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */,
 				91877D6A2969269D0074386B /* RequestSheet.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
+				91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */,
+				91185FC9296D8C360099B641 /* BookCVC.swift in Sources */,
 				91F75B07296C116500B31F3B /* FoodTrainerViewController.swift in Sources */,
 				9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
+				91185FC3296D86900099B641 /* BodyIntroAboutServiceView.swift in Sources */,
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
+				91185FBB296D58180099B641 /* PickServicePrice.swift in Sources */,
 				91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */,
 				91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */,
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
+				91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */,
 				9130C9FF296AF31400FC5107 /* privacyAcceptViewController.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
 				9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */,
 				91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */,
 				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,
+				91185FD0296DBD6C0099B641 /* BookReviewTableViewCell.swift in Sources */,
+				91185FCC296DBCC80099B641 /* TrainerDetailViewController.swift in Sources */,
 				91877D702969B1970074386B /* BottomView.swift in Sources */,
+				91185FBF296D83330099B641 /* BodyPriceView.swift in Sources */,
 				9130CA14296B0F9F00FC5107 /* WithdrawViewController.swift in Sources */,
 				913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */,
 				9130CA01296AF33900FC5107 /* financeAcceptViewController.swift in Sources */,
@@ -555,13 +602,14 @@
 				9130CA03296AFBFE00FC5107 /* BottomBtnView.swift in Sources */,
 				91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */,
 				9130CA1B296B3A8A00FC5107 /* TopStackView.swift in Sources */,
+				91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */,
 				9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */,
 				9130CA09296B055100FC5107 /* SearchViewController.swift in Sources */,
 				910D80682966C9AA00828E4B /* TrainerCertifyViewController.swift in Sources */,
-				91593F4729642C8500AE7CF1 /* PriceStackView.swift in Sources */,
 				9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */,
 				9130CA0B296B055E00FC5107 /* NoticeViewController.swift in Sources */,
 				910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */,
+				91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
 				9130C9FD296AF2F700FC5107 /* serviceAcceptViewController.swift in Sources */,
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
@@ -569,10 +617,10 @@
 				91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */,
 				91F75B09296C11A800B31F3B /* RehabilitationTrainerViewController.swift in Sources */,
 				91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */,
-				913E02CA29634641001CC92B /* TrainerDetailViewController.swift in Sources */,
 				9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */,
 				910D805629656AA400828E4B /* PickDateViewController.swift in Sources */,
 				91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */,
+				91185FD2296DBDCC0099B641 /* ReviewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,7 +27,9 @@ class RequestResultViewController: UIViewController {
         return view
     }()
     
+    // 매칭 시트
     var requestSheetView : UIView = RequestSheet()
+
     
     private let nextBtn : UIButton = {
         let btn = UIButton()
@@ -62,6 +64,7 @@ class RequestResultViewController: UIViewController {
         view.addSubview(nextBtn)
         view.addSubview(progressView)
         view.addSubview(requestSheetView)
+
     }
     
     func setConstraints(){
@@ -74,18 +77,17 @@ class RequestResultViewController: UIViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
+        nextBtn.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.leading.equalToSuperview().offset(14)
+            make.trailing.equalToSuperview().offset(-14)
+            make.bottom.equalToSuperview().offset(-30)
+        }
         requestSheetView.snp.makeConstraints { make in
             make.top.equalTo(progressView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
-//            make.bottom.equalToSuperview().offset(-350)
-            make.height.equalTo(340)
-        }
-        nextBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(770)
-            make.leading.equalToSuperview().offset(14)
-            make.trailing.equalToSuperview().offset(-14)
-            make.bottom.equalToSuperview().offset(-40)
+//            make.bottom.equalTo(nextBtn.snp.top).offset(-100)
         }
     }
     

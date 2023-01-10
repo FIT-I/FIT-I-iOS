@@ -46,7 +46,7 @@ class TabBarController: UITabBarController {
         self.tabBar.backgroundColor = .systemBackground
         
         homeVC.title = "홈"
-        communityVC.title = "커뮤니티"
+        communityVC.title = "매칭내역"
         chatVC.title = "채팅"
         myPageVC.title = "마이페이지"
         

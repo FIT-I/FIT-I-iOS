@@ -84,7 +84,7 @@ class PickDateViewController: UIViewController {
     
     private func setConstraints(){
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(70)
+            make.top.equalToSuperview().offset(60)
             make.centerX.equalToSuperview()
         }
         progressView.snp.makeConstraints { make in
@@ -96,17 +96,17 @@ class PickDateViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().dividedBy(3)
         }
-        fsCalendar.snp.makeConstraints { make in
-            make.top.equalTo(progressView.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
-            make.bottom.equalToSuperview().offset(-324)
-        }
         nextBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(770)
+            make.height.equalTo(50)
             make.leading.equalToSuperview().offset(14)
             make.trailing.equalToSuperview().offset(-14)
-            make.bottom.equalToSuperview().offset(-40)
+            make.bottom.equalToSuperview().offset(-30)
+        }
+        fsCalendar.snp.makeConstraints { make in
+            make.top.equalTo(progressView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalTo(nextBtn.snp.top).offset(-150)
         }
     }
     
