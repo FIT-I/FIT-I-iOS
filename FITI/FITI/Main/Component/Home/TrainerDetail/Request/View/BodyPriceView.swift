@@ -1,16 +1,15 @@
 //
-//  PriceView.swift
+//  bodyView.swift
 //  FITI
 //
-//  Created by 홍준혁 on 2023/01/03.
+//  Created by 홍준혁 on 2023/01/10.
 //
 
+import Foundation
 import UIKit
 import SnapKit
-import Then
 
-class PriceStackView: UIView {
-    
+class BodyPriceView : UIView {
     var priceImage : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "priceIcon.svg")
@@ -23,14 +22,6 @@ class PriceStackView: UIView {
         label.text = "관리 비용"
         label.textColor = UIColor.black
         return label
-    }()
-    
-    lazy var priceTopStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [priceImage,priceLabel])
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.alignment = .trailing
-        return stackView
     }()
     
     var priceLineView : UIView = {
@@ -47,22 +38,6 @@ class PriceStackView: UIView {
         return label
     }()
     
-    var priceForTimeLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12.0)
-        label.text = "/2만원부터~"
-        label.textColor = UIColor.customColor(.darkGray)
-        return label
-    }()
-    
-    lazy var priceMiddleStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [timeLabel,priceForTimeLabel])
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.alignment = .trailing
-        return stackView
-    }()
-    
     var othersLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
@@ -71,30 +46,46 @@ class PriceStackView: UIView {
         return label
     }()
     
-    var otherPriceForTimeLabel : UILabel = {
+    var priceForTimeLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12.0)
-        label.text = "/3만원부터~"
+        label.text = "10,000원"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
     
-    lazy var priceBottomStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [othersLabel,otherPriceForTimeLabel])
+    var otherPriceForTimeLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12.0)
+        label.text = "20,000원"
+        label.textColor = UIColor.customColor(.darkGray)
+        return label
+    }()
+    
+    lazy var priceTopStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [priceImage,priceLabel])
         stackView.axis = .horizontal
         stackView.spacing = 8
         stackView.alignment = .trailing
         return stackView
     }()
     
-    lazy var priceStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [priceTopStackView,priceLineView,priceMiddleStackView,priceBottomStackView])
-
+    lazy var priceLeftStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [timeLabel,othersLabel])
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = 8
         stackView.alignment = .leading
         return stackView
     }()
+    
+    lazy var priceRightStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [priceForTimeLabel,otherPriceForTimeLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 15
+        stackView.alignment = .trailing
+        return stackView
+    }()
+    
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -107,12 +98,29 @@ class PriceStackView: UIView {
     }
     
     private func setViewHierarchy() {
-        self.addSubview(priceStackView)
+        self.addSubview(priceTopStackView)
+        self.addSubview(priceLineView)
+        self.addSubview(priceLeftStackView)
+        self.addSubview(priceRightStackView)
     }
     
     private func setConstraints(){
-        priceStackView.snp.makeConstraints { make in
+        priceTopStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(17)
+            make.leading.equalToSuperview().offset(20)
+        }
+        priceLineView.snp.makeConstraints { make in
+            make.top.equalTo(priceTopStackView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(18)
+            make.trailing.equalToSuperview().offset(-22)
+        }
+        priceLeftStackView.snp.makeConstraints { make in
+            make.top.equalTo(priceLineView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(20)
+        }
+        priceRightStackView.snp.makeConstraints { make in
+            make.top.equalTo(priceLineView.snp.bottom).offset(10)
+            make.leading.equalTo(priceLeftStackView.snp.trailing).offset(80)
         }
     }
 }

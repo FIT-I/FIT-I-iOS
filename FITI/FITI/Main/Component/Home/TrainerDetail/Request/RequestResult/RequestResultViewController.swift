@@ -64,6 +64,7 @@ class RequestResultViewController: UIViewController {
         view.addSubview(nextBtn)
         view.addSubview(progressView)
         view.addSubview(requestSheetView)
+
     }
     
     func setConstraints(){
