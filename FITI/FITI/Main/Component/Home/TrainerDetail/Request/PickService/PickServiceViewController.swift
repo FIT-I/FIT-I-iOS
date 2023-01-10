@@ -57,7 +57,11 @@ class PickServiceViewController: UIViewController {
         return btn
     }()
 
+    // 왼쪽 버튼 부분
     var pickStackView = PickServiceView()
+    
+    // 오른쪽 금액 Label 부분
+    var priceStackView = PickServicePrice()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,11 +84,12 @@ class PickServiceViewController: UIViewController {
         view.addSubview(subTitleLabel)
         view.addSubview(nextBtn)
         view.addSubview(pickStackView)
+        view.addSubview(priceStackView)
     }
     
     private func setConstraints(){
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(70)
+            make.top.equalToSuperview().offset(60)
             make.centerX.equalToSuperview()
         }
         progressView.snp.makeConstraints { make in
@@ -99,19 +104,22 @@ class PickServiceViewController: UIViewController {
         subTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(grayView.snp.bottom).offset(33)
             make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-220)
         }
         pickStackView.snp.makeConstraints { make in
             make.top.equalTo(subTitleLabel.snp.bottom).offset(40)
             make.leading.equalToSuperview().offset(30)
+            make.height.equalTo(80)
+        }
+        priceStackView.snp.makeConstraints { make in
+            make.top.equalTo(subTitleLabel.snp.bottom).offset(40)
             make.trailing.equalToSuperview().offset(-30)
             make.height.equalTo(80)
         }
         nextBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(770)
+            make.height.equalTo(50)
             make.leading.equalToSuperview().offset(14)
             make.trailing.equalToSuperview().offset(-14)
-            make.bottom.equalToSuperview().offset(-40)
+            make.bottom.equalToSuperview().offset(-30)
         }
     }
     

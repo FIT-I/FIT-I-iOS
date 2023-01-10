@@ -102,7 +102,7 @@ class PickPlaceViewController: UIViewController {
     
     private func setConstraints(){
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(70)
+            make.top.equalToSuperview().offset(60)
             make.centerX.equalToSuperview()
         }
         progressView.snp.makeConstraints { make in
@@ -114,17 +114,15 @@ class PickPlaceViewController: UIViewController {
             make.trailing.equalToSuperview()
             make.width.equalToSuperview().dividedBy(3)
         }
-        globalStackView.snp.makeConstraints { make in
-            make.top.equalTo(progressView.snp.bottom).offset(65)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-            make.bottom.equalToSuperview().offset(-430)
-        }
         nextBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(770)
+            make.height.equalTo(50)
             make.leading.equalToSuperview().offset(14)
             make.trailing.equalToSuperview().offset(-14)
-            make.bottom.equalToSuperview().offset(-40)
+            make.bottom.equalToSuperview().offset(-30)
+        }
+        globalStackView.snp.makeConstraints { make in
+            make.top.equalTo(progressView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
         }
     }
 

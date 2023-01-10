@@ -43,35 +43,13 @@ class PickServiceView: UIView {
         return label
     }()
     
-    var hourPriceLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20.0)
-        label.text = "20,000원"
-        label.textColor = UIColor.black
-        return label
-    }()
-    
-    var addPriceLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20.0)
-        label.text = "+10,000원"
-        label.textColor = UIColor.black
-        return label
-    }()
+
     
     lazy var firstLeftStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [firstPickBtn,hourLabel])
         stackView.axis = .horizontal
         stackView.spacing = 15
         stackView.alignment = .center
-        return stackView
-    }()
-    
-    lazy var firstStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [firstLeftStackView,hourPriceLabel])
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.spacing = 157
         return stackView
     }()
     
@@ -83,16 +61,8 @@ class PickServiceView: UIView {
         return stackView
     }()
     
-    lazy var secondStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [secondLeftStackView,addPriceLabel])
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.spacing = 123
-        return stackView
-    }()
-    
     lazy var globalStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [firstStackView,secondStackView])
+        let stackView = UIStackView(arrangedSubviews: [firstLeftStackView,secondLeftStackView])
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.spacing = 23
@@ -102,7 +72,7 @@ class PickServiceView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-       
+    
     override init(frame: CGRect) {
         super .init(frame: .zero)
         setViewHierarchy()

@@ -15,6 +15,7 @@
 		910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805C2965DBEE00828E4B /* PickServiceView.swift */; };
 		910D80652965E5C200828E4B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 910D80642965E5C200828E4B /* FSCalendar */; };
 		910D80682966C9AA00828E4B /* TrainerCertifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D80672966C9AA00828E4B /* TrainerCertifyViewController.swift */; };
+		91185FBB296D58180099B641 /* PickServicePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FBA296D58180099B641 /* PickServicePrice.swift */; };
 		9130C9FB296AF25800FC5107 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130C9FA296AF25800FC5107 /* TermsOfUseViewController.swift */; };
 		9130C9FD296AF2F700FC5107 /* serviceAcceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130C9FC296AF2F700FC5107 /* serviceAcceptViewController.swift */; };
 		9130C9FF296AF31400FC5107 /* privacyAcceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130C9FE296AF31400FC5107 /* privacyAcceptViewController.swift */; };
@@ -70,6 +71,7 @@
 		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
 		910D805C2965DBEE00828E4B /* PickServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceView.swift; sourceTree = "<group>"; };
 		910D80672966C9AA00828E4B /* TrainerCertifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerCertifyViewController.swift; sourceTree = "<group>"; };
+		91185FBA296D58180099B641 /* PickServicePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServicePrice.swift; sourceTree = "<group>"; };
 		9130C9FA296AF25800FC5107 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
 		9130C9FC296AF2F700FC5107 /* serviceAcceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serviceAcceptViewController.swift; sourceTree = "<group>"; };
 		9130C9FE296AF31400FC5107 /* privacyAcceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyAcceptViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			children = (
 				910D8053296566D100828E4B /* PickServiceViewController.swift */,
 				910D805C2965DBEE00828E4B /* PickServiceView.swift */,
+				91185FBA296D58180099B641 /* PickServicePrice.swift */,
 			);
 			path = PickService;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
+				91185FBB296D58180099B641 /* PickServicePrice.swift in Sources */,
 				91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */,
 				91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */,
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
