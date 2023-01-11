@@ -238,7 +238,7 @@ extension TrainerDetailViewController {
         bottomPhotoView.snp.makeConstraints {
             $0.top.equalTo(reviewTableView.snp.bottom).offset(25)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(200)
+            $0.height.equalTo(250)
             $0.bottom.equalToSuperview()
         }
 
