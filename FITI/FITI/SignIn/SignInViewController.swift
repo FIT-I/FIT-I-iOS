@@ -1,7 +1,9 @@
-//  SignInViewController.swift
-//  FITI
 //
-//  Created by 홍준혁 on 2023/01/01.
+//  SignInViewController.swift
+//  FITI-Trainer-iOS
+//
+//  Created by 박윤빈 on 2023/01/11.
+//
 
 import Foundation
 import UIKit
@@ -19,14 +21,18 @@ class SignInViewController: UIViewController {
     }()
 
     
-    let idTextField = UITextField().then{
-        $0.attributedPlaceholder = NSAttributedString(
+    let idTextField : UITextField = {
+        let tf = UITextField()
+        
+        tf.attributedPlaceholder = NSAttributedString(
                 string: "아이디",
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.customColor(.blue)]
             )
-        $0.layer.cornerRadius = 10
-        $0.borderStyle = .none
-    }
+        tf.layer.cornerRadius = 10
+        tf.borderStyle = .none
+        
+        return tf
+    }()
 
     let passwordTextField : UITextField = {
         let tf = UITextField()
@@ -76,6 +82,8 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         // Do any additional setup after loading the view.
+        
+        self.dismissKeyboard()
 
         signInViewAddUI()
         signInViewSetUI()
@@ -140,7 +148,7 @@ class SignInViewController: UIViewController {
     }
     
     @objc func signUpBtnEvent(){
-        let nextVC = TermsOfUseViewController()
+        let nextVC = PolicyViewController()
         navigationController?.pushViewController(nextVC, animated: true)
     }
 

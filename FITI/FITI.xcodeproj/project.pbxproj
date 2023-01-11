@@ -14,7 +14,6 @@
 		910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805A2965878300828E4B /* RequestResultViewController.swift */; };
 		910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805C2965DBEE00828E4B /* PickServiceView.swift */; };
 		910D80652965E5C200828E4B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 910D80642965E5C200828E4B /* FSCalendar */; };
-		910D80682966C9AA00828E4B /* TrainerCertifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D80672966C9AA00828E4B /* TrainerCertifyViewController.swift */; };
 		91185FBB296D58180099B641 /* PickServicePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FBA296D58180099B641 /* PickServicePrice.swift */; };
 		91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FBC296D7E3A0099B641 /* HeadView.swift */; };
 		91185FBF296D83330099B641 /* BodyPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FBE296D83330099B641 /* BodyPriceView.swift */; };
@@ -27,10 +26,6 @@
 		91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCD296DBD2A0099B641 /* UIView+.swift */; };
 		91185FD0296DBD6C0099B641 /* BookReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCF296DBD6C0099B641 /* BookReviewTableViewCell.swift */; };
 		91185FD2296DBDCC0099B641 /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FD1296DBDCC0099B641 /* ReviewModel.swift */; };
-		9130C9FB296AF25800FC5107 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130C9FA296AF25800FC5107 /* TermsOfUseViewController.swift */; };
-		9130C9FD296AF2F700FC5107 /* serviceAcceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130C9FC296AF2F700FC5107 /* serviceAcceptViewController.swift */; };
-		9130C9FF296AF31400FC5107 /* privacyAcceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130C9FE296AF31400FC5107 /* privacyAcceptViewController.swift */; };
-		9130CA01296AF33900FC5107 /* financeAcceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA00296AF33900FC5107 /* financeAcceptViewController.swift */; };
 		9130CA03296AFBFE00FC5107 /* BottomBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA02296AFBFE00FC5107 /* BottomBtnView.swift */; };
 		9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA04296B023C00FC5107 /* SettingViewController.swift */; };
 		9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA06296B034600FC5107 /* HeartListViewController.swift */; };
@@ -45,6 +40,11 @@
 		9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA23296B558900FC5107 /* SearchTVC.swift */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
 		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
+		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
+		917D3CF8296EB2D30060F802 /* MakeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */; };
+		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
+		917D3CFE296EB3330060F802 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CFD296EB3330060F802 /* UITextField+.swift */; };
+		917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CFF296EBA2D0060F802 /* UIViewController+.swift */; };
 		91877D6A2969269D0074386B /* RequestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D692969269D0074386B /* RequestSheet.swift */; };
 		91877D6C2969A0A00074386B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6B2969A0A00074386B /* ProfileView.swift */; };
 		91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6D2969A9260074386B /* NotificationSwitch.swift */; };
@@ -55,7 +55,6 @@
 		91C32D3B296184AD00F29DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */; };
 		91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D422961857400F29DA5 /* SignInViewController.swift */; };
 		91C32D46296185B900F29DA5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 91C32D45296185B900F29DA5 /* SnapKit */; };
-		91C32D482961860800F29DA5 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D472961860800F29DA5 /* StartViewController.swift */; };
 		91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D492961863E00F29DA5 /* UIColor+.swift */; };
 		91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D4B2961866100F29DA5 /* TabBarController.swift */; };
 		91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D4D2961867600F29DA5 /* HomeViewController.swift */; };
@@ -79,7 +78,6 @@
 		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
 		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
 		910D805C2965DBEE00828E4B /* PickServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceView.swift; sourceTree = "<group>"; };
-		910D80672966C9AA00828E4B /* TrainerCertifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerCertifyViewController.swift; sourceTree = "<group>"; };
 		91185FBA296D58180099B641 /* PickServicePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServicePrice.swift; sourceTree = "<group>"; };
 		91185FBC296D7E3A0099B641 /* HeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadView.swift; sourceTree = "<group>"; };
 		91185FBE296D83330099B641 /* BodyPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPriceView.swift; sourceTree = "<group>"; };
@@ -92,10 +90,6 @@
 		91185FCD296DBD2A0099B641 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		91185FCF296DBD6C0099B641 /* BookReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReviewTableViewCell.swift; sourceTree = "<group>"; };
 		91185FD1296DBDCC0099B641 /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
-		9130C9FA296AF25800FC5107 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
-		9130C9FC296AF2F700FC5107 /* serviceAcceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serviceAcceptViewController.swift; sourceTree = "<group>"; };
-		9130C9FE296AF31400FC5107 /* privacyAcceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyAcceptViewController.swift; sourceTree = "<group>"; };
-		9130CA00296AF33900FC5107 /* financeAcceptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = financeAcceptViewController.swift; sourceTree = "<group>"; };
 		9130CA02296AFBFE00FC5107 /* BottomBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBtnView.swift; sourceTree = "<group>"; };
 		9130CA04296B023C00FC5107 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9130CA06296B034600FC5107 /* HeartListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +103,11 @@
 		9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserNameViewController.swift; sourceTree = "<group>"; };
 		9130CA23296B558900FC5107 /* SearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVC.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
+		917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountViewController.swift; sourceTree = "<group>"; };
+		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
+		917D3CFD296EB3330060F802 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		917D3CFF296EBA2D0060F802 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		91877D692969269D0074386B /* RequestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSheet.swift; sourceTree = "<group>"; };
 		91877D6B2969A0A00074386B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		91877D6D2969A9260074386B /* NotificationSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSwitch.swift; sourceTree = "<group>"; };
@@ -120,7 +119,6 @@
 		91C32D3A296184AD00F29DA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91C32D3C296184AD00F29DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91C32D422961857400F29DA5 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		91C32D472961860800F29DA5 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		91C32D492961863E00F29DA5 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		91C32D4B2961866100F29DA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		91C32D4D2961867600F29DA5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +155,8 @@
 				91C32D492961863E00F29DA5 /* UIColor+.swift */,
 				913E02C6296334C4001CC92B /* UIStackView+.swift */,
 				91185FCD296DBD2A0099B641 /* UIView+.swift */,
+				917D3CFD296EB3330060F802 /* UITextField+.swift */,
+				917D3CFF296EBA2D0060F802 /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -224,7 +224,6 @@
 		910182C029618CCA00FC10DB /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				91C32D472961860800F29DA5 /* StartViewController.swift */,
 				91C32D422961857400F29DA5 /* SignInViewController.swift */,
 			);
 			path = SignIn;
@@ -283,11 +282,8 @@
 		910D80662966C98E00828E4B /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				9130C9FA296AF25800FC5107 /* TermsOfUseViewController.swift */,
-				9130CA00296AF33900FC5107 /* financeAcceptViewController.swift */,
-				9130C9FE296AF31400FC5107 /* privacyAcceptViewController.swift */,
-				9130C9FC296AF2F700FC5107 /* serviceAcceptViewController.swift */,
-				910D80672966C9AA00828E4B /* TrainerCertifyViewController.swift */,
+				917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */,
+				917D3CF9296EB2E90060F802 /* PolicyViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -425,6 +421,7 @@
 				910182B929618C7900FC10DB /* Extension */,
 				91C32D2E296184AA00F29DA5 /* AppDelegate.swift */,
 				91C32D30296184AA00F29DA5 /* SceneDelegate.swift */,
+				917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */,
 				91C32D37296184AD00F29DA5 /* Assets.xcassets */,
 				91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */,
 				91C32D3C296184AD00F29DA5 /* Info.plist */,
@@ -564,12 +561,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91C32D482961860800F29DA5 /* StartViewController.swift in Sources */,
 				91877D6C2969A0A00074386B /* ProfileView.swift in Sources */,
+				917D3CF8296EB2D30060F802 /* MakeAccountViewController.swift in Sources */,
 				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
 				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
 				91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */,
+				917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */,
 				91877D6A2969269D0074386B /* RequestSheet.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
 				91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */,
@@ -585,18 +583,18 @@
 				91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */,
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
 				91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */,
-				9130C9FF296AF31400FC5107 /* privacyAcceptViewController.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
 				9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */,
 				91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */,
 				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,
 				91185FD0296DBD6C0099B641 /* BookReviewTableViewCell.swift in Sources */,
+				917D3CFE296EB3330060F802 /* UITextField+.swift in Sources */,
 				91185FCC296DBCC80099B641 /* TrainerDetailViewController.swift in Sources */,
 				91877D702969B1970074386B /* BottomView.swift in Sources */,
 				91185FBF296D83330099B641 /* BodyPriceView.swift in Sources */,
 				9130CA14296B0F9F00FC5107 /* WithdrawViewController.swift in Sources */,
+				917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */,
 				913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */,
-				9130CA01296AF33900FC5107 /* financeAcceptViewController.swift in Sources */,
 				9130CA1D296B3CAF00FC5107 /* BottomInfoView.swift in Sources */,
 				910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */,
 				9130CA03296AFBFE00FC5107 /* BottomBtnView.swift in Sources */,
@@ -605,15 +603,13 @@
 				91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */,
 				9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */,
 				9130CA09296B055100FC5107 /* SearchViewController.swift in Sources */,
-				910D80682966C9AA00828E4B /* TrainerCertifyViewController.swift in Sources */,
+				917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */,
 				9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */,
 				9130CA0B296B055E00FC5107 /* NoticeViewController.swift in Sources */,
 				910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */,
 				91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
-				9130C9FD296AF2F700FC5107 /* serviceAcceptViewController.swift in Sources */,
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
-				9130C9FB296AF25800FC5107 /* TermsOfUseViewController.swift in Sources */,
 				91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */,
 				91F75B09296C11A800B31F3B /* RehabilitationTrainerViewController.swift in Sources */,
 				91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */,
