@@ -35,7 +35,7 @@ class HeadView : UIView {
     var grade : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
-        label.text = "평점4.3"
+        label.text = "평점 4.3"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()

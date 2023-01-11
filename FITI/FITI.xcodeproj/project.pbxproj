@@ -24,7 +24,7 @@
 		91185FC9296D8C360099B641 /* BookCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FC8296D8C360099B641 /* BookCVC.swift */; };
 		91185FCC296DBCC80099B641 /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */; };
 		91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCD296DBD2A0099B641 /* UIView+.swift */; };
-		91185FD0296DBD6C0099B641 /* BookReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCF296DBD6C0099B641 /* BookReviewTableViewCell.swift */; };
+		91185FD0296DBD6C0099B641 /* PreviewReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCF296DBD6C0099B641 /* PreviewReviewTableCell.swift */; };
 		91185FD2296DBDCC0099B641 /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FD1296DBDCC0099B641 /* ReviewModel.swift */; };
 		9130CA03296AFBFE00FC5107 /* BottomBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA02296AFBFE00FC5107 /* BottomBtnView.swift */; };
 		9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA04296B023C00FC5107 /* SettingViewController.swift */; };
@@ -88,7 +88,7 @@
 		91185FC8296D8C360099B641 /* BookCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCVC.swift; sourceTree = "<group>"; };
 		91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
 		91185FCD296DBD2A0099B641 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		91185FCF296DBD6C0099B641 /* BookReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReviewTableViewCell.swift; sourceTree = "<group>"; };
+		91185FCF296DBD6C0099B641 /* PreviewReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewReviewTableCell.swift; sourceTree = "<group>"; };
 		91185FD1296DBDCC0099B641 /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		9130CA02296AFBFE00FC5107 /* BottomBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBtnView.swift; sourceTree = "<group>"; };
 		9130CA04296B023C00FC5107 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -233,8 +233,6 @@
 			isa = PBXGroup;
 			children = (
 				91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */,
-				91185FCF296DBD6C0099B641 /* BookReviewTableViewCell.swift */,
-				91185FD1296DBDCC0099B641 /* ReviewModel.swift */,
 				91185FCA296D8CB10099B641 /* View */,
 				910D805E2965E26200828E4B /* PickService */,
 				910D805F2965E2DC00828E4B /* PickDate */,
@@ -296,6 +294,8 @@
 				91185FC0296D85160099B641 /* BodyIntroView.swift */,
 				91185FC2296D86900099B641 /* BodyIntroAboutServiceView.swift */,
 				91185FC4296D87930099B641 /* BodyReviewView.swift */,
+				91185FCF296DBD6C0099B641 /* PreviewReviewTableCell.swift */,
+				91185FD1296DBDCC0099B641 /* ReviewModel.swift */,
 				91185FC6296D88DA0099B641 /* BottomPhotoView.swift */,
 				91185FC8296D8C360099B641 /* BookCVC.swift */,
 			);
@@ -587,7 +587,7 @@
 				9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */,
 				91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */,
 				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,
-				91185FD0296DBD6C0099B641 /* BookReviewTableViewCell.swift in Sources */,
+				91185FD0296DBD6C0099B641 /* PreviewReviewTableCell.swift in Sources */,
 				917D3CFE296EB3330060F802 /* UITextField+.swift in Sources */,
 				91185FCC296DBCC80099B641 /* TrainerDetailViewController.swift in Sources */,
 				91877D702969B1970074386B /* BottomView.swift in Sources */,

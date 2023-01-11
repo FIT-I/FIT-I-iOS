@@ -83,7 +83,7 @@ class BodyIntroAboutServiceView : UIView {
             make.top.equalTo(introServiceLineView.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
-            make.width.equalTo(500)
+//            make.width.equalTo(500)
         }
     }
 }
