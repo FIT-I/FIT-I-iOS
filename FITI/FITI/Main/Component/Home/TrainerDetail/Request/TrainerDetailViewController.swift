@@ -69,12 +69,15 @@ class TrainerDetailViewController: UIViewController {
     // 리뷰
     let bodyReviewView = BodyReviewView()
     
-    private lazy var reviewTableView = UITableView().then {
-        $0.backgroundColor = .clear
-        $0.separatorStyle = .none
-        $0.dataSource = self
-        $0.delegate = self
-    }
+    private lazy var reviewTableView : UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = UIColor.systemBackground
+        tableView.separatorStyle = .none
+        tableView.isScrollEnabled = false
+        tableView.dataSource = self
+        tableView.delegate = self
+        return tableView
+    }()
 
     // 사진 뷰
     let bottomPhotoView = BottomPhotoView()
@@ -91,7 +94,7 @@ class TrainerDetailViewController: UIViewController {
         
         setButtonEvent()
         setLayout()
-//        register()
+        register()
     }
     
     func setButtonEvent(){
@@ -134,8 +137,8 @@ extension TrainerDetailViewController {
     //MARK: - register
     
     private func register() {
-        reviewTableView.register(BookReviewTableViewCell.self,
-                                 forCellReuseIdentifier: BookReviewTableViewCell.identifier
+        reviewTableView.register(PreviewReviewTableCell.self,
+                                 forCellReuseIdentifier: PreviewReviewTableCell.identifier
         )
     }
     
@@ -159,11 +162,12 @@ extension TrainerDetailViewController {
         //MARK: - naviViewLayout
         
         // testColors
+//        headView.backgroundColor = .systemBackground
+        view.backgroundColor = .systemBackground
         toolBarContainerView.backgroundColor = .systemBackground
         bodyPriceView.backgroundColor = UIColor.customColor(.boxGray)
         bodyIntroView.backgroundColor = UIColor.customColor(.boxGray)
         bodyIntroAboutService.backgroundColor = UIColor.customColor(.boxGray)
-        bodyReviewView.backgroundColor = UIColor.customColor(.boxGray)
         
         //MARK: - toolBarLayout
         
@@ -173,7 +177,6 @@ extension TrainerDetailViewController {
         }
         
         heartBtn.snp.makeConstraints { make in
-//            make.top.equalToSuperview()
             make.height.equalTo(50)
             make.bottom.equalToSuperview().offset(-10)
             make.leading.equalToSuperview().offset(16)
@@ -181,7 +184,6 @@ extension TrainerDetailViewController {
         }
 
         matchingRequest.snp.makeConstraints { make in
-//            make.top.equalToSuperview()
             make.height.equalTo(50)
             make.bottom.equalToSuperview().offset(-10)
             make.leading.equalTo(heartBtn.snp.trailing).offset(10)
@@ -198,15 +200,15 @@ extension TrainerDetailViewController {
         
         //MARK: - containerViewLayout
         headView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
-            make.leading.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(120)
+            make.top.equalToSuperview().offset(100)
+//            make.leading.equalTo(view.safeAreaLayoutGuide)
+            make.leading.equalToSuperview()
         }
-        
         bodyPriceView.snp.makeConstraints {
-            $0.top.equalTo(headView.snp.bottom).offset(25)
+//            $0.top.equalTo(headView.snp.bottom).offset(25)
+            $0.top.equalTo(headView.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(110)
+            $0.height.equalTo(130)
         }
         
         bodyIntroView.snp.makeConstraints {
@@ -218,25 +220,26 @@ extension TrainerDetailViewController {
         bodyIntroAboutService.snp.makeConstraints {
             $0.top.equalTo(bodyIntroView.snp.bottom).offset(25)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(170)
+            $0.height.equalTo(220)
         }
         
         bodyReviewView.snp.makeConstraints {
             $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(10)
+            $0.height.equalTo(50)
         }
-//        reviewTableView.snp.makeConstraints {
-//            $0.top.equalTo(bodyReviewView.snp.bottom).offset(15)
-////            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-//            $0.leading.trailing.equalToSuperview()
-//            $0.height.equalTo(282)
-//        }
+        
+        reviewTableView.snp.makeConstraints {
+            $0.top.equalTo(bodyReviewView.snp.bottom).offset(10)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(250)
+        }
         
         bottomPhotoView.snp.makeConstraints {
-            $0.top.equalTo(bodyReviewView.snp.bottom).offset(25)
+            $0.top.equalTo(reviewTableView.snp.bottom).offset(25)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(283)
+            $0.height.equalTo(200)
             $0.bottom.equalToSuperview()
         }
 
@@ -251,16 +254,15 @@ extension TrainerDetailViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let reviewCell = tableView.dequeueReusableCell(withIdentifier: BookReviewTableViewCell.identifier, for: indexPath) as? BookReviewTableViewCell else { return UITableViewCell() }
+        guard let reviewCell = tableView.dequeueReusableCell(withIdentifier: PreviewReviewTableCell.identifier, for: indexPath) as? PreviewReviewTableCell else { return UITableViewCell() }
         
         reviewCell.dataBind(model: reviewDummy[indexPath.row])
-        reviewCell.selectionStyle = .none
+//        reviewCell.selectionStyle = .none
         return reviewCell
     }
 }
 
+
 extension TrainerDetailViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 87
-    }
+    
 }

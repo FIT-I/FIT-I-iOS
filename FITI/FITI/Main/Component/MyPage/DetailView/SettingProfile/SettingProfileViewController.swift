@@ -61,7 +61,7 @@ class SettingProfileViewController: UIViewController {
     
     func setConstraints(){
         myPageTitleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(40)
+            make.top.equalToSuperview().offset(60)
             make.centerX.equalToSuperview()
         }
         topStackView.snp.makeConstraints { make in

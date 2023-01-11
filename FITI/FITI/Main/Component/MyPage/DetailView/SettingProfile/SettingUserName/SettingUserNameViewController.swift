@@ -68,7 +68,7 @@ class SettingUserNameViewController : UIViewController {
     
     private func setConstraints() {
         myPageTitleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(40)
+            make.top.equalToSuperview().offset(60)
             make.centerX.equalToSuperview()
         }
         reviewerImage.snp.makeConstraints { make in
