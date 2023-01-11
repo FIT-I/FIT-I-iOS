@@ -162,7 +162,6 @@ extension TrainerDetailViewController {
         //MARK: - naviViewLayout
         
         // testColors
-//        headView.backgroundColor = .systemBackground
         view.backgroundColor = .systemBackground
         toolBarContainerView.backgroundColor = .systemBackground
         bodyPriceView.backgroundColor = UIColor.customColor(.boxGray)
