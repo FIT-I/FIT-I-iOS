@@ -53,6 +53,7 @@ class SettingUserNameViewController : UIViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
         
+        self.dismissKeyboard()
         
         setViewHierarchy()
         setConstraints()

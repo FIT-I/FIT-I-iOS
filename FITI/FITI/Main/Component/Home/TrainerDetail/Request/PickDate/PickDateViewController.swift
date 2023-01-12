@@ -84,7 +84,7 @@ class PickDateViewController: UIViewController {
     
     private func setConstraints(){
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(60)
+            make.top.equalToSuperview().offset(70)
             make.centerX.equalToSuperview()
         }
         progressView.snp.makeConstraints { make in

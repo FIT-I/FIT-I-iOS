@@ -40,6 +40,8 @@
 		9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA23296B558900FC5107 /* SearchTVC.swift */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
 		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
+		916A2C47297056F2005F0420 /* CommunityTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A2C46297056F2005F0420 /* CommunityTableCell.swift */; };
+		916A2C49297090D3005F0420 /* FindPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A2C48297090D3005F0420 /* FindPwViewController.swift */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
 		917D3CF8296EB2D30060F802 /* MakeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */; };
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
@@ -103,6 +105,8 @@
 		9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserNameViewController.swift; sourceTree = "<group>"; };
 		9130CA23296B558900FC5107 /* SearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVC.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		916A2C46297056F2005F0420 /* CommunityTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableCell.swift; sourceTree = "<group>"; };
+		916A2C48297090D3005F0420 /* FindPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwViewController.swift; sourceTree = "<group>"; };
 		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
 		917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountViewController.swift; sourceTree = "<group>"; };
 		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				91C32D4F2961868500F29DA5 /* CommunityViewController.swift */,
+				916A2C46297056F2005F0420 /* CommunityTableCell.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 		910182C029618CCA00FC10DB /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				916A2C48297090D3005F0420 /* FindPwViewController.swift */,
 				91C32D422961857400F29DA5 /* SignInViewController.swift */,
 			);
 			path = SignIn;
@@ -605,10 +611,12 @@
 				9130CA09296B055100FC5107 /* SearchViewController.swift in Sources */,
 				917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */,
 				9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */,
+				916A2C49297090D3005F0420 /* FindPwViewController.swift in Sources */,
 				9130CA0B296B055E00FC5107 /* NoticeViewController.swift in Sources */,
 				910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */,
 				91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
+				916A2C47297056F2005F0420 /* CommunityTableCell.swift in Sources */,
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
 				91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */,
 				91F75B09296C11A800B31F3B /* RehabilitationTrainerViewController.swift in Sources */,

@@ -18,7 +18,7 @@ class RequestResultViewController: UIViewController {
         return label
     }()
     
-    var progressView : UIView = {
+    private var progressView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
         view.snp.makeConstraints { make in

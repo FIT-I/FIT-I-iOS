@@ -10,6 +10,7 @@ import UIKit
 import Tabman
 import Pageboy
 import SnapKit
+import SwiftUI
 
 class TabManViewController: TabmanViewController {
     
@@ -25,6 +26,7 @@ class TabManViewController: TabmanViewController {
     
     // 페이징 할 뷰 컨트롤러
     var viewControllers: Array<UIViewController> = [HomeViewController(),DietTrainerViewController(),FoodTrainerViewController(),RehabilitationTrainerViewController(),FriendTrainerViewController()]
+
 
     override func viewDidLoad() {
         
@@ -42,7 +44,7 @@ class TabManViewController: TabmanViewController {
         view.addSubview(customContainer)
 
         customContainer.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
+            make.top.equalToSuperview().offset(70)
             make.leading.equalToSuperview().offset(25)
             make.trailing.equalToSuperview().offset(-25)
 //            make.bottom.equalToSuperview()
@@ -51,10 +53,11 @@ class TabManViewController: TabmanViewController {
         addBar(bar, dataSource: self, at: .custom(view: customContainer, layout: { (bar) in
             bar.snp.makeConstraints { make in
 //                make.height.equalTo(50)
+                make.top.equalToSuperview()
                 make.leading.equalToSuperview()
                 make.trailing.equalToSuperview()
             }
-            }))
+        }))
         
     }
     
@@ -117,6 +120,7 @@ extension TabManViewController : PageboyViewControllerDataSource, TMBarDataSourc
   }
 
   func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-      return nil
+//      return nil
+      return .at(index: 0)  // index를 통해 처음에 보이는 탭을 설정할 수 있다.
   }
 }

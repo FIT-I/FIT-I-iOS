@@ -1,26 +1,31 @@
 //
-//  ReviewTableViewCell.swift
+//  CommunityTableCell.swift
 //  FITI
 //
-//  Created by 홍준혁 on 2023/01/04.
+//  Created by 홍준혁 on 2023/01/12.
 //
 
+import Foundation
 import UIKit
+import SnapKit
 
-class ReviewTableCell: UITableViewCell {
+class CommunityTableCell: UITableViewCell {
     
-    static let identifier = "ReviewTabelCell"
+    static let identifier = "CommunityTableCell"
     
     var reviewerImage : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "reviewerIcon.svg")
+        imgView.snp.makeConstraints { make in
+            make.height.width.equalTo(40)
+        }
         return imgView
     }()
 
 
     var name : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12.0)
+        label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "홍준혁"
         label.textColor = UIColor.black
         return label
@@ -28,7 +33,7 @@ class ReviewTableCell: UITableViewCell {
     
     var date : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10.0)
+        label.font = UIFont.systemFont(ofSize: 12.0)
         label.text = "2022.12.2"
         label.textColor = UIColor.customColor(.darkGray)
         return label
@@ -42,64 +47,46 @@ class ReviewTableCell: UITableViewCell {
         image.image = UIImage(named: "star.svg")
         return image
     }()
-    
+
     var grade : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10.0)
+        label.font = UIFont.systemFont(ofSize: 12.0)
         label.text = "4.3"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
     
+    var school : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12.0)
+        label.text = "숭실대학교"
+        label.textColor = UIColor.customColor(.darkGray)
+        return label
+    }()
+    
     lazy var rateStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [starIcon,grade])
+        let stackView = UIStackView(arrangedSubviews: [starIcon,grade,school])
         stackView.axis = .horizontal
         stackView.spacing = 5
         stackView.alignment = .center
         return stackView
     }()
-    
-    lazy var dateStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [date,rateStackView])
-        stackView.axis = .horizontal
-        stackView.spacing = 12
-        stackView.alignment = .leading
-        return stackView
-    }()
+
     
     lazy var nameStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [name,dateStackView])
+        let stackView = UIStackView(arrangedSubviews: [name,rateStackView])
         stackView.axis = .vertical
         stackView.spacing = 5
         stackView.alignment = .leading
         return stackView
     }()
-    
-    lazy var topStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [reviewerImage,nameStackView])
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.alignment = .leading
-        return stackView
-    }()
-    
-    var reviewTextView : UITextView = {
-        let textView = UITextView()
-        textView.textColor = UIColor.black
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.backgroundColor = .systemBackground
-        textView.font = UIFont.systemFont(ofSize: 12.0)
-        // 더미 데이터
-        textView.text = "친절한 지도 감사합니다:)"
-        return textView
-    }()
+
     
     lazy var globalStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [topStackView,reviewTextView])
-        stackView.axis = .vertical
-        stackView.spacing = 5
-        stackView.alignment = .leading
+        let stackView = UIStackView(arrangedSubviews: [reviewerImage,nameStackView])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .center
         return stackView
     }()
     

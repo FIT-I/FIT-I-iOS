@@ -34,12 +34,29 @@ class BodyReviewView : UIView {
         return label
     }()
     
-    var reviewGradeLabel : UILabel = {
+    var starIcon : UIImageView = {
+        let image = UIImageView()
+        image.snp.makeConstraints { make in
+            make.height.width.equalTo(13)
+        }
+        image.image = UIImage(named: "star.svg")
+        return image
+    }()
+    
+    var gradeLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "평균 4.3"
         label.textColor = UIColor.customColor(.darkGray)
         return label
+    }()
+    
+    lazy var reviewGradeLabel : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [starIcon,gradeLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.alignment = .center
+        return stackView
     }()
     
     var bodyReviewLineView : UIView = {
@@ -53,7 +70,11 @@ class BodyReviewView : UIView {
     
     var reviewDetailBtn : UIButton = {
         let btn = UIButton()
-        btn.backgroundColor = UIColor.systemBackground
+        btn.snp.makeConstraints { make in
+            make.height.equalTo(16)
+            make.width.equalTo(12)
+        }
+        btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.setImage(UIImage(named: "rightBtn"), for: .normal)
 //        btn.addTarget(self, action: #selector(moveToReviewTableView), for: .touchUpInside)
         return btn
@@ -71,10 +92,18 @@ class BodyReviewView : UIView {
     }()
     
     lazy var reviewTopLeftStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [reviewImage,reviewLabel,reviewGradeLabel])
+        let stackView = UIStackView(arrangedSubviews: [reviewImage,reviewLabel])
         stackView.axis = .horizontal
         stackView.spacing = 8
         stackView.alignment = .trailing
+        return stackView
+    }()
+    
+    lazy var reviewTopRightStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [reviewGradeLabel,reviewDetailBtn])
+        stackView.axis = .horizontal
+        stackView.spacing = 8
+        stackView.alignment = .center
         return stackView
     }()
     
@@ -92,7 +121,8 @@ class BodyReviewView : UIView {
     
     func setViewHierarchy(){
         self.addSubview(reviewTopLeftStackView)
-        self.addSubview(reviewDetailBtn)
+//        self.addSubview(reviewDetailBtn)
+        self.addSubview(reviewTopRightStackView)
         self.addSubview(bodyReviewLineView)
         self.addSubview(reviewTableView)
     }
@@ -103,8 +133,9 @@ class BodyReviewView : UIView {
             make.top.equalToSuperview().offset(17)
             make.leading.equalToSuperview().offset(20)
         }
-        reviewDetailBtn.snp.makeConstraints { make in
-            make.centerY.equalTo(reviewTopLeftStackView)
+        reviewTopRightStackView.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(-17)
+            make.bottom.equalTo(reviewTopLeftStackView.snp.bottom)
             make.trailing.equalToSuperview().offset(-20)
         }
         bodyReviewLineView.snp.makeConstraints { make in
