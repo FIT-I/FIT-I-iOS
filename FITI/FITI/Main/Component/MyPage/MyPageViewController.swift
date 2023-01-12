@@ -20,9 +20,21 @@ class MyPageViewController: UIViewController {
     
     var settingBtn : UIButton = {
         let btn = UIButton()
+        btn.snp.makeConstraints { make in
+            make.height.width.equalTo(20)
+        }
         btn.setImage(UIImage(named: "gearshape.svg"), for: .normal)
         btn.addTarget(self, action: #selector(settingBtnEvent), for: .touchUpInside)
         return btn
+    }()
+    
+    private var progressView : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.customColor(.boxGray)
+        view.snp.makeConstraints { make in
+            make.height.equalTo(10)
+        }
+        return view
     }()
 
     // 프로필 스택 뷰
@@ -36,7 +48,7 @@ class MyPageViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
         view.snp.makeConstraints { make in
-            make.height.equalTo(3)
+            make.height.equalTo(2)
         }
         return view
     }()
@@ -62,6 +74,7 @@ class MyPageViewController: UIViewController {
 
         view.addSubview(myPageTitleLabel)
         view.addSubview(settingBtn)
+        view.addSubview(progressView)
         view.addSubview(midProfileStackView)
         view.addSubview(notiView)
         view.addSubview(lineView)
@@ -72,7 +85,7 @@ class MyPageViewController: UIViewController {
     func setConstraints(){
 
         myPageTitleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(80)
+            make.top.equalToSuperview().offset(70)
             make.leading.equalToSuperview().offset(24)
             make.trailing.equalToSuperview().offset(-24)
         }
@@ -80,8 +93,13 @@ class MyPageViewController: UIViewController {
             make.centerY.equalTo(myPageTitleLabel)
             make.trailing.equalToSuperview().offset(-24)
         }
+        progressView.snp.makeConstraints { make in
+            make.top.equalTo(myPageTitleLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
         midProfileStackView.snp.makeConstraints { make in
-            make.top.equalTo(myPageTitleLabel.snp.bottom).offset(15)
+            make.top.equalTo(progressView.snp.bottom).offset(15)
             make.leading.equalToSuperview().offset(24)
             make.trailing.equalToSuperview().offset(-23)
             make.height.equalTo(85)

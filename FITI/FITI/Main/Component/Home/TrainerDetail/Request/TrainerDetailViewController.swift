@@ -19,7 +19,8 @@ class TrainerDetailViewController: UIViewController {
     // 상단 뷰
     var topView : UIImageView = {
         let imgView = UIImageView()
-        imgView.image = UIImage(named: "dummyBeach.svg")
+//        imgView.image = UIImage(named: "dummyBeach.svg")
+        imgView.image = UIImage(named: "blueScreen.svg")
         return imgView
     }()
     

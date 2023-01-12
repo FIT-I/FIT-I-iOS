@@ -32,12 +32,29 @@ class HeadView : UIView {
         return image
     }()
     
+    var starIcon : UIImageView = {
+        let image = UIImageView()
+        image.snp.makeConstraints { make in
+            make.height.width.equalTo(10)
+        }
+        image.image = UIImage(named: "star.svg")
+        return image
+    }()
+    
     var grade : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
-        label.text = "평점 4.3"
+        label.text = "4.3"
         label.textColor = UIColor.customColor(.darkGray)
         return label
+    }()
+    
+    lazy var rateStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [starIcon,grade])
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.alignment = .center
+        return stackView
     }()
     
     var license : UILabel = {
@@ -65,7 +82,7 @@ class HeadView : UIView {
     }()
     
     lazy var gradeStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [grade,license,school])
+        let stackView = UIStackView(arrangedSubviews: [rateStackView,license,school])
         stackView.axis = .horizontal
         stackView.spacing = 8
         stackView.alignment = .leading
