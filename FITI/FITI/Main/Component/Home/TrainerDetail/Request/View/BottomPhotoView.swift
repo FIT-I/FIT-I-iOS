@@ -83,7 +83,6 @@ class BottomPhotoView: UIView {
         editerChoiceCV.snp.makeConstraints { make in
             make.top.equalTo(photoLineView.snp.bottom).offset(6)
             make.leading.trailing.bottom.equalToSuperview()
-//            make.bottom.equalToSuperview().offset(-46)
         }
     }
     
