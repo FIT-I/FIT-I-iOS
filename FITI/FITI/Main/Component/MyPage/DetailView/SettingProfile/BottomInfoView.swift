@@ -17,20 +17,6 @@ class BottomInfoView : UIView {
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    var phoneNumberTitle : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15.0)
-        label.text = "휴대폰 번호"
-        label.textColor = UIColor.customColor(.blue)
-        return label
-    }()
-    var userPhoneNumber : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15.0)
-        label.text = "010-1294-5678"
-        label.textColor = UIColor.customColor(.blue)
-        return label
-    }()
     var emailLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
@@ -42,16 +28,8 @@ class BottomInfoView : UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "skydh@naver.com"
-        label.textColor = UIColor.customColor(.blue)
+        label.textColor = UIColor.black
         return label
-    }()
-
-    lazy var phoneNumStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [phoneNumberTitle,userPhoneNumber])
-        stackView.axis = .vertical
-        stackView.spacing = 7
-        stackView.alignment = .leading
-        return stackView
     }()
     
     lazy var emailStackView : UIStackView = {

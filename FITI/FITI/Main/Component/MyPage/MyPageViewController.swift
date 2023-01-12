@@ -21,8 +21,10 @@ class MyPageViewController: UIViewController {
     var settingBtn : UIButton = {
         let btn = UIButton()
         btn.snp.makeConstraints { make in
-            make.height.width.equalTo(20)
+            make.height.equalTo(30)
+            make.width.equalTo(50)
         }
+//        btn.backgroundColor = .red
         btn.setImage(UIImage(named: "gearshape.svg"), for: .normal)
         btn.addTarget(self, action: #selector(settingBtnEvent), for: .touchUpInside)
         return btn
@@ -63,9 +65,14 @@ class MyPageViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
         
+        setViewLayer()
         setViewHierarchy()
         setConstraints()
         
+    }
+    
+    func setViewLayer(){
+        notiView.layer.cornerRadius = 10
     }
     
     func setViewHierarchy(){
@@ -106,8 +113,8 @@ class MyPageViewController: UIViewController {
         }
         notiView.snp.makeConstraints { make in
             make.top.equalTo(midProfileStackView.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
             make.height.equalTo(50)
         }
         lineView.snp.makeConstraints { make in

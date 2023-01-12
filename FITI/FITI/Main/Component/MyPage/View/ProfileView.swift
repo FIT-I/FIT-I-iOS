@@ -56,7 +56,7 @@ class ProfileView : UIView {
         let btn = UIButton()
         btn.setTitle("프로필 수정", for: .normal)
         btn.setTitleColor(UIColor.customColor(.darkGray), for: .normal)
-        btn.titleLabel?.font = .systemFont(ofSize: 12, weight: .medium)
+        btn.titleLabel?.font = UIFont(name: "Avenir-Black", size: 12.0)
         btn.backgroundColor = .systemBackground
         return btn
     }()
