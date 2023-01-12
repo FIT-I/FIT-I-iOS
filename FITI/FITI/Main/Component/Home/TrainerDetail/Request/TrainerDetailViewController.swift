@@ -16,6 +16,13 @@ class TrainerDetailViewController: UIViewController {
     
     //MARK: - UI Components
     
+    // 상단 뷰
+    var topView : UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "dummyBeach.svg")
+        return imgView
+    }()
+    
     // 네비 뷰
     private let toolBarContainerView : UIView = {
         let view = UIView()
@@ -68,16 +75,6 @@ class TrainerDetailViewController: UIViewController {
     
     // 리뷰
     let bodyReviewView = BodyReviewView()
-    
-    private lazy var reviewTableView : UITableView = {
-        let tableView = UITableView()
-        tableView.backgroundColor = UIColor.systemBackground
-        tableView.separatorStyle = .none
-        tableView.isScrollEnabled = false
-        tableView.dataSource = self
-        tableView.delegate = self
-        return tableView
-    }()
 
     // 사진 뷰
     let bottomPhotoView = BottomPhotoView()
@@ -93,12 +90,19 @@ class TrainerDetailViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
         
         setButtonEvent()
+        setViewLayer()
         setLayout()
-        register()
     }
     
     func setButtonEvent(){
         bodyReviewView.reviewDetailBtn.addTarget(self, action: #selector(moveToReviewTableView), for: .touchUpInside)
+    }
+    
+    func setViewLayer(){
+        bodyPriceView.layer.cornerRadius = 8
+        bodyIntroView.layer.cornerRadius = 8
+        bodyIntroAboutService.layer.cornerRadius = 8
+        bodyReviewView.layer.cornerRadius = 8
     }
     
     @objc func backTapped(sender: UIBarButtonItem) {
@@ -128,19 +132,12 @@ class TrainerDetailViewController: UIViewController {
             self.heartBtn.setImage(UIImage(named: "heart.svg"), for: .normal)
         }
     }
+    
 }
 
 //MARK: - Extension
 
 extension TrainerDetailViewController {
-    
-    //MARK: - register
-    
-    private func register() {
-        reviewTableView.register(PreviewReviewTableCell.self,
-                                 forCellReuseIdentifier: PreviewReviewTableCell.identifier
-        )
-    }
     
     //MARK: - setLayout
     
@@ -150,12 +147,12 @@ extension TrainerDetailViewController {
         view.addSubviews(contentScrollView, toolBarContainerView)
         toolBarContainerView.addSubviews(heartBtn,matchingRequest)
         contentScrollView.addSubviews(
+            topView,
             headView,
             bodyPriceView,
             bodyIntroView,
             bodyIntroAboutService,
             bodyReviewView,
-            reviewTableView,
             bottomPhotoView
         )
         
@@ -167,6 +164,7 @@ extension TrainerDetailViewController {
         bodyPriceView.backgroundColor = UIColor.customColor(.boxGray)
         bodyIntroView.backgroundColor = UIColor.customColor(.boxGray)
         bodyIntroAboutService.backgroundColor = UIColor.customColor(.boxGray)
+        bodyReviewView.backgroundColor = UIColor.customColor(.boxGray)
         
         //MARK: - toolBarLayout
         
@@ -198,70 +196,52 @@ extension TrainerDetailViewController {
         }
         
         //MARK: - containerViewLayout
+        topView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(180)
+        }
+        
         headView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-//            make.leading.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalToSuperview().offset(145)
             make.leading.equalToSuperview()
         }
+        
         bodyPriceView.snp.makeConstraints {
-//            $0.top.equalTo(headView.snp.bottom).offset(25)
             $0.top.equalTo(headView.snp.bottom).offset(20)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
             $0.height.equalTo(130)
         }
         
         bodyIntroView.snp.makeConstraints {
             $0.top.equalTo(bodyPriceView.snp.bottom).offset(25)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(130)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            $0.height.equalTo(160)
         }
         
         bodyIntroAboutService.snp.makeConstraints {
             $0.top.equalTo(bodyIntroView.snp.bottom).offset(25)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(220)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            $0.height.equalTo(250)
         }
         
         bodyReviewView.snp.makeConstraints {
             $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(50)
-        }
-        
-        reviewTableView.snp.makeConstraints {
-            $0.top.equalTo(bodyReviewView.snp.bottom).offset(10)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(250)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            $0.height.equalTo(350)
         }
-        
+
         bottomPhotoView.snp.makeConstraints {
-            $0.top.equalTo(reviewTableView.snp.bottom).offset(25)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(250)
+            $0.top.equalTo(bodyReviewView.snp.bottom).offset(25)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            $0.height.equalTo(200)
             $0.bottom.equalToSuperview()
         }
 
     }
-}
-
-//MARK: - ReviewTableView Delegate
-extension TrainerDetailViewController : UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reviewDummy.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let reviewCell = tableView.dequeueReusableCell(withIdentifier: PreviewReviewTableCell.identifier, for: indexPath) as? PreviewReviewTableCell else { return UITableViewCell() }
-        
-        reviewCell.dataBind(model: reviewDummy[indexPath.row])
-//        reviewCell.selectionStyle = .none
-        return reviewCell
-    }
-}
-
-
-extension TrainerDetailViewController : UITableViewDelegate {
-    
 }
