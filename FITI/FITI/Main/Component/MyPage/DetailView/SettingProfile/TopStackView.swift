@@ -24,7 +24,7 @@ class TopStackView : UIView {
         let btn = UIButton()
         btn.setImage(UIImage(named:"pencil.svg"), for: .normal)
         btn.snp.makeConstraints { make in
-            make.width.height.equalTo(15)
+            make.width.height.equalTo(30)
         }
         btn.backgroundColor = .systemBackground
         return btn
@@ -32,16 +32,16 @@ class TopStackView : UIView {
     
     var userName : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15.0)
+        label.font = UIFont(name: "Avenir-Black", size: 15.0)
         label.text = "슝슝이"
-        label.textColor = UIColor.customColor(.blue)
+        label.textColor = UIColor.black
         return label
     }()
     
     lazy var userNameStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [userName,settingUserName])
         stackView.axis = .horizontal
-        stackView.spacing = 7
+        stackView.spacing = 3
         stackView.alignment = .center
         return stackView
     }()

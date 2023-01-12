@@ -14,7 +14,7 @@ class ReviewViewController: UIViewController {
         let lb = UILabel()
         lb.text = "리뷰 전체보기"
         lb.textColor = UIColor.black
-        lb.font = UIFont.systemFont(ofSize: 20.0)
+        lb.font = UIFont(name: "Avenir-Black", size: 20.0)
         return lb
     }()
     
