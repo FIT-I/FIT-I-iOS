@@ -35,6 +35,7 @@ class BookCVC: UICollectionViewCell {
     
     func dataBind(image : UIImage) {
         editerChoiceImageView.image = image
+        
     }
     
     private func setLayout() {

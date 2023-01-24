@@ -5,11 +5,17 @@
 //  Created by 홍준혁 on 2023/01/11.
 //
 
-import Foundation
 import UIKit
 import SnapKit
+import Moya
 
 class MakeAccountViewController: UIViewController {
+    
+    // MoyaTarget과 상호작용하는 MoyaProvider를 생성하기 위해 MoyaProvider인스턴스 생성
+    private let provider = MoyaProvider<SignServices>()
+    // ResponseModel를 userData에 넣어주자!
+    var userData: SignUpModel?
+    var responseData : SignUpResponse?
     
     var titleLabel : UILabel = {
         let label = UILabel()
@@ -48,8 +54,6 @@ class MakeAccountViewController: UIViewController {
         tf.textColor = UIColor.customColor(.blue)
         tf.setLeftPaddingPoints(10)
         tf.addTarget(self, action: #selector(emailTfDidChange), for: .editingChanged)
-
-//        tf.addTarget(self, action: #selector(handleMajorTfDidChange), for: .editingChanged)
         return tf
     }()
     
@@ -67,8 +71,6 @@ class MakeAccountViewController: UIViewController {
         tf.setLeftPaddingPoints(10)
         tf.isSecureTextEntry = true
         tf.addTarget(self, action: #selector(pwTfDidChange), for: .editingChanged)
-
-//        tf.addTarget(self, action: #selector(handleMajorTfDidChange), for: .editingChanged)
         return tf
     }()
     
@@ -86,7 +88,6 @@ class MakeAccountViewController: UIViewController {
         tf.isSecureTextEntry = true
         tf.setLeftPaddingPoints(10)
         tf.addTarget(self, action: #selector(pwCheckTfDidChange), for: .editingChanged)
-//        tf.addTarget(self, action: #selector(handleMajorTfDidChange), for: .editingChanged)
         return tf
     }()
     
@@ -232,12 +233,33 @@ class MakeAccountViewController: UIViewController {
         
     }
     
+    //MARK: - FUNC
+    
+    func postServer(){
+        let param = SignUpRequest.init(self.nameTextField.text ?? "",self.emailTextField.text ?? "",self.pwTextField.text ?? "")
+        print(param)
+        provider.request(.signUp(param: param)) { response in
+                switch response {
+                case .success(let moyaResponse):
+                    do {
+                        self.responseData = try moyaResponse.map(SignUpResponse.self)
+                        print(moyaResponse.statusCode)
+                    } catch(let err) {
+                        print(err.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+            }
+        }
+    }
+    
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
     
     @objc func touchNextBtnEvent() {
         if(nextButton.backgroundColor == UIColor.customColor(.blue)){
+            self.postServer()
             let nextVC = GradeTableViewController()
             navigationController?.pushViewController(nextVC, animated: true)
         }

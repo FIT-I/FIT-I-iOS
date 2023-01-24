@@ -67,6 +67,18 @@
 		91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D4F2961868500F29DA5 /* CommunityViewController.swift */; };
 		91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D512961869000F29DA5 /* ChatViewController.swift */; };
 		91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D532961869C00F29DA5 /* MyPageViewController.swift */; };
+		91CFCFC2297FF8D40009944D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFC1297FF8D40009944D /* RealmService.swift */; };
+		91CFCFC8297FFA4D0009944D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 91CFCFC7297FFA4D0009944D /* Realm */; };
+		91CFCFCA297FFA4D0009944D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 91CFCFC9297FFA4D0009944D /* RealmSwift */; };
+		91CFCFCC297FFA710009944D /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFCB297FFA710009944D /* Token.swift */; };
+		91CFCFCE297FFAFC0009944D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFCD297FFAFC0009944D /* Profile.swift */; };
+		91CFCFD0297FFB720009944D /* CustomNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFCF297FFB720009944D /* CustomNotification.swift */; };
+		91CFCFD3298001ED0009944D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 91CFCFD2298001ED0009944D /* Moya */; };
+		91CFCFD72980021C0009944D /* SignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFD62980021C0009944D /* SignService.swift */; };
+		91CFCFD9298002560009944D /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFD8298002560009944D /* BaseURL.swift */; };
+		91CFCFDB298002DF0009944D /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFDA298002DF0009944D /* SignInRequest.swift */; };
+		91CFCFDD298002E70009944D /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFDC298002E70009944D /* SignUpRequest.swift */; };
+		91CFCFE1298004CF0009944D /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFE0298004CF0009944D /* SignUpModel.swift */; };
 		91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C51029649C78005AF859 /* ReviewViewController.swift */; };
 		91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C5152964A034005AF859 /* ReviewTableCell.swift */; };
 		91F75B00296C109200B31F3B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 91F75AFF296C109200B31F3B /* Tabman */; };
@@ -129,7 +141,6 @@
 		91C32D30296184AA00F29DA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		91C32D37296184AD00F29DA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91C32D3A296184AD00F29DA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		91C32D3C296184AD00F29DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91C32D422961857400F29DA5 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		91C32D492961863E00F29DA5 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		91C32D4B2961866100F29DA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -137,6 +148,15 @@
 		91C32D4F2961868500F29DA5 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		91C32D512961869000F29DA5 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		91C32D532961869C00F29DA5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		91CFCFC1297FF8D40009944D /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		91CFCFCB297FFA710009944D /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		91CFCFCD297FFAFC0009944D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		91CFCFCF297FFB720009944D /* CustomNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotification.swift; sourceTree = "<group>"; };
+		91CFCFD62980021C0009944D /* SignService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignService.swift; sourceTree = "<group>"; };
+		91CFCFD8298002560009944D /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		91CFCFDA298002DF0009944D /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
+		91CFCFDC298002E70009944D /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
+		91CFCFE0298004CF0009944D /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		91D7C51029649C78005AF859 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		91D7C5152964A034005AF859 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
 		91F75B01296C10A800B31F3B /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
@@ -151,10 +171,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91CFCFCA297FFA4D0009944D /* RealmSwift in Frameworks */,
 				91C32D46296185B900F29DA5 /* SnapKit in Frameworks */,
 				91F75B00296C109200B31F3B /* Tabman in Frameworks */,
 				910D80652965E5C200828E4B /* FSCalendar in Frameworks */,
 				913E02CD2963505A001CC92B /* Then in Frameworks */,
+				91CFCFD3298001ED0009944D /* Moya in Frameworks */,
+				91CFCFC8297FFA4D0009944D /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +205,6 @@
 				91F75B0F296C129400B31F3B /* FoodTrainer */,
 				91F75B10296C12AA00B31F3B /* RehabilitationTrainer */,
 				91F75B11296C12C100B31F3B /* FriendTrainer */,
-				913E02C829634607001CC92B /* TrainerDetail */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -438,8 +460,8 @@
 			isa = PBXGroup;
 			children = (
 				91CFCFC0297FF6F80009944D /* Network */,
-				91CFCFBD297FF5EA0009944D /* Global */,
 				91CFCFBC297FF5280009944D /* Screen */,
+				91CFCFBD297FF5EA0009944D /* Global */,
 			);
 			path = FITI;
 			sourceTree = "<group>";
@@ -451,6 +473,7 @@
 				91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */,
 				917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */,
 				910182BC29618CA100FC10DB /* Home */,
+				913E02C829634607001CC92B /* TrainerDetail */,
 				910182BD29618CA700FC10DB /* Community */,
 				910182BE29618CAF00FC10DB /* Chat */,
 				910182BF29618CB500FC10DB /* MyPage */,
@@ -475,7 +498,6 @@
 			children = (
 				91C32D30296184AA00F29DA5 /* SceneDelegate.swift */,
 				91C32D2E296184AA00F29DA5 /* AppDelegate.swift */,
-				91C32D3C296184AD00F29DA5 /* Info.plist */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -491,8 +513,49 @@
 		91CFCFC0297FF6F80009944D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				91CFCFDF298004C20009944D /* Model */,
+				91CFCFD5298002070009944D /* Moya */,
+				91CFCFD4298001F50009944D /* LocalDB */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		91CFCFD4298001F50009944D /* LocalDB */ = {
+			isa = PBXGroup;
+			children = (
+				91CFCFC1297FF8D40009944D /* RealmService.swift */,
+				91CFCFCB297FFA710009944D /* Token.swift */,
+				91CFCFCD297FFAFC0009944D /* Profile.swift */,
+				91CFCFCF297FFB720009944D /* CustomNotification.swift */,
+			);
+			path = LocalDB;
+			sourceTree = "<group>";
+		};
+		91CFCFD5298002070009944D /* Moya */ = {
+			isa = PBXGroup;
+			children = (
+				91CFCFD8298002560009944D /* BaseURL.swift */,
+				91CFCFDE2980031E0009944D /* SignAPI */,
+			);
+			path = Moya;
+			sourceTree = "<group>";
+		};
+		91CFCFDE2980031E0009944D /* SignAPI */ = {
+			isa = PBXGroup;
+			children = (
+				91CFCFD62980021C0009944D /* SignService.swift */,
+				91CFCFDC298002E70009944D /* SignUpRequest.swift */,
+				91CFCFDA298002DF0009944D /* SignInRequest.swift */,
+			);
+			path = SignAPI;
+			sourceTree = "<group>";
+		};
+		91CFCFDF298004C20009944D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				91CFCFE0298004CF0009944D /* SignUpModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		91D7C51229649F94005AF859 /* Review */ = {
@@ -566,6 +629,9 @@
 				913E02CC2963505A001CC92B /* Then */,
 				910D80642965E5C200828E4B /* FSCalendar */,
 				91F75AFF296C109200B31F3B /* Tabman */,
+				91CFCFC7297FFA4D0009944D /* Realm */,
+				91CFCFC9297FFA4D0009944D /* RealmSwift */,
+				91CFCFD2298001ED0009944D /* Moya */,
 			);
 			productName = FITI;
 			productReference = 91C32D2B296184AA00F29DA5 /* FITI.app */;
@@ -600,6 +666,8 @@
 				913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */,
 				910D80632965E5C200828E4B /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				91F75AFE296C109200B31F3B /* XCRemoteSwiftPackageReference "Tabman" */,
+				91CFCFC6297FFA4D0009944D /* XCRemoteSwiftPackageReference "realm-swift" */,
+				91CFCFD1298001ED0009944D /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 91C32D2C296184AA00F29DA5 /* Products */;
 			projectDirPath = "";
@@ -636,13 +704,16 @@
 				91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */,
 				917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */,
 				91877D6A2969269D0074386B /* RequestSheet.swift in Sources */,
+				91CFCFE1298004CF0009944D /* SignUpModel.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
 				91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */,
 				91185FC9296D8C360099B641 /* BookCVC.swift in Sources */,
 				91F75B07296C116500B31F3B /* FoodTrainerViewController.swift in Sources */,
 				9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */,
+				91CFCFD9298002560009944D /* BaseURL.swift in Sources */,
 				9163A4C5297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
+				91CFCFCE297FFAFC0009944D /* Profile.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */,
 				91185FC3296D86900099B641 /* BodyIntroAboutServiceView.swift in Sources */,
@@ -664,8 +735,11 @@
 				91185FBF296D83330099B641 /* BodyPriceView.swift in Sources */,
 				9130CA14296B0F9F00FC5107 /* WithdrawViewController.swift in Sources */,
 				917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */,
+				91CFCFDB298002DF0009944D /* SignInRequest.swift in Sources */,
 				913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */,
 				9130CA1D296B3CAF00FC5107 /* BottomInfoView.swift in Sources */,
+				91CFCFCC297FFA710009944D /* Token.swift in Sources */,
+				91CFCFD72980021C0009944D /* SignService.swift in Sources */,
 				910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */,
 				9130CA03296AFBFE00FC5107 /* BottomBtnView.swift in Sources */,
 				91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */,
@@ -673,11 +747,13 @@
 				91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */,
 				9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */,
 				9130CA09296B055100FC5107 /* SearchViewController.swift in Sources */,
+				91CFCFDD298002E70009944D /* SignUpRequest.swift in Sources */,
 				917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */,
 				9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */,
 				916A2C49297090D3005F0420 /* FindPwViewController.swift in Sources */,
 				9130CA0B296B055E00FC5107 /* NoticeViewController.swift in Sources */,
 				910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */,
+				91CFCFD0297FFB720009944D /* CustomNotification.swift in Sources */,
 				91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
 				916A2C47297056F2005F0420 /* CommunityTableCell.swift in Sources */,
@@ -685,6 +761,7 @@
 				91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */,
 				91F75B09296C11A800B31F3B /* RehabilitationTrainerViewController.swift in Sources */,
 				91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */,
+				91CFCFC2297FF8D40009944D /* RealmService.swift in Sources */,
 				9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */,
 				910D805629656AA400828E4B /* PickDateViewController.swift in Sources */,
 				91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */,
@@ -922,6 +999,22 @@
 				kind = branch;
 			};
 		};
+		91CFCFC6297FFA4D0009944D /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		91CFCFD1298001ED0009944D /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		91F75AFE296C109200B31F3B /* XCRemoteSwiftPackageReference "Tabman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uias/Tabman";
@@ -947,6 +1040,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91C32D44296185B900F29DA5 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		91CFCFC7297FFA4D0009944D /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91CFCFC6297FFA4D0009944D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		91CFCFC9297FFA4D0009944D /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91CFCFC6297FFA4D0009944D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		91CFCFD2298001ED0009944D /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91CFCFD1298001ED0009944D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 		91F75AFF296C109200B31F3B /* Tabman */ = {
 			isa = XCSwiftPackageProductDependency;
