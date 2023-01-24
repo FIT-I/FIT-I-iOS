@@ -19,7 +19,6 @@ class TrainerDetailViewController: UIViewController {
     // 상단 뷰
     var topView : UIImageView = {
         let imgView = UIImageView()
-//        imgView.image = UIImage(named: "dummyBeach.svg")
         imgView.image = UIImage(named: "blueScreen.svg")
         return imgView
     }()
@@ -97,6 +96,8 @@ class TrainerDetailViewController: UIViewController {
     
     func setButtonEvent(){
         bodyReviewView.reviewDetailBtn.addTarget(self, action: #selector(moveToReviewTableView), for: .touchUpInside)
+        bodyIntroView.textDetailBtn.addTarget(self, action: #selector(moveToBodyIntroDetailIntroView), for: .touchUpInside)
+        bodyIntroAboutService.textDetailBtn.addTarget(self, action: #selector(moveToAboutServiceDetailIntroView), for: .touchUpInside)
     }
     
     func setViewLayer(){
@@ -124,6 +125,16 @@ class TrainerDetailViewController: UIViewController {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
+    @objc func moveToBodyIntroDetailIntroView(){
+        let nextVC = DetailBodyIntroViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    @objc func moveToAboutServiceDetailIntroView(){
+        let nextVC = DetailBodyIntroAboutServiceViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+
     @objc func heartTouchEvent(){
         if isHeartFull == false {
             self.isHeartFull = true
@@ -219,14 +230,14 @@ extension TrainerDetailViewController {
             $0.top.equalTo(bodyPriceView.snp.bottom).offset(25)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.height.equalTo(160)
+            $0.height.equalTo(180)
         }
         
         bodyIntroAboutService.snp.makeConstraints {
             $0.top.equalTo(bodyIntroView.snp.bottom).offset(25)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.height.equalTo(250)
+            $0.height.equalTo(270)
         }
         
         bodyReviewView.snp.makeConstraints {

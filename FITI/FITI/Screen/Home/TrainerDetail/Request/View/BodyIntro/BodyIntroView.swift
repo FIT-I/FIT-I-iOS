@@ -52,6 +52,13 @@ class BodyIntroView : UIView {
         return textView
     }()
     
+    var textDetailBtn: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = UIColor.customColor(.boxGray)
+        btn.setImage(UIImage(named: "chevron.compact.down.svg"), for: .normal)
+        return btn
+    }()
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -67,7 +74,7 @@ class BodyIntroView : UIView {
         self.addSubview(introTopStackView)
         self.addSubview(introLineView)
         self.addSubview(introTextView)
-        
+        self.addSubview(textDetailBtn)
     }
     
     func setConstraints(){
@@ -85,6 +92,13 @@ class BodyIntroView : UIView {
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(90)
+        }
+        textDetailBtn.snp.makeConstraints { make in
+            make.top.equalTo(introTextView.snp.bottom)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(20)
+            make.bottom.equalToSuperview().offset(-5)
         }
     }
 }
