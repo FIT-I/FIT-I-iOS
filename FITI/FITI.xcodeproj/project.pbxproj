@@ -40,6 +40,10 @@
 		9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA23296B558900FC5107 /* SearchTVC.swift */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
 		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
+		9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4BC2976FC5C00577DC3 /* DetailBodyIntroViewController.swift */; };
+		9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4BE2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift */; };
+		9163A4C12977081600577DC3 /* DetailBodyIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4C02977081600577DC3 /* DetailBodyIntroView.swift */; };
+		9163A4C5297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4C4297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift */; };
 		916A2C47297056F2005F0420 /* CommunityTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A2C46297056F2005F0420 /* CommunityTableCell.swift */; };
 		916A2C49297090D3005F0420 /* FindPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A2C48297090D3005F0420 /* FindPwViewController.swift */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
@@ -105,6 +109,10 @@
 		9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserNameViewController.swift; sourceTree = "<group>"; };
 		9130CA23296B558900FC5107 /* SearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVC.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		9163A4BC2976FC5C00577DC3 /* DetailBodyIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroViewController.swift; sourceTree = "<group>"; };
+		9163A4BE2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroAboutServiceView.swift; sourceTree = "<group>"; };
+		9163A4C02977081600577DC3 /* DetailBodyIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroView.swift; sourceTree = "<group>"; };
+		9163A4C4297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroAboutServiceViewController.swift; sourceTree = "<group>"; };
 		916A2C46297056F2005F0420 /* CommunityTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableCell.swift; sourceTree = "<group>"; };
 		916A2C48297090D3005F0420 /* FindPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwViewController.swift; sourceTree = "<group>"; };
 		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
@@ -163,26 +171,6 @@
 				917D3CFF296EBA2D0060F802 /* UIViewController+.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		910182BA29618C8300FC10DB /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				91C32D4B2961866100F29DA5 /* TabBarController.swift */,
-				910182BB29618C9100FC10DB /* Component */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		910182BB29618C9100FC10DB /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				910182BC29618CA100FC10DB /* Home */,
-				910182BD29618CA700FC10DB /* Community */,
-				910182BE29618CAF00FC10DB /* Chat */,
-				910182BF29618CB500FC10DB /* MyPage */,
-			);
-			path = Component;
 			sourceTree = "<group>";
 		};
 		910182BC29618CA100FC10DB /* Home */ = {
@@ -297,11 +285,9 @@
 			children = (
 				91185FBC296D7E3A0099B641 /* HeadView.swift */,
 				91185FBE296D83330099B641 /* BodyPriceView.swift */,
-				91185FC0296D85160099B641 /* BodyIntroView.swift */,
-				91185FC2296D86900099B641 /* BodyIntroAboutServiceView.swift */,
-				91185FC4296D87930099B641 /* BodyReviewView.swift */,
-				91185FCF296DBD6C0099B641 /* PreviewReviewTableCell.swift */,
-				91185FD1296DBDCC0099B641 /* ReviewModel.swift */,
+				9163A4C22977111D00577DC3 /* BodyIntro */,
+				9163A4C32977114600577DC3 /* BodyIntroAboutService */,
+				9163A4C6297716A400577DC3 /* BodyReview */,
 				91185FC6296D88DA0099B641 /* BottomPhotoView.swift */,
 				91185FC8296D8C360099B641 /* BookCVC.swift */,
 			);
@@ -402,6 +388,36 @@
 			path = TrainerDetail;
 			sourceTree = "<group>";
 		};
+		9163A4C22977111D00577DC3 /* BodyIntro */ = {
+			isa = PBXGroup;
+			children = (
+				91185FC0296D85160099B641 /* BodyIntroView.swift */,
+				9163A4C02977081600577DC3 /* DetailBodyIntroView.swift */,
+				9163A4BC2976FC5C00577DC3 /* DetailBodyIntroViewController.swift */,
+			);
+			path = BodyIntro;
+			sourceTree = "<group>";
+		};
+		9163A4C32977114600577DC3 /* BodyIntroAboutService */ = {
+			isa = PBXGroup;
+			children = (
+				91185FC2296D86900099B641 /* BodyIntroAboutServiceView.swift */,
+				9163A4BE2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift */,
+				9163A4C4297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift */,
+			);
+			path = BodyIntroAboutService;
+			sourceTree = "<group>";
+		};
+		9163A4C6297716A400577DC3 /* BodyReview */ = {
+			isa = PBXGroup;
+			children = (
+				91185FC4296D87930099B641 /* BodyReviewView.swift */,
+				91185FCF296DBD6C0099B641 /* PreviewReviewTableCell.swift */,
+				91185FD1296DBDCC0099B641 /* ReviewModel.swift */,
+			);
+			path = BodyReview;
+			sourceTree = "<group>";
+		};
 		91C32D22296184AA00F29DA5 = {
 			isa = PBXGroup;
 			children = (
@@ -421,18 +437,62 @@
 		91C32D2D296184AA00F29DA5 /* FITI */ = {
 			isa = PBXGroup;
 			children = (
-				910182BA29618C8300FC10DB /* Main */,
-				910182C029618CCA00FC10DB /* SignIn */,
-				910D80662966C98E00828E4B /* SignUp */,
-				910182B929618C7900FC10DB /* Extension */,
-				91C32D2E296184AA00F29DA5 /* AppDelegate.swift */,
-				91C32D30296184AA00F29DA5 /* SceneDelegate.swift */,
-				917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */,
-				91C32D37296184AD00F29DA5 /* Assets.xcassets */,
-				91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */,
-				91C32D3C296184AD00F29DA5 /* Info.plist */,
+				91CFCFC0297FF6F80009944D /* Network */,
+				91CFCFBD297FF5EA0009944D /* Global */,
+				91CFCFBC297FF5280009944D /* Screen */,
 			);
 			path = FITI;
+			sourceTree = "<group>";
+		};
+		91CFCFBC297FF5280009944D /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				91C32D4B2961866100F29DA5 /* TabBarController.swift */,
+				91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */,
+				917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */,
+				910182BC29618CA100FC10DB /* Home */,
+				910182BD29618CA700FC10DB /* Community */,
+				910182BE29618CAF00FC10DB /* Chat */,
+				910182BF29618CB500FC10DB /* MyPage */,
+				910D80662966C98E00828E4B /* SignUp */,
+				910182C029618CCA00FC10DB /* SignIn */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		91CFCFBD297FF5EA0009944D /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				910182B929618C7900FC10DB /* Extension */,
+				91CFCFBF297FF68A0009944D /* Resource */,
+				91CFCFBE297FF62B0009944D /* Supports */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		91CFCFBE297FF62B0009944D /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				91C32D30296184AA00F29DA5 /* SceneDelegate.swift */,
+				91C32D2E296184AA00F29DA5 /* AppDelegate.swift */,
+				91C32D3C296184AD00F29DA5 /* Info.plist */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		91CFCFBF297FF68A0009944D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				91C32D37296184AD00F29DA5 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		91CFCFC0297FF6F80009944D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		91D7C51229649F94005AF859 /* Review */ = {
@@ -570,6 +630,7 @@
 				91877D6C2969A0A00074386B /* ProfileView.swift in Sources */,
 				917D3CF8296EB2D30060F802 /* MakeAccountViewController.swift in Sources */,
 				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
+				9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */,
 				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
 				91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */,
@@ -580,8 +641,10 @@
 				91185FC9296D8C360099B641 /* BookCVC.swift in Sources */,
 				91F75B07296C116500B31F3B /* FoodTrainerViewController.swift in Sources */,
 				9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */,
+				9163A4C5297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
+				9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */,
 				91185FC3296D86900099B641 /* BodyIntroAboutServiceView.swift in Sources */,
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
 				91185FBB296D58180099B641 /* PickServicePrice.swift in Sources */,
@@ -595,6 +658,7 @@
 				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,
 				91185FD0296DBD6C0099B641 /* PreviewReviewTableCell.swift in Sources */,
 				917D3CFE296EB3330060F802 /* UITextField+.swift in Sources */,
+				9163A4C12977081600577DC3 /* DetailBodyIntroView.swift in Sources */,
 				91185FCC296DBCC80099B641 /* TrainerDetailViewController.swift in Sources */,
 				91877D702969B1970074386B /* BottomView.swift in Sources */,
 				91185FBF296D83330099B641 /* BodyPriceView.swift in Sources */,
