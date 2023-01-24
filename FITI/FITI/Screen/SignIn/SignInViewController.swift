@@ -5,12 +5,22 @@
 //  Created by 박윤빈 on 2023/01/11.
 //
 
-import Foundation
 import UIKit
 import SnapKit
+import Moya
 
 class SignInViewController: UIViewController {
 
+    static var FcmToken:String!
+    static var ID:String!
+    static var PW:String!
+    
+    // MoyaTarget과 상호작용하는 MoyaProvider를 생성하기 위해 MoyaProvider인스턴스 생성
+    private let provider = MoyaProvider<SignServices>()
+    var userData: SignInModel?
+    var responseData: SignInResponse?
+    let realm = RealmService()
+    
     private let titleLabel : UILabel = {
         let label = UILabel()
         label.text = "Trainer-Login"
@@ -107,6 +117,10 @@ class SignInViewController: UIViewController {
 
         signInViewAddUI()
         signInViewSetUI()
+        
+        if checkRealmToken() {
+            ifSuccessPushHome()
+        }
 
         self.dismissKeyboard()
     }
@@ -163,6 +177,15 @@ class SignInViewController: UIViewController {
 
     }
     
+    // 로컬db에 토큰이 있는지 확인하는 함수
+    func checkRealmToken()->Bool{
+        if realm.getToken() == ""{
+            return false
+        }else{
+            return true
+        }
+    }
+    
     @objc func signUpBtnEvent(){
         
         let nextVC = PolicyViewController()
@@ -200,10 +223,63 @@ class SignInViewController: UIViewController {
     }
     
     @objc func touchNextBtnEvent() {
-        if((idTextField.text != "") && (passwordTextField.text != "")){
-            let nextVC = TabBarController()
-            navigationController?.pushViewController(nextVC, animated: true)
+        
+        switch checkRealmToken() {
+        case false :   // 토근 발급 전
+            // 서버 통신
+            print("no token")
+            if((idTextField.text != "") && (passwordTextField.text != "")){
+                self.postServer()
+            }else {
+                self.showFailAlert()
+            }
+        default:
+            ifSuccessPushHome()
         }
+    }
+    
+    func postServer(){
+        // server
+        let param = SignInRequest.init(self.idTextField.text ?? "" ,self.passwordTextField.text ?? "")
+        print(param)
+        self.provider.request(.signIn(param: param)){ response in
+            switch response {
+                case .success(let moyaResponse):
+                    do {
+                        print(moyaResponse.statusCode)
+                        let responseData = try moyaResponse.map(SignInResponse.self)
+                        self.addTokenInRealm(item: responseData.result.token)
+                        self.ifSuccessPushHome()
+                    } catch(let err) {
+                        print(err.localizedDescription)
+                        self.showFailAlert()
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+                self.showFailAlert()
+            }
+        }
+    }
+    
+    private func ifSuccessPushHome(){
+        let nextVC = GradeTableViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    func addTokenInRealm(item:String){
+        // add token in realm
+        realm.addToken(item: item)
+        print(realm.getToken())
+    }
+    
+    func showFailAlert(){
+        let alert = UIAlertController(title: "로그인 실패", message: "이메일 또는 비밀번호를 확인해주세요.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { okAction in
+            self.idTextField.text = ""
+            self.passwordTextField.text = ""
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 
 }

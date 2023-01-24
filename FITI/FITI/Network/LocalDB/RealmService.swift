@@ -16,11 +16,12 @@ class RealmService{
         let token =  Token(token: item)
         try! localRealm.write{
             localRealm.add(token)
+            
         }
     }
     
-    func addProfile(ID:String,PW:String,Email:String,Location:String){
-        let profile = Profile(ID: ID, PW: PW, Email: Email, Location: Location)
+    func addProfile(Name:String,PW:String,Email:String,Location:String){
+        let profile = Profile(Name: Name, PW: PW, Email: Email, Location: Location)
         try! localRealm.write{
             localRealm.add(profile)
         }
@@ -38,9 +39,9 @@ class RealmService{
         return token.last?.token ?? ""
     }
     
-    func getProfileID()->String{
+    func getProfileName()->String{
         let profile = localRealm.objects(Profile.self)
-        return profile.last?.ID ?? ""
+        return profile.last?.Name ?? ""
     }
     
     func getProfilePW()->String{

@@ -11,7 +11,7 @@ import Realm
 class Profile:Object{
     @Persisted(primaryKey: true) var _id: ObjectId
     
-    @Persisted var ID:String = ""
+    @Persisted var Name:String = ""
     @Persisted var PW:String = ""
     @Persisted var Email:String = ""
     @Persisted var Location:String = ""
@@ -20,9 +20,9 @@ class Profile:Object{
       return "profile"
     }
     
-    convenience init(ID:String,PW:String,Email:String,Location:String){
+    convenience init(Name:String,PW:String,Email:String,Location:String){
         self.init()
-        self.ID = ID
+        self.Name = Name
         self.PW = PW
         self.Email = Email
         self.Location = Location
