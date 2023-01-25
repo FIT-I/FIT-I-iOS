@@ -243,21 +243,20 @@
 			children = (
 				916A2C48297090D3005F0420 /* FindPwViewController.swift */,
 				91C32D422961857400F29DA5 /* SignInViewController.swift */,
+				917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
 		};
-		910D80522965667100828E4B /* Request */ = {
+		910D80522965667100828E4B /* RequestSheet */ = {
 			isa = PBXGroup;
 			children = (
-				91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */,
-				91185FCA296D8CB10099B641 /* View */,
 				910D805E2965E26200828E4B /* PickService */,
 				910D805F2965E2DC00828E4B /* PickDate */,
 				910D80602965E2EB00828E4B /* PickPlace */,
 				910D80622965E30600828E4B /* RequestResult */,
 			);
-			path = Request;
+			path = RequestSheet;
 			sourceTree = "<group>";
 		};
 		910D805E2965E26200828E4B /* PickService */ = {
@@ -406,7 +405,8 @@
 		913E02C829634607001CC92B /* TrainerDetail */ = {
 			isa = PBXGroup;
 			children = (
-				910D80522965667100828E4B /* Request */,
+				91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */,
+				91185FCA296D8CB10099B641 /* View */,
 				91D7C51229649F94005AF859 /* Review */,
 			);
 			path = TrainerDetail;
@@ -471,11 +471,11 @@
 		91CFCFBC297FF5280009944D /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				91C32D4B2961866100F29DA5 /* TabBarController.swift */,
 				91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */,
-				917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */,
+				91C32D4B2961866100F29DA5 /* TabBarController.swift */,
 				910182BC29618CA100FC10DB /* Home */,
 				913E02C829634607001CC92B /* TrainerDetail */,
+				910D80522965667100828E4B /* RequestSheet */,
 				910182BD29618CA700FC10DB /* Community */,
 				910182BE29618CAF00FC10DB /* Chat */,
 				910182BF29618CB500FC10DB /* MyPage */,

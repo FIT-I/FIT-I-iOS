@@ -14,7 +14,7 @@ class MakeAccountViewController: UIViewController {
     // MoyaTarget과 상호작용하는 MoyaProvider를 생성하기 위해 MoyaProvider인스턴스 생성
     private let provider = MoyaProvider<SignServices>()
     // ResponseModel를 userData에 넣어주자!
-    var userData: SignUpModel?
+//    var userData: SignUpModel?
 //    var responseData : SignUpResponse?
     
     var titleLabel : UILabel = {
@@ -236,14 +236,13 @@ class MakeAccountViewController: UIViewController {
     //MARK: - FUNC
     
     func postServer(){
-        let param = SignUpRequest.init(self.nameTextField.text ?? "",self.emailTextField.text ?? "",self.pwTextField.text ?? "","CUSTOMER")
+        let param = SignUpRequest.init(self.nameTextField.text ?? "",self.emailTextField.text ?? "",self.pwTextField.text ?? "","customerProfile1")
         provider.request(.signUp(param: param)) { response in
                 switch response {
                 case .success(let moyaResponse):
                     do {
                         print("success")
                         let responseData = try moyaResponse.map(SignUpResponse.self)
-                        print(moyaResponse.statusCode)
                         print(responseData.message)
                     } catch(let err) {
                         print(err.localizedDescription)

@@ -31,7 +31,7 @@ class SignInViewController: UIViewController {
     }()
 
     
-    let idTextField : UITextField = {
+    lazy var idTextField : UITextField = {
         let tf = UITextField()
         tf.attributedPlaceholder = NSAttributedString(
                     string: "아이디",
@@ -48,7 +48,7 @@ class SignInViewController: UIViewController {
         return tf
     }()
 
-    let passwordTextField : UITextField = {
+    lazy var passwordTextField : UITextField = {
         let tf = UITextField()
         tf.attributedPlaceholder = NSAttributedString(
                     string: "비밀번호",
@@ -65,7 +65,7 @@ class SignInViewController: UIViewController {
         return tf
     }()
 
-    let findPasswordButton : UIButton = {
+    lazy var findPasswordButton : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = .none
         btn.setTitle("비밀번호 찾기", for: .normal)
@@ -77,7 +77,7 @@ class SignInViewController: UIViewController {
         return btn
     }()
 
-    let signUpButton : UIButton = {
+    lazy var signUpButton : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = .none
         btn.setTitle("회원가입", for: .normal)
@@ -97,7 +97,7 @@ class SignInViewController: UIViewController {
         return stackView
     }()
     
-    let nextButton : UIButton = {
+    lazy var nextButton : UIButton = {
            let btn = UIButton()
             btn.backgroundColor = UIColor.customColor(.gray)
             btn.setTitle("로그인", for: .normal)
@@ -113,10 +113,11 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        // Do any additional setup after loading the view.
-
+        self.navigationItem.hidesBackButton = true
         signInViewAddUI()
         signInViewSetUI()
+        
+//        self.realm.resetDB()
         
         if checkRealmToken() {
             ifSuccessPushHome()
@@ -225,13 +226,10 @@ class SignInViewController: UIViewController {
     @objc func touchNextBtnEvent() {
         
         switch checkRealmToken() {
-        case false :   // 토근 발급 전
+        case false :
             // 서버 통신
-            print("no token")
             if((idTextField.text != "") && (passwordTextField.text != "")){
                 self.postServer()
-            }else {
-                self.showFailAlert()
             }
         default:
             ifSuccessPushHome()
@@ -246,9 +244,8 @@ class SignInViewController: UIViewController {
             switch response {
                 case .success(let moyaResponse):
                     do {
-                        print(moyaResponse.statusCode)
                         let responseData = try moyaResponse.map(SignInResponse.self)
-                        self.addTokenInRealm(item: responseData.result.token)
+                        self.addTokenInRealm(item: responseData.result.accessToken)
                         self.ifSuccessPushHome()
                     } catch(let err) {
                         print(err.localizedDescription)

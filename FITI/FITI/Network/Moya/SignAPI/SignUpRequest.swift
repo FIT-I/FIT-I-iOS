@@ -9,12 +9,12 @@ struct SignUpRequest: Codable {
     var name: String
     var email: String
     var password: String
-    var accountType: String
+    var profileImage: String
     
-    init(_ name: String, _ email: String, _ password: String, _ accountType: String) {
+    init(_ name: String, _ email: String, _ password: String, _ profileImage: String) {
         self.name = name
         self.email = email
         self.password = password
-        self.accountType = accountType
+        self.profileImage = profileImage
     }
 }

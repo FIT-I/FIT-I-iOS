@@ -29,14 +29,14 @@ class PolicyViewController: UIViewController {
         return label
     }()
     
-    private let acceptAllButton : UIButton = {
+    private lazy var acceptAllButton : UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "check.svg"), for: .normal)
         btn.addTarget(self, action: #selector(selectBtnEvent), for: .touchUpInside)
         return btn
     }()
     
-    private let lineStackView0 : UIStackView = {
+    private lazy var lineStackView0 : UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 12
@@ -65,7 +65,7 @@ class PolicyViewController: UIViewController {
         return label
     }()
     
-    private let acceptButton1 : UIButton = {
+    private lazy var acceptButton1 : UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "check.svg"), for: .normal)
         btn.addTarget(self, action: #selector(selectBtn1Event), for: .touchUpInside)
@@ -89,7 +89,7 @@ class PolicyViewController: UIViewController {
         return label
     }()
     
-    private let acceptButton2 : UIButton = {
+    private lazy var acceptButton2 : UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "check.svg"), for: .normal)
         btn.addTarget(self, action: #selector(selectBtn2Event), for: .touchUpInside)
@@ -114,7 +114,7 @@ class PolicyViewController: UIViewController {
         return label
     }()
     
-    private let acceptButton3 : UIButton = {
+    private lazy var acceptButton3 : UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "check.svg"), for: .normal)
         btn.addTarget(self, action: #selector(selectBtn3Event), for: .touchUpInside)
@@ -141,7 +141,7 @@ class PolicyViewController: UIViewController {
         return stackView
     }()
     
-    let nextButton : UIButton = {
+    private lazy var nextButton : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.gray)
         btn.setTitle("다음", for: .normal)
@@ -195,12 +195,7 @@ class PolicyViewController: UIViewController {
             make.centerX.equalToSuperview()
             
         }
-        
-//        acceptAllLabel.snp.makeConstraints { make in
-//            make.leading.equalTo(acceptAllButton.snp.trailing).offset(12)
-//            make.trailing.equalTo(globalStackView)
-//        }
-        
+    
         lineStackView0.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(84)
             make.leading.equalToSuperview().offset(20)

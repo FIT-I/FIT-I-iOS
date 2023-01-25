@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 
 class PickServicePrice : UIView {
+    // dummy
+    var hourPrice = 20000
+    var addPrice = 10000
+    
     var hourPriceLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20.0)

@@ -6,11 +6,11 @@
 //
 
 struct SignInRequest: Codable {
-    var id: String
+    var email: String
     var password: String
     
-    init(_ id: String, _ password: String) {
-        self.id = id
+    init(_ email: String, _ password: String) {
+        self.email = email
         self.password = password
     }
 }
