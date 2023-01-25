@@ -6,5 +6,5 @@
 //
 
 struct BaseURL{
-    static let BURL = "http://fiti.site"
+    static let BURL = "http://fiti.sdafsadf"
 }

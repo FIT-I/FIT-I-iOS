@@ -6,13 +6,11 @@
 //
 
 struct SignInRequest: Codable {
-    var fcmToken:String
-    var id: String
+    var email: String
     var password: String
     
-    init(_ fcmToken:String,_ id: String, _ password: String) {
-        self.fcmToken = fcmToken
-        self.id = id
+    init(_ email: String, _ password: String) {
+        self.email = email
         self.password = password
     }
 }

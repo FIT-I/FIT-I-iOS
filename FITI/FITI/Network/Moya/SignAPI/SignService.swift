@@ -21,7 +21,7 @@ extension SignServices: TargetType {
   var path: String {
     switch self {
     case .signUp:
-        return "/api/accounts"
+        return "/api/accounts/customer"
     case .signIn:
         return "/api/accounts/login"
     }

@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class RequestResultViewController: UIViewController {
-    
+
     var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
@@ -87,7 +87,6 @@ class RequestResultViewController: UIViewController {
             make.top.equalTo(progressView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
-//            make.bottom.equalTo(nextBtn.snp.top).offset(-100)
         }
     }
     
@@ -110,7 +109,5 @@ class RequestResultViewController: UIViewController {
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
-
-
 }
 

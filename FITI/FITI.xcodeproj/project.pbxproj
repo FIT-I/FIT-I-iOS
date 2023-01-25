@@ -79,6 +79,7 @@
 		91CFCFDB298002DF0009944D /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFDA298002DF0009944D /* SignInRequest.swift */; };
 		91CFCFDD298002E70009944D /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFDC298002E70009944D /* SignUpRequest.swift */; };
 		91CFCFE1298004CF0009944D /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFE0298004CF0009944D /* SignUpModel.swift */; };
+		91CFCFE329800F9E0009944D /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFE229800F9D0009944D /* SignInModel.swift */; };
 		91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C51029649C78005AF859 /* ReviewViewController.swift */; };
 		91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C5152964A034005AF859 /* ReviewTableCell.swift */; };
 		91F75B00296C109200B31F3B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 91F75AFF296C109200B31F3B /* Tabman */; };
@@ -157,6 +158,7 @@
 		91CFCFDA298002DF0009944D /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		91CFCFDC298002E70009944D /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		91CFCFE0298004CF0009944D /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		91CFCFE229800F9D0009944D /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInModel.swift; path = "../../../../../.Trash/FIT-I-iOS 오후 9.41.48/FITI/FITI/Network/Model/SignInModel.swift"; sourceTree = "<group>"; };
 		91D7C51029649C78005AF859 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		91D7C5152964A034005AF859 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
 		91F75B01296C10A800B31F3B /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
@@ -241,21 +243,20 @@
 			children = (
 				916A2C48297090D3005F0420 /* FindPwViewController.swift */,
 				91C32D422961857400F29DA5 /* SignInViewController.swift */,
+				917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
 		};
-		910D80522965667100828E4B /* Request */ = {
+		910D80522965667100828E4B /* RequestSheet */ = {
 			isa = PBXGroup;
 			children = (
-				91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */,
-				91185FCA296D8CB10099B641 /* View */,
 				910D805E2965E26200828E4B /* PickService */,
 				910D805F2965E2DC00828E4B /* PickDate */,
 				910D80602965E2EB00828E4B /* PickPlace */,
 				910D80622965E30600828E4B /* RequestResult */,
 			);
-			path = Request;
+			path = RequestSheet;
 			sourceTree = "<group>";
 		};
 		910D805E2965E26200828E4B /* PickService */ = {
@@ -404,7 +405,8 @@
 		913E02C829634607001CC92B /* TrainerDetail */ = {
 			isa = PBXGroup;
 			children = (
-				910D80522965667100828E4B /* Request */,
+				91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */,
+				91185FCA296D8CB10099B641 /* View */,
 				91D7C51229649F94005AF859 /* Review */,
 			);
 			path = TrainerDetail;
@@ -469,11 +471,11 @@
 		91CFCFBC297FF5280009944D /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				91C32D4B2961866100F29DA5 /* TabBarController.swift */,
 				91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */,
-				917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */,
+				91C32D4B2961866100F29DA5 /* TabBarController.swift */,
 				910182BC29618CA100FC10DB /* Home */,
 				913E02C829634607001CC92B /* TrainerDetail */,
+				910D80522965667100828E4B /* RequestSheet */,
 				910182BD29618CA700FC10DB /* Community */,
 				910182BE29618CAF00FC10DB /* Chat */,
 				910182BF29618CB500FC10DB /* MyPage */,
@@ -554,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				91CFCFE0298004CF0009944D /* SignUpModel.swift */,
+				91CFCFE229800F9D0009944D /* SignInModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
 				9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */,
 				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
+				91CFCFE329800F9E0009944D /* SignInModel.swift in Sources */,
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
 				91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */,
 				917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */,
