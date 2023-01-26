@@ -121,6 +121,7 @@ class SignInViewController: UIViewController {
 //        self.realm.resetDB()
         
         if checkRealmToken() {
+            print(self.realm.getToken())
             ifSuccessPushHome()
         }
 

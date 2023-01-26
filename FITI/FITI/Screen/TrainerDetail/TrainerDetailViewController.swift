@@ -144,7 +144,6 @@ class TrainerDetailViewController: UIViewController {
             self.heartBtn.setImage(UIImage(named: "heart.svg"), for: .normal)
         }
     }
-    
 }
 
 //MARK: - Extension

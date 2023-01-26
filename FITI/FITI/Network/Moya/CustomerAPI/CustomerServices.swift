@@ -7,6 +7,7 @@
 
 import Moya
 import Foundation
+import Realm
 
 enum CustomerServices {
     case addHeart(_ trainerIndex: Int)
@@ -21,6 +22,7 @@ enum CustomerServices {
 }
 
 extension CustomerServices: TargetType, AccessTokenAuthorizable {
+    
     
     public var baseURL: URL {
         return URL(string: BaseURL.BURL)!
@@ -77,13 +79,20 @@ extension CustomerServices: TargetType, AccessTokenAuthorizable {
     }
     
     var authorizationType: AuthorizationType? {
-        return .bearer
+        switch self {
+        default:
+            return .bearer
+        }
     }
     
     var headers: [String : String]? {
         switch self {
         default:
-            return ["Content-Type":"application/json"]
+            let realm = RealmService()
+            let token = realm.getToken()
+            return ["Content-Type":"application/json",
+                    "Authorization": "Bearer \(token)"]
         }
     }
 }
+
