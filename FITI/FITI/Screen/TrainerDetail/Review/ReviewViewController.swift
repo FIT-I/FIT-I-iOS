@@ -10,6 +10,7 @@ import SnapKit
 
 class ReviewViewController: UIViewController {
     
+    
     private let titleLabel : UILabel = {
         let lb = UILabel()
         lb.text = "리뷰 전체보기"
@@ -66,7 +67,6 @@ class ReviewViewController: UIViewController {
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
-
 
 }
 

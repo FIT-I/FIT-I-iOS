@@ -7,8 +7,13 @@
 
 import UIKit
 import SnapKit
+import Moya
+import Realm
 
 class MyPageViewController: UIViewController {
+    
+    private let provider = MoyaProvider<CustomerServices>()
+    
     
     var myPageTitleLabel : UILabel = {
         let label = UILabel()
@@ -64,11 +69,14 @@ class MyPageViewController: UIViewController {
         view.backgroundColor = .systemBackground
         self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
-        
+    
         setViewLayer()
         setViewHierarchy()
         setConstraints()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getHeartListServer()
     }
     
     func setViewLayer(){
@@ -171,6 +179,23 @@ class MyPageViewController: UIViewController {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
+    
+    func getHeartListServer(){
+        self.provider.request(.getHeartList){ response in
+            switch response {
+                case .success(let moyaResponse):
+                    do {
+                        let responseData = try moyaResponse.map(HeartListResponse.self)
+                        print(responseData.isSuccess)
+                        print(responseData.result)
+                    } catch(let err) {
+                        print(err.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+            }
+        }
+    }
     
     
 }

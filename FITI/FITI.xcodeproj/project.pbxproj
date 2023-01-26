@@ -51,6 +51,7 @@
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
 		917D3CFE296EB3330060F802 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CFD296EB3330060F802 /* UITextField+.swift */; };
 		917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CFF296EBA2D0060F802 /* UIViewController+.swift */; };
+		9181B6E52982AA73001D9427 /* HeartListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6E42982AA73001D9427 /* HeartListModel.swift */; };
 		91877D6A2969269D0074386B /* RequestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D692969269D0074386B /* RequestSheet.swift */; };
 		91877D6C2969A0A00074386B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6B2969A0A00074386B /* ProfileView.swift */; };
 		91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6D2969A9260074386B /* NotificationSwitch.swift */; };
@@ -136,6 +137,7 @@
 		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
 		917D3CFD296EB3330060F802 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		917D3CFF296EBA2D0060F802 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		9181B6E42982AA73001D9427 /* HeartListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListModel.swift; sourceTree = "<group>"; };
 		91877D692969269D0074386B /* RequestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSheet.swift; sourceTree = "<group>"; };
 		91877D6B2969A0A00074386B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		91877D6D2969A9260074386B /* NotificationSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSwitch.swift; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 			children = (
 				91CFCFE0298004CF0009944D /* SignUpModel.swift */,
 				91CFCFE229800F9D0009944D /* SignInModel.swift */,
+				9181B6E42982AA73001D9427 /* HeartListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */,
 				9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */,
 				9130CA09296B055100FC5107 /* SearchViewController.swift in Sources */,
+				9181B6E52982AA73001D9427 /* HeartListModel.swift in Sources */,
 				91CFCFDD298002E70009944D /* SignUpRequest.swift in Sources */,
 				917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */,
 				9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */,
