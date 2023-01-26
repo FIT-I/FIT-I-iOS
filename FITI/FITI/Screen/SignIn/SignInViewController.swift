@@ -117,6 +117,7 @@ class SignInViewController: UIViewController {
         signInViewAddUI()
         signInViewSetUI()
         
+        // MARK: - FIXME
 //        self.realm.resetDB()
         
         if checkRealmToken() {
