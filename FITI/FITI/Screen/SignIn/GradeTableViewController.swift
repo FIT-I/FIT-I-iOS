@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 import SnapKit
+import Moya
 
 class GradeTableViewController: UIViewController {
-    
     private let gradeImage : UIImageView = {
             let imageView = UIImageView()
             imageView.image = UIImage(named:"gradeTable.svg")
@@ -56,5 +56,5 @@ class GradeTableViewController: UIViewController {
         let nextVC = TabBarController()
         navigationController?.pushViewController(nextVC, animated: true)
     }
-
+    
 }

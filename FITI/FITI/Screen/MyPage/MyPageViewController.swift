@@ -10,10 +10,20 @@ import SnapKit
 import Moya
 import Realm
 
+struct UserInfo {
+    var userName = ""
+    var profile = ""
+    var email = ""
+    var location = ""
+}
+
 class MyPageViewController: UIViewController {
     
-    private let provider = MoyaProvider<CustomerServices>()
+    static var MyInfo = UserInfo()
     
+    private let provider = MoyaProvider<CustomerServices>()
+    private let myPageProvider = MoyaProvider<MyPageServices>()
+
     var myPageTitleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
@@ -28,7 +38,6 @@ class MyPageViewController: UIViewController {
             make.height.equalTo(30)
             make.width.equalTo(50)
         }
-        //        btn.backgroundColor = .red
         btn.setImage(UIImage(named: "gearshape.svg"), for: .normal)
         btn.addTarget(self, action: #selector(settingBtnEvent), for: .touchUpInside)
         return btn
@@ -68,16 +77,19 @@ class MyPageViewController: UIViewController {
         view.backgroundColor = .systemBackground
         self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
-        
+        setServerData()
+        getMyPageServer()
         setViewLayer()
         setViewHierarchy()
         setConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setServerData()
         getHeartListServer()
+        getMyPageServer()
     }
-    
+
     func setViewLayer(){
         notiView.layer.cornerRadius = 10
     }
@@ -138,10 +150,30 @@ class MyPageViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-20)
         }
     }
-    
+
     @objc func settingBtnEvent(){
         let nextVC = SettingViewController()
         navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    func getMyPageServer(){
+        self.myPageProvider.request(.getMyPage){ response in
+            switch response {
+                case .success(let moyaResponse):
+                    do {
+                        let responseData = try moyaResponse.map(MyPageResponse.self)
+                        MyPageViewController.MyInfo.userName = responseData.result.userName
+                        MyPageViewController.MyInfo.profile = responseData.result.profile
+                        MyPageViewController.MyInfo.email = responseData.result.email
+                        MyPageViewController.MyInfo.location = responseData.result.location
+                        print(responseData)
+                    } catch(let err) {
+                        print(err.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+            }
+        }
     }
     
     
@@ -176,6 +208,11 @@ class MyPageViewController: UIViewController {
     @objc func clauseBtnEvent(){
         let nextVC = ClauseViewController()
         navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    private func setServerData(){
+        midProfileStackView.name.text = MyPageViewController.MyInfo.userName
+        midProfileStackView.userId.text = MyPageViewController.MyInfo.email
     }
     
     
