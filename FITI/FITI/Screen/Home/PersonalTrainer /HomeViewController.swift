@@ -7,10 +7,11 @@
 
 import UIKit
 import SnapKit
+import Moya
 
 // 개인 PT
 class HomeViewController: UIViewController {
-
+    private let provider = MoyaProvider<MyPageServices>()
     // line 뷰
     let lineView : UIView = {
         let view = UIView()
@@ -36,22 +37,20 @@ class HomeViewController: UIViewController {
         trainerTableView.register(TrainerTabelCell.self, forCellReuseIdentifier: TrainerTabelCell.identifier)
         trainerTableView.delegate = self
         trainerTableView.dataSource = self
-        
-        
+    
         signInViewAddUI()
         signInViewSetUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getMyPageServer()
+    }
+    
     func signInViewAddUI(){
-//        view.addSubview(lineView)
         view.addSubview(trainerTableView)
     }
     
     func signInViewSetUI(){
-//        lineView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(100)
-//            make.leading.trailing.equalToSuperview()
-//        }
         trainerTableView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(120)
             make.leading.equalToSuperview().offset(15)
@@ -59,6 +58,26 @@ class HomeViewController: UIViewController {
             make.bottom.equalToSuperview().offset(-50)
         }
     }
+    
+    func getMyPageServer(){
+        self.provider.request(.getMyPage){ response in
+            switch response {
+                case .success(let moyaResponse):
+                    do {
+                        let responseData = try moyaResponse.map(MyPageResponse.self)
+                        MyPageViewController.MyInfo.userName = responseData.result.userName
+                        MyPageViewController.MyInfo.profile = responseData.result.profile
+                        MyPageViewController.MyInfo.email = responseData.result.email
+                        MyPageViewController.MyInfo.location = responseData.result.location
+                    } catch(let err) {
+                        print(err.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+            }
+        }
+    }
+
     
     @objc func tapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
@@ -91,3 +110,4 @@ extension HomeViewController: UITableViewDataSource {
         return 130
     }
 }
+

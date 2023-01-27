@@ -13,7 +13,7 @@ import Moya
 class SearchViewController: UIViewController {
     
     private let provider = MoyaProvider<CustomerServices>()
-    
+    private let myPageProvider = MoyaProvider<MyPageServices>()
     // MARK: - Properties
     private var searchCompleter = MKLocalSearchCompleter() /// 검색을 도와주는 변수
     private var searchResults = [MKLocalSearchCompletion]() /// 검색 결과를 담는 변수
@@ -84,6 +84,7 @@ class SearchViewController: UIViewController {
         setupSearchCompleter()
         setupTableView()
     }
+
     
     // MARK: - Custom Method
     func configUI() {
@@ -196,8 +197,11 @@ extension SearchViewController: UITableViewDelegate {
             })
             
             let okAction = UIAlertAction(title: "예", style: .default, handler: { okAction in
-                var location = placeMark.title ?? placeMark.title!
+                let location = placeMark.title ?? placeMark.title!
                 self.petchLocationSetting(location: location)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    self.getMyPageServer()
+                }
                 self.dismiss(animated: true)
             })
             
@@ -224,6 +228,26 @@ extension SearchViewController: UITableViewDelegate {
                 }
             case .failure(let err):
                 print(err.localizedDescription)
+            }
+        }
+    }
+    
+    func getMyPageServer(){
+        self.myPageProvider.request(.getMyPage){ response in
+            switch response {
+                case .success(let moyaResponse):
+                    do {
+                        let responseData = try moyaResponse.map(MyPageResponse.self)
+                        MyPageViewController.MyInfo.userName = responseData.result.userName
+                        MyPageViewController.MyInfo.profile = responseData.result.profile
+                        MyPageViewController.MyInfo.email = responseData.result.email
+                        MyPageViewController.MyInfo.location = responseData.result.location
+                        print(responseData)
+                    } catch(let err) {
+                        print(err.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
             }
         }
     }

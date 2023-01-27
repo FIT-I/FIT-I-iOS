@@ -45,8 +45,14 @@ class SettingProfileViewController: UIViewController {
         
         self.dismissKeyboard()
         
+        setServerData()
+        
         setViewHierarchy()
         setConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setServerData()
     }
     
     func setViewHierarchy(){
@@ -82,6 +88,11 @@ class SettingProfileViewController: UIViewController {
     
     func setBtnEvent(){
         topStackView.settingUserName.addTarget(self, action: #selector(settingUserName), for: .touchUpInside)
+    }
+    
+    private func setServerData(){
+        bottomInfoView.userEmail.text = MyPageViewController.MyInfo.email
+        bottomInfoView.userLocation.text = MyPageViewController.MyInfo.location
     }
     
     @objc func backTapped(sender: UIBarButtonItem) {

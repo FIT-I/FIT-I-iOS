@@ -53,6 +53,8 @@
 		917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CFF296EBA2D0060F802 /* UIViewController+.swift */; };
 		9181B6E52982AA73001D9427 /* HeartListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6E42982AA73001D9427 /* HeartListModel.swift */; };
 		9181B6E72982BACD001D9427 /* petchLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6E62982BACD001D9427 /* petchLocationModel.swift */; };
+		9181B6EA2983C33C001D9427 /* MyPageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6E92983C33C001D9427 /* MyPageServices.swift */; };
+		9181B6EC2983C448001D9427 /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6EB2983C448001D9427 /* MyPageModel.swift */; };
 		91877D6A2969269D0074386B /* RequestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D692969269D0074386B /* RequestSheet.swift */; };
 		91877D6C2969A0A00074386B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6B2969A0A00074386B /* ProfileView.swift */; };
 		91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6D2969A9260074386B /* NotificationSwitch.swift */; };
@@ -140,6 +142,8 @@
 		917D3CFF296EBA2D0060F802 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		9181B6E42982AA73001D9427 /* HeartListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListModel.swift; sourceTree = "<group>"; };
 		9181B6E62982BACD001D9427 /* petchLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petchLocationModel.swift; sourceTree = "<group>"; };
+		9181B6E92983C33C001D9427 /* MyPageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageServices.swift; sourceTree = "<group>"; };
+		9181B6EB2983C448001D9427 /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
 		91877D692969269D0074386B /* RequestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSheet.swift; sourceTree = "<group>"; };
 		91877D6B2969A0A00074386B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		91877D6D2969A9260074386B /* NotificationSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSwitch.swift; sourceTree = "<group>"; };
@@ -452,6 +456,14 @@
 			path = BodyReview;
 			sourceTree = "<group>";
 		};
+		9181B6E82983C325001D9427 /* MyPageAPI */ = {
+			isa = PBXGroup;
+			children = (
+				9181B6E92983C33C001D9427 /* MyPageServices.swift */,
+			);
+			path = MyPageAPI;
+			sourceTree = "<group>";
+		};
 		91C32D22296184AA00F29DA5 = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +558,7 @@
 		91CFCFD5298002070009944D /* Moya */ = {
 			isa = PBXGroup;
 			children = (
+				9181B6E82983C325001D9427 /* MyPageAPI */,
 				91CFCFD8298002560009944D /* BaseURL.swift */,
 				91CFCFDE2980031E0009944D /* SignAPI */,
 				91FDB3DF2982634200053795 /* CustomerAPI */,
@@ -570,6 +583,7 @@
 				91CFCFE229800F9D0009944D /* SignInModel.swift */,
 				9181B6E42982AA73001D9427 /* HeartListModel.swift */,
 				9181B6E62982BACD001D9427 /* petchLocationModel.swift */,
+				9181B6EB2983C448001D9427 /* MyPageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -741,6 +755,7 @@
 				91CFCFD9298002560009944D /* BaseURL.swift in Sources */,
 				9163A4C5297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
+				9181B6EA2983C33C001D9427 /* MyPageServices.swift in Sources */,
 				91CFCFCE297FFAFC0009944D /* Profile.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */,
@@ -748,6 +763,7 @@
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
 				91185FBB296D58180099B641 /* PickServicePrice.swift in Sources */,
 				91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */,
+				9181B6EC2983C448001D9427 /* MyPageModel.swift in Sources */,
 				91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */,
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
 				9181B6E72982BACD001D9427 /* petchLocationModel.swift in Sources */,

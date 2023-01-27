@@ -24,7 +24,7 @@ enum CustomerServices {
 extension CustomerServices: TargetType, AccessTokenAuthorizable {
     
     
-    public var baseURL: URL {
+    var baseURL: URL {
         return URL(string: BaseURL.BURL)!
     }
     
