@@ -14,7 +14,6 @@ class MyPageViewController: UIViewController {
     
     private let provider = MoyaProvider<CustomerServices>()
     
-    
     var myPageTitleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
@@ -29,7 +28,7 @@ class MyPageViewController: UIViewController {
             make.height.equalTo(30)
             make.width.equalTo(50)
         }
-//        btn.backgroundColor = .red
+        //        btn.backgroundColor = .red
         btn.setImage(UIImage(named: "gearshape.svg"), for: .normal)
         btn.addTarget(self, action: #selector(settingBtnEvent), for: .touchUpInside)
         return btn
@@ -43,7 +42,7 @@ class MyPageViewController: UIViewController {
         }
         return view
     }()
-
+    
     // 프로필 스택 뷰
     let midProfileStackView = ProfileView()
     
@@ -69,7 +68,7 @@ class MyPageViewController: UIViewController {
         view.backgroundColor = .systemBackground
         self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
-    
+        
         setViewLayer()
         setViewHierarchy()
         setConstraints()
@@ -86,7 +85,7 @@ class MyPageViewController: UIViewController {
     func setViewHierarchy(){
         
         self.setBtnEvents()
-
+        
         view.addSubview(myPageTitleLabel)
         view.addSubview(settingBtn)
         view.addSubview(progressView)
@@ -98,7 +97,7 @@ class MyPageViewController: UIViewController {
     }
     
     func setConstraints(){
-
+        
         myPageTitleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(70)
             make.leading.equalToSuperview().offset(24)
@@ -153,7 +152,7 @@ class MyPageViewController: UIViewController {
         bottomBtn.clauseBtn.addTarget(self, action: #selector(clauseBtnEvent), for: .touchUpInside)
         midProfileStackView.fixProfileBtn.addTarget(self, action: #selector(settingProfileBtnEvent), for: .touchUpInside)
     }
-
+    
     @objc func settingProfileBtnEvent(){
         let nextVC = SettingProfileViewController()
         navigationController?.pushViewController(nextVC, animated: true)
@@ -183,19 +182,17 @@ class MyPageViewController: UIViewController {
     func getHeartListServer(){
         self.provider.request(.getHeartList){ response in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        let responseData = try moyaResponse.map(HeartListResponse.self)
-                        print(responseData.isSuccess)
-                        print(responseData.result)
-                    } catch(let err) {
-                        print(err.localizedDescription)
-                    }
-                case .failure(let err):
+            case .success(let moyaResponse):
+                do {
+                    let responseData = try moyaResponse.map(HeartListResponse.self)
+                    print(responseData.isSuccess)
+                    print(responseData.result)
+                } catch(let err) {
                     print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }
-    
-    
 }

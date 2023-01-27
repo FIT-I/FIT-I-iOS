@@ -8,8 +8,12 @@ import UIKit
 import MapKit
 import SnapKit
 import Then
+import Moya
 
 class SearchViewController: UIViewController {
+    
+    private let provider = MoyaProvider<CustomerServices>()
+    
     // MARK: - Properties
     private var searchCompleter = MKLocalSearchCompleter() /// 검색을 도와주는 변수
     private var searchResults = [MKLocalSearchCompletion]() /// 검색 결과를 담는 변수
@@ -173,7 +177,7 @@ extension SearchViewController: UITableViewDelegate {
         let selectedResult = searchResults[indexPath.row]
         let searchReqeust = MKLocalSearch.Request(completion: selectedResult)
         let search = MKLocalSearch(request: searchReqeust)
-        search.start { (response, error) in
+        search.start { [self] (response, error) in
             guard error == nil else {
                 print(error.debugDescription)
                 return
@@ -185,12 +189,15 @@ extension SearchViewController: UITableViewDelegate {
             // 위치의 풀네임 출력
             print(placeMark.title ?? placeMark.title!)
             
+            
             let alert = UIAlertController(title: "매칭 위치", message: "\(placeMark.title ?? placeMark.title!) 위치로 변경할건가요?", preferredStyle: UIAlertController.Style.alert)
             
             let noAction = UIAlertAction(title: "아니요", style: .destructive, handler: { okAction in
             })
             
             let okAction = UIAlertAction(title: "예", style: .default, handler: { okAction in
+                var location = placeMark.title ?? placeMark.title!
+                self.petchLocationSetting(location: location)
                 self.dismiss(animated: true)
             })
             
@@ -202,6 +209,23 @@ extension SearchViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.searchBar.resignFirstResponder()
+    }
+    
+    func petchLocationSetting(location:String){
+        self.provider.request(.locationSetting(location)){ response in
+            switch response {
+            case .success(let response):
+                do {
+                    let responseData = try response.map(petchLocationModel.self)
+                    print(responseData.isSuccess)
+                    print(responseData.message)
+                }catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
     }
 }
 
