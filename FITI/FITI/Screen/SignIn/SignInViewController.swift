@@ -305,10 +305,8 @@ class SignInViewController: UIViewController {
     
     private func ifSuccessPushHome(){
         print("pushToHome")
-//        print("first")
-//        self.getFirstTrainerListServer(category: "pt", page: 1, size: 5, sort: ["sort"])
-        print("getTrainerSeconde")
-        self.getTrainerListServer(category: "pt", lastTrainerIdx: 0, page: 1, size: 5, sort: ["recent"])
+        self.getFirstTrainerListServer(category: "pt", page: 1, size: 5, sort: ["sort"])
+//        self.getTrainerListServer(category: "pt", lastTrainerIdx: 0, page: 1, size: 5, sort: ["recent"])
         let nextVC = GradeTableViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

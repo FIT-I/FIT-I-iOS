@@ -42,12 +42,10 @@ extension CustomerServices: TargetType, AccessTokenAuthorizable {
             return "/api/customer/notification/\(notIdx)"
         case .locationSetting(let location):
             return "/api/customer/location/\(location)"
-        case .getFristTrainerList(let category, let pageable):
-            // FIXME: - 404
-            return "/api/customer/trainer-list\(category)/\(pageable.page)/\(pageable.size)/\(pageable.sort)"
-        case .getTrainerList(let category, let lastTrainerId, let pageable):
-            // FIXME: - 404
-            return "/api/customer/trainer-list\(category)/\(lastTrainerId)/\(pageable.page)/\(pageable.size)/\(pageable.sort)"
+        case .getFristTrainerList:
+            return "/api/customer/trainer-list"
+        case .getTrainerList:
+            return "/api/customer/trainer-list"
         case .getHeartList:
             return "/api/customer/wish"
             
@@ -80,9 +78,9 @@ extension CustomerServices: TargetType, AccessTokenAuthorizable {
         case .locationSetting:
             return .requestPlain
         case .getFristTrainerList(let category, let pageable):
-            return .requestParameters(parameters: ["category":category,"pageable":pageable], encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: ["category":category,"page":pageable.page,"size":pageable.size,"sort":pageable.sort], encoding: URLEncoding.queryString)
         case .getTrainerList(let category, let lastTrainerIdx, let pageable):
-            return .requestParameters(parameters: ["category":category,"lastTrainerIdx":lastTrainerIdx,"pageable":pageable], encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: ["category":category,"lastTrainerIdx":lastTrainerIdx,"page":pageable.page,"size":pageable.size,"sort":pageable.sort], encoding: URLEncoding.queryString)
         case .getHeartList:
             return .requestPlain
         }
