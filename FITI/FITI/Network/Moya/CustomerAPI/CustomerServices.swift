@@ -16,8 +16,8 @@ enum CustomerServices {
     case fixProfile(_ profile:String)
     case notificationSetting(_ notIdx:Int)
     case locationSetting(_ location:String)
-    // MARK: FIX - API 개발 완료 이후
-//    case getTrainerList(_ category:String)
+    case getFristTrainerList(_ category:String, _ pageable: TrainerArrayListRequest)
+    case getTrainerList(_ category:String, _ lastTrainerIdx:Int, _ pageable: TrainerArrayListRequest)
     case getHeartList
 }
 
@@ -42,9 +42,13 @@ extension CustomerServices: TargetType, AccessTokenAuthorizable {
             return "/api/customer/notification/\(notIdx)"
         case .locationSetting(let location):
             return "/api/customer/location/\(location)"
-//        case .getTrainerList(<#T##category: String##String#>)
+        case .getFristTrainerList:
+            return "/api/customer/trainer-list"
+        case .getTrainerList:
+            return "/api/customer/trainer-list"
         case .getHeartList:
             return "/api/customer/wish"
+            
         }
     }
     
@@ -54,7 +58,7 @@ extension CustomerServices: TargetType, AccessTokenAuthorizable {
             return .post
         case .fixProfile, .notificationSetting, .locationSetting:
             return .patch
-        case .getHeartList:
+        case .getFristTrainerList, .getTrainerList, .getHeartList:
             return .get
         }
     }
@@ -73,6 +77,10 @@ extension CustomerServices: TargetType, AccessTokenAuthorizable {
             return .requestPlain
         case .locationSetting:
             return .requestPlain
+        case .getFristTrainerList(let category, let pageable):
+            return .requestParameters(parameters: ["category":category,"page":pageable.page,"size":pageable.size,"sort":pageable.sort], encoding: URLEncoding.queryString)
+        case .getTrainerList(let category, let lastTrainerIdx, let pageable):
+            return .requestParameters(parameters: ["category":category,"lastTrainerIdx":lastTrainerIdx,"page":pageable.page,"size":pageable.size,"sort":pageable.sort], encoding: URLEncoding.queryString)
         case .getHeartList:
             return .requestPlain
         }
