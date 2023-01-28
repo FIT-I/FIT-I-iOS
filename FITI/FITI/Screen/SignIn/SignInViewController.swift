@@ -17,6 +17,7 @@ class SignInViewController: UIViewController {
     
     // MoyaTarget과 상호작용하는 MoyaProvider를 생성하기 위해 MoyaProvider인스턴스 생성
     private let provider = MoyaProvider<SignServices>()
+    private let customerProvider = MoyaProvider<CustomerServices>()
     var userData: SignInModel?
     var responseData: SignInResponse?
     let realm = RealmService()
@@ -225,6 +226,46 @@ class SignInViewController: UIViewController {
         }
     }
     
+    func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
+        let param = TrainerArrayListRequest(page: page, size: size, sort: sort)
+        print(param)
+        self.customerProvider.request(.getFristTrainerList(category, param)){ response in
+            switch response {
+                case .success(let moyaResponse):
+                    do {
+                        print(moyaResponse.statusCode)
+                        let responseData = try moyaResponse.map(TrainerListResponse.self)
+                        print(responseData.isSuccess)
+                        print(responseData.result.dto)
+                    } catch(let err) {
+                        print(err.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+            }
+        }
+    }
+    
+    func getTrainerListServer(category:String,lastTrainerIdx:Int,page:Int,size:Int,sort:[String]){
+        let param = TrainerArrayListRequest(page: page, size: size, sort: sort)
+        print(param)
+        self.customerProvider.request(.getTrainerList(category, lastTrainerIdx, param)){ response in
+            switch response {
+                case .success(let moyaResponse):
+                    do {
+                        print(moyaResponse.statusCode)
+                        let responseData = try moyaResponse.map(TrainerListResponse.self)
+                        print(responseData.isSuccess)
+                        print(responseData.result.dto)
+                    } catch(let err) {
+                        print(err.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+            }
+        }
+    }
+    
     @objc func touchNextBtnEvent() {
         
         switch checkRealmToken() {
@@ -260,7 +301,14 @@ class SignInViewController: UIViewController {
         }
     }
     
+    
+    
     private func ifSuccessPushHome(){
+        print("pushToHome")
+//        print("first")
+//        self.getFirstTrainerListServer(category: "pt", page: 1, size: 5, sort: ["sort"])
+        print("getTrainerSeconde")
+        self.getTrainerListServer(category: "pt", lastTrainerIdx: 0, page: 1, size: 5, sort: ["recent"])
         let nextVC = GradeTableViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
