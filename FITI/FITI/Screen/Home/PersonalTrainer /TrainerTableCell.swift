@@ -16,7 +16,7 @@ class TrainerTableCell: UITableViewCell {
 
     // MARK: - Properties
     
-    private var id = Int()
+    var id = Int()
     static let identifier = "TrainerTableCell"
     
     // MARK: - UI Components
@@ -186,6 +186,7 @@ class TrainerTableCell: UITableViewCell {
     
 }
 
+// MARK: - Extension
 
 extension TrainerTableCell {
     public func bindingTrainerList(model:Dto){

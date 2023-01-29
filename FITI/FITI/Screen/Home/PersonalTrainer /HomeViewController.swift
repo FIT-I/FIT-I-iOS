@@ -78,7 +78,9 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("cell did touched")
+        let touchedCell = tableView.cellForRow(at: indexPath) as! TrainerTableCell
+        print(touchedCell.id)
+        self.getSpecificTrainerServer(trainerIdx: touchedCell.id)
         let nextVC = TrainerDetailViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -105,6 +107,12 @@ extension HomeViewController {
             MyPageViewController.MyInfo.profile = myPageResponse.profile
             MyPageViewController.MyInfo.email = myPageResponse.email
             MyPageViewController.MyInfo.location = myPageResponse.location
+        }
+    }
+    func getSpecificTrainerServer(trainerIdx:Int){
+        TrainerAPI.shared.getSpecificTrainerAPI(trainerIdx: trainerIdx) { response in
+            guard let specificTrainerResponse = response?.result else { return }
+            print(specificTrainerResponse)
         }
     }
 }
