@@ -46,20 +46,26 @@
 		9163A4C5297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4C4297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift */; };
 		916A2C47297056F2005F0420 /* CommunityTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A2C46297056F2005F0420 /* CommunityTableCell.swift */; };
 		916A2C49297090D3005F0420 /* FindPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A2C48297090D3005F0420 /* FindPwViewController.swift */; };
+		91783E9C29863D1400B8CC2E /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783E9B29863D1400B8CC2E /* SignInResponse.swift */; };
+		91783E9F29863D9700B8CC2E /* MyPageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783E9E29863D9700B8CC2E /* MyPageAPI.swift */; };
+		91783EA129863DA300B8CC2E /* TrainerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA029863DA300B8CC2E /* TrainerAPI.swift */; };
+		91783EA329863DAC00B8CC2E /* SignAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA229863DAC00B8CC2E /* SignAPI.swift */; };
+		91783EA6298640FA00B8CC2E /* TrainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA5298640FA00B8CC2E /* TrainerRouter.swift */; };
+		91783EA8298641DB00B8CC2E /* CustomerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA7298641DB00B8CC2E /* CustomerAPI.swift */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
 		917D3CF8296EB2D30060F802 /* MakeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */; };
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
 		917D3CFE296EB3330060F802 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CFD296EB3330060F802 /* UITextField+.swift */; };
 		917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CFF296EBA2D0060F802 /* UIViewController+.swift */; };
-		9181B6E52982AA73001D9427 /* HeartListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6E42982AA73001D9427 /* HeartListModel.swift */; };
-		9181B6E72982BACD001D9427 /* petchLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6E62982BACD001D9427 /* petchLocationModel.swift */; };
+		9181B6E52982AA73001D9427 /* HeartListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6E42982AA73001D9427 /* HeartListResponse.swift */; };
+		9181B6E72982BACD001D9427 /* PetchLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6E62982BACD001D9427 /* PetchLocationResponse.swift */; };
 		9181B6EA2983C33C001D9427 /* MyPageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6E92983C33C001D9427 /* MyPageServices.swift */; };
-		9181B6EC2983C448001D9427 /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6EB2983C448001D9427 /* MyPageModel.swift */; };
+		9181B6EC2983C448001D9427 /* MyPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6EB2983C448001D9427 /* MyPageResponse.swift */; };
 		91877D6A2969269D0074386B /* RequestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D692969269D0074386B /* RequestSheet.swift */; };
 		91877D6C2969A0A00074386B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6B2969A0A00074386B /* ProfileView.swift */; };
 		91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6D2969A9260074386B /* NotificationSwitch.swift */; };
 		91877D702969B1970074386B /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6F2969B1970074386B /* BottomView.swift */; };
-		91BE526C29854B31006DA3AB /* TrainerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BE526B29854B31006DA3AB /* TrainerListModel.swift */; };
+		91BE526C29854B31006DA3AB /* TrainerListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BE526B29854B31006DA3AB /* TrainerListResponse.swift */; };
 		91BE526E29854BD2006DA3AB /* TrainerArrayListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BE526D29854BD2006DA3AB /* TrainerArrayListRequest.swift */; };
 		91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D2E296184AA00F29DA5 /* AppDelegate.swift */; };
 		91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D30296184AA00F29DA5 /* SceneDelegate.swift */; };
@@ -84,8 +90,7 @@
 		91CFCFD9298002560009944D /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFD8298002560009944D /* BaseURL.swift */; };
 		91CFCFDB298002DF0009944D /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFDA298002DF0009944D /* SignInRequest.swift */; };
 		91CFCFDD298002E70009944D /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFDC298002E70009944D /* SignUpRequest.swift */; };
-		91CFCFE1298004CF0009944D /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFE0298004CF0009944D /* SignUpModel.swift */; };
-		91CFCFE329800F9E0009944D /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFE229800F9D0009944D /* SignInModel.swift */; };
+		91CFCFE1298004CF0009944D /* SignUpRepsonse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFE0298004CF0009944D /* SignUpRepsonse.swift */; };
 		91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C51029649C78005AF859 /* ReviewViewController.swift */; };
 		91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C5152964A034005AF859 /* ReviewTableCell.swift */; };
 		91F75B00296C109200B31F3B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 91F75AFF296C109200B31F3B /* Tabman */; };
@@ -137,20 +142,26 @@
 		9163A4C4297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroAboutServiceViewController.swift; sourceTree = "<group>"; };
 		916A2C46297056F2005F0420 /* CommunityTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableCell.swift; sourceTree = "<group>"; };
 		916A2C48297090D3005F0420 /* FindPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwViewController.swift; sourceTree = "<group>"; };
+		91783E9B29863D1400B8CC2E /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		91783E9E29863D9700B8CC2E /* MyPageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAPI.swift; sourceTree = "<group>"; };
+		91783EA029863DA300B8CC2E /* TrainerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerAPI.swift; sourceTree = "<group>"; };
+		91783EA229863DAC00B8CC2E /* SignAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPI.swift; sourceTree = "<group>"; };
+		91783EA5298640FA00B8CC2E /* TrainerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRouter.swift; sourceTree = "<group>"; };
+		91783EA7298641DB00B8CC2E /* CustomerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAPI.swift; sourceTree = "<group>"; };
 		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
 		917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountViewController.swift; sourceTree = "<group>"; };
 		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
 		917D3CFD296EB3330060F802 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		917D3CFF296EBA2D0060F802 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		9181B6E42982AA73001D9427 /* HeartListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListModel.swift; sourceTree = "<group>"; };
-		9181B6E62982BACD001D9427 /* petchLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petchLocationModel.swift; sourceTree = "<group>"; };
+		9181B6E42982AA73001D9427 /* HeartListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListResponse.swift; sourceTree = "<group>"; };
+		9181B6E62982BACD001D9427 /* PetchLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetchLocationResponse.swift; sourceTree = "<group>"; };
 		9181B6E92983C33C001D9427 /* MyPageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageServices.swift; sourceTree = "<group>"; };
-		9181B6EB2983C448001D9427 /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
+		9181B6EB2983C448001D9427 /* MyPageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageResponse.swift; sourceTree = "<group>"; };
 		91877D692969269D0074386B /* RequestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSheet.swift; sourceTree = "<group>"; };
 		91877D6B2969A0A00074386B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		91877D6D2969A9260074386B /* NotificationSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSwitch.swift; sourceTree = "<group>"; };
 		91877D6F2969B1970074386B /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
-		91BE526B29854B31006DA3AB /* TrainerListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerListModel.swift; sourceTree = "<group>"; };
+		91BE526B29854B31006DA3AB /* TrainerListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerListResponse.swift; sourceTree = "<group>"; };
 		91BE526D29854BD2006DA3AB /* TrainerArrayListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerArrayListRequest.swift; sourceTree = "<group>"; };
 		91C32D2B296184AA00F29DA5 /* FITI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FITI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C32D2E296184AA00F29DA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,8 +183,7 @@
 		91CFCFD8298002560009944D /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		91CFCFDA298002DF0009944D /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		91CFCFDC298002E70009944D /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
-		91CFCFE0298004CF0009944D /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
-		91CFCFE229800F9D0009944D /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInModel.swift; path = "../../../../../.Trash/FIT-I-iOS 오후 9.41.48/FITI/FITI/Network/Model/SignInModel.swift"; sourceTree = "<group>"; };
+		91CFCFE0298004CF0009944D /* SignUpRepsonse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepsonse.swift; sourceTree = "<group>"; };
 		91D7C51029649C78005AF859 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		91D7C5152964A034005AF859 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
 		91F75B01296C10A800B31F3B /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
@@ -460,12 +470,56 @@
 			path = BodyReview;
 			sourceTree = "<group>";
 		};
-		9181B6E82983C325001D9427 /* MyPageAPI */ = {
+		91783E9729863C5100B8CC2E /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				91783EA429863E9900B8CC2E /* Trainer */,
+				91783E9D29863D4100B8CC2E /* MyPage */,
+				91FDB3DF2982634200053795 /* Customer */,
+				91CFCFDE2980031E0009944D /* Sign */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		91783E9829863C5B00B8CC2E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				91783E9E29863D9700B8CC2E /* MyPageAPI.swift */,
+				91783EA029863DA300B8CC2E /* TrainerAPI.swift */,
+				91783EA229863DAC00B8CC2E /* SignAPI.swift */,
+				91783EA7298641DB00B8CC2E /* CustomerAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		91783E9A29863C6D00B8CC2E /* Router */ = {
 			isa = PBXGroup;
 			children = (
 				9181B6E92983C33C001D9427 /* MyPageServices.swift */,
+				91CFCFD62980021C0009944D /* SignServices.swift */,
+				91FDB3E02982637200053795 /* CustomerServices.swift */,
+				91783EA5298640FA00B8CC2E /* TrainerRouter.swift */,
 			);
-			path = MyPageAPI;
+			path = Router;
+			sourceTree = "<group>";
+		};
+		91783E9D29863D4100B8CC2E /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				9181B6EB2983C448001D9427 /* MyPageResponse.swift */,
+				9181B6E62982BACD001D9427 /* PetchLocationResponse.swift */,
+				9181B6E42982AA73001D9427 /* HeartListResponse.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		91783EA429863E9900B8CC2E /* Trainer */ = {
+			isa = PBXGroup;
+			children = (
+				91BE526D29854BD2006DA3AB /* TrainerArrayListRequest.swift */,
+				91BE526B29854B31006DA3AB /* TrainerListResponse.swift */,
+			);
+			path = Trainer;
 			sourceTree = "<group>";
 		};
 		91C32D22296184AA00F29DA5 = {
@@ -487,6 +541,7 @@
 		91C32D2D296184AA00F29DA5 /* FITI */ = {
 			isa = PBXGroup;
 			children = (
+				91CFCFD4298001F50009944D /* LocalDB */,
 				91CFCFC0297FF6F80009944D /* Network */,
 				91CFCFBC297FF5280009944D /* Screen */,
 				91CFCFBD297FF5EA0009944D /* Global */,
@@ -541,9 +596,10 @@
 		91CFCFC0297FF6F80009944D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				91CFCFDF298004C20009944D /* Model */,
-				91CFCFD5298002070009944D /* Moya */,
-				91CFCFD4298001F50009944D /* LocalDB */,
+				91CFCFD8298002560009944D /* BaseURL.swift */,
+				91783E9A29863C6D00B8CC2E /* Router */,
+				91783E9829863C5B00B8CC2E /* API */,
+				91783E9729863C5100B8CC2E /* DTO */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -559,38 +615,15 @@
 			path = LocalDB;
 			sourceTree = "<group>";
 		};
-		91CFCFD5298002070009944D /* Moya */ = {
+		91CFCFDE2980031E0009944D /* Sign */ = {
 			isa = PBXGroup;
 			children = (
-				91CFCFD8298002560009944D /* BaseURL.swift */,
-				9181B6E82983C325001D9427 /* MyPageAPI */,
-				91CFCFDE2980031E0009944D /* SignAPI */,
-				91FDB3DF2982634200053795 /* CustomerAPI */,
-			);
-			path = Moya;
-			sourceTree = "<group>";
-		};
-		91CFCFDE2980031E0009944D /* SignAPI */ = {
-			isa = PBXGroup;
-			children = (
-				91CFCFD62980021C0009944D /* SignServices.swift */,
-				91CFCFDC298002E70009944D /* SignUpRequest.swift */,
+				91783E9B29863D1400B8CC2E /* SignInResponse.swift */,
 				91CFCFDA298002DF0009944D /* SignInRequest.swift */,
+				91CFCFE0298004CF0009944D /* SignUpRepsonse.swift */,
+				91CFCFDC298002E70009944D /* SignUpRequest.swift */,
 			);
-			path = SignAPI;
-			sourceTree = "<group>";
-		};
-		91CFCFDF298004C20009944D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				91CFCFE0298004CF0009944D /* SignUpModel.swift */,
-				91CFCFE229800F9D0009944D /* SignInModel.swift */,
-				9181B6E42982AA73001D9427 /* HeartListModel.swift */,
-				9181B6E62982BACD001D9427 /* petchLocationModel.swift */,
-				9181B6EB2983C448001D9427 /* MyPageModel.swift */,
-				91BE526B29854B31006DA3AB /* TrainerListModel.swift */,
-			);
-			path = Model;
+			path = Sign;
 			sourceTree = "<group>";
 		};
 		91D7C51229649F94005AF859 /* Review */ = {
@@ -643,15 +676,13 @@
 			path = FriendTrainer;
 			sourceTree = "<group>";
 		};
-		91FDB3DF2982634200053795 /* CustomerAPI */ = {
+		91FDB3DF2982634200053795 /* Customer */ = {
 			isa = PBXGroup;
 			children = (
-				91FDB3E02982637200053795 /* CustomerServices.swift */,
 				91FDB3E42982662700053795 /* WriteReviewRequest.swift */,
 				91FDB3E62982671100053795 /* RequestTrainerRequest.swift */,
-				91BE526D29854BD2006DA3AB /* TrainerArrayListRequest.swift */,
 			);
-			path = CustomerAPI;
+			path = Customer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -746,12 +777,12 @@
 				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
 				9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */,
 				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
-				91CFCFE329800F9E0009944D /* SignInModel.swift in Sources */,
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
 				91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */,
 				917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */,
 				91877D6A2969269D0074386B /* RequestSheet.swift in Sources */,
-				91CFCFE1298004CF0009944D /* SignUpModel.swift in Sources */,
+				91783E9F29863D9700B8CC2E /* MyPageAPI.swift in Sources */,
+				91CFCFE1298004CF0009944D /* SignUpRepsonse.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
 				91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */,
 				91185FC9296D8C360099B641 /* BookCVC.swift in Sources */,
@@ -759,9 +790,11 @@
 				91FDB3E72982671100053795 /* RequestTrainerRequest.swift in Sources */,
 				9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */,
 				91CFCFD9298002560009944D /* BaseURL.swift in Sources */,
+				91783EA6298640FA00B8CC2E /* TrainerRouter.swift in Sources */,
 				91BE526E29854BD2006DA3AB /* TrainerArrayListRequest.swift in Sources */,
 				9163A4C5297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
+				91783EA129863DA300B8CC2E /* TrainerAPI.swift in Sources */,
 				9181B6EA2983C33C001D9427 /* MyPageServices.swift in Sources */,
 				91CFCFCE297FFAFC0009944D /* Profile.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
@@ -770,14 +803,14 @@
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
 				91185FBB296D58180099B641 /* PickServicePrice.swift in Sources */,
 				91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */,
-				9181B6EC2983C448001D9427 /* MyPageModel.swift in Sources */,
+				9181B6EC2983C448001D9427 /* MyPageResponse.swift in Sources */,
 				91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */,
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
-				9181B6E72982BACD001D9427 /* petchLocationModel.swift in Sources */,
+				9181B6E72982BACD001D9427 /* PetchLocationResponse.swift in Sources */,
 				91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
 				9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */,
-				91BE526C29854B31006DA3AB /* TrainerListModel.swift in Sources */,
+				91BE526C29854B31006DA3AB /* TrainerListResponse.swift in Sources */,
 				91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */,
 				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,
 				91185FD0296DBD6C0099B641 /* PreviewReviewTableCell.swift in Sources */,
@@ -792,6 +825,7 @@
 				913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */,
 				91FDB3E52982662700053795 /* WriteReviewRequest.swift in Sources */,
 				9130CA1D296B3CAF00FC5107 /* BottomInfoView.swift in Sources */,
+				91783E9C29863D1400B8CC2E /* SignInResponse.swift in Sources */,
 				91CFCFCC297FFA710009944D /* Token.swift in Sources */,
 				91CFCFD72980021C0009944D /* SignServices.swift in Sources */,
 				910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */,
@@ -802,14 +836,16 @@
 				91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */,
 				9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */,
 				9130CA09296B055100FC5107 /* SearchViewController.swift in Sources */,
-				9181B6E52982AA73001D9427 /* HeartListModel.swift in Sources */,
+				9181B6E52982AA73001D9427 /* HeartListResponse.swift in Sources */,
 				91CFCFDD298002E70009944D /* SignUpRequest.swift in Sources */,
 				917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */,
 				9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */,
+				91783EA8298641DB00B8CC2E /* CustomerAPI.swift in Sources */,
 				916A2C49297090D3005F0420 /* FindPwViewController.swift in Sources */,
 				9130CA0B296B055E00FC5107 /* NoticeViewController.swift in Sources */,
 				910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */,
 				91CFCFD0297FFB720009944D /* CustomNotification.swift in Sources */,
+				91783EA329863DAC00B8CC2E /* SignAPI.swift in Sources */,
 				91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
 				916A2C47297056F2005F0420 /* CommunityTableCell.swift in Sources */,
