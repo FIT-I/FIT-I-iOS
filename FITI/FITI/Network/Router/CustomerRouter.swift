@@ -9,12 +9,12 @@ import Moya
 import Foundation
 import Realm
 
-enum CustomerServices {
+enum CustomerRouter {
     case addHeart(_ trainerIndex: Int)
     case requestTrain(_ trainerIndex: Int, _ param: RequestTrainerRequest)
 }
 
-extension CustomerServices: TargetType, AccessTokenAuthorizable {
+extension CustomerRouter: TargetType, AccessTokenAuthorizable {
     
     
     var baseURL: URL {

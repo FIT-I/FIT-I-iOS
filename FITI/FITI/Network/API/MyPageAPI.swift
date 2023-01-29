@@ -11,7 +11,7 @@ import Moya
 
 final class MyPageAPI {
     static let shared = MyPageAPI()
-    private var myPageProvider = MoyaProvider<MyPageServices>()
+    private var myPageProvider = MoyaProvider<MyPageRouter>()
     
     private init() { }
     

@@ -11,7 +11,7 @@ import Moya
 
 final class CustomerAPI {
     static let shared = CustomerAPI()
-    private var customerProvider = MoyaProvider<CustomerServices>()
+    private var customerProvider = MoyaProvider<CustomerRouter>()
     
     private init() { }
     

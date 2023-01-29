@@ -8,7 +8,7 @@
 import Moya
 import Foundation
 
-enum MyPageRouter {
+enum MyPageServices {
     case getMyPage
     case writeReview(_ param: WriteReviewRequest)
     case locationSetting(_ location:String)
@@ -17,7 +17,7 @@ enum MyPageRouter {
     case getHeartList
 }
 
-extension MyPageRouter: TargetType, AccessTokenAuthorizable {
+extension MyPageServices: TargetType, AccessTokenAuthorizable {
     var baseURL: URL {
         return URL(string: BaseURL.BURL)!
     }

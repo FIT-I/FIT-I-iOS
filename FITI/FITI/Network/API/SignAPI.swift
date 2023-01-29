@@ -11,7 +11,7 @@ import Moya
 
 final class SignAPI {
     static let shared = SignAPI()
-    private var signProvider = MoyaProvider<SignServices>()
+    private var signProvider = MoyaProvider<SignRouter>()
     
     private init() { }
     
