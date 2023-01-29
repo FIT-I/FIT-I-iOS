@@ -249,5 +249,3 @@ extension SignInViewController {
         }
     }
 }
-
-

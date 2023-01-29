@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - AddHeartResponse
 struct AddHeartResponse: Codable {
     let isSuccess: Bool
     let code: Int

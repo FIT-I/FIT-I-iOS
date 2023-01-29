@@ -11,6 +11,7 @@ import Realm
 
 enum CustomerRouter {
     case addHeart(_ trainerIndex: Int)
+    case deleteHeart(_ trainerIndex: Int)
     case requestTrain(_ trainerIndex: Int, _ param: RequestTrainerRequest)
 }
 
@@ -25,6 +26,8 @@ extension CustomerRouter: TargetType, AccessTokenAuthorizable {
         switch self {
         case .addHeart(let trainerIndex):
             return "/api/customer/\(trainerIndex)"
+        case .deleteHeart(let trainerIndex):
+            return "/api/customer/\(trainerIndex)"
         case .requestTrain(let trainerIndex, _):
             return "/api/customer/matching/\(trainerIndex)"
         }
@@ -34,12 +37,14 @@ extension CustomerRouter: TargetType, AccessTokenAuthorizable {
         switch self {
         case .addHeart, .requestTrain:
             return .post
+        case .deleteHeart:
+            return .delete
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .addHeart:
+        case .addHeart, .deleteHeart:
             return .requestPlain
         case .requestTrain(_, let param):
             return .requestJSONEncodable(param)

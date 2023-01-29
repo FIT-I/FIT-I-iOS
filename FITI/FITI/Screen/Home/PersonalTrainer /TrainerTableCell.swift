@@ -28,7 +28,7 @@ class TrainerTableCell: UITableViewCell {
         view.image = UIImage(named: "reviewerIcon.svg")
         view.snp.makeConstraints { make in
             make.height.equalTo(110)
-            make.width.equalTo(100)
+            make.width.equalTo(70)
         }
         return view
     }()
@@ -100,8 +100,6 @@ class TrainerTableCell: UITableViewCell {
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.font = UIFont.systemFont(ofSize: 10.0)
-        // 더미 데이터
-        textView.text = "Pt 센터 경력 3년. 스포애니 상도점에서 대표 트레이너로 근무한 경험이 있습니다. 가르치는 것은 자신있습니다. 중앙대학교 체육대학 지난학기 수석 학생입니다. 배운 내용을 토대로 안전하게 지도해드립니다."
         return textView
     }()
     var price : UILabel = {
@@ -114,7 +112,7 @@ class TrainerTableCell: UITableViewCell {
     let time : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
-        label.text = "/1시간"
+        label.text = "원 /1시간"
         label.textColor = UIColor.customColor(.darkGray)
         
         return label
@@ -135,7 +133,7 @@ class TrainerTableCell: UITableViewCell {
         let stackView = UIStackView(arrangedSubviews: [name,goldIcon])
         stackView.axis = .horizontal
         stackView.spacing = 8
-        stackView.alignment = .center
+        stackView.alignment = .trailing
         return stackView
     }()
     lazy var gradeStackView : UIStackView = {

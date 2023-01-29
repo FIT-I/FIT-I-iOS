@@ -64,7 +64,6 @@ class RealmService{
         return CustomNotification.last?.link ?? ""
     }
 
-        
     // 스키마 수정시 한번 돌려야 한다.
     func resetDB(){
         let realmURL = Realm.Configuration.defaultConfiguration.fileURL!

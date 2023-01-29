@@ -34,7 +34,6 @@
 		9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA0C296B056B00FC5107 /* ClauseViewController.swift */; };
 		9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA0E296B063100FC5107 /* SettingProfileViewController.swift */; };
 		9130CA14296B0F9F00FC5107 /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA13296B0F9F00FC5107 /* WithdrawViewController.swift */; };
-		9130CA1B296B3A8A00FC5107 /* TopStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA1A296B3A8A00FC5107 /* TopStackView.swift */; };
 		9130CA1D296B3CAF00FC5107 /* BottomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA1C296B3CAF00FC5107 /* BottomInfoView.swift */; };
 		9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */; };
 		9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA23296B558900FC5107 /* SearchTVC.swift */; };
@@ -52,10 +51,11 @@
 		91783EA329863DAC00B8CC2E /* SignAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA229863DAC00B8CC2E /* SignAPI.swift */; };
 		91783EA6298640FA00B8CC2E /* TrainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA5298640FA00B8CC2E /* TrainerRouter.swift */; };
 		91783EA8298641DB00B8CC2E /* CustomerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA7298641DB00B8CC2E /* CustomerAPI.swift */; };
-		91783EAA2986499B00B8CC2E /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA92986499B00B8CC2E /* AddHeartResponse.swift */; };
 		91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EAB29867A0400B8CC2E /* HeartListTableCell.swift */; };
 		91783EAF298680BE00B8CC2E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 91783EAE298680BE00B8CC2E /* Kingfisher */; };
 		91783EB129869FFB00B8CC2E /* SpecificTrainerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EB029869FFB00B8CC2E /* SpecificTrainerResponse.swift */; };
+		91783EB32986B73800B8CC2E /* DeleteHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EB22986B73800B8CC2E /* DeleteHeartResponse.swift */; };
+		91783EB52986B76100B8CC2E /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EB42986B76100B8CC2E /* AddHeartResponse.swift */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
 		917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* SignUpViewController.swift */; };
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
@@ -135,7 +135,6 @@
 		9130CA0C296B056B00FC5107 /* ClauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClauseViewController.swift; sourceTree = "<group>"; };
 		9130CA0E296B063100FC5107 /* SettingProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileViewController.swift; sourceTree = "<group>"; };
 		9130CA13296B0F9F00FC5107 /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
-		9130CA1A296B3A8A00FC5107 /* TopStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStackView.swift; sourceTree = "<group>"; };
 		9130CA1C296B3CAF00FC5107 /* BottomInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomInfoView.swift; sourceTree = "<group>"; };
 		9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserNameViewController.swift; sourceTree = "<group>"; };
 		9130CA23296B558900FC5107 /* SearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVC.swift; sourceTree = "<group>"; };
@@ -152,9 +151,10 @@
 		91783EA229863DAC00B8CC2E /* SignAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPI.swift; sourceTree = "<group>"; };
 		91783EA5298640FA00B8CC2E /* TrainerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRouter.swift; sourceTree = "<group>"; };
 		91783EA7298641DB00B8CC2E /* CustomerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAPI.swift; sourceTree = "<group>"; };
-		91783EA92986499B00B8CC2E /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
 		91783EAB29867A0400B8CC2E /* HeartListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListTableCell.swift; sourceTree = "<group>"; };
 		91783EB029869FFB00B8CC2E /* SpecificTrainerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificTrainerResponse.swift; sourceTree = "<group>"; };
+		91783EB22986B73800B8CC2E /* DeleteHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteHeartResponse.swift; sourceTree = "<group>"; };
+		91783EB42986B76100B8CC2E /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
 		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
 		917D3CF7296EB2D30060F802 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
@@ -424,7 +424,6 @@
 			isa = PBXGroup;
 			children = (
 				9130CA0E296B063100FC5107 /* SettingProfileViewController.swift */,
-				9130CA1A296B3A8A00FC5107 /* TopStackView.swift */,
 				9130CA1C296B3CAF00FC5107 /* BottomInfoView.swift */,
 				9130CA20296B4D4800FC5107 /* SettingUserName */,
 			);
@@ -518,7 +517,6 @@
 				9181B6EB2983C448001D9427 /* MyPageResponse.swift */,
 				9181B6E62982BACD001D9427 /* PetchLocationResponse.swift */,
 				9181B6E42982AA73001D9427 /* HeartListResponse.swift */,
-				91783EA92986499B00B8CC2E /* AddHeartResponse.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -692,6 +690,8 @@
 			children = (
 				91FDB3E42982662700053795 /* WriteReviewRequest.swift */,
 				91FDB3E62982671100053795 /* RequestTrainerRequest.swift */,
+				91783EB22986B73800B8CC2E /* DeleteHeartResponse.swift */,
+				91783EB42986B76100B8CC2E /* AddHeartResponse.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -821,11 +821,11 @@
 				91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */,
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
 				9181B6E72982BACD001D9427 /* PetchLocationResponse.swift in Sources */,
+				91783EB32986B73800B8CC2E /* DeleteHeartResponse.swift in Sources */,
 				91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */,
 				91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
 				9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */,
-				91783EAA2986499B00B8CC2E /* AddHeartResponse.swift in Sources */,
 				91BE526C29854B31006DA3AB /* TrainerListResponse.swift in Sources */,
 				91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */,
 				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,
@@ -833,6 +833,7 @@
 				917D3CFE296EB3330060F802 /* UITextField+.swift in Sources */,
 				9163A4C12977081600577DC3 /* DetailBodyIntroView.swift in Sources */,
 				91185FCC296DBCC80099B641 /* TrainerDetailViewController.swift in Sources */,
+				91783EB52986B76100B8CC2E /* AddHeartResponse.swift in Sources */,
 				91877D702969B1970074386B /* BottomView.swift in Sources */,
 				91185FBF296D83330099B641 /* BodyPriceView.swift in Sources */,
 				9130CA14296B0F9F00FC5107 /* WithdrawViewController.swift in Sources */,
@@ -848,7 +849,6 @@
 				9130CA03296AFBFE00FC5107 /* BottomBtnView.swift in Sources */,
 				91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */,
 				91FDB3E12982637200053795 /* CustomerRouter.swift in Sources */,
-				9130CA1B296B3A8A00FC5107 /* TopStackView.swift in Sources */,
 				91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */,
 				9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */,
 				9130CA09296B055100FC5107 /* SearchViewController.swift in Sources */,
