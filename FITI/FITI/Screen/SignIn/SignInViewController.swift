@@ -272,14 +272,14 @@ class SignInViewController: UIViewController {
         case false :
             // 서버 통신
             if((idTextField.text != "") && (passwordTextField.text != "")){
-                self.postServer()
+                self.postSignInServer()
             }
         default:
             ifSuccessPushHome()
         }
     }
     
-    func postServer(){
+    func postSignInServer(){
         // server
         let param = SignInRequest.init(self.idTextField.text ?? "" ,self.passwordTextField.text ?? "")
         print(param)
