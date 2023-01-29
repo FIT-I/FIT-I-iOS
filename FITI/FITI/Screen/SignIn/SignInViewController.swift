@@ -6,20 +6,21 @@
 //
 
 import UIKit
+
 import SnapKit
 import Moya
 
 class SignInViewController: UIViewController {
 
-//    static var FcmToken:String!
-//    static var ID:String!
-//    static var PW:String!
-//
-    // MoyaTarget과 상호작용하는 MoyaProvider를 생성하기 위해 MoyaProvider인스턴스 생성
-//    private let customerProvider = MoyaProvider<CustomerServices>()
-    let realm = RealmService()
+    // MARK: - Properties
     
-    private let titleLabel : UILabel = {
+    let realm = RealmService()
+    var id = false
+    var pw = false
+    
+    // MARK: - UI Components
+    
+    private lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.text = "Trainer-Login"
         label.textColor = UIColor.customColor(.blue)
@@ -27,9 +28,7 @@ class SignInViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 24)
         return label
     }()
-
-    
-    lazy var idTextField : UITextField = {
+    private lazy var idTextField : UITextField = {
         let tf = UITextField()
         tf.attributedPlaceholder = NSAttributedString(
                     string: "아이디",
@@ -42,11 +41,9 @@ class SignInViewController: UIViewController {
         tf.textColor = UIColor.customColor(.blue)
         tf.setLeftPaddingPoints(10)
         tf.addTarget(self, action: #selector(handleIdTfDidChange), for: .editingChanged)
-        
         return tf
     }()
-
-    lazy var passwordTextField : UITextField = {
+    private lazy var passwordTextField : UITextField = {
         let tf = UITextField()
         tf.attributedPlaceholder = NSAttributedString(
                     string: "비밀번호",
@@ -59,11 +56,9 @@ class SignInViewController: UIViewController {
         tf.textColor = UIColor.customColor(.blue)
         tf.setLeftPaddingPoints(10)
         tf.addTarget(self, action: #selector(handlePwTfDidChange), for: .editingChanged)
-
         return tf
     }()
-
-    lazy var findPasswordButton : UIButton = {
+    private lazy var findPasswordButton : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = .none
         btn.setTitle("비밀번호 찾기", for: .normal)
@@ -71,11 +66,9 @@ class SignInViewController: UIViewController {
         btn.titleLabel?.font = UIFont(name: "Noto Sans", size: 0)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         btn.addTarget(self, action: #selector(findPwBtnEvent), for: .touchUpInside)
-
         return btn
     }()
-
-    lazy var signUpButton : UIButton = {
+    private lazy var signUpButton : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = .none
         btn.setTitle("회원가입", for: .normal)
@@ -85,8 +78,7 @@ class SignInViewController: UIViewController {
         btn.addTarget(self, action: #selector(signUpBtnEvent), for: .touchUpInside)
         return btn
     }()
-
-    private let horizontalStackView : UIStackView = {
+    private lazy var horizontalStackView : UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 20
@@ -94,8 +86,7 @@ class SignInViewController: UIViewController {
         stackView.distribution = .fillEqually
         return stackView
     }()
-    
-    lazy var nextButton : UIButton = {
+    private lazy var nextButton : UIButton = {
            let btn = UIButton()
             btn.backgroundColor = UIColor.customColor(.gray)
             btn.setTitle("로그인", for: .normal)
@@ -107,167 +98,91 @@ class SignInViewController: UIViewController {
             return btn
         }()
     
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        self.navigationItem.hidesBackButton = true
+        // MARK: - FIXME
+//        self.realm.resetDB()
+        if checkRealmToken() {
+            print(self.realm.getToken())
+            ifSuccessPushHome()
+        }
+        self.dismissKeyboard()
+        self.setNavigationItem()
         signInViewAddUI()
         signInViewSetUI()
-        
-        // MARK: - FIXME
-        self.realm.resetDB()
-        
-//        if checkRealmToken() {
-//            print(self.realm.getToken())
-//            ifSuccessPushHome()
-//        }
-
-        self.dismissKeyboard()
     }
 
-    func signInViewAddUI(){
-
-        
-        horizontalStackView.addArrangedSubview(findPasswordButton)
-        horizontalStackView.addArrangedSubview(signUpButton)
-
-        view.addSubview(titleLabel)
-        view.addSubview(idTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(horizontalStackView)
-        view.addSubview(nextButton)
-        
+    private func signInViewAddUI(){
+        horizontalStackView.addArrangedSubviews([findPasswordButton,signUpButton])
+        view.addSubviews(titleLabel,
+                         idTextField,
+                         passwordTextField,
+                         horizontalStackView,
+                         nextButton
+        )
     }
 
-
-    func signInViewSetUI(){
-
+    private func signInViewSetUI(){
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(200)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-100)
         }
-        
         idTextField.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.height.equalTo(52)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
-        
         passwordTextField.snp.makeConstraints { make in
             make.top.equalTo(idTextField.snp.bottom).offset(10)
             make.height.equalTo(52)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
-        
         horizontalStackView.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(27)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
-        
         nextButton.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-80)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
             make.height.equalTo(60)
         }
+    }
 
-    }
-    
-    // 로컬db에 토큰이 있는지 확인하는 함수
-    func checkRealmToken()->Bool{
-        if realm.getToken() == ""{
-            return false
-        }else{
-            return true
-        }
-    }
+    // MARK: - @objc Func
     
     @objc func signUpBtnEvent(){
-        
         let nextVC = PolicyViewController()
         navigationController?.pushViewController(nextVC, animated: true)
-        
     }
-    
     @objc func findPwBtnEvent(){
-        
         let nextVC = FindPwViewController()
         navigationController?.pushViewController(nextVC, animated: true)
-        
     }
-    
-    var id = false
-    var pw = false
-    
     @objc func handleIdTfDidChange(){
-        
         idTextField.layer.borderColor = UIColor.customColor(.blue).cgColor
         id = true
-        
         if(id && pw){
             nextButton.backgroundColor = UIColor.customColor(.blue)
         }
     }
-    
     @objc func handlePwTfDidChange(){
         passwordTextField.layer.borderColor = UIColor.customColor(.blue).cgColor
         pw = true
-        
         if(id && pw){
             nextButton.backgroundColor = UIColor.customColor(.blue)
         }
     }
-    
-//    func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
-//        let param = TrainerArrayListRequest(page: page, size: size, sort: sort)
-//        print(param)
-//        self.customerProvider.request(.getFristTrainerList(category, param)){ response in
-//            switch response {
-//                case .success(let moyaResponse):
-//                    do {
-//                        print(moyaResponse.statusCode)
-//                        let responseData = try moyaResponse.map(TrainerListResponse.self)
-//                        print(responseData.isSuccess)
-//                        print(responseData.result.dto)
-//                    } catch(let err) {
-//                        print(err.localizedDescription)
-//                    }
-//                case .failure(let err):
-//                    print(err.localizedDescription)
-//            }
-//        }
-//    }
-//
-//    func getTrainerListServer(category:String,lastTrainerIdx:Int,page:Int,size:Int,sort:[String]){
-//        let param = TrainerArrayListRequest(page: page, size: size, sort: sort)
-//        print(param)
-//        self.customerProvider.request(.getTrainerList(category, lastTrainerIdx, param)){ response in
-//            switch response {
-//                case .success(let moyaResponse):
-//                    do {
-//                        print(moyaResponse.statusCode)
-//                        let responseData = try moyaResponse.map(TrainerListResponse.self)
-//                        print(responseData.isSuccess)
-//                        print(responseData.result.dto)
-//                    } catch(let err) {
-//                        print(err.localizedDescription)
-//                    }
-//                case .failure(let err):
-//                    print(err.localizedDescription)
-//            }
-//        }
-//    }
-    
     @objc func touchNextBtnEvent() {
-        
         switch checkRealmToken() {
         case false :
-            // 서버 통신
             if((idTextField.text != "") && (passwordTextField.text != "")){
                 self.signInServer(email: idTextField.text ?? "", password: passwordTextField.text ?? "")
             }
@@ -276,20 +191,28 @@ class SignInViewController: UIViewController {
         }
     }
     
+    //MARK: - Func
+    
+    private func checkRealmToken()->Bool{
+        if realm.getToken() == ""{
+            return false
+        }else{
+            return true
+        }
+    }
     private func ifSuccessPushHome(){
         print("pushToHome")
-//        self.getFirstTrainerListServer(category: "pt", page: 1, size: 5, sort: ["sort"])
-//        self.getTrainerListServer(category: "pt", lastTrainerIdx: 0, page: 1, size: 5, sort: ["recent"])
+        self.getFirstTrainerListServer(category: "pt", page: 0, size: 5, sort: ["current"])
         let nextVC = GradeTableViewController()
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
-    
-    func addTokenInRealm(item:String){
+    private func addTokenInRealm(item:String){
         realm.addToken(item: item)
         print(realm.getToken())
     }
-    
-    func showFailAlert(){
+    private func showFailAlert(){
         let alert = UIAlertController(title: "로그인 실패", message: "이메일 또는 비밀번호를 확인해주세요.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { okAction in
             self.idTextField.text = ""
@@ -298,7 +221,9 @@ class SignInViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
-
+    func setNavigationItem(){
+        self.navigationItem.hidesBackButton = true
+    }
 }
 
 // MARK: - Network
@@ -309,7 +234,7 @@ extension SignInViewController {
             print(response?.message ?? "")
             guard let signInResponse = response?.result else { return }
             print(signInResponse.accessToken)
-            if response?.code ?? 0 >= 200 && response?.code ?? 0 < 300 {
+            if response?.code == 1000 {
                 self.addTokenInRealm(item: signInResponse.accessToken)
                 self.ifSuccessPushHome()
             } else {
@@ -317,4 +242,12 @@ extension SignInViewController {
             }
         }
     }
+    func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
+        TrainerAPI.shared.getFirstTrainerListAPI(category: category, page: page, size: size, sort: sort) { response in
+            guard let trainerListResponse = response?.result.dto else { return }
+            HomeViewController.trainerList = trainerListResponse
+        }
+    }
 }
+
+

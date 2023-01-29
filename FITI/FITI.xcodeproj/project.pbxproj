@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTabelCell.swift */; };
+		910182C32961961D00FC10DB /* TrainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTableCell.swift */; };
 		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
 		910D805629656AA400828E4B /* PickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805529656AA400828E4B /* PickDateViewController.swift */; };
 		910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805829656ACE00828E4B /* PickPlaceViewController.swift */; };
@@ -53,6 +53,8 @@
 		91783EA6298640FA00B8CC2E /* TrainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA5298640FA00B8CC2E /* TrainerRouter.swift */; };
 		91783EA8298641DB00B8CC2E /* CustomerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA7298641DB00B8CC2E /* CustomerAPI.swift */; };
 		91783EAA2986499B00B8CC2E /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA92986499B00B8CC2E /* AddHeartResponse.swift */; };
+		91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EAB29867A0400B8CC2E /* HeartListTableCell.swift */; };
+		91783EAF298680BE00B8CC2E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 91783EAE298680BE00B8CC2E /* Kingfisher */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
 		917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* SignUpViewController.swift */; };
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
@@ -106,7 +108,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		910182C22961961D00FC10DB /* TrainerTabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTabelCell.swift; sourceTree = "<group>"; };
+		910182C22961961D00FC10DB /* TrainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTableCell.swift; sourceTree = "<group>"; };
 		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
 		910D805529656AA400828E4B /* PickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewController.swift; sourceTree = "<group>"; };
 		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		91783EA5298640FA00B8CC2E /* TrainerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRouter.swift; sourceTree = "<group>"; };
 		91783EA7298641DB00B8CC2E /* CustomerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAPI.swift; sourceTree = "<group>"; };
 		91783EA92986499B00B8CC2E /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
+		91783EAB29867A0400B8CC2E /* HeartListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListTableCell.swift; sourceTree = "<group>"; };
 		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
 		917D3CF7296EB2D30060F802 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +210,7 @@
 				91C32D46296185B900F29DA5 /* SnapKit in Frameworks */,
 				91F75B00296C109200B31F3B /* Tabman in Frameworks */,
 				910D80652965E5C200828E4B /* FSCalendar in Frameworks */,
+				91783EAF298680BE00B8CC2E /* Kingfisher in Frameworks */,
 				913E02CD2963505A001CC92B /* Then in Frameworks */,
 				91CFCFD3298001ED0009944D /* Moya in Frameworks */,
 				91CFCFC8297FFA4D0009944D /* Realm in Frameworks */,
@@ -384,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				9130CA06296B034600FC5107 /* HeartListViewController.swift */,
+				91783EAB29867A0400B8CC2E /* HeartListTableCell.swift */,
 			);
 			path = HeartList;
 			sourceTree = "<group>";
@@ -642,7 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				91C32D4D2961867600F29DA5 /* HomeViewController.swift */,
-				910182C22961961D00FC10DB /* TrainerTabelCell.swift */,
+				910182C22961961D00FC10DB /* TrainerTableCell.swift */,
 			);
 			path = "PersonalTrainer ";
 			sourceTree = "<group>";
@@ -712,6 +717,7 @@
 				91CFCFC7297FFA4D0009944D /* Realm */,
 				91CFCFC9297FFA4D0009944D /* RealmSwift */,
 				91CFCFD2298001ED0009944D /* Moya */,
+				91783EAE298680BE00B8CC2E /* Kingfisher */,
 			);
 			productName = FITI;
 			productReference = 91C32D2B296184AA00F29DA5 /* FITI.app */;
@@ -748,6 +754,7 @@
 				91F75AFE296C109200B31F3B /* XCRemoteSwiftPackageReference "Tabman" */,
 				91CFCFC6297FFA4D0009944D /* XCRemoteSwiftPackageReference "realm-swift" */,
 				91CFCFD1298001ED0009944D /* XCRemoteSwiftPackageReference "Moya" */,
+				91783EAD298680BE00B8CC2E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 91C32D2C296184AA00F29DA5 /* Products */;
 			projectDirPath = "";
@@ -777,7 +784,7 @@
 			files = (
 				91877D6C2969A0A00074386B /* ProfileView.swift in Sources */,
 				917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */,
-				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
+				910182C32961961D00FC10DB /* TrainerTableCell.swift in Sources */,
 				9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */,
 				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
@@ -810,6 +817,7 @@
 				91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */,
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
 				9181B6E72982BACD001D9427 /* PetchLocationResponse.swift in Sources */,
+				91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */,
 				91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
 				9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */,
@@ -1087,6 +1095,14 @@
 				kind = branch;
 			};
 		};
+		91783EAD298680BE00B8CC2E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		91C32D44296185B900F29DA5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1131,6 +1147,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		91783EAE298680BE00B8CC2E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91783EAD298680BE00B8CC2E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		91C32D45296185B900F29DA5 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

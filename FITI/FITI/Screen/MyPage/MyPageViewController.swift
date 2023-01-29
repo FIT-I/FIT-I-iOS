@@ -214,22 +214,16 @@ class MyPageViewController: UIViewController {
         midProfileStackView.name.text = MyPageViewController.MyInfo.userName
         midProfileStackView.userId.text = MyPageViewController.MyInfo.email
     }
-    
-    
+}
+
+//MARK: - Extension
+
+extension MyPageViewController {
     func getHeartListServer(){
-        self.myPageProvider.request(.getHeartList){ response in
-            switch response {
-            case .success(let moyaResponse):
-                do {
-                    let responseData = try moyaResponse.map(HeartListResponse.self)
-                    print(responseData.isSuccess)
-                    print(responseData.result)
-                } catch(let err) {
-                    print(err.localizedDescription)
-                }
-            case .failure(let err):
-                print(err.localizedDescription)
-            }
+        print("getHeartList")
+        MyPageAPI.shared.getHeartListAPI{ response in
+            guard let heartListResponse = response?.result else { return }
+            HeartListViewController.heartList = heartListResponse
         }
     }
 }
