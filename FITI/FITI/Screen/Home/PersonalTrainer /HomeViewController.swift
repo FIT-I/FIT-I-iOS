@@ -78,7 +78,8 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("cell did touched")
+        let touchedCell = tableView.cellForRow(at: indexPath) as! TrainerTableCell
+        print(touchedCell.id)
         let nextVC = TrainerDetailViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
