@@ -61,9 +61,6 @@ final class TrainerAPI {
             switch response {
                 case .success(let moyaResponse):
                     do {
-                        print(moyaResponse.statusCode)
-                        print(moyaResponse.data)
-                        print(moyaResponse.response as Any)
                         self.getSpecificTrainerData = try moyaResponse.map(SpecificTrainerResponse.self)
                         completion(getSpecificTrainerData)
                     } catch(let err) {

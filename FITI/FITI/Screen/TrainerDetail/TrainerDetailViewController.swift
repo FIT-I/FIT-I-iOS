@@ -12,7 +12,11 @@ import Then
 
 class TrainerDetailViewController: UIViewController {
     
+    // MARK: - Properties
+    
     var isHeartFull : Bool = false
+    static var id = Int()
+    static var trainerHeartList = [HeartList]()
     
     //MARK: - UI Components
     
@@ -84,28 +88,17 @@ class TrainerDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.topItem?.title = ""
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
-        
+        setNavigationController()
         setButtonEvent()
         setViewLayer()
         setLayout()
     }
     
-    func setButtonEvent(){
-        bodyReviewView.reviewDetailBtn.addTarget(self, action: #selector(moveToReviewTableView), for: .touchUpInside)
-        bodyIntroView.textDetailBtn.addTarget(self, action: #selector(moveToBodyIntroDetailIntroView), for: .touchUpInside)
-        bodyIntroAboutService.textDetailBtn.addTarget(self, action: #selector(moveToAboutServiceDetailIntroView), for: .touchUpInside)
+    override func viewWillAppear(_ animated: Bool) {
+        setHeartIcon()
     }
     
-    func setViewLayer(){
-        bodyPriceView.layer.cornerRadius = 8
-        bodyIntroView.layer.cornerRadius = 8
-        bodyIntroAboutService.layer.cornerRadius = 8
-        bodyReviewView.layer.cornerRadius = 8
-    }
+    // MARK: - @objc Func
     
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
@@ -139,10 +132,41 @@ class TrainerDetailViewController: UIViewController {
         if isHeartFull == false {
             self.isHeartFull = true
             self.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+            self.postHeartServer(trainerIndex: TrainerDetailViewController.id)
         }else{
             self.isHeartFull = false
             self.heartBtn.setImage(UIImage(named: "heart.svg"), for: .normal)
+            self.deleteHeartServer(trainerIndex: TrainerDetailViewController.id)
         }
+    }
+    
+    // MARK: Func
+
+    func setHeartIcon() {
+        for i in 0..<TrainerDetailViewController.trainerHeartList.count {
+            print(TrainerDetailViewController.trainerHeartList[i].trainerIdx)
+            print(TrainerDetailViewController.id)
+            if TrainerDetailViewController.trainerHeartList[i].trainerIdx == TrainerDetailViewController.id {
+                self.isHeartFull = true
+                self.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+            }
+        }
+    }
+    func setButtonEvent(){
+        bodyReviewView.reviewDetailBtn.addTarget(self, action: #selector(moveToReviewTableView), for: .touchUpInside)
+        bodyIntroView.textDetailBtn.addTarget(self, action: #selector(moveToBodyIntroDetailIntroView), for: .touchUpInside)
+        bodyIntroAboutService.textDetailBtn.addTarget(self, action: #selector(moveToAboutServiceDetailIntroView), for: .touchUpInside)
+    }
+    func setViewLayer(){
+        bodyPriceView.layer.cornerRadius = 8
+        bodyIntroView.layer.cornerRadius = 8
+        bodyIntroAboutService.layer.cornerRadius = 8
+        bodyReviewView.layer.cornerRadius = 8
+    }
+    func setNavigationController(){
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.topItem?.title = ""
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
     }
 }
 
@@ -254,5 +278,24 @@ extension TrainerDetailViewController {
             $0.bottom.equalToSuperview()
         }
 
+    }
+}
+
+// MARK: - Network
+
+extension TrainerDetailViewController {
+    func postHeartServer(trainerIndex:Int) {
+        CustomerAPI.shared.postAddHeartAPI(trainerIndex: trainerIndex) { response in
+            guard let postHeartResponse = response?.result else { return }
+//            self.trainerHeartList.append(trainerIndex)
+//            print(self.trainerHeartList)
+            print(postHeartResponse)
+        }
+    }
+    func deleteHeartServer(trainerIndex:Int) {
+        CustomerAPI.shared.deleteHeartAPI(trainerIndex: trainerIndex) { response in
+            guard let deleteHeartResponse = response?.result else { return }
+            print(deleteHeartResponse)
+        }
     }
 }

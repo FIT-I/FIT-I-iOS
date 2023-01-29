@@ -41,9 +41,10 @@ class HomeViewController: UIViewController {
         signInViewSetUI()
         setTableViewCell()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         getMyPageServer()
+        getHeartListServer()
     }
     
     func signInViewAddUI(){
@@ -82,6 +83,7 @@ extension HomeViewController : UITableViewDelegate {
         print(touchedCell.id)
         self.getSpecificTrainerServer(trainerIdx: touchedCell.id)
         let nextVC = TrainerDetailViewController()
+        TrainerDetailViewController.id = touchedCell.id
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
@@ -113,6 +115,13 @@ extension HomeViewController {
         TrainerAPI.shared.getSpecificTrainerAPI(trainerIdx: trainerIdx) { response in
             guard let specificTrainerResponse = response?.result else { return }
             print(specificTrainerResponse)
+        }
+    }
+    func getHeartListServer(){
+        print("getHeartList")
+        MyPageAPI.shared.getHeartListAPI{ response in
+            guard let heartListResponse = response?.result else { return }
+            TrainerDetailViewController.trainerHeartList = heartListResponse
         }
     }
 }

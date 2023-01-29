@@ -52,10 +52,11 @@
 		91783EA329863DAC00B8CC2E /* SignAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA229863DAC00B8CC2E /* SignAPI.swift */; };
 		91783EA6298640FA00B8CC2E /* TrainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA5298640FA00B8CC2E /* TrainerRouter.swift */; };
 		91783EA8298641DB00B8CC2E /* CustomerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA7298641DB00B8CC2E /* CustomerAPI.swift */; };
-		91783EAA2986499B00B8CC2E /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA92986499B00B8CC2E /* AddHeartResponse.swift */; };
 		91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EAB29867A0400B8CC2E /* HeartListTableCell.swift */; };
 		91783EAF298680BE00B8CC2E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 91783EAE298680BE00B8CC2E /* Kingfisher */; };
 		91783EB129869FFB00B8CC2E /* SpecificTrainerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EB029869FFB00B8CC2E /* SpecificTrainerResponse.swift */; };
+		91783EB32986B73800B8CC2E /* DeleteHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EB22986B73800B8CC2E /* DeleteHeartResponse.swift */; };
+		91783EB52986B76100B8CC2E /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EB42986B76100B8CC2E /* AddHeartResponse.swift */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
 		917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* SignUpViewController.swift */; };
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
@@ -152,9 +153,10 @@
 		91783EA229863DAC00B8CC2E /* SignAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPI.swift; sourceTree = "<group>"; };
 		91783EA5298640FA00B8CC2E /* TrainerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRouter.swift; sourceTree = "<group>"; };
 		91783EA7298641DB00B8CC2E /* CustomerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAPI.swift; sourceTree = "<group>"; };
-		91783EA92986499B00B8CC2E /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
 		91783EAB29867A0400B8CC2E /* HeartListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListTableCell.swift; sourceTree = "<group>"; };
 		91783EB029869FFB00B8CC2E /* SpecificTrainerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificTrainerResponse.swift; sourceTree = "<group>"; };
+		91783EB22986B73800B8CC2E /* DeleteHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteHeartResponse.swift; sourceTree = "<group>"; };
+		91783EB42986B76100B8CC2E /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
 		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
 		917D3CF7296EB2D30060F802 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
@@ -518,7 +520,6 @@
 				9181B6EB2983C448001D9427 /* MyPageResponse.swift */,
 				9181B6E62982BACD001D9427 /* PetchLocationResponse.swift */,
 				9181B6E42982AA73001D9427 /* HeartListResponse.swift */,
-				91783EA92986499B00B8CC2E /* AddHeartResponse.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -692,6 +693,8 @@
 			children = (
 				91FDB3E42982662700053795 /* WriteReviewRequest.swift */,
 				91FDB3E62982671100053795 /* RequestTrainerRequest.swift */,
+				91783EB22986B73800B8CC2E /* DeleteHeartResponse.swift */,
+				91783EB42986B76100B8CC2E /* AddHeartResponse.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -821,11 +824,11 @@
 				91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */,
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
 				9181B6E72982BACD001D9427 /* PetchLocationResponse.swift in Sources */,
+				91783EB32986B73800B8CC2E /* DeleteHeartResponse.swift in Sources */,
 				91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */,
 				91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
 				9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */,
-				91783EAA2986499B00B8CC2E /* AddHeartResponse.swift in Sources */,
 				91BE526C29854B31006DA3AB /* TrainerListResponse.swift in Sources */,
 				91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */,
 				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,
@@ -833,6 +836,7 @@
 				917D3CFE296EB3330060F802 /* UITextField+.swift in Sources */,
 				9163A4C12977081600577DC3 /* DetailBodyIntroView.swift in Sources */,
 				91185FCC296DBCC80099B641 /* TrainerDetailViewController.swift in Sources */,
+				91783EB52986B76100B8CC2E /* AddHeartResponse.swift in Sources */,
 				91877D702969B1970074386B /* BottomView.swift in Sources */,
 				91185FBF296D83330099B641 /* BodyPriceView.swift in Sources */,
 				9130CA14296B0F9F00FC5107 /* WithdrawViewController.swift in Sources */,
