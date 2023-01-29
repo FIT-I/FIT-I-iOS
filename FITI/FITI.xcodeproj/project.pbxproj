@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTabelCell.swift */; };
+		910182C32961961D00FC10DB /* TrainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTableCell.swift */; };
 		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
 		910D805629656AA400828E4B /* PickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805529656AA400828E4B /* PickDateViewController.swift */; };
 		910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805829656ACE00828E4B /* PickPlaceViewController.swift */; };
@@ -108,7 +108,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		910182C22961961D00FC10DB /* TrainerTabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTabelCell.swift; sourceTree = "<group>"; };
+		910182C22961961D00FC10DB /* TrainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTableCell.swift; sourceTree = "<group>"; };
 		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
 		910D805529656AA400828E4B /* PickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewController.swift; sourceTree = "<group>"; };
 		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
@@ -647,7 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				91C32D4D2961867600F29DA5 /* HomeViewController.swift */,
-				910182C22961961D00FC10DB /* TrainerTabelCell.swift */,
+				910182C22961961D00FC10DB /* TrainerTableCell.swift */,
 			);
 			path = "PersonalTrainer ";
 			sourceTree = "<group>";
@@ -784,7 +784,7 @@
 			files = (
 				91877D6C2969A0A00074386B /* ProfileView.swift in Sources */,
 				917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */,
-				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
+				910182C32961961D00FC10DB /* TrainerTableCell.swift in Sources */,
 				9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */,
 				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,

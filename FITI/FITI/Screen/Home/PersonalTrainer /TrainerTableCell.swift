@@ -8,11 +8,18 @@
 
 import Foundation
 import UIKit
+
 import SnapKit
+import Kingfisher
 
-class TrainerTabelCell: UITableViewCell {
+class TrainerTableCell: UITableViewCell {
 
-    static let identifier = "TrainerTabelCell"
+    // MARK: - Properties
+    
+    private var id = Int()
+    static let identifier = "TrainerTableCell"
+    
+    // MARK: - UI Components
     
     private let imgView : UIImageView = {
         let view = UIImageView()
@@ -25,7 +32,6 @@ class TrainerTabelCell: UITableViewCell {
         }
         return view
     }()
-    
     var name : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 15.0)
@@ -33,7 +39,6 @@ class TrainerTabelCell: UITableViewCell {
         label.textColor = UIColor.black
         return label
     }()
-    
     var starIcon : UIImageView = {
         let image = UIImageView()
         image.snp.makeConstraints { make in
@@ -42,7 +47,6 @@ class TrainerTabelCell: UITableViewCell {
         image.image = UIImage(named: "star.svg")
         return image
     }()
-    
     var purpose : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
@@ -50,7 +54,6 @@ class TrainerTabelCell: UITableViewCell {
         label.textColor = UIColor.black
         return label
     }()
-    
     var distance : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
@@ -58,7 +61,6 @@ class TrainerTabelCell: UITableViewCell {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
     private let dot : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
@@ -66,13 +68,11 @@ class TrainerTabelCell: UITableViewCell {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
     var yellowStarIcon : UIImageView = {
         let image = UIImageView()
         image.image =  UIImage(systemName: "star")
         return image
     }()
-    
     var grade : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
@@ -80,7 +80,6 @@ class TrainerTabelCell: UITableViewCell {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
     var license : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
@@ -88,7 +87,6 @@ class TrainerTabelCell: UITableViewCell {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
     var school : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
@@ -96,7 +94,6 @@ class TrainerTabelCell: UITableViewCell {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
     var introTextView : UITextView = {
         let textView = UITextView()
         textView.textColor = UIColor.black
@@ -107,7 +104,6 @@ class TrainerTabelCell: UITableViewCell {
         textView.text = "Pt 센터 경력 3년. 스포애니 상도점에서 대표 트레이너로 근무한 경험이 있습니다. 가르치는 것은 자신있습니다. 중앙대학교 체육대학 지난학기 수석 학생입니다. 배운 내용을 토대로 안전하게 지도해드립니다."
         return textView
     }()
-    
     var price : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
@@ -115,7 +111,6 @@ class TrainerTabelCell: UITableViewCell {
         label.textColor = UIColor.black
         return label
     }()
-    
     let time : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
@@ -124,13 +119,11 @@ class TrainerTabelCell: UITableViewCell {
         
         return label
     }()
-    
     var goldIcon : UIImageView = {
         let image = UIImageView()
         image.image =  UIImage(named: "gold.svg")
         return image
     }()
-
     lazy var rateStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [starIcon,grade])
         stackView.axis = .horizontal
@@ -138,7 +131,6 @@ class TrainerTabelCell: UITableViewCell {
         stackView.alignment = .center
         return stackView
     }()
-    
     lazy var nameStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [name,goldIcon])
         stackView.axis = .horizontal
@@ -146,7 +138,6 @@ class TrainerTabelCell: UITableViewCell {
         stackView.alignment = .center
         return stackView
     }()
-    
     lazy var gradeStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [rateStackView,license,school])
         stackView.axis = .horizontal
@@ -154,7 +145,6 @@ class TrainerTabelCell: UITableViewCell {
         stackView.alignment = .leading
         return stackView
     }()
-    
     lazy var priceStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [price,time])
         stackView.axis = .horizontal
@@ -162,7 +152,6 @@ class TrainerTabelCell: UITableViewCell {
         stackView.alignment = .leading
         return stackView
     }()
-    
     lazy var rightStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [nameStackView,gradeStackView,introTextView,priceStackView])
         stackView.axis = .vertical
@@ -170,7 +159,6 @@ class TrainerTabelCell: UITableViewCell {
         stackView.alignment = .leading
         return stackView
     }()
-    
     lazy var globalStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imgView,rightStackView])
         stackView.axis = .horizontal
@@ -179,6 +167,8 @@ class TrainerTabelCell: UITableViewCell {
         return stackView
     }()
 
+    // MARK: - init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.globalStackView)
@@ -188,20 +178,28 @@ class TrainerTabelCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-10)
             make.leading.trailing.equalToSuperview()
         }
-        
         print(globalStackView)
-
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been impl")
     }
     
 }
 
-//
-//extension TrainerTabelCell {
-//    public func binding(){
-//        //
-//    }
-//}
+
+extension TrainerTableCell {
+    public func bindingTrainerList(model:Dto){
+        id = model.id
+        name.text = model.name
+        grade.text = String(model.grade)
+        introTextView.text = model.contents
+        price.text = String(model.cost)
+        school.text = model.school
+        if model.profile == "" {
+            imgView.image = UIImage(named: "reviewerIcon.svg")
+        }else {
+            let url = URL(string: model.profile)
+            imgView.kf.setImage(with: url)
+        }
+    }
+}

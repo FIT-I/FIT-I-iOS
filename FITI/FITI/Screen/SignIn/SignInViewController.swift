@@ -202,10 +202,11 @@ class SignInViewController: UIViewController {
     }
     private func ifSuccessPushHome(){
         print("pushToHome")
-//        self.getFirstTrainerListServer(category: "pt", page: 1, size: 5, sort: ["sort"])
-//        self.getTrainerListServer(category: "pt", lastTrainerIdx: 0, page: 1, size: 5, sort: ["recent"])
+        self.getFirstTrainerListServer(category: "pt", page: 0, size: 5, sort: ["current"])
         let nextVC = GradeTableViewController()
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
     private func addTokenInRealm(item:String){
         realm.addToken(item: item)
@@ -241,4 +242,12 @@ extension SignInViewController {
             }
         }
     }
+    func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
+        TrainerAPI.shared.getFirstTrainerListAPI(category: category, page: page, size: size, sort: sort) { response in
+            guard let trainerListResponse = response?.result.dto else { return }
+            HomeViewController.trainerList = trainerListResponse
+        }
+    }
 }
+
+
