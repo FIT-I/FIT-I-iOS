@@ -34,7 +34,6 @@
 		9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA0C296B056B00FC5107 /* ClauseViewController.swift */; };
 		9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA0E296B063100FC5107 /* SettingProfileViewController.swift */; };
 		9130CA14296B0F9F00FC5107 /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA13296B0F9F00FC5107 /* WithdrawViewController.swift */; };
-		9130CA1B296B3A8A00FC5107 /* TopStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA1A296B3A8A00FC5107 /* TopStackView.swift */; };
 		9130CA1D296B3CAF00FC5107 /* BottomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA1C296B3CAF00FC5107 /* BottomInfoView.swift */; };
 		9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */; };
 		9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA23296B558900FC5107 /* SearchTVC.swift */; };
@@ -136,7 +135,6 @@
 		9130CA0C296B056B00FC5107 /* ClauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClauseViewController.swift; sourceTree = "<group>"; };
 		9130CA0E296B063100FC5107 /* SettingProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileViewController.swift; sourceTree = "<group>"; };
 		9130CA13296B0F9F00FC5107 /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
-		9130CA1A296B3A8A00FC5107 /* TopStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStackView.swift; sourceTree = "<group>"; };
 		9130CA1C296B3CAF00FC5107 /* BottomInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomInfoView.swift; sourceTree = "<group>"; };
 		9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserNameViewController.swift; sourceTree = "<group>"; };
 		9130CA23296B558900FC5107 /* SearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVC.swift; sourceTree = "<group>"; };
@@ -426,7 +424,6 @@
 			isa = PBXGroup;
 			children = (
 				9130CA0E296B063100FC5107 /* SettingProfileViewController.swift */,
-				9130CA1A296B3A8A00FC5107 /* TopStackView.swift */,
 				9130CA1C296B3CAF00FC5107 /* BottomInfoView.swift */,
 				9130CA20296B4D4800FC5107 /* SettingUserName */,
 			);
@@ -852,7 +849,6 @@
 				9130CA03296AFBFE00FC5107 /* BottomBtnView.swift in Sources */,
 				91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */,
 				91FDB3E12982637200053795 /* CustomerRouter.swift in Sources */,
-				9130CA1B296B3A8A00FC5107 /* TopStackView.swift in Sources */,
 				91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */,
 				9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */,
 				9130CA09296B055100FC5107 /* SearchViewController.swift in Sources */,
