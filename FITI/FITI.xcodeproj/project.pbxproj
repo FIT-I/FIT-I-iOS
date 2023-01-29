@@ -55,6 +55,7 @@
 		91783EAA2986499B00B8CC2E /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA92986499B00B8CC2E /* AddHeartResponse.swift */; };
 		91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EAB29867A0400B8CC2E /* HeartListTableCell.swift */; };
 		91783EAF298680BE00B8CC2E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 91783EAE298680BE00B8CC2E /* Kingfisher */; };
+		91783EB129869FFB00B8CC2E /* SpecificTrainerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EB029869FFB00B8CC2E /* SpecificTrainerResponse.swift */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
 		917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* SignUpViewController.swift */; };
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
@@ -153,6 +154,7 @@
 		91783EA7298641DB00B8CC2E /* CustomerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAPI.swift; sourceTree = "<group>"; };
 		91783EA92986499B00B8CC2E /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
 		91783EAB29867A0400B8CC2E /* HeartListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListTableCell.swift; sourceTree = "<group>"; };
+		91783EB029869FFB00B8CC2E /* SpecificTrainerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificTrainerResponse.swift; sourceTree = "<group>"; };
 		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
 		917D3CF7296EB2D30060F802 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 			children = (
 				91BE526D29854BD2006DA3AB /* TrainerArrayListRequest.swift */,
 				91BE526B29854B31006DA3AB /* TrainerListResponse.swift */,
+				91783EB029869FFB00B8CC2E /* SpecificTrainerResponse.swift */,
 			);
 			path = Trainer;
 			sourceTree = "<group>";
@@ -804,6 +807,7 @@
 				91BE526E29854BD2006DA3AB /* TrainerArrayListRequest.swift in Sources */,
 				9163A4C5297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
+				91783EB129869FFB00B8CC2E /* SpecificTrainerResponse.swift in Sources */,
 				91783EA129863DA300B8CC2E /* TrainerAPI.swift in Sources */,
 				9181B6EA2983C33C001D9427 /* MyPageRouter.swift in Sources */,
 				91CFCFCE297FFAFC0009944D /* Profile.swift in Sources */,

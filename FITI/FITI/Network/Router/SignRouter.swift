@@ -24,7 +24,6 @@ extension SignRouter: TargetType {
         return "/api/accounts/customer"
     case .signIn:
         return "/api/accounts/login"
-        
     }
   }
   

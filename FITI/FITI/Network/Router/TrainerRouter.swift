@@ -12,6 +12,7 @@ import Realm
 enum TrainerRouter {
     case getFristTrainerList(_ category:String, _ pageable: TrainerArrayListRequest)
     case getTrainerList(_ category:String, _ lastTrainerIdx:Int, _ pageable: TrainerArrayListRequest)
+    case getSpecificTrainer(_ trainerIdx:Int)
 }
 
 extension TrainerRouter: TargetType, AccessTokenAuthorizable {
@@ -25,12 +26,14 @@ extension TrainerRouter: TargetType, AccessTokenAuthorizable {
             return "/api/customer/trainer-list"
         case .getTrainerList:
             return "/api/customer/trainer-list"
+        case .getSpecificTrainer(let trainerIdx):
+            return "/api/communal/trainer/\(trainerIdx)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getFristTrainerList, .getTrainerList:
+        case .getFristTrainerList, .getTrainerList, .getSpecificTrainer:
             return .get
         }
     }
@@ -41,6 +44,8 @@ extension TrainerRouter: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: ["category":category,"page":pageable.page,"size":pageable.size,"sort":pageable.sort], encoding: URLEncoding.queryString)
         case .getTrainerList(let category, let lastTrainerIdx, let pageable):
             return .requestParameters(parameters: ["category":category,"lastTrainerIdx":lastTrainerIdx,"page":pageable.page,"size":pageable.size,"sort":pageable.sort], encoding: URLEncoding.queryString)
+        case .getSpecificTrainer:
+            return .requestPlain
         }
     }
     
