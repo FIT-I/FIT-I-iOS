@@ -357,7 +357,7 @@ class PolicyViewController: UIViewController {
     
     @objc func touchNextBtnEvent() {
         if(nextButton.backgroundColor == UIColor.customColor(.blue)){
-            let nextVC = MakeAccountViewController()
+            let nextVC = SignUpViewController()
             navigationController?.pushViewController(nextVC, animated: true)
         }
     }

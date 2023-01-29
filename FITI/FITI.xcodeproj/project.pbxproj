@@ -54,7 +54,7 @@
 		91783EA8298641DB00B8CC2E /* CustomerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA7298641DB00B8CC2E /* CustomerAPI.swift */; };
 		91783EAA2986499B00B8CC2E /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA92986499B00B8CC2E /* AddHeartResponse.swift */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
-		917D3CF8296EB2D30060F802 /* MakeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */; };
+		917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* SignUpViewController.swift */; };
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
 		917D3CFE296EB3330060F802 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CFD296EB3330060F802 /* UITextField+.swift */; };
 		917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CFF296EBA2D0060F802 /* UIViewController+.swift */; };
@@ -151,7 +151,7 @@
 		91783EA7298641DB00B8CC2E /* CustomerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAPI.swift; sourceTree = "<group>"; };
 		91783EA92986499B00B8CC2E /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
 		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
-		917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountViewController.swift; sourceTree = "<group>"; };
+		917D3CF7296EB2D30060F802 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
 		917D3CFD296EB3330060F802 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		917D3CFF296EBA2D0060F802 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 		910D80662966C98E00828E4B /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */,
+				917D3CF7296EB2D30060F802 /* SignUpViewController.swift */,
 				917D3CF9296EB2E90060F802 /* PolicyViewController.swift */,
 			);
 			path = SignUp;
@@ -776,7 +776,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91877D6C2969A0A00074386B /* ProfileView.swift in Sources */,
-				917D3CF8296EB2D30060F802 /* MakeAccountViewController.swift in Sources */,
+				917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */,
 				910182C32961961D00FC10DB /* TrainerTabelCell.swift in Sources */,
 				9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */,
 				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
