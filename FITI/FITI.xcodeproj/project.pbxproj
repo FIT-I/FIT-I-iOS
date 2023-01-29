@@ -52,6 +52,7 @@
 		91783EA329863DAC00B8CC2E /* SignAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA229863DAC00B8CC2E /* SignAPI.swift */; };
 		91783EA6298640FA00B8CC2E /* TrainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA5298640FA00B8CC2E /* TrainerRouter.swift */; };
 		91783EA8298641DB00B8CC2E /* CustomerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA7298641DB00B8CC2E /* CustomerAPI.swift */; };
+		91783EAA2986499B00B8CC2E /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA92986499B00B8CC2E /* AddHeartResponse.swift */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
 		917D3CF8296EB2D30060F802 /* MakeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */; };
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
@@ -148,6 +149,7 @@
 		91783EA229863DAC00B8CC2E /* SignAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPI.swift; sourceTree = "<group>"; };
 		91783EA5298640FA00B8CC2E /* TrainerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRouter.swift; sourceTree = "<group>"; };
 		91783EA7298641DB00B8CC2E /* CustomerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAPI.swift; sourceTree = "<group>"; };
+		91783EA92986499B00B8CC2E /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
 		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
 		917D3CF7296EB2D30060F802 /* MakeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountViewController.swift; sourceTree = "<group>"; };
 		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 				9181B6EB2983C448001D9427 /* MyPageResponse.swift */,
 				9181B6E62982BACD001D9427 /* PetchLocationResponse.swift */,
 				9181B6E42982AA73001D9427 /* HeartListResponse.swift */,
+				91783EA92986499B00B8CC2E /* AddHeartResponse.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -810,6 +813,7 @@
 				91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
 				9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */,
+				91783EAA2986499B00B8CC2E /* AddHeartResponse.swift in Sources */,
 				91BE526C29854B31006DA3AB /* TrainerListResponse.swift in Sources */,
 				91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */,
 				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,

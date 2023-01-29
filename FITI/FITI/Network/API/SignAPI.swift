@@ -10,7 +10,6 @@ import Foundation
 import Moya
 
 final class SignAPI {
-    
     static let shared = SignAPI()
     private var signProvider = MoyaProvider<SignServices>()
     
@@ -20,7 +19,7 @@ final class SignAPI {
     private(set) var signUpData: SignUpResponse?
 
     // 1. 로그인 API
-    func postSignInServer(email:String, password:String, completion: @escaping (SignInResponse?) -> Void){
+    func postSignInAPI(email:String, password:String, completion: @escaping (SignInResponse?) -> Void){
         let param = SignInRequest.init(email,password)
         signProvider.request(.signIn(param: param)) { [self] (response) in
             switch response {
@@ -38,7 +37,7 @@ final class SignAPI {
     }
     
     // 2. 회원가입 API
-    func postSignUpServer(name:String,email:String, password:String, profileImage:String, completion: @escaping (SignUpResponse?) -> Void){
+    func postSignUpAPI(name:String,email:String, password:String, profileImage:String, completion: @escaping (SignUpResponse?) -> Void){
         let param = SignUpRequest.init(name, email, password, profileImage)
         signProvider.request(.signUp(param: param)){ [self] (response) in
             switch response {
@@ -54,5 +53,4 @@ final class SignAPI {
             }
         }
     }
-
 }
