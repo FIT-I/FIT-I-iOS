@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     
     static var trainerList = [Dto]()
-//    private let provider = MoyaProvider<MyPageRouter>()
     
     // MARK: - UI Components
     
@@ -43,6 +42,10 @@ class HomeViewController: UIViewController {
         setTableViewCell()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getMyPageServer()
+    }
+    
     func signInViewAddUI(){
         view.addSubview(trainerTableView)
     }
@@ -55,25 +58,6 @@ class HomeViewController: UIViewController {
             make.bottom.equalToSuperview().offset(-50)
         }
     }
-    
-//    func getMyPageServer(){
-//        self.provider.request(.getMyPage){ response in
-//            switch response {
-//                case .success(let moyaResponse):
-//                    do {
-//                        let responseData = try moyaResponse.map(MyPageResponse.self)
-//                        MyPageViewController.MyInfo.userName = responseData.result.userName
-//                        MyPageViewController.MyInfo.profile = responseData.result.profile
-//                        MyPageViewController.MyInfo.email = responseData.result.email
-//                        MyPageViewController.MyInfo.location = responseData.result.location
-//                    } catch(let err) {
-//                        print(err.localizedDescription)
-//                    }
-//            case .falure(let err):
-//                    print(err.localizedDescription)
-//            }
-//        }
-//    }
 
     // MARK: - @objc Func
     
@@ -111,5 +95,16 @@ extension HomeViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
+    }
+}
+extension HomeViewController {
+    func getMyPageServer(){
+        MyPageAPI.shared.getMyPageDataAPI { response in
+            guard let myPageResponse = response?.result else { return }
+            MyPageViewController.MyInfo.userName = myPageResponse.userName
+            MyPageViewController.MyInfo.profile = myPageResponse.profile
+            MyPageViewController.MyInfo.email = myPageResponse.email
+            MyPageViewController.MyInfo.location = myPageResponse.location
+        }
     }
 }
