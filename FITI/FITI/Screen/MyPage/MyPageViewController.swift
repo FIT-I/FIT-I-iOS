@@ -216,20 +216,31 @@ class MyPageViewController: UIViewController {
     }
     
     
+//    func getHeartListServer(){
+//        self.myPageProvider.request(.getHeartList){ response in
+//            switch response {
+//            case .success(let moyaResponse):
+//                do {
+//                    let responseData = try moyaResponse.map(HeartListResponse.self)
+//                    print(responseData.isSuccess)
+//                    print(responseData.result)
+//                } catch(let err) {
+//                    print(err.localizedDescription)
+//                }
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            }
+//        }
+//    }
+}
+
+extension MyPageViewController {
     func getHeartListServer(){
-        self.myPageProvider.request(.getHeartList){ response in
-            switch response {
-            case .success(let moyaResponse):
-                do {
-                    let responseData = try moyaResponse.map(HeartListResponse.self)
-                    print(responseData.isSuccess)
-                    print(responseData.result)
-                } catch(let err) {
-                    print(err.localizedDescription)
-                }
-            case .failure(let err):
-                print(err.localizedDescription)
-            }
+        MyPageAPI.shared.getHeartListAPI{ response in
+            guard let heartListResponse = response?.result else { return }
+            
+                    
         }
     }
+    
 }

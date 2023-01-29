@@ -104,11 +104,11 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         // MARK: - FIXME
-        self.realm.resetDB()
-//        if checkRealmToken() {
-//            print(self.realm.getToken())
-//            ifSuccessPushHome()
-//        }
+//        self.realm.resetDB()
+        if checkRealmToken() {
+            print(self.realm.getToken())
+            ifSuccessPushHome()
+        }
         self.dismissKeyboard()
         self.setNavigationItem()
         signInViewAddUI()
@@ -233,7 +233,7 @@ extension SignInViewController {
             print(response?.message ?? "")
             guard let signInResponse = response?.result else { return }
             print(signInResponse.accessToken)
-            if response?.code ?? 0 >= 200 && response?.code ?? 0 < 300 {
+            if response?.code == 1000 {
                 self.addTokenInRealm(item: signInResponse.accessToken)
                 self.ifSuccessPushHome()
             } else {
