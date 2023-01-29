@@ -1,40 +1,48 @@
 //
-//  MyPageServices.swift
+//  CustomerServices.swift
 //  FITI
 //
-//  Created by 홍준혁 on 2023/01/27.
+//  Created by 홍준혁 on 2023/01/26.
 //
 
 import Moya
 import Foundation
+import Realm
 
-enum MyPageServices {
-    case getMyPage
+enum CustomerRouter {
+    case addHeart(_ trainerIndex: Int)
+    case requestTrain(_ trainerIndex: Int, _ param: RequestTrainerRequest)
 }
 
-extension MyPageServices: TargetType, AccessTokenAuthorizable {
+extension CustomerRouter: TargetType, AccessTokenAuthorizable {
+    
+    
     var baseURL: URL {
         return URL(string: BaseURL.BURL)!
     }
     
     var path: String {
         switch self {
-        case .getMyPage:
-            return "/api/communal/mypage"
+        case .addHeart(let trainerIndex):
+            return "/api/customer/\(trainerIndex)"
+        case .requestTrain(let trainerIndex, _):
+            return "/api/customer/matching/\(trainerIndex)"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getMyPage:
-            return .get
+        case .addHeart, .requestTrain:
+            return .post
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .getMyPage:
+        case .addHeart:
             return .requestPlain
+        case .requestTrain(_, let param):
+            return .requestJSONEncodable(param)
         }
     }
     
@@ -48,12 +56,11 @@ extension MyPageServices: TargetType, AccessTokenAuthorizable {
         }
     }
     
-    var authorizationType: Moya.AuthorizationType? {
+    var authorizationType: AuthorizationType? {
         switch self {
         default:
             return .bearer
         }
     }
-    
-    
 }
+

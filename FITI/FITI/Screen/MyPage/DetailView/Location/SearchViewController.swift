@@ -12,8 +12,8 @@ import Moya
 
 class SearchViewController: UIViewController {
     
-    private let provider = MoyaProvider<CustomerServices>()
-    private let myPageProvider = MoyaProvider<MyPageServices>()
+    private let provider = MoyaProvider<CustomerRouter>()
+    private let myPageProvider = MoyaProvider<MyPageRouter>()
     // MARK: - Properties
     private var searchCompleter = MKLocalSearchCompleter() /// 검색을 도와주는 변수
     private var searchResults = [MKLocalSearchCompletion]() /// 검색 결과를 담는 변수
@@ -216,11 +216,11 @@ extension SearchViewController: UITableViewDelegate {
     }
     
     func petchLocationSetting(location:String){
-        self.provider.request(.locationSetting(location)){ response in
+        self.myPageProvider.request(.locationSetting(location)){ response in
             switch response {
             case .success(let response):
                 do {
-                    let responseData = try response.map(petchLocationModel.self)
+                    let responseData = try response.map(PetchLocationResponse.self)
                     print(responseData.isSuccess)
                     print(responseData.message)
                 }catch(let err) {

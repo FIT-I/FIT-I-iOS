@@ -8,12 +8,12 @@
 import Moya
 import Foundation
 
-enum SignServices {
+enum SignRouter {
     case signUp(param: SignUpRequest)
     case signIn(param: SignInRequest)
 }
 
-extension SignServices: TargetType {
+extension SignRouter: TargetType {
   public var baseURL: URL {
       return URL(string: BaseURL.BURL)!
   }

@@ -21,8 +21,8 @@ class MyPageViewController: UIViewController {
     
     static var MyInfo = UserInfo()
     
-    private let provider = MoyaProvider<CustomerServices>()
-    private let myPageProvider = MoyaProvider<MyPageServices>()
+    private let provider = MoyaProvider<CustomerRouter>()
+    private let myPageProvider = MoyaProvider<MyPageRouter>()
 
     var myPageTitleLabel : UILabel = {
         let label = UILabel()
@@ -217,7 +217,7 @@ class MyPageViewController: UIViewController {
     
     
     func getHeartListServer(){
-        self.provider.request(.getHeartList){ response in
+        self.myPageProvider.request(.getHeartList){ response in
             switch response {
             case .success(let moyaResponse):
                 do {

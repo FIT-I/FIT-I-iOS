@@ -11,7 +11,7 @@ import Moya
 
 // 개인 PT
 class HomeViewController: UIViewController {
-    private let provider = MoyaProvider<MyPageServices>()
+    private let provider = MoyaProvider<MyPageRouter>()
     // line 뷰
     let lineView : UIView = {
         let view = UIView()
