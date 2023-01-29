@@ -9,10 +9,16 @@ import Foundation
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 class HeartListTableCell: UITableViewCell {
     
+    // MARK: - Properties
+    
     static let identifier = "HeartListTableCell"
+    var trainerIdx = Int()
+    
+    // MARK: - UI Components
     
     var reviewerImage : UIImageView = {
         let imgView = UIImageView()
@@ -22,8 +28,6 @@ class HeartListTableCell: UITableViewCell {
         }
         return imgView
     }()
-
-
     var name : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
@@ -31,7 +35,6 @@ class HeartListTableCell: UITableViewCell {
         label.textColor = UIColor.black
         return label
     }()
-    
     var date : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12.0)
@@ -39,7 +42,6 @@ class HeartListTableCell: UITableViewCell {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
     var starIcon : UIImageView = {
         let image = UIImageView()
         image.snp.makeConstraints { make in
@@ -48,7 +50,6 @@ class HeartListTableCell: UITableViewCell {
         image.image = UIImage(named: "star.svg")
         return image
     }()
-
     var grade : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12.0)
@@ -56,7 +57,6 @@ class HeartListTableCell: UITableViewCell {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
     var school : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12.0)
@@ -64,26 +64,21 @@ class HeartListTableCell: UITableViewCell {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
-    lazy var rateStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [starIcon,grade,school])
+    private lazy var rateStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [starIcon,grade,school,date])
         stackView.axis = .horizontal
         stackView.spacing = 5
         stackView.alignment = .center
         return stackView
     }()
-
-    
-    lazy var nameStackView : UIStackView = {
+    private lazy var nameStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [name,rateStackView])
         stackView.axis = .vertical
         stackView.spacing = 5
         stackView.alignment = .leading
         return stackView
     }()
-
-    
-    lazy var globalStackView : UIStackView = {
+    private lazy var globalStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [reviewerImage,nameStackView])
         stackView.axis = .horizontal
         stackView.spacing = 10
@@ -91,29 +86,38 @@ class HeartListTableCell: UITableViewCell {
         return stackView
     }()
     
+    // MARK: - init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.globalStackView)
-
         globalStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
             make.leading.trailing.equalToSuperview()
         }
-        
         print(globalStackView)
-
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been impl")
     }
 }
 
-//
-//extension ReviewTabelCell {
-//    public func binding(){
-//        //
-//    }
-//}
+//MARK: - Extension
+
+extension HeartListTableCell {
+    public func bindingHeartList(model:HeartList){
+        trainerIdx = model.trainerIdx
+        name.text = model.trainerName
+        grade.text = String(model.trainerGrade)
+        school.text = model.trainerSchool
+        date.text = model.createdAt
+        if model.trainerProfile == "" {
+            reviewerImage.image = UIImage(named: "reviewerIcon.svg")
+        }else{
+            let url = URL(string: model.trainerProfile)
+            reviewerImage.kf.setImage(with: url)
+        }
+    }
+}
 

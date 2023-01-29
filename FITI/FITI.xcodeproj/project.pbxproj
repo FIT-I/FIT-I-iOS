@@ -54,6 +54,7 @@
 		91783EA8298641DB00B8CC2E /* CustomerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA7298641DB00B8CC2E /* CustomerAPI.swift */; };
 		91783EAA2986499B00B8CC2E /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EA92986499B00B8CC2E /* AddHeartResponse.swift */; };
 		91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EAB29867A0400B8CC2E /* HeartListTableCell.swift */; };
+		91783EAF298680BE00B8CC2E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 91783EAE298680BE00B8CC2E /* Kingfisher */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
 		917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* SignUpViewController.swift */; };
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
@@ -209,6 +210,7 @@
 				91C32D46296185B900F29DA5 /* SnapKit in Frameworks */,
 				91F75B00296C109200B31F3B /* Tabman in Frameworks */,
 				910D80652965E5C200828E4B /* FSCalendar in Frameworks */,
+				91783EAF298680BE00B8CC2E /* Kingfisher in Frameworks */,
 				913E02CD2963505A001CC92B /* Then in Frameworks */,
 				91CFCFD3298001ED0009944D /* Moya in Frameworks */,
 				91CFCFC8297FFA4D0009944D /* Realm in Frameworks */,
@@ -715,6 +717,7 @@
 				91CFCFC7297FFA4D0009944D /* Realm */,
 				91CFCFC9297FFA4D0009944D /* RealmSwift */,
 				91CFCFD2298001ED0009944D /* Moya */,
+				91783EAE298680BE00B8CC2E /* Kingfisher */,
 			);
 			productName = FITI;
 			productReference = 91C32D2B296184AA00F29DA5 /* FITI.app */;
@@ -751,6 +754,7 @@
 				91F75AFE296C109200B31F3B /* XCRemoteSwiftPackageReference "Tabman" */,
 				91CFCFC6297FFA4D0009944D /* XCRemoteSwiftPackageReference "realm-swift" */,
 				91CFCFD1298001ED0009944D /* XCRemoteSwiftPackageReference "Moya" */,
+				91783EAD298680BE00B8CC2E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 91C32D2C296184AA00F29DA5 /* Products */;
 			projectDirPath = "";
@@ -1091,6 +1095,14 @@
 				kind = branch;
 			};
 		};
+		91783EAD298680BE00B8CC2E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		91C32D44296185B900F29DA5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1135,6 +1147,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		91783EAE298680BE00B8CC2E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91783EAD298680BE00B8CC2E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		91C32D45296185B900F29DA5 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

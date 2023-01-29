@@ -6,9 +6,16 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class HeartListViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    static var heartList = [HeartList]()
+    
+    // MARK: - UI Components
     
     var myPageTitleLabel : UILabel = {
         let label = UILabel()
@@ -30,22 +37,17 @@ class HeartListViewController: UIViewController {
         return tableview
     }()
 
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        // Do any additional setup after loading the view.
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.topItem?.title = ""
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
-        
-        heartListTableView.register(HeartListTableCell.self, forCellReuseIdentifier: HeartListTableCell.identifier)
-        heartListTableView.delegate = self
-        heartListTableView.dataSource = self
-        
+        setTableCell()
+        setNavigationController()
         setViewHierarchy()
         setConstraints()
     }
-    
+
     func setViewHierarchy(){
         view.addSubview(myPageTitleLabel)
         view.addSubviews(myPageTitleLabel,
@@ -72,10 +74,24 @@ class HeartListViewController: UIViewController {
         }
     }
     
+    // MARK: - @objc Func
+    
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
-
+    
+    // MARK: - Func
+    
+    func setNavigationController(){
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.topItem?.title = ""
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
+    }
+    func setTableCell(){
+        heartListTableView.register(HeartListTableCell.self, forCellReuseIdentifier: HeartListTableCell.identifier)
+        heartListTableView.delegate = self
+        heartListTableView.dataSource = self
+    }
 }
 
 // MARK: - Extension
@@ -85,14 +101,13 @@ extension HeartListViewController: UITableViewDelegate {
         print("cell did touched")
     }
 }
-
 extension HeartListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return HeartListViewController.heartList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HeartListTableCell.identifier, for: indexPath)
-//        cell.binding()
+        let cell = tableView.dequeueReusableCell(withIdentifier: HeartListTableCell.identifier, for: indexPath) as? HeartListTableCell ?? HeartListTableCell()
+        cell.bindingHeartList(model: HeartListViewController.heartList[indexPath.row])
         cell.selectionStyle = .none
         cell.accessoryType = .disclosureIndicator
         return cell
