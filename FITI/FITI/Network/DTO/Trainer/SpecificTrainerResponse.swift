@@ -12,7 +12,12 @@ struct SpecificTrainerResponse: Codable {
     let isSuccess: Bool
     let code: Int
     let message: String
-    let result: Trainer
+    var result: Trainer? = nil
+    init(){
+        isSuccess = false
+        code = 0
+        message = ""
+    }
 }
 
 // MARK: - Result

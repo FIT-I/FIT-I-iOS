@@ -17,6 +17,7 @@ class TrainerDetailViewController: UIViewController {
     var isHeartFull : Bool = false
     static var id = Int()
     static var trainerHeartList = [HeartList]()
+    var specificTrainer = SpecificTrainerResponse()
     
     //MARK: - UI Components
     
@@ -287,8 +288,6 @@ extension TrainerDetailViewController {
     func postHeartServer(trainerIndex:Int) {
         CustomerAPI.shared.postAddHeartAPI(trainerIndex: trainerIndex) { response in
             guard let postHeartResponse = response?.result else { return }
-//            self.trainerHeartList.append(trainerIndex)
-//            print(self.trainerHeartList)
             print(postHeartResponse)
         }
     }
@@ -298,4 +297,8 @@ extension TrainerDetailViewController {
             print(deleteHeartResponse)
         }
     }
+}
+
+extension TrainerDetailViewController {
+    
 }

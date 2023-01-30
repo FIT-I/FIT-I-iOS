@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import Moya
 
-// 개인 PT
 class HomeViewController: UIViewController {
     
     // MARK: - Properties
