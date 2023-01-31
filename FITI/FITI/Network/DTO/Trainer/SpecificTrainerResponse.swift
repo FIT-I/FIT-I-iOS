@@ -12,19 +12,23 @@ struct SpecificTrainerResponse: Codable {
     let isSuccess: Bool
     let code: Int
     let message: String
-    let result: Trainer
+    var result: Trainer? = nil
 }
 
-// MARK: - Result
+// MARK: - Trainer
 struct Trainer: Codable {
-    let name, profile,levelName: String
+    var name: String? = nil
+    var profile: String? = nil
+    var levelName: String? = nil
     var background: String? = nil
-    let school: String
-    let grade: Double
-    let cost: Int
-    let intro, service: String
-    let reviewDto: [ReviewDto]
-    var imageList: [String]
+    var school: String? = nil
+    var grade: Double = 0
+    var cost: Int = 0
+    var intro: String? = nil
+    var service: String? = nil
+    var reviewDto: [ReviewDto]? = nil
+    var imageList: [String]? = nil
+    init(){}
 }
 
 // MARK: - ReviewDto

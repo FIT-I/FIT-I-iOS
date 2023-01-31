@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 import SnapKit
 import Then
 
@@ -17,23 +18,21 @@ class TrainerDetailViewController: UIViewController {
     var isHeartFull : Bool = false
     static var id = Int()
     static var trainerHeartList = [HeartList]()
+    // MARK: - FIX ME : Delegate 패턴으로 수정
+    static var specificTrainer = Trainer()
     
     //MARK: - UI Components
     
-    // 상단 뷰
-    var topView : UIImageView = {
+    private lazy var topView : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "blueScreen.svg")
         return imgView
     }()
-    
-    // 네비 뷰
-    private let toolBarContainerView : UIView = {
+    private lazy var toolBarContainerView : UIView = {
         let view = UIView()
         return view
     }()
-    
-    private let matchingRequest : UIButton = {
+    private lazy var matchingRequest : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.blue)
         btn.layer.cornerRadius = 8
@@ -45,8 +44,7 @@ class TrainerDetailViewController: UIViewController {
         btn.addTarget(self, action: #selector(matchingRequestTouched), for: .touchUpInside)
         return btn
     }()
-    
-    private let heartBtn : UIButton = {
+    private lazy var heartBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.systemBackground
         btn.layer.cornerRadius = 8
@@ -56,33 +54,17 @@ class TrainerDetailViewController: UIViewController {
         btn.addTarget(self, action: #selector(heartTouchEvent), for: .touchUpInside)
         return btn
     }()
-    
-    
-    // 스크롤 뷰
     private lazy var contentScrollView = UIScrollView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .white
         $0.showsVerticalScrollIndicator = true
     }
-    
-    //MARK: -
     let headView = HeadView()
-    
-    // 관리 비용
     let bodyPriceView = BodyPriceView()
-    
-    // 소개 글 목차 뷰
     let bodyIntroView = BodyIntroView()
-
-    // 서비스 줄거리
     let bodyIntroAboutService = BodyIntroAboutServiceView()
-    
-    // 리뷰
     let bodyReviewView = BodyReviewView()
-
-    // 사진 뷰
     let bottomPhotoView = BottomPhotoView()
-    
     
     // MARK: - View Life Cycle
     
@@ -96,6 +78,7 @@ class TrainerDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setHeartIcon()
+        setData()
     }
     
     // MARK: - @objc Func
@@ -167,6 +150,25 @@ class TrainerDetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.topItem?.title = ""
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
+    }
+    func setData(){
+        print("setDataInTrainerDetail")
+        print(TrainerDetailViewController.specificTrainer.name ?? "")
+        self.headView.name.text = TrainerDetailViewController.specificTrainer.name
+        self.headView.school.text = TrainerDetailViewController.specificTrainer.school
+        // MARK: - FIX ME : 강제 언래핑 수정
+//        self.headView.grade.text = String(TrainerDetailViewController.specificTrainer.result!.grade)
+        // MARK: - FIX ME : 메달 이미지 수정
+//        self.headView.goldIcon.image = specificTrainer.result?.levelName
+        // MARK: - FIX ME : 강제 언래핑 수정
+//        self.bodyPriceView.priceForTimeLabel.text = String(TrainerDetailViewController.specificTrainer.result!.cost)
+        self.bodyIntroView.introTextView.text = TrainerDetailViewController.specificTrainer.intro
+        self.bodyIntroAboutService.introServiceTextView.text = TrainerDetailViewController.specificTrainer.service
+        // MARK: - FIX ME : 강제 언래핑 수정
+//        self.bodyReviewView.reviewLabel.text = String(TrainerDetailViewController.specificTrainer.result!.reviewDto.count)
+        // MARK: - FIX ME : 강제 언래핑 수정
+//        self.bodyReviewView.gradeLabel.text = String(TrainerDetailViewController.specificTrainer.result!.grade)
+        // MARK: - 리뷰에 대한 데이터 처리 필요
     }
 }
 
@@ -277,7 +279,6 @@ extension TrainerDetailViewController {
             $0.height.equalTo(200)
             $0.bottom.equalToSuperview()
         }
-
     }
 }
 
@@ -287,8 +288,6 @@ extension TrainerDetailViewController {
     func postHeartServer(trainerIndex:Int) {
         CustomerAPI.shared.postAddHeartAPI(trainerIndex: trainerIndex) { response in
             guard let postHeartResponse = response?.result else { return }
-//            self.trainerHeartList.append(trainerIndex)
-//            print(self.trainerHeartList)
             print(postHeartResponse)
         }
     }

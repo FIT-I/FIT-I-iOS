@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import Moya
 
-// 개인 PT
 class HomeViewController: UIViewController {
     
     // MARK: - Properties
@@ -73,6 +72,7 @@ class HomeViewController: UIViewController {
         trainerTableView.delegate = self
         trainerTableView.dataSource = self
     }
+    
 }
 
 // MARK: - Extension
@@ -112,8 +112,10 @@ extension HomeViewController {
         }
     }
     func getSpecificTrainerServer(trainerIdx:Int){
+        print("getSpecific")
         TrainerAPI.shared.getSpecificTrainerAPI(trainerIdx: trainerIdx) { response in
             guard let specificTrainerResponse = response?.result else { return }
+            TrainerDetailViewController.specificTrainer = specificTrainerResponse
             print(specificTrainerResponse)
         }
     }
