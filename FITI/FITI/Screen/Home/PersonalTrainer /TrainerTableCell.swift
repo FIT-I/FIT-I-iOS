@@ -119,7 +119,6 @@ class TrainerTableCell: UITableViewCell {
     }()
     var goldIcon : UIImageView = {
         let image = UIImageView()
-        image.image =  UIImage(named: "gold.svg")
         return image
     }()
     lazy var rateStackView : UIStackView = {
@@ -194,11 +193,22 @@ extension TrainerTableCell {
         introTextView.text = model.contents
         price.text = String(model.cost)
         school.text = model.school
-        if model.profile == "" {
+        // MARK: - FIX ME : 일단 더미 데이터
+        if model.profile == "trainerProfile" {
             imgView.image = UIImage(named: "reviewerIcon.svg")
         }else {
             let url = URL(string: model.profile)
             imgView.kf.setImage(with: url)
+        }
+        switch model.levelName {
+        case "gold":
+            goldIcon.image = UIImage(named: "gold.svg")
+        case "silver":
+            goldIcon.image = UIImage(named: "silver.svg")
+        case "bronze":
+            goldIcon.image = UIImage(named: "bronze.svg")
+        default:
+            goldIcon.image = nil
         }
     }
 }

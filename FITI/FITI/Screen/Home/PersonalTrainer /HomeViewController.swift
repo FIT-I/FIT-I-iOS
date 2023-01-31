@@ -71,6 +71,8 @@ class HomeViewController: UIViewController {
         trainerTableView.register(TrainerTableCell.self, forCellReuseIdentifier: TrainerTableCell.identifier)
         trainerTableView.delegate = self
         trainerTableView.dataSource = self
+        // 테이블뷰 라인 없애기
+        trainerTableView.separatorStyle = .none
     }
     
 }
@@ -81,10 +83,14 @@ extension HomeViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let touchedCell = tableView.cellForRow(at: indexPath) as! TrainerTableCell
         print(touchedCell.id)
+        LoadingView.showLoading()
         self.getSpecificTrainerServer(trainerIdx: touchedCell.id)
         let nextVC = TrainerDetailViewController()
         TrainerDetailViewController.id = touchedCell.id
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            LoadingView.hideLoading()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
 }
 extension HomeViewController: UITableViewDataSource {
