@@ -25,7 +25,6 @@
 		91185FCC296DBCC80099B641 /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */; };
 		91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCD296DBD2A0099B641 /* UIView+.swift */; };
 		91185FD0296DBD6C0099B641 /* PreviewReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCF296DBD6C0099B641 /* PreviewReviewTableCell.swift */; };
-		91185FD2296DBDCC0099B641 /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FD1296DBDCC0099B641 /* ReviewModel.swift */; };
 		9130CA03296AFBFE00FC5107 /* BottomBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA02296AFBFE00FC5107 /* BottomBtnView.swift */; };
 		9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA04296B023C00FC5107 /* SettingViewController.swift */; };
 		9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA06296B034600FC5107 /* HeartListViewController.swift */; };
@@ -69,6 +68,8 @@
 		91877D6C2969A0A00074386B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6B2969A0A00074386B /* ProfileView.swift */; };
 		91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6D2969A9260074386B /* NotificationSwitch.swift */; };
 		91877D702969B1970074386B /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6F2969B1970074386B /* BottomView.swift */; };
+		918F5FEF2989079800AADC10 /* SendbirdUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 918F5FEE2989079800AADC10 /* SendbirdUIKit */; };
+		918F5FF1298911C000AADC10 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F5FF0298911C000AADC10 /* LoadingView.swift */; };
 		91BE526C29854B31006DA3AB /* TrainerListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BE526B29854B31006DA3AB /* TrainerListResponse.swift */; };
 		91BE526E29854BD2006DA3AB /* TrainerArrayListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BE526D29854BD2006DA3AB /* TrainerArrayListRequest.swift */; };
 		91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D2E296184AA00F29DA5 /* AppDelegate.swift */; };
@@ -126,7 +127,6 @@
 		91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
 		91185FCD296DBD2A0099B641 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		91185FCF296DBD6C0099B641 /* PreviewReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewReviewTableCell.swift; sourceTree = "<group>"; };
-		91185FD1296DBDCC0099B641 /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		9130CA02296AFBFE00FC5107 /* BottomBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBtnView.swift; sourceTree = "<group>"; };
 		9130CA04296B023C00FC5107 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9130CA06296B034600FC5107 /* HeartListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartListViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +168,7 @@
 		91877D6B2969A0A00074386B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		91877D6D2969A9260074386B /* NotificationSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSwitch.swift; sourceTree = "<group>"; };
 		91877D6F2969B1970074386B /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		918F5FF0298911C000AADC10 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		91BE526B29854B31006DA3AB /* TrainerListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerListResponse.swift; sourceTree = "<group>"; };
 		91BE526D29854BD2006DA3AB /* TrainerArrayListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerArrayListRequest.swift; sourceTree = "<group>"; };
 		91C32D2B296184AA00F29DA5 /* FITI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FITI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91CFCFCA297FFA4D0009944D /* RealmSwift in Frameworks */,
+				918F5FEF2989079800AADC10 /* SendbirdUIKit in Frameworks */,
 				91C32D46296185B900F29DA5 /* SnapKit in Frameworks */,
 				91F75B00296C109200B31F3B /* Tabman in Frameworks */,
 				910D80652965E5C200828E4B /* FSCalendar in Frameworks */,
@@ -473,7 +475,6 @@
 			children = (
 				91185FC4296D87930099B641 /* BodyReviewView.swift */,
 				91185FCF296DBD6C0099B641 /* PreviewReviewTableCell.swift */,
-				91185FD1296DBDCC0099B641 /* ReviewModel.swift */,
 			);
 			path = BodyReview;
 			sourceTree = "<group>";
@@ -531,6 +532,14 @@
 			path = Trainer;
 			sourceTree = "<group>";
 		};
+		918F5FF22989125300AADC10 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				918F5FF0298911C000AADC10 /* LoadingView.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		91C32D22296184AA00F29DA5 = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +587,7 @@
 		91CFCFBD297FF5EA0009944D /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				918F5FF22989125300AADC10 /* Loading */,
 				910182B929618C7900FC10DB /* Extension */,
 				91CFCFBF297FF68A0009944D /* Resource */,
 				91CFCFBE297FF62B0009944D /* Supports */,
@@ -721,6 +731,7 @@
 				91CFCFC9297FFA4D0009944D /* RealmSwift */,
 				91CFCFD2298001ED0009944D /* Moya */,
 				91783EAE298680BE00B8CC2E /* Kingfisher */,
+				918F5FEE2989079800AADC10 /* SendbirdUIKit */,
 			);
 			productName = FITI;
 			productReference = 91C32D2B296184AA00F29DA5 /* FITI.app */;
@@ -758,6 +769,7 @@
 				91CFCFC6297FFA4D0009944D /* XCRemoteSwiftPackageReference "realm-swift" */,
 				91CFCFD1298001ED0009944D /* XCRemoteSwiftPackageReference "Moya" */,
 				91783EAD298680BE00B8CC2E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				918F5FED2989079800AADC10 /* XCRemoteSwiftPackageReference "sendbird-uikit-ios-spm" */,
 			);
 			productRefGroup = 91C32D2C296184AA00F29DA5 /* Products */;
 			projectDirPath = "";
@@ -857,6 +869,7 @@
 				917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */,
 				9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */,
 				91783EA8298641DB00B8CC2E /* CustomerAPI.swift in Sources */,
+				918F5FF1298911C000AADC10 /* LoadingView.swift in Sources */,
 				916A2C49297090D3005F0420 /* FindPwViewController.swift in Sources */,
 				9130CA0B296B055E00FC5107 /* NoticeViewController.swift in Sources */,
 				910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */,
@@ -873,7 +886,6 @@
 				9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */,
 				910D805629656AA400828E4B /* PickDateViewController.swift in Sources */,
 				91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */,
-				91185FD2296DBDCC0099B641 /* ReviewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1107,6 +1119,14 @@
 				kind = branch;
 			};
 		};
+		918F5FED2989079800AADC10 /* XCRemoteSwiftPackageReference "sendbird-uikit-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sendbird/sendbird-uikit-ios-spm.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		91C32D44296185B900F29DA5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1156,6 +1176,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91783EAD298680BE00B8CC2E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		918F5FEE2989079800AADC10 /* SendbirdUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 918F5FED2989079800AADC10 /* XCRemoteSwiftPackageReference "sendbird-uikit-ios-spm" */;
+			productName = SendbirdUIKit;
 		};
 		91C32D45296185B900F29DA5 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

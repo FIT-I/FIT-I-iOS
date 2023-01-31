@@ -6,11 +6,18 @@
 //
 
 import Foundation
+
 import UIKit
 import SnapKit
 
 class BodyReviewView : UIView {
-    // 후기 뷰
+    
+    // MARK: - Properties
+    
+    static var previewReviewData = [ReviewDto]()
+    
+    // MARK: - UI Components
+    
     var reviewView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
@@ -19,22 +26,39 @@ class BodyReviewView : UIView {
         view.layer.cornerRadius = 8
         return view
     }()
-    
-    var reviewImage : UIImageView = {
+    private lazy var reviewImage : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "reviewIcon.svg")
         return imgView
     }()
-    
-    var reviewLabel : UILabel = {
+    private lazy var review : UILabel = {
         let label = UILabel()
+        label.text = "후기"
         label.font = UIFont.systemFont(ofSize: 15.0)
-        label.text = "후기 5건"
         label.textColor = UIColor.black
         return label
     }()
-    
-    var starIcon : UIImageView = {
+    lazy var reviewLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 15.0)
+        label.textColor = UIColor.black
+        return label
+    }()
+    private lazy var reviewText : UILabel = {
+        let label = UILabel()
+        label.text = "건"
+        label.font = UIFont.systemFont(ofSize: 15.0)
+        label.textColor = UIColor.black
+        return label
+    }()
+    private lazy var reviewStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [review,reviewLabel,reviewText])
+        stackView.axis = .horizontal
+        stackView.spacing = 1
+        stackView.alignment = .trailing
+        return stackView
+    }()
+    private lazy var starIcon : UIImageView = {
         let image = UIImageView()
         image.snp.makeConstraints { make in
             make.height.width.equalTo(13)
@@ -42,24 +66,20 @@ class BodyReviewView : UIView {
         image.image = UIImage(named: "star.svg")
         return image
     }()
-    
-    var gradeLabel : UILabel = {
+    lazy var gradeLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
-        label.text = "평균 4.3"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
-    lazy var reviewGradeLabel : UIStackView = {
+    private lazy var reviewGradeLabel : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [starIcon,gradeLabel])
         stackView.axis = .horizontal
         stackView.spacing = 5
         stackView.alignment = .center
         return stackView
     }()
-    
-    var bodyReviewLineView : UIView = {
+    private lazy var bodyReviewLineView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.gray)
         view.snp.makeConstraints { make in
@@ -67,21 +87,17 @@ class BodyReviewView : UIView {
         }
         return view
     }()
-    
-    var reviewDetailBtn : UIButton = {
+    lazy var reviewDetailBtn : UIButton = {
         let btn = UIButton()
         btn.snp.makeConstraints { make in
             make.height.equalTo(16)
             make.width.equalTo(12)
         }
         btn.backgroundColor = UIColor.customColor(.boxGray)
-        btn.setImage(UIImage(named: "rightBtn"), for: .normal)
-//        btn.addTarget(self, action: #selector(moveToReviewTableView), for: .touchUpInside)
+        btn.setImage(UIImage(named: "rightGray"), for: .normal)
         return btn
     }()
-    
-    // 리뷰 테이블 뷰
-    private lazy var reviewTableView : UITableView = {
+    lazy var previewReviewTableView : UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = UIColor.customColor(.boxGray)
         tableView.separatorStyle = .none
@@ -90,16 +106,14 @@ class BodyReviewView : UIView {
         tableView.delegate = self
         return tableView
     }()
-    
-    lazy var reviewTopLeftStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [reviewImage,reviewLabel])
+    private lazy var reviewTopLeftStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [reviewImage,reviewStackView])
         stackView.axis = .horizontal
         stackView.spacing = 8
         stackView.alignment = .trailing
         return stackView
     }()
-    
-    lazy var reviewTopRightStackView : UIStackView = {
+    private lazy var reviewTopRightStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [reviewGradeLabel,reviewDetailBtn])
         stackView.axis = .horizontal
         stackView.spacing = 8
@@ -107,34 +121,34 @@ class BodyReviewView : UIView {
         return stackView
     }()
     
+    // MARK: - init
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
        
     override init(frame: CGRect) {
         super .init(frame: .zero)
-
         setViewHierarchy()
         setConstraints()
         register()
     }
     
+    // MARK: - Func
+    
     func setViewHierarchy(){
         self.addSubview(reviewTopLeftStackView)
-//        self.addSubview(reviewDetailBtn)
         self.addSubview(reviewTopRightStackView)
         self.addSubview(bodyReviewLineView)
-        self.addSubview(reviewTableView)
+        self.addSubview(previewReviewTableView)
     }
     
     func setConstraints(){
-        
         reviewTopLeftStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(17)
             make.leading.equalToSuperview().offset(20)
         }
         reviewTopRightStackView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(-17)
             make.bottom.equalTo(reviewTopLeftStackView.snp.bottom)
             make.trailing.equalToSuperview().offset(-20)
         }
@@ -143,47 +157,39 @@ class BodyReviewView : UIView {
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-22)
         }
-        reviewTableView.snp.makeConstraints { make in
+        previewReviewTableView.snp.makeConstraints { make in
             make.top.equalTo(bodyReviewLineView.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-22)
-            make.height.equalTo(270)
+            make.bottom.equalToSuperview().offset(-5)
         }
     }
 }
 
+// MARK: - Extension
 
 extension BodyReviewView {
-    //MARK: - register
-    
     private func register() {
-        reviewTableView.register(PreviewReviewTableCell.self,
+        previewReviewTableView.register(PreviewReviewTableCell.self,
                                  forCellReuseIdentifier: PreviewReviewTableCell.identifier
         )
     }
-    
-    
 }
-
-//MARK: - ReviewTableView Delegate
+extension BodyReviewView : UITableViewDelegate {}
 extension BodyReviewView : UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reviewDummy.count
+        let cellNum = TrainerDetailViewController.specificTrainer.reviewDto?.count ?? 0
+        switch cellNum {
+        case 0...3:
+            return cellNum
+        default:
+            return 3
+        }
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let reviewCell = tableView.dequeueReusableCell(withIdentifier: PreviewReviewTableCell.identifier, for: indexPath) as? PreviewReviewTableCell else { return UITableViewCell() }
-        
-        reviewCell.dataBind(model: reviewDummy[indexPath.row])
+        let reviewCell = tableView.dequeueReusableCell(withIdentifier: PreviewReviewTableCell.identifier, for: indexPath) as? PreviewReviewTableCell ?? PreviewReviewTableCell()
+        reviewCell.dataBind(model: BodyReviewView.previewReviewData[indexPath.row])
         reviewCell.selectionStyle = .none
         return reviewCell
-    }
-}
-
-
-extension BodyReviewView : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
     }
 }

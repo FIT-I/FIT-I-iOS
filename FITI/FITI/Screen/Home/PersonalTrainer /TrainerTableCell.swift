@@ -27,7 +27,7 @@ class TrainerTableCell: UITableViewCell {
         view.clipsToBounds = true
         view.image = UIImage(named: "reviewerIcon.svg")
         view.snp.makeConstraints { make in
-            make.height.equalTo(110)
+            make.height.equalTo(70)
             make.width.equalTo(70)
         }
         return view
@@ -80,13 +80,6 @@ class TrainerTableCell: UITableViewCell {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    var license : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10.0)
-        label.text = "자격증 5개"
-        label.textColor = UIColor.customColor(.darkGray)
-        return label
-    }()
     var school : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
@@ -99,6 +92,7 @@ class TrainerTableCell: UITableViewCell {
         textView.textColor = UIColor.black
         textView.isEditable = false
         textView.isScrollEnabled = false
+        textView.textContainer.maximumNumberOfLines = 2
         textView.font = UIFont.systemFont(ofSize: 10.0)
         return textView
     }()
@@ -119,7 +113,6 @@ class TrainerTableCell: UITableViewCell {
     }()
     var goldIcon : UIImageView = {
         let image = UIImageView()
-        image.image =  UIImage(named: "gold.svg")
         return image
     }()
     lazy var rateStackView : UIStackView = {
@@ -129,15 +122,8 @@ class TrainerTableCell: UITableViewCell {
         stackView.alignment = .center
         return stackView
     }()
-    lazy var nameStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [name,goldIcon])
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.alignment = .trailing
-        return stackView
-    }()
     lazy var gradeStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [rateStackView,license,school])
+        let stackView = UIStackView(arrangedSubviews: [rateStackView,school])
         stackView.axis = .horizontal
         stackView.spacing = 5
         stackView.alignment = .leading
@@ -150,38 +136,41 @@ class TrainerTableCell: UITableViewCell {
         stackView.alignment = .leading
         return stackView
     }()
-    lazy var rightStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [nameStackView,gradeStackView,introTextView,priceStackView])
-        stackView.axis = .vertical
-        stackView.spacing = 5
-        stackView.alignment = .leading
-        return stackView
-    }()
-    lazy var globalStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [imgView,rightStackView])
-        stackView.axis = .horizontal
-        stackView.spacing = 15
-        stackView.alignment = .fill
-        return stackView
-    }()
 
     // MARK: - init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.addSubview(self.globalStackView)
-
-        globalStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
-            make.leading.trailing.equalToSuperview()
+        contentView.addSubviews(imgView,name,goldIcon,gradeStackView,introTextView,priceStackView)
+        imgView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(23)
+            make.leading.equalToSuperview()
         }
-        print(globalStackView)
+        name.snp.makeConstraints { make in
+            make.top.equalTo(imgView.snp.top)
+            make.leading.equalTo(imgView.snp.trailing).offset(24)
+        }
+        goldIcon.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(22)
+            make.leading.equalTo(name.snp.trailing).offset(7)
+        }
+        gradeStackView.snp.makeConstraints { make in
+            make.top.equalTo(name.snp.bottom).offset(5)
+            make.leading.equalTo(imgView.snp.trailing).offset(24)
+        }
+        introTextView.snp.makeConstraints { make in
+            make.top.equalTo(gradeStackView.snp.bottom).offset(5)
+            make.leading.equalTo(imgView.snp.trailing).offset(24)
+            make.trailing.equalToSuperview().offset(40)
+        }
+        priceStackView.snp.makeConstraints { make in
+            make.top.equalTo(introTextView.snp.bottom).offset(5)
+            make.leading.equalTo(imgView.snp.trailing).offset(24)
+        }
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been impl")
     }
-    
 }
 
 // MARK: - Extension
@@ -194,11 +183,22 @@ extension TrainerTableCell {
         introTextView.text = model.contents
         price.text = String(model.cost)
         school.text = model.school
-        if model.profile == "" {
+        // MARK: - FIX ME : 일단 더미 데이터
+        if model.profile == "trainerProfile" {
             imgView.image = UIImage(named: "reviewerIcon.svg")
         }else {
             let url = URL(string: model.profile)
             imgView.kf.setImage(with: url)
+        }
+        switch model.levelName {
+        case "gold":
+            goldIcon.image = UIImage(named: "gold.svg")
+        case "silver":
+            goldIcon.image = UIImage(named: "silver.svg")
+        case "bronze":
+            goldIcon.image = UIImage(named: "bronze.svg")
+        default:
+            goldIcon.image = nil
         }
     }
 }

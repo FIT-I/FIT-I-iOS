@@ -10,6 +10,11 @@ import SnapKit
 
 class ReviewViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    var reviewData = [ReviewDto]()
+    
+    // MARK: - UI Components
     
     private let titleLabel : UILabel = {
         let lb = UILabel()
@@ -18,32 +23,24 @@ class ReviewViewController: UIViewController {
         lb.font = UIFont(name: "Avenir-Black", size: 20.0)
         return lb
     }()
-    
-    // 리뷰를 보여주는 테이블 뷰
     let reviewTableView : UITableView = {
         let tableview = UITableView()
         return tableview
     }()
 
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        // Do any additional setup after loading the view.
-        
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.topItem?.title = ""
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
-        
-        
-        reviewTableView.register(ReviewTableCell.self, forCellReuseIdentifier: ReviewTableCell.identifier)
-        reviewTableView.delegate = self
-        reviewTableView.dataSource = self
-        
-        
         setViewHierarchy()
         setConstraints()
-        
+        setNavigationController()
+        setTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setReviewData()
     }
     
     func setViewHierarchy(){
@@ -64,36 +61,46 @@ class ReviewViewController: UIViewController {
         }
     }
     
+    // MARK: - @objc
+    
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
-
+    
+    // MARK: - Func
+    
+    func setTableView(){
+        reviewTableView.register(ReviewTableCell.self, forCellReuseIdentifier: ReviewTableCell.identifier)
+        reviewTableView.delegate = self
+        reviewTableView.dataSource = self
+        reviewTableView.separatorStyle = .none
+    }
+    func setNavigationController(){
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.topItem?.title = ""
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
+    }
+    func setReviewData(){
+        self.reviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
+        print(reviewData)
+    }
 }
 
+// MARK: - Extension
 
 extension ReviewViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("cell did touched")
     }
 }
-
-
 extension ReviewViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.reviewData.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTableCell.identifier, for: indexPath)
-//        cell.binding()
+        let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTableCell.identifier, for: indexPath) as? ReviewTableCell ?? ReviewTableCell()
+        cell.reviewTableBnding(model: reviewData[indexPath.row])
         cell.selectionStyle = .none
-    
-
         return cell
-        
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 80
-//    }
 }

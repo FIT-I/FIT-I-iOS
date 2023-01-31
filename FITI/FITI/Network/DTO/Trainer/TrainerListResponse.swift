@@ -28,6 +28,6 @@ struct Dto: Codable {
     let name, profile, levelName, school: String
     let grade: Double
     let certificateNum: Int
-    let contents: String
+    var contents: String? = nil
     let cost: Int
 }

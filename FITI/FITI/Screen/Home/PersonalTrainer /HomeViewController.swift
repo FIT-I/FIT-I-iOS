@@ -81,10 +81,14 @@ extension HomeViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let touchedCell = tableView.cellForRow(at: indexPath) as! TrainerTableCell
         print(touchedCell.id)
+        LoadingView.showLoading()
         self.getSpecificTrainerServer(trainerIdx: touchedCell.id)
         let nextVC = TrainerDetailViewController()
         TrainerDetailViewController.id = touchedCell.id
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            LoadingView.hideLoading()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
 }
 extension HomeViewController: UITableViewDataSource {
@@ -116,6 +120,7 @@ extension HomeViewController {
         TrainerAPI.shared.getSpecificTrainerAPI(trainerIdx: trainerIdx) { response in
             guard let specificTrainerResponse = response?.result else { return }
             TrainerDetailViewController.specificTrainer = specificTrainerResponse
+            BodyReviewView.previewReviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
             print(specificTrainerResponse)
         }
     }

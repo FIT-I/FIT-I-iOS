@@ -74,11 +74,13 @@ class TrainerDetailViewController: UIViewController {
         setButtonEvent()
         setViewLayer()
         setLayout()
+        setData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setHeartIcon()
         setData()
+        resizePreviewReviewView()
     }
     
     // MARK: - @objc Func
@@ -124,7 +126,7 @@ class TrainerDetailViewController: UIViewController {
     }
     
     // MARK: Func
-
+    
     func setHeartIcon() {
         for i in 0..<TrainerDetailViewController.trainerHeartList.count {
             print(TrainerDetailViewController.trainerHeartList[i].trainerIdx)
@@ -152,23 +154,54 @@ class TrainerDetailViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
     }
     func setData(){
-        print("setDataInTrainerDetail")
-        print(TrainerDetailViewController.specificTrainer.name ?? "")
         self.headView.name.text = TrainerDetailViewController.specificTrainer.name
         self.headView.school.text = TrainerDetailViewController.specificTrainer.school
-        // MARK: - FIX ME : 강제 언래핑 수정
-//        self.headView.grade.text = String(TrainerDetailViewController.specificTrainer.result!.grade)
-        // MARK: - FIX ME : 메달 이미지 수정
-//        self.headView.goldIcon.image = specificTrainer.result?.levelName
-        // MARK: - FIX ME : 강제 언래핑 수정
-//        self.bodyPriceView.priceForTimeLabel.text = String(TrainerDetailViewController.specificTrainer.result!.cost)
+        self.headView.grade.text = String(TrainerDetailViewController.specificTrainer.grade)
+        switch TrainerDetailViewController.specificTrainer.levelName {
+        case "gold":
+            self.headView.goldIcon.image = UIImage(named: "gold.svg")
+        case "silver":
+            self.headView.goldIcon.image = UIImage(named: "silver.svg")
+        case "bronze":
+            self.headView.goldIcon.image = UIImage(named: "bronze.svg")
+        default:
+            self.headView.goldIcon.image = nil
+        }
+        self.bodyPriceView.priceForTimeLabel.text = String(TrainerDetailViewController.specificTrainer.cost)
         self.bodyIntroView.introTextView.text = TrainerDetailViewController.specificTrainer.intro
         self.bodyIntroAboutService.introServiceTextView.text = TrainerDetailViewController.specificTrainer.service
-        // MARK: - FIX ME : 강제 언래핑 수정
-//        self.bodyReviewView.reviewLabel.text = String(TrainerDetailViewController.specificTrainer.result!.reviewDto.count)
-        // MARK: - FIX ME : 강제 언래핑 수정
-//        self.bodyReviewView.gradeLabel.text = String(TrainerDetailViewController.specificTrainer.result!.grade)
-        // MARK: - 리뷰에 대한 데이터 처리 필요
+        self.bodyReviewView.reviewLabel.text = String(TrainerDetailViewController.specificTrainer.reviewDto?.count ?? 0)
+        self.bodyReviewView.gradeLabel.text = String(TrainerDetailViewController.specificTrainer.grade)
+    }
+    func resizePreviewReviewView(){
+        let reviewNum = TrainerDetailViewController.specificTrainer.reviewDto?.count
+        switch reviewNum {
+        case 0:
+            bodyReviewView.snp.remakeConstraints {
+                $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+                $0.height.equalTo(100)
+            }
+            bodyReviewView.reviewDetailBtn.layer.isHidden = true
+            return
+        case 1:
+            bodyReviewView.snp.remakeConstraints {
+                $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+                $0.height.equalTo(170)
+            }
+        case 2:
+            bodyReviewView.snp.remakeConstraints {
+                $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+                $0.height.equalTo(260)
+            }
+        default:
+            return
+        }
     }
 }
 
@@ -195,7 +228,6 @@ extension TrainerDetailViewController {
         
         //MARK: - naviViewLayout
         
-        // testColors
         view.backgroundColor = .systemBackground
         toolBarContainerView.backgroundColor = .systemBackground
         bodyPriceView.backgroundColor = UIColor.customColor(.boxGray)
@@ -204,80 +236,67 @@ extension TrainerDetailViewController {
         bodyReviewView.backgroundColor = UIColor.customColor(.boxGray)
         
         //MARK: - toolBarLayout
-        
+    
         toolBarContainerView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(64)
         }
-        
         heartBtn.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.bottom.equalToSuperview().offset(-10)
             make.leading.equalToSuperview().offset(16)
             make.width.equalTo(50)
         }
-
         matchingRequest.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.bottom.equalToSuperview().offset(-10)
             make.leading.equalTo(heartBtn.snp.trailing).offset(10)
             make.trailing.equalToSuperview().offset(-14)
         }
-
-        
-        //MARK: - scrollViewLayout
         contentScrollView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalTo(toolBarContainerView.snp.top)
         }
-        
-        //MARK: - containerViewLayout
         topView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(180)
         }
-        
         headView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(145)
             make.leading.equalToSuperview()
         }
-        
         bodyPriceView.snp.makeConstraints {
             $0.top.equalTo(headView.snp.bottom).offset(20)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.height.equalTo(130)
+            $0.height.equalTo(90)
         }
-        
         bodyIntroView.snp.makeConstraints {
             $0.top.equalTo(bodyPriceView.snp.bottom).offset(25)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.height.equalTo(180)
+            $0.bottom.equalTo(bodyIntroView.textDetailBtn.snp.bottom).offset(5)
         }
-        
         bodyIntroAboutService.snp.makeConstraints {
             $0.top.equalTo(bodyIntroView.snp.bottom).offset(25)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.height.equalTo(270)
+            $0.bottom.equalTo(bodyIntroAboutService.textDetailBtn.snp.bottom).offset(5)
         }
-        
         bodyReviewView.snp.makeConstraints {
-            $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+            $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(15)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.height.equalTo(350)
+            $0.height.equalTo(330)
         }
-
         bottomPhotoView.snp.makeConstraints {
             $0.top.equalTo(bodyReviewView.snp.bottom).offset(25)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
             $0.height.equalTo(200)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(45)
         }
     }
 }

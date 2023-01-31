@@ -112,7 +112,8 @@ extension HeartListTableCell {
         grade.text = String(model.trainerGrade)
         school.text = model.trainerSchool
         date.text = model.createdAt
-        if model.trainerProfile == "" {
+        // MARK: - FIX ME : 일단 더미 데이터
+        if model.trainerProfile == "trainerProfile" {
             reviewerImage.image = UIImage(named: "reviewerIcon.svg")
         }else{
             let url = URL(string: model.trainerProfile)
