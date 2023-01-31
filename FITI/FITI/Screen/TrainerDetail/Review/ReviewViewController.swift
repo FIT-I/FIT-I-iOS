@@ -33,6 +33,7 @@ class ReviewViewController: UIViewController {
         setViewHierarchy()
         setConstraints()
         setNavigationController()
+        setTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +70,7 @@ class ReviewViewController: UIViewController {
         reviewTableView.register(ReviewTableCell.self, forCellReuseIdentifier: ReviewTableCell.identifier)
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
+        reviewTableView.separatorStyle = .none
     }
     func setNavigationController(){
         navigationController?.navigationBar.tintColor = .black
@@ -77,6 +79,7 @@ class ReviewViewController: UIViewController {
     }
     func setReviewData(){
         self.reviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
+        print(reviewData)
     }
 }
 
@@ -87,13 +90,10 @@ extension ReviewViewController : UITableViewDelegate {
         print("cell did touched")
     }
 }
-
-
 extension ReviewViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.reviewData.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ReviewTableCell.identifier, for: indexPath) as? ReviewTableCell ?? ReviewTableCell()
         cell.reviewTableBnding(model: reviewData[indexPath.row])
