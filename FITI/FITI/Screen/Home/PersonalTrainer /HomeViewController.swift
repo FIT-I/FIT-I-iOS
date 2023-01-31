@@ -71,8 +71,6 @@ class HomeViewController: UIViewController {
         trainerTableView.register(TrainerTableCell.self, forCellReuseIdentifier: TrainerTableCell.identifier)
         trainerTableView.delegate = self
         trainerTableView.dataSource = self
-        // 테이블뷰 라인 없애기
-//        trainerTableView.separatorStyle = .none
     }
     
 }
