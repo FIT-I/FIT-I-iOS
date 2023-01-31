@@ -80,13 +80,6 @@ class TrainerTableCell: UITableViewCell {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    var license : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10.0)
-        label.text = "자격증 5개"
-        label.textColor = UIColor.customColor(.darkGray)
-        return label
-    }()
     var school : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
@@ -136,7 +129,7 @@ class TrainerTableCell: UITableViewCell {
         return stackView
     }()
     lazy var gradeStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [rateStackView,license,school])
+        let stackView = UIStackView(arrangedSubviews: [rateStackView,school])
         stackView.axis = .horizontal
         stackView.spacing = 5
         stackView.alignment = .leading
