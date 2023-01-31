@@ -11,14 +11,14 @@ class ReviewTableCell: UITableViewCell {
     
     static let identifier = "ReviewTabelCell"
     
-    var reviewerImage : UIImageView = {
+    // MARK: - UI Components
+    
+    lazy var reviewerImage : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "reviewerIcon.svg")
         return imgView
     }()
-
-
-    var name : UILabel = {
+    lazy var name : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12.0)
         label.text = "홍준혁"
@@ -26,7 +26,7 @@ class ReviewTableCell: UITableViewCell {
         return label
     }()
     
-    var date : UILabel = {
+    lazy var date : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "2022.12.2"
@@ -34,7 +34,7 @@ class ReviewTableCell: UITableViewCell {
         return label
     }()
     
-    var starIcon : UIImageView = {
+    private lazy var starIcon : UIImageView = {
         let image = UIImageView()
         image.snp.makeConstraints { make in
             make.height.width.equalTo(10)
@@ -42,15 +42,13 @@ class ReviewTableCell: UITableViewCell {
         image.image = UIImage(named: "star.svg")
         return image
     }()
-    
-    var grade : UILabel = {
+    lazy var grade : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "4.3"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
     lazy var rateStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [starIcon,grade])
         stackView.axis = .horizontal
@@ -58,7 +56,6 @@ class ReviewTableCell: UITableViewCell {
         stackView.alignment = .center
         return stackView
     }()
-    
     lazy var dateStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [date,rateStackView])
         stackView.axis = .horizontal
@@ -66,7 +63,6 @@ class ReviewTableCell: UITableViewCell {
         stackView.alignment = .leading
         return stackView
     }()
-    
     lazy var nameStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [name,dateStackView])
         stackView.axis = .vertical
@@ -74,7 +70,6 @@ class ReviewTableCell: UITableViewCell {
         stackView.alignment = .leading
         return stackView
     }()
-    
     lazy var topStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [reviewerImage,nameStackView])
         stackView.axis = .horizontal
@@ -82,8 +77,7 @@ class ReviewTableCell: UITableViewCell {
         stackView.alignment = .leading
         return stackView
     }()
-    
-    var reviewTextView : UITextView = {
+    lazy var reviewTextView : UITextView = {
         let textView = UITextView()
         textView.textColor = UIColor.black
         textView.isEditable = false
@@ -94,7 +88,6 @@ class ReviewTableCell: UITableViewCell {
         textView.text = "친절한 지도 감사합니다:)"
         return textView
     }()
-    
     lazy var globalStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [topStackView,reviewTextView])
         stackView.axis = .vertical
@@ -106,28 +99,29 @@ class ReviewTableCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.globalStackView)
-
         globalStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
             make.leading.trailing.equalToSuperview()
         }
-        
-        print(globalStackView)
-
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been impl")
     }
-    
-    
-    
 }
 
-//
-//extension ReviewTabelCell {
-//    public func binding(){
-//        //
-//    }
-//}
+
+extension ReviewTableCell {
+    public func reviewTableBnding(model:ReviewDto){
+        if model.profile == "trainerProfile" {
+            reviewerImage.image = UIImage(named: "reviewerIcon.svg")
+        }else {
+            let url = URL(string: model.profile ?? "")
+            reviewerImage.kf.setImage(with: url)
+        }
+        name.text = model.name
+        date.text = model.createdAt
+        grade.text = String(model.grade)
+        reviewTextView.text = model.contents
+    }
+}
