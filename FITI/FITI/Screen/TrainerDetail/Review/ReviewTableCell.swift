@@ -18,8 +18,8 @@ class ReviewTableCell: UITableViewCell {
     private lazy var reviewerImage : UIImageView = {
         let imgView = UIImageView()
         imgView.snp.makeConstraints { make in
-            make.width.equalTo(15)
-            make.height.equalTo(25)
+            make.width.equalTo(20)
+            make.height.equalTo(30)
         }
         return imgView
     }()

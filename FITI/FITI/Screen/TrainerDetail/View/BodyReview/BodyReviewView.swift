@@ -14,6 +14,10 @@ class BodyReviewView : UIView {
     
     // MARK: - Properties
     
+    static var previewReviewData = [ReviewDto]()
+    
+    // MARK: - UI Components
+    
     var reviewView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
@@ -90,10 +94,10 @@ class BodyReviewView : UIView {
             make.width.equalTo(12)
         }
         btn.backgroundColor = UIColor.customColor(.boxGray)
-        btn.setImage(UIImage(named: "rightBtn"), for: .normal)
+        btn.setImage(UIImage(named: "rightGray"), for: .normal)
         return btn
     }()
-    private lazy var reviewTableView : UITableView = {
+    lazy var previewReviewTableView : UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = UIColor.customColor(.boxGray)
         tableView.separatorStyle = .none
@@ -136,7 +140,7 @@ class BodyReviewView : UIView {
         self.addSubview(reviewTopLeftStackView)
         self.addSubview(reviewTopRightStackView)
         self.addSubview(bodyReviewLineView)
-        self.addSubview(reviewTableView)
+        self.addSubview(previewReviewTableView)
     }
     
     func setConstraints(){
@@ -153,11 +157,11 @@ class BodyReviewView : UIView {
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-22)
         }
-        reviewTableView.snp.makeConstraints { make in
+        previewReviewTableView.snp.makeConstraints { make in
             make.top.equalTo(bodyReviewLineView.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-22)
-            make.height.equalTo(270)
+            make.bottom.equalToSuperview().offset(-5)
         }
     }
 }
@@ -166,25 +170,26 @@ class BodyReviewView : UIView {
 
 extension BodyReviewView {
     private func register() {
-        reviewTableView.register(PreviewReviewTableCell.self,
+        previewReviewTableView.register(PreviewReviewTableCell.self,
                                  forCellReuseIdentifier: PreviewReviewTableCell.identifier
         )
     }
 }
+extension BodyReviewView : UITableViewDelegate {}
 extension BodyReviewView : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reviewDummy.count
+        let cellNum = TrainerDetailViewController.specificTrainer.reviewDto?.count ?? 0
+        switch cellNum {
+        case 0...3:
+            return cellNum
+        default:
+            return 3
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let reviewCell = tableView.dequeueReusableCell(withIdentifier: PreviewReviewTableCell.identifier, for: indexPath) as? PreviewReviewTableCell else { return UITableViewCell() }
-        
-        reviewCell.dataBind(model: reviewDummy[indexPath.row])
+        let reviewCell = tableView.dequeueReusableCell(withIdentifier: PreviewReviewTableCell.identifier, for: indexPath) as? PreviewReviewTableCell ?? PreviewReviewTableCell()
+        reviewCell.dataBind(model: BodyReviewView.previewReviewData[indexPath.row])
         reviewCell.selectionStyle = .none
         return reviewCell
-    }
-}
-extension BodyReviewView : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
     }
 }

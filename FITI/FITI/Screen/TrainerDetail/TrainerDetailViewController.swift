@@ -74,11 +74,13 @@ class TrainerDetailViewController: UIViewController {
         setButtonEvent()
         setViewLayer()
         setLayout()
+        setData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setHeartIcon()
         setData()
+        resizePreviewReviewView()
     }
     
     // MARK: - @objc Func
@@ -124,7 +126,7 @@ class TrainerDetailViewController: UIViewController {
     }
     
     // MARK: Func
-
+    
     func setHeartIcon() {
         for i in 0..<TrainerDetailViewController.trainerHeartList.count {
             print(TrainerDetailViewController.trainerHeartList[i].trainerIdx)
@@ -151,7 +153,6 @@ class TrainerDetailViewController: UIViewController {
         navigationController?.navigationBar.topItem?.title = ""
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
     }
-    // MARK: - 리뷰에 대한 데이터 처리 필요
     func setData(){
         self.headView.name.text = TrainerDetailViewController.specificTrainer.name
         self.headView.school.text = TrainerDetailViewController.specificTrainer.school
@@ -171,6 +172,36 @@ class TrainerDetailViewController: UIViewController {
         self.bodyIntroAboutService.introServiceTextView.text = TrainerDetailViewController.specificTrainer.service
         self.bodyReviewView.reviewLabel.text = String(TrainerDetailViewController.specificTrainer.reviewDto?.count ?? 0)
         self.bodyReviewView.gradeLabel.text = String(TrainerDetailViewController.specificTrainer.grade)
+    }
+    func resizePreviewReviewView(){
+        let reviewNum = TrainerDetailViewController.specificTrainer.reviewDto?.count
+        switch reviewNum {
+        case 0:
+            bodyReviewView.snp.remakeConstraints {
+                $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+                $0.height.equalTo(100)
+            }
+            bodyReviewView.reviewDetailBtn.layer.isHidden = true
+            return
+        case 1:
+            bodyReviewView.snp.remakeConstraints {
+                $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+                $0.height.equalTo(170)
+            }
+        case 2:
+            bodyReviewView.snp.remakeConstraints {
+                $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+                $0.height.equalTo(260)
+            }
+        default:
+            return
+        }
     }
 }
 
@@ -205,7 +236,7 @@ extension TrainerDetailViewController {
         bodyReviewView.backgroundColor = UIColor.customColor(.boxGray)
         
         //MARK: - toolBarLayout
-        
+    
         toolBarContainerView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(64)
@@ -255,17 +286,17 @@ extension TrainerDetailViewController {
             $0.bottom.equalTo(bodyIntroAboutService.textDetailBtn.snp.bottom).offset(5)
         }
         bodyReviewView.snp.makeConstraints {
-            $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+            $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(15)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.height.equalTo(350)
+            $0.height.equalTo(330)
         }
         bottomPhotoView.snp.makeConstraints {
             $0.top.equalTo(bodyReviewView.snp.bottom).offset(25)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
             $0.height.equalTo(200)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(45)
         }
     }
 }

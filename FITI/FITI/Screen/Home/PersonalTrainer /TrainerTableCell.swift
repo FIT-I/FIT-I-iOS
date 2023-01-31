@@ -92,6 +92,7 @@ class TrainerTableCell: UITableViewCell {
         textView.textColor = UIColor.black
         textView.isEditable = false
         textView.isScrollEnabled = false
+        textView.textContainer.maximumNumberOfLines = 2
         textView.font = UIFont.systemFont(ofSize: 10.0)
         return textView
     }()
@@ -121,13 +122,6 @@ class TrainerTableCell: UITableViewCell {
         stackView.alignment = .center
         return stackView
     }()
-//    lazy var nameStackView : UIStackView = {
-//        let stackView = UIStackView(arrangedSubviews: [name])
-//        stackView.axis = .horizontal
-//        stackView.spacing = 8
-//        stackView.alignment = .lastBaseline
-//        return stackView
-//    }()
     lazy var gradeStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [rateStackView,school])
         stackView.axis = .horizontal
@@ -142,26 +136,12 @@ class TrainerTableCell: UITableViewCell {
         stackView.alignment = .leading
         return stackView
     }()
-    lazy var rightStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [gradeStackView,introTextView,priceStackView])
-        stackView.axis = .vertical
-        stackView.spacing = 5
-        stackView.alignment = .leading
-        return stackView
-    }()
-    lazy var globalStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [imgView,rightStackView])
-        stackView.axis = .horizontal
-        stackView.spacing = 15
-        stackView.alignment = .fill
-        return stackView
-    }()
 
     // MARK: - init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubviews(imgView,name,goldIcon,rightStackView)
+        contentView.addSubviews(imgView,name,goldIcon,gradeStackView,introTextView,priceStackView)
         imgView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(23)
             make.leading.equalToSuperview()
@@ -174,8 +154,17 @@ class TrainerTableCell: UITableViewCell {
             make.top.equalToSuperview().offset(22)
             make.leading.equalTo(name.snp.trailing).offset(7)
         }
-        rightStackView.snp.makeConstraints { make in
+        gradeStackView.snp.makeConstraints { make in
             make.top.equalTo(name.snp.bottom).offset(5)
+            make.leading.equalTo(imgView.snp.trailing).offset(24)
+        }
+        introTextView.snp.makeConstraints { make in
+            make.top.equalTo(gradeStackView.snp.bottom).offset(5)
+            make.leading.equalTo(imgView.snp.trailing).offset(24)
+            make.trailing.equalToSuperview().offset(40)
+        }
+        priceStackView.snp.makeConstraints { make in
+            make.top.equalTo(introTextView.snp.bottom).offset(5)
             make.leading.equalTo(imgView.snp.trailing).offset(24)
         }
     }

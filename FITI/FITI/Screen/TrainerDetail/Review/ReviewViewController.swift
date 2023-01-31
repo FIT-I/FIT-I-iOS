@@ -10,9 +10,12 @@ import SnapKit
 
 class ReviewViewController: UIViewController {
     
-    // MARK: - UI Components
+    // MARK: - Properties
     
     var reviewData = [ReviewDto]()
+    
+    // MARK: - UI Components
+    
     private let titleLabel : UILabel = {
         let lb = UILabel()
         lb.text = "리뷰 전체보기"

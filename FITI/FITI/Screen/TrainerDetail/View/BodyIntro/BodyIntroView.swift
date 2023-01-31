@@ -47,7 +47,7 @@ class BodyIntroView : UIView {
         textView.textColor = UIColor.customColor(.darkGray)
         textView.isEditable = false
         textView.isScrollEnabled = false
-        textView.textContainer.maximumNumberOfLines = 2
+        textView.textContainer.maximumNumberOfLines = 5
         textView.textContainer.lineBreakMode = .byTruncatingTail
         textView.font = UIFont.systemFont(ofSize: 15.0)
         return textView

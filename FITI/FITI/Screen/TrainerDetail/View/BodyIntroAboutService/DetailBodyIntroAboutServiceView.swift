@@ -71,15 +71,6 @@ class DetailBodyIntroAboutServiceView: UIView {
             make.leading.equalToSuperview().offset(18)
             make.trailing.equalToSuperview().offset(-22)
         }
-//        introTextView.snp.makeConstraints { make in
-//            make.top.equalTo(introLineView.snp.bottom).offset(10)
-//            make.leading.equalToSuperview().offset(20)
-//            make.trailing.equalToSuperview().offset(-20)
-//          //  make.height.equalTo(90)
-//        }
-//
-        
     }
-
 }
 

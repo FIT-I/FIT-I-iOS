@@ -120,6 +120,7 @@ extension HomeViewController {
         TrainerAPI.shared.getSpecificTrainerAPI(trainerIdx: trainerIdx) { response in
             guard let specificTrainerResponse = response?.result else { return }
             TrainerDetailViewController.specificTrainer = specificTrainerResponse
+            BodyReviewView.previewReviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
             print(specificTrainerResponse)
         }
     }

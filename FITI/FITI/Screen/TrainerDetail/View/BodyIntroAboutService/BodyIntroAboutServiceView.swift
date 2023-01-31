@@ -42,7 +42,7 @@ class BodyIntroAboutServiceView : UIView {
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.backgroundColor = UIColor.customColor(.boxGray)
         textView.textColor = UIColor.customColor(.darkGray)
-        textView.textContainer.maximumNumberOfLines = 2
+        textView.textContainer.maximumNumberOfLines = 10
         textView.textContainer.lineBreakMode = .byTruncatingTail
         textView.isEditable = false
         textView.isScrollEnabled = false
