@@ -27,7 +27,7 @@ class TrainerTableCell: UITableViewCell {
         view.clipsToBounds = true
         view.image = UIImage(named: "reviewerIcon.svg")
         view.snp.makeConstraints { make in
-            make.height.equalTo(110)
+            make.height.equalTo(70)
             make.width.equalTo(70)
         }
         return view
@@ -121,13 +121,13 @@ class TrainerTableCell: UITableViewCell {
         stackView.alignment = .center
         return stackView
     }()
-    lazy var nameStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [name,goldIcon])
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.alignment = .trailing
-        return stackView
-    }()
+//    lazy var nameStackView : UIStackView = {
+//        let stackView = UIStackView(arrangedSubviews: [name])
+//        stackView.axis = .horizontal
+//        stackView.spacing = 8
+//        stackView.alignment = .lastBaseline
+//        return stackView
+//    }()
     lazy var gradeStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [rateStackView,school])
         stackView.axis = .horizontal
@@ -143,7 +143,7 @@ class TrainerTableCell: UITableViewCell {
         return stackView
     }()
     lazy var rightStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [nameStackView,gradeStackView,introTextView,priceStackView])
+        let stackView = UIStackView(arrangedSubviews: [gradeStackView,introTextView,priceStackView])
         stackView.axis = .vertical
         stackView.spacing = 5
         stackView.alignment = .leading
@@ -161,19 +161,27 @@ class TrainerTableCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.addSubview(self.globalStackView)
-
-        globalStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
-            make.leading.trailing.equalToSuperview()
+        contentView.addSubviews(imgView,name,goldIcon,rightStackView)
+        imgView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(23)
+            make.leading.equalToSuperview()
         }
-        print(globalStackView)
+        name.snp.makeConstraints { make in
+            make.top.equalTo(imgView.snp.top)
+            make.leading.equalTo(imgView.snp.trailing).offset(24)
+        }
+        goldIcon.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(22)
+            make.leading.equalTo(name.snp.trailing).offset(7)
+        }
+        rightStackView.snp.makeConstraints { make in
+            make.top.equalTo(name.snp.bottom).offset(5)
+            make.leading.equalTo(imgView.snp.trailing).offset(24)
+        }
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been impl")
     }
-    
 }
 
 // MARK: - Extension

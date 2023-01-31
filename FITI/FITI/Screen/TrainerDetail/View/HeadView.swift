@@ -55,25 +55,11 @@ class HeadView : UIView {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    private lazy var nameStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [name,goldIcon])
-        stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.alignment = .trailing
-        return stackView
-    }()
     private lazy var gradeStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [rateStackView,school])
         stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.alignment = .leading
-        return stackView
-    }()
-    private lazy var globalStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [nameStackView,gradeStackView])
-        stackView.axis = .vertical
         stackView.spacing = 6
-        stackView.alignment = .leading
+        stackView.alignment = .center
         return stackView
     }()
     
@@ -90,8 +76,11 @@ class HeadView : UIView {
     // MARK: - Func
     
     func setViewHierarchy(){
-        self.addSubview(reviewerImage)
-        self.addSubview(globalStackView)
+        self.addSubviews(reviewerImage,
+                         name,
+                         goldIcon,
+                         gradeStackView
+        )
     }
     func setConstraints(){
         reviewerImage.snp.makeConstraints { make in
@@ -99,8 +88,16 @@ class HeadView : UIView {
             make.leading.equalToSuperview().offset(30)
             make.height.width.equalTo(70)
         }
-        globalStackView.snp.makeConstraints { make in
+        name.snp.makeConstraints { make in
             make.top.equalTo(reviewerImage.snp.bottom).offset(15)
+            make.leading.equalToSuperview().offset(30)
+        }
+        goldIcon.snp.makeConstraints { make in
+            make.top.equalTo(reviewerImage.snp.bottom).offset(14)
+            make.leading.equalTo(name.snp.trailing).offset(6)
+        }
+        gradeStackView.snp.makeConstraints { make in
+            make.top.equalTo(name.snp.bottom).offset(2)
             make.leading.equalToSuperview().offset(30)
             make.trailing.bottom.equalToSuperview()
         }
