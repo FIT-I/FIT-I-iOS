@@ -203,7 +203,7 @@ class SignInViewController: UIViewController {
     private func ifSuccessPushHome(){
         self.getFirstTrainerListServer(category: "pt", page: 0, size: 33, sort: ["current"])
         let nextVC = GradeTableViewController()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
