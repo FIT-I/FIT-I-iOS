@@ -10,15 +10,16 @@ import SnapKit
 
 class PickServiceViewController: UIViewController {
 
-    var titleLabel : UILabel = {
+    // MARK: - UI Components
+
+    private lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
         label.text = "서비스 선택"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    
-    var progressView : UIView = {
+    private lazy var progressView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
         view.snp.makeConstraints { make in
@@ -26,8 +27,7 @@ class PickServiceViewController: UIViewController {
         }
         return view
     }()
-    
-    var grayView : UIView = {
+    private lazy var grayView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.lightGray
         view.snp.makeConstraints { make in
@@ -35,16 +35,14 @@ class PickServiceViewController: UIViewController {
         }
         return view
     }()
-    
-    var subTitleLabel : UILabel = {
+    private lazy var subTitleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
         label.text = "서비스 선택하기"
         label.textColor = UIColor.black
         return label
     }()
-    
-    private let nextBtn : UIButton = {
+    private lazy var nextBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.blue)
         btn.layer.cornerRadius = 8
@@ -56,35 +54,51 @@ class PickServiceViewController: UIViewController {
         btn.addTarget(self, action: #selector(nextEvent), for: .touchUpInside)
         return btn
     }()
+    private lazy var priceLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20.0)
+        label.textColor = UIColor.black
+        return label
+    }()
+    private lazy var wonLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20.0)
+        label.text = "원"
+        label.textColor = UIColor.black
+        return label
+    }()
+    private lazy var priceStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [priceLabel,wonLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 2
+        stackView.alignment = .center
+        return stackView
+    }()
+    private lazy var pickStackView = PickServiceView()
 
-    // 왼쪽 버튼 부분
-    var pickStackView = PickServiceView()
-    
-    // 오른쪽 금액 Label 부분
-    var priceStackView = PickServicePrice()
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.topItem?.title = ""
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
-        
-        // Do any additional setup after loading the view.
         setViewHierarchy()
         setConstraints()
+        setNavigationController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setPriceData()
     }
     
     private func setViewHierarchy() {
-        view.addSubview(titleLabel)
-        view.addSubview(progressView)
+        view.addSubviews(titleLabel,
+                         progressView,
+                         subTitleLabel,
+                         nextBtn,
+                         pickStackView,
+                         priceStackView
+        )
         progressView.addSubview(grayView)
-        view.addSubview(subTitleLabel)
-        view.addSubview(nextBtn)
-        view.addSubview(pickStackView)
-        view.addSubview(priceStackView)
     }
     
     private func setConstraints(){
@@ -123,13 +137,24 @@ class PickServiceViewController: UIViewController {
         }
     }
     
+    // MARK: - @objc Func
+    
     @objc func nextEvent(){
         let nextVC = PickDateViewController()
         navigationController?.pushViewController(nextVC, animated: false)
     }
-    
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
     
+    //MARK: - Func
+    
+    func setNavigationController(){
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.topItem?.title = ""
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
+    }
+    func setPriceData(){
+        self.priceLabel.text = String(TrainerDetailViewController.specificTrainer.cost)
+    }
 }

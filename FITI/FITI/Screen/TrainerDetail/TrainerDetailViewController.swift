@@ -16,6 +16,7 @@ class TrainerDetailViewController: UIViewController {
     // MARK: - Properties
     
     var isHeartFull : Bool = false
+    var isScrolled = false
     static var id = Int()
     static var trainerHeartList = [HeartList]()
     // MARK: - FIX ME : Delegate 패턴으로 수정

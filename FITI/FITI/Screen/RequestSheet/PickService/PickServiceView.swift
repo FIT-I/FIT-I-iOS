@@ -9,43 +9,27 @@ import UIKit
 import SnapKit
 
 class PickServiceView: UIView {
+    
+    // MARK: - Properties
 
     var isFirstPickBtnTouched : Bool = false
-    var isSecondPickBtnTouched : Bool = false
     
-    var firstPickBtn : UIButton = {
+    // MARK: - UI Components
+    
+    private lazy var firstPickBtn : UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
         btn.addTarget(self, action: #selector(hourBtnClicked), for: .touchUpInside)
         return btn
     }()
-    
-    var secondPickBtn : UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
-        btn.addTarget(self, action: #selector(addBtnClicked), for: .touchUpInside)
-        return btn
-    }()
-    
-    var hourLabel : UILabel = {
+    private lazy var hourLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20.0)
         label.text = "1시간"
         label.textColor = UIColor.black
         return label
     }()
-    
-    var addLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20.0)
-        label.text = "추가관리"
-        label.textColor = UIColor.black
-        return label
-    }()
-    
-
-    
-    lazy var firstLeftStackView : UIStackView = {
+    private lazy var firstLeftStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [firstPickBtn,hourLabel])
         stackView.axis = .horizontal
         stackView.spacing = 15
@@ -53,21 +37,7 @@ class PickServiceView: UIView {
         return stackView
     }()
     
-    lazy var secondLeftStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [secondPickBtn,addLabel])
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.spacing = 15
-        return stackView
-    }()
-    
-    lazy var globalStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [firstLeftStackView,secondLeftStackView])
-        stackView.axis = .vertical
-        stackView.alignment = .leading
-        stackView.spacing = 23
-        return stackView
-    }()
+    // MARK: - init
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -79,16 +49,19 @@ class PickServiceView: UIView {
         setConstraints()
     }
     
-
+    // MARK: - Func
+    
     private func setViewHierarchy() {
-        self.addSubview(globalStackView)
+        self.addSubview(firstLeftStackView)
     }
     
     private func setConstraints(){
-        globalStackView.snp.makeConstraints { make in
+        firstLeftStackView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview()
         }
     }
+    
+    // MARK: - @objc
     
     @objc func hourBtnClicked(sender: UIBarButtonItem) {
         if isFirstPickBtnTouched == false {
@@ -98,15 +71,6 @@ class PickServiceView: UIView {
         }else {
             firstPickBtn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
             isFirstPickBtnTouched = false
-        }
-    }
-    @objc func addBtnClicked(sender: UIBarButtonItem) {
-        if isSecondPickBtnTouched == false {
-            secondPickBtn.setImage(UIImage(named: "fillBox.svg"), for: .normal)
-            isSecondPickBtnTouched = true
-        }else {
-            secondPickBtn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
-            isSecondPickBtnTouched = false
         }
     }
 }
