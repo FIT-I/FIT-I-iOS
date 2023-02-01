@@ -194,14 +194,14 @@ class SignInViewController: UIViewController {
     //MARK: - Func
     
     private func checkRealmToken()->Bool{
-        if realm.getToken() == ""{
+        if realm.getToken() == "" {
             return false
         }else{
             return true
         }
     }
     private func ifSuccessPushHome(){
-        self.getFirstTrainerListServer(category: "pt", page: 0, size: 26, sort: ["current"])
+        self.getFirstTrainerListServer(category: "pt", page: 0, size: 33, sort: ["current"])
         let nextVC = GradeTableViewController()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             self.navigationController?.pushViewController(nextVC, animated: true)

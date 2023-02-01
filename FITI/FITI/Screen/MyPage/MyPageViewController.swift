@@ -19,12 +19,14 @@ struct UserInfo {
 
 class MyPageViewController: UIViewController {
     
-    static var MyInfo = UserInfo()
+    // MARK: - Properties
     
-    private let provider = MoyaProvider<CustomerRouter>()
+    static var MyInfo = UserInfo()
     private let myPageProvider = MoyaProvider<MyPageRouter>()
+    
+    // MARK: - UI Components
 
-    var myPageTitleLabel : UILabel = {
+    private lazy var myPageTitleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
         label.text = "마이페이지"
@@ -32,11 +34,11 @@ class MyPageViewController: UIViewController {
         return label
     }()
     
-    var settingBtn : UIButton = {
+    private lazy var settingBtn : UIButton = {
         let btn = UIButton()
         btn.snp.makeConstraints { make in
-            make.height.equalTo(30)
-            make.width.equalTo(50)
+            make.height.equalTo(50)
+            make.width.equalTo(80)
         }
         btn.setImage(UIImage(named: "gearshape.svg"), for: .normal)
         btn.addTarget(self, action: #selector(settingBtnEvent), for: .touchUpInside)
@@ -165,7 +167,7 @@ class MyPageViewController: UIViewController {
                         MyPageViewController.MyInfo.userName = responseData.result.userName
                         MyPageViewController.MyInfo.profile = responseData.result.profile
                         MyPageViewController.MyInfo.email = responseData.result.email
-                        MyPageViewController.MyInfo.location = responseData.result.location
+                        MyPageViewController.MyInfo.location = responseData.result.location ?? "위치 설정을 해주세요."
                         print(responseData)
                     } catch(let err) {
                         print(err.localizedDescription)

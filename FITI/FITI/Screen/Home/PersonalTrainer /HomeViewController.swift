@@ -85,7 +85,7 @@ extension HomeViewController : UITableViewDelegate {
         self.getSpecificTrainerServer(trainerIdx: touchedCell.id)
         let nextVC = TrainerDetailViewController()
         TrainerDetailViewController.id = touchedCell.id
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             LoadingView.hideLoading()
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
@@ -112,7 +112,7 @@ extension HomeViewController {
             MyPageViewController.MyInfo.userName = myPageResponse.userName
             MyPageViewController.MyInfo.profile = myPageResponse.profile
             MyPageViewController.MyInfo.email = myPageResponse.email
-            MyPageViewController.MyInfo.location = myPageResponse.location
+            MyPageViewController.MyInfo.location = myPageResponse.location ?? "위치 설정을 해주세요."
         }
     }
     func getSpecificTrainerServer(trainerIdx:Int){

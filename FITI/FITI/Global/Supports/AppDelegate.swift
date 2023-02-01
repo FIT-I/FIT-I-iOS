@@ -6,25 +6,11 @@
 //
 
 import UIKit
-import SendbirdUIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let sendBirdAppId = Bundle.main.infoDictionary?["5AEF38C5-B43C-43B2-ADE3-7536C5585164"] ?? ""
-        SendbirdUI.initialize(applicationId: sendBirdAppId as! String) {
-              // Do something to display the start of the SendbirdUIKit initialization.
-          } migrationHandler: {
-              // Do something to display the progress of the DB migration.
-          } completionHandler: { error in
-              // Do something to display the completion of the SendbirdChat initialization.
-          }
-        
-        // set current user
-        SBUGlobals.currentUser = SBUUser(userId: "1")
         // Override point for customization after application launch.
         return true
     }
