@@ -10,14 +10,14 @@ import SnapKit
 
 class WithdrawViewController: UIViewController {
 
+    // MARK: - Properties
     
-    var appImage : UIImageView = {
+    private lazy var appImage : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "finialLogOut.svg")
         return imgView
     }()
-    
-    var goBackBtn : UIButton = {
+    private lazy var goBackBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.skyblue1)
         btn.layer.cornerRadius = 8
@@ -27,8 +27,7 @@ class WithdrawViewController: UIViewController {
         btn.addTarget(self, action: #selector(backBtn), for: .touchUpInside)
         return btn
     }()
-    
-    var finialWithDrawBtn : UIButton = {
+    private lazy var finialWithDrawBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.layer.cornerRadius = 8
@@ -38,13 +37,12 @@ class WithdrawViewController: UIViewController {
         return btn
     }()
 
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        // Do any additional setup after loading the view.
         self.navigationItem.hidesBackButton = true
-        
         setViewHierarchy()
         setConstraints()
     }
@@ -63,18 +61,20 @@ class WithdrawViewController: UIViewController {
             make.top.equalToSuperview().offset(150)
         }
         goBackBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(500)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(50)
+            make.bottom.equalTo(finialWithDrawBtn.snp.top).offset(-15)
         }
         finialWithDrawBtn.snp.makeConstraints { make in
-            make.top.equalTo(goBackBtn.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(50)
+            make.bottom.equalToSuperview().offset(-70)
         }
     }
+    
+    // MARK: - @objc Func
     
     @objc func backBtn(){
         let nextVC = TabBarController()
