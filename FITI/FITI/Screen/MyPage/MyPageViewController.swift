@@ -119,7 +119,7 @@ class MyPageViewController: UIViewController {
         }
         settingBtn.snp.makeConstraints { make in
             make.centerY.equalTo(myPageTitleLabel)
-            make.trailing.equalToSuperview().offset(-24)
+            make.trailing.equalToSuperview()
         }
         progressView.snp.makeConstraints { make in
             make.top.equalTo(myPageTitleLabel.snp.bottom).offset(20)

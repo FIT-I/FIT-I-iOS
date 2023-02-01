@@ -68,16 +68,16 @@ class SettingViewController: UIViewController {
             make.top.equalToSuperview().offset(150)
         }
         logOutBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(500)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(50)
+            make.bottom.equalTo(withDrawBtn.snp.top).offset(-15)
         }
         withDrawBtn.snp.makeConstraints { make in
-            make.top.equalTo(logOutBtn.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(50)
+            make.bottom.equalToSuperview().offset(-70)
         }
     }
     
