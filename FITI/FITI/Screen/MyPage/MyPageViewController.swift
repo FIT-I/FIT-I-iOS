@@ -218,7 +218,7 @@ class MyPageViewController: UIViewController {
     }
 }
 
-//MARK: - Extension
+//MARK: - Network
 
 extension MyPageViewController {
     func getHeartListServer(){

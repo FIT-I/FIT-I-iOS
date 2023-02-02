@@ -92,6 +92,7 @@ class HeartListViewController: UIViewController {
         heartListTableView.delegate = self
         heartListTableView.dataSource = self
     }
+    
 }
 
 // MARK: - Extension
@@ -99,6 +100,14 @@ class HeartListViewController: UIViewController {
 extension HeartListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("cell did touched")
+        LoadingView.showLoading()
+        self.getSpecificTrainerServer(trainerIdx: HeartListViewController.heartList[indexPath.row].trainerIdx)
+        let trainerDetailVC = TrainerDetailViewController()
+        TrainerDetailViewController.id = HeartListViewController.heartList[indexPath.row].trainerIdx
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            LoadingView.hideLoading()
+            self.navigationController?.pushViewController(trainerDetailVC, animated: true)
+        }
     }
 }
 extension HeartListViewController: UITableViewDataSource {
@@ -114,5 +123,26 @@ extension HeartListViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+}
+
+// MARK: - Network
+
+extension HeartListViewController {
+    func getSpecificTrainerServer(trainerIdx:Int){
+        print("getSpecific")
+        TrainerAPI.shared.getSpecificTrainerAPI(trainerIdx: trainerIdx) { response in
+            guard let specificTrainerResponse = response?.result else { return }
+            TrainerDetailViewController.specificTrainer = specificTrainerResponse
+            BodyReviewView.previewReviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
+            print(specificTrainerResponse)
+        }
+    }
+    func getHeartListServer(){
+        print("getHeartList")
+        MyPageAPI.shared.getHeartListAPI{ response in
+            guard let heartListResponse = response?.result else { return }
+            HeartListViewController.heartList = heartListResponse
+        }
     }
 }
