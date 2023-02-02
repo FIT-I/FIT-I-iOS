@@ -220,7 +220,7 @@ extension SearchViewController: UITableViewDelegate {
             switch response {
             case .success(let response):
                 do {
-                    let responseData = try response.map(PetchLocationResponse.self)
+//                    let responseData = try response.map(PetchLocationResponse.self)
                 }catch(let err) {
                     print(err.localizedDescription)
                 }

@@ -74,7 +74,6 @@ class SettingProfileViewController: UIViewController {
         bottomInfoView.snp.makeConstraints { make in
             make.top.equalTo(progressView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
-            
         }
     }
     

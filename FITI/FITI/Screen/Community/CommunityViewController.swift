@@ -73,6 +73,17 @@ class CommunityViewController: UIViewController {
         requestTableView.delegate = self
         requestTableView.dataSource = self
     }
+    
+    func setHeartIcon() {
+        for i in 0..<TrainerDetailViewController.trainerHeartList.count {
+            print(TrainerDetailViewController.trainerHeartList[i].trainerIdx)
+            print(TrainerDetailViewController.id)
+            if TrainerDetailViewController.trainerHeartList[i].trainerIdx == TrainerDetailViewController.id {
+                TrainerDetailViewController.isHeartFull = true
+                TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+            }
+        }
+    }
 }
 
 // MARK: - Extension
@@ -80,7 +91,14 @@ class CommunityViewController: UIViewController {
 extension CommunityViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let touchedCell = tableView.cellForRow(at: indexPath) as! CommunityTableCell
-//        LoadingView.showLoading()
+        self.getMatchingSheetServer(matchingIndex: touchedCell.matchingId)
+        RequestSheetViewController.trainerIndex  = touchedCell.trainerId
+        LoadingView.showLoading()
+        let nextVC = RequestSheetViewController()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            LoadingView.hideLoading()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
 }
 
@@ -100,4 +118,20 @@ extension CommunityViewController : UITableViewDataSource {
     }
 }
 
+// MARK: - Network
 
+extension CommunityViewController {
+    func getMatchingSheetServer(matchingIndex:Int){
+        CustomerAPI.shared.getMatchingSheetAPI(matchingIndex: matchingIndex){ response in
+            RequestSheetViewController.requestSheetData = response?.result ?? MatchSheet()
+        }
+    }
+    func getHeartListServer(){
+        print("getHeartList")
+        MyPageAPI.shared.getHeartListAPI{ response in
+            guard let heartListResponse = response?.result else { return }
+            TrainerDetailViewController.trainerHeartList = heartListResponse
+            self.setHeartIcon()
+        }
+    }
+}

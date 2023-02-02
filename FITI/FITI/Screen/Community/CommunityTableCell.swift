@@ -14,8 +14,8 @@ class CommunityTableCell: UITableViewCell {
     // MARK: - Properties
     
     static let identifier = "CommunityTableCell"
-    private var trainerId = Int()
-    private var matchingId = Int()
+    public var trainerId = Int()
+    public var matchingId = Int()
     
     // MARK: - UI Components
     

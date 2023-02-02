@@ -15,7 +15,7 @@ class TrainerDetailViewController: UIViewController {
     
     // MARK: - Properties
     
-    var isHeartFull : Bool = false
+    static var isHeartFull : Bool = false
     var isScrolled = false
     static var id = Int()
     static var trainerHeartList = [HeartList]()
@@ -44,7 +44,7 @@ class TrainerDetailViewController: UIViewController {
         btn.addTarget(self, action: #selector(matchingRequestTouched), for: .touchUpInside)
         return btn
     }()
-    private lazy var heartBtn : UIButton = {
+    static var heartBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.systemBackground
         btn.layer.cornerRadius = 8
@@ -118,13 +118,13 @@ class TrainerDetailViewController: UIViewController {
     }
 
     @objc func heartTouchEvent(){
-        if isHeartFull == false {
-            self.isHeartFull = true
-            self.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+        if TrainerDetailViewController.isHeartFull == false {
+            TrainerDetailViewController.isHeartFull = true
+            TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
             self.postHeartServer(trainerIndex: TrainerDetailViewController.id)
         }else{
-            self.isHeartFull = false
-            self.heartBtn.setImage(UIImage(named: "heart.svg"), for: .normal)
+            TrainerDetailViewController.isHeartFull = false
+            TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.svg"), for: .normal)
             self.deleteHeartServer(trainerIndex: TrainerDetailViewController.id)
         }
     }
@@ -136,8 +136,8 @@ class TrainerDetailViewController: UIViewController {
             print(TrainerDetailViewController.trainerHeartList[i].trainerIdx)
             print(TrainerDetailViewController.id)
             if TrainerDetailViewController.trainerHeartList[i].trainerIdx == TrainerDetailViewController.id {
-                self.isHeartFull = true
-                self.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+                TrainerDetailViewController.isHeartFull = true
+                TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
             }
         }
     }
@@ -231,7 +231,7 @@ extension TrainerDetailViewController {
         
         //MARK: addSubViews
         view.addSubviews(contentScrollView, toolBarContainerView)
-        toolBarContainerView.addSubviews(heartBtn,matchingRequest)
+        toolBarContainerView.addSubviews(TrainerDetailViewController.heartBtn,matchingRequest)
         contentScrollView.addSubviews(
             topView,
             headView,
@@ -257,7 +257,7 @@ extension TrainerDetailViewController {
             $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(64)
         }
-        heartBtn.snp.makeConstraints { make in
+        TrainerDetailViewController.heartBtn.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.bottom.equalToSuperview().offset(-10)
             make.leading.equalToSuperview().offset(16)
@@ -266,7 +266,7 @@ extension TrainerDetailViewController {
         matchingRequest.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.bottom.equalToSuperview().offset(-10)
-            make.leading.equalTo(heartBtn.snp.trailing).offset(10)
+            make.leading.equalTo(TrainerDetailViewController.heartBtn.snp.trailing).offset(10)
             make.trailing.equalToSuperview().offset(-14)
         }
         contentScrollView.snp.makeConstraints {
