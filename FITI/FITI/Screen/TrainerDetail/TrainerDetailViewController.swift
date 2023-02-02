@@ -16,6 +16,7 @@ class TrainerDetailViewController: UIViewController {
     // MARK: - Properties
     
     var isHeartFull : Bool = false
+    var isScrolled = false
     static var id = Int()
     static var trainerHeartList = [HeartList]()
     // MARK: - FIX ME : Delegate 패턴으로 수정
@@ -167,11 +168,11 @@ class TrainerDetailViewController: UIViewController {
         default:
             self.headView.goldIcon.image = nil
         }
-        self.bodyPriceView.priceForTimeLabel.text = String(TrainerDetailViewController.specificTrainer.cost)
+        self.bodyPriceView.priceForTimeLabel.text = String(TrainerDetailViewController.specificTrainer.cost) + "원"
         self.bodyIntroView.introTextView.text = TrainerDetailViewController.specificTrainer.intro
         self.bodyIntroAboutService.introServiceTextView.text = TrainerDetailViewController.specificTrainer.service
         self.bodyReviewView.reviewLabel.text = String(TrainerDetailViewController.specificTrainer.reviewDto?.count ?? 0)
-        self.bodyReviewView.gradeLabel.text = String(TrainerDetailViewController.specificTrainer.grade)
+        self.bodyReviewView.gradeLabel.text = String(TrainerDetailViewController.specificTrainer.grade) + "점"
     }
     func resizePreviewReviewView(){
         let reviewNum = TrainerDetailViewController.specificTrainer.reviewDto?.count

@@ -46,24 +46,10 @@ class BodyPriceView : UIView {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    private lazy var wonLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12.0)
-        label.textColor = UIColor.customColor(.darkGray)
-        label.text = "원"
-        return label
-    }()
     private lazy var priceTopStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [priceImage,priceLabel])
         stackView.axis = .horizontal
         stackView.spacing = 8
-        stackView.alignment = .trailing
-        return stackView
-    }()
-    private lazy var priceRightStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [priceForTimeLabel,wonLabel])
-        stackView.axis = .horizontal
-        stackView.spacing = 2
         stackView.alignment = .trailing
         return stackView
     }()
@@ -85,7 +71,7 @@ class BodyPriceView : UIView {
         self.addSubview(priceTopStackView)
         self.addSubview(priceLineView)
         self.addSubview(timeLabel)
-        self.addSubview(priceRightStackView)
+        self.addSubview(priceForTimeLabel)
     }
     private func setConstraints(){
         priceTopStackView.snp.makeConstraints { make in
@@ -101,7 +87,7 @@ class BodyPriceView : UIView {
             make.top.equalTo(priceLineView.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
         }
-        priceRightStackView.snp.makeConstraints { make in
+        priceForTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(priceLineView.snp.bottom).offset(10)
             make.trailing.equalToSuperview().offset(-20)
         }

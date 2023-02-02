@@ -9,16 +9,17 @@ import UIKit
 import SnapKit
 
 class PickServiceViewController: UIViewController {
+    
+    // MARK: - UI Components
 
-    var titleLabel : UILabel = {
+    private lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
         label.text = "서비스 선택"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    
-    var progressView : UIView = {
+    private lazy var progressView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
         view.snp.makeConstraints { make in
@@ -26,8 +27,7 @@ class PickServiceViewController: UIViewController {
         }
         return view
     }()
-    
-    var grayView : UIView = {
+    private lazy var grayView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.lightGray
         view.snp.makeConstraints { make in
@@ -35,16 +35,61 @@ class PickServiceViewController: UIViewController {
         }
         return view
     }()
-    
-    var subTitleLabel : UILabel = {
+    private lazy var subTitleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
         label.text = "서비스 선택하기"
         label.textColor = UIColor.black
         return label
     }()
-    
-    private let nextBtn : UIButton = {
+    private lazy var meetingTitleLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Avenir-Black", size: 20.0)
+        label.text = "매칭기간 선택하기"
+        label.textColor = UIColor.black
+        return label
+    }()
+    private lazy var startDateLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17.0)
+        label.text = "시작"
+        label.textColor = UIColor.black
+        return label
+    }()
+    private lazy var endDateLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17.0)
+        label.text = "종료"
+        label.textColor = UIColor.black
+        return label
+    }()
+    private lazy var dateLabelStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [startDateLabel,endDateLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 20
+        stackView.alignment = .leading
+        return stackView
+    }()
+    private lazy var startDatePicker : UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.preferredDatePickerStyle = .compact
+        picker.datePickerMode = .date
+        return picker
+    }()
+    private lazy var endDatePicker : UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.preferredDatePickerStyle = .compact
+        picker.datePickerMode = .date
+        return picker
+    }()
+    private lazy var datePickerStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [startDatePicker,endDatePicker])
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.alignment = .leading
+        return stackView
+    }()
+    private lazy var nextBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.blue)
         btn.layer.cornerRadius = 8
@@ -56,35 +101,44 @@ class PickServiceViewController: UIViewController {
         btn.addTarget(self, action: #selector(nextEvent), for: .touchUpInside)
         return btn
     }()
+    private lazy var priceLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20.0)
+        label.textColor = UIColor.black
+        return label
+    }()
+    private lazy var pickStackView = PickServiceView()
 
-    // 왼쪽 버튼 부분
-    var pickStackView = PickServiceView()
-    
-    // 오른쪽 금액 Label 부분
-    var priceStackView = PickServicePrice()
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.topItem?.title = ""
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
-        
-        // Do any additional setup after loading the view.
         setViewHierarchy()
         setConstraints()
+        setNavigationController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setPriceData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        setDate()
     }
     
     private func setViewHierarchy() {
-        view.addSubview(titleLabel)
-        view.addSubview(progressView)
+        view.addSubviews(titleLabel,
+                         progressView,
+                         subTitleLabel,
+                         nextBtn,
+                         pickStackView,
+                         priceLabel,
+                         meetingTitleLabel,
+                         dateLabelStackView,
+                         datePickerStackView
+        )
         progressView.addSubview(grayView)
-        view.addSubview(subTitleLabel)
-        view.addSubview(nextBtn)
-        view.addSubview(pickStackView)
-        view.addSubview(priceStackView)
     }
     
     private func setConstraints(){
@@ -99,21 +153,33 @@ class PickServiceViewController: UIViewController {
         }
         grayView.snp.makeConstraints { make in
             make.leading.equalToSuperview()
-            make.width.equalToSuperview().dividedBy(3)
+            make.width.equalToSuperview().dividedBy(2)
         }
         subTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(grayView.snp.bottom).offset(33)
             make.leading.equalToSuperview().offset(30)
         }
         pickStackView.snp.makeConstraints { make in
-            make.top.equalTo(subTitleLabel.snp.bottom).offset(40)
+            make.top.equalTo(subTitleLabel.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(30)
             make.height.equalTo(80)
         }
-        priceStackView.snp.makeConstraints { make in
-            make.top.equalTo(subTitleLabel.snp.bottom).offset(40)
+        priceLabel.snp.makeConstraints { make in
+            make.top.equalTo(subTitleLabel.snp.bottom).offset(30)
             make.trailing.equalToSuperview().offset(-30)
             make.height.equalTo(80)
+        }
+        meetingTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(priceLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(30)
+        }
+        dateLabelStackView.snp.makeConstraints { make in
+            make.top.equalTo(meetingTitleLabel.snp.bottom).offset(38)
+            make.leading.equalToSuperview().offset(30)
+        }
+        datePickerStackView.snp.makeConstraints { make in
+            make.top.equalTo(meetingTitleLabel.snp.bottom).offset(30)
+            make.trailing.equalToSuperview().offset(-30)
         }
         nextBtn.snp.makeConstraints { make in
             make.height.equalTo(50)
@@ -123,13 +189,33 @@ class PickServiceViewController: UIViewController {
         }
     }
     
+    // MARK: - @objc Func
+    
     @objc func nextEvent(){
-        let nextVC = PickDateViewController()
+        let nextVC = PickPlaceViewController()
         navigationController?.pushViewController(nextVC, animated: false)
     }
-    
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
     
+    //MARK: - Func
+    
+    func setNavigationController(){
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.topItem?.title = ""
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
+    }
+    func setPriceData(){
+        self.priceLabel.text = String(TrainerDetailViewController.specificTrainer.cost) + "원"
+    }
+}
+
+extension PickServiceViewController{
+    func setDate(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        RequestResultViewController.meetingSheet.startDate = dateFormatter.string(from: startDatePicker.date)
+        RequestResultViewController.meetingSheet.endDate = dateFormatter.string(from: endDatePicker.date)
+    }
 }

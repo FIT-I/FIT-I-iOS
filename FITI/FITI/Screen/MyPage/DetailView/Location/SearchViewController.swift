@@ -241,7 +241,7 @@ extension SearchViewController: UITableViewDelegate {
                         MyPageViewController.MyInfo.userName = responseData.result.userName
                         MyPageViewController.MyInfo.profile = responseData.result.profile
                         MyPageViewController.MyInfo.email = responseData.result.email
-                        MyPageViewController.MyInfo.location = responseData.result.location
+                        MyPageViewController.MyInfo.location = responseData.result.location ?? "위치를 설정해 주세요."
                         print(responseData)
                     } catch(let err) {
                         print(err.localizedDescription)

@@ -17,5 +17,6 @@ struct MyPageResponse: Codable {
 // MARK: - Result
 struct User: Codable {
     let userIdx: Int
-    let userName, profile, email, location: String
+    let userName, profile, email: String
+    var location: String? = nil
 }

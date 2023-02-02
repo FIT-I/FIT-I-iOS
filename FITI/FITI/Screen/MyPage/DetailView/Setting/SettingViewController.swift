@@ -6,17 +6,24 @@
 //
 
 import UIKit
+
+import RealmSwift
 import SnapKit
 
 class SettingViewController: UIViewController {
     
-    var appImage : UIImageView = {
+    // MARK: - Properties
+    
+    let realm = RealmService()
+    
+    // MARK: - UI Components
+    
+    private lazy var appImage : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "realLogOut.svg")
         return imgView
     }()
-    
-    var logOutBtn : UIButton = {
+    private lazy var logOutBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.layer.cornerRadius = 8
@@ -26,8 +33,7 @@ class SettingViewController: UIViewController {
         btn.addTarget(self, action: #selector(logOutBtnEvent), for: .touchUpInside)
         return btn
     }()
-
-    var withDrawBtn : UIButton = {
+    private lazy var withDrawBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.layer.cornerRadius = 8
@@ -38,19 +44,14 @@ class SettingViewController: UIViewController {
         return btn
     }()
     
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        // Do any additional setup after loading the view.
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.topItem?.title = ""
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
-        
+        setNavigationController()
         setViewHierarchy()
         setConstraints()
-        
     }
     
     func setViewHierarchy(){
@@ -67,18 +68,20 @@ class SettingViewController: UIViewController {
             make.top.equalToSuperview().offset(150)
         }
         logOutBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(500)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(50)
+            make.bottom.equalTo(withDrawBtn.snp.top).offset(-15)
         }
         withDrawBtn.snp.makeConstraints { make in
-            make.top.equalTo(logOutBtn.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(50)
+            make.bottom.equalToSuperview().offset(-70)
         }
     }
+    
+    // MARK: - @objc Func
     
     @objc func logOutBtnEvent(){
         let alert = UIAlertController(title: "로그아웃", message: "정말 로그아웃 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
@@ -87,6 +90,7 @@ class SettingViewController: UIViewController {
         })
         
         let okAction = UIAlertAction(title: "로그아웃", style: .default, handler: { okAction in
+            self.logOut()
         })
         
         alert.addAction(noAction)
@@ -102,6 +106,21 @@ class SettingViewController: UIViewController {
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
+    
+    //MARK: - Func
 
-
+    func setNavigationController(){
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.topItem?.title = ""
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
+    }
+    
+    func logOut(){
+        try! realm.localRealm.write {
+            realm.localRealm.deleteAll()
+        }
+        print(realm.getToken())
+        let signInView = SignInViewController()
+        self.navigationController?.pushViewController(signInView, animated: true)
+    }
 }

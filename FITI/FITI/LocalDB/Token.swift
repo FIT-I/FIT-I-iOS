@@ -11,7 +11,7 @@ import Realm
 class Token:Object{
     @Persisted(primaryKey: true) var _id: ObjectId
     
-    @Persisted var token:String = ""
+    @Persisted var token = String()
     
     override static func primaryKey() -> String? {
       return "token"

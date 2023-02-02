@@ -7,8 +7,6 @@
 
 import UIKit
 
-import SendbirdUIKit
-
 class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -16,11 +14,4 @@ class ChatViewController: UIViewController {
         view.backgroundColor = .systemBackground
         // Do any additional setup after loading the view.
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        let groupChannelListVC = SBUGroupChannelListViewController()
-        let naviVC = UINavigationController(rootViewController: groupChannelListVC)
-        self.present(naviVC, animated: true)
-    }
-
 }

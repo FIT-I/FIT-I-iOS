@@ -64,7 +64,7 @@ class PickPlaceViewController: UIViewController {
     }()
     
     
-    private let nextBtn : UIButton = {
+    private lazy var nextBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.blue)
         btn.layer.cornerRadius = 8
@@ -112,7 +112,7 @@ class PickPlaceViewController: UIViewController {
         }
         grayView.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
-            make.width.equalToSuperview().dividedBy(3)
+            make.width.equalToSuperview().dividedBy(2)
         }
         nextBtn.snp.makeConstraints { make in
             make.height.equalTo(50)
@@ -136,22 +136,28 @@ class PickPlaceViewController: UIViewController {
     }
 
     @objc func iWillGoEvent(sender: UIBarButtonItem) {
-        if isIWillGoSelected == false && isComeHereSelected == false {
-            isIWillGoSelected = true
-            iWillGoBtn.setImage(UIImage(named: "selectedIWillGoIcon.svg"), for: .normal)
-        }else{
+        if isIWillGoSelected == true {
             isIWillGoSelected = false
             iWillGoBtn.setImage(UIImage(named: "iWillGoIcon.svg"), for: .normal)
+        }else {
+            isIWillGoSelected = true
+            isComeHereSelected = false
+            iWillGoBtn.setImage(UIImage(named: "selectedIWillGoIcon.svg"), for: .normal)
+            comeHereBtn.setImage(UIImage(named: "comeHereIcon.svg"), for: .normal)
+            RequestResultViewController.meetingSheet.pickStyle = "제가 직접 갈게요."
         }
     }
     
     @objc func comeHereEvent(sender: UIBarButtonItem) {
-        if isComeHereSelected == false && isIWillGoSelected == false {
-            isComeHereSelected = true
-            comeHereBtn.setImage(UIImage(named: "selectedComeHereIcon.svg"), for: .normal)
-        }else{
+        if isComeHereSelected == true {
             isComeHereSelected = false
             comeHereBtn.setImage(UIImage(named: "comeHereIcon.svg"), for: .normal)
+        }else {
+            isIWillGoSelected = false
+            isComeHereSelected = true
+            iWillGoBtn.setImage(UIImage(named: "iWillGoIcon.svg"), for: .normal)
+            comeHereBtn.setImage(UIImage(named: "selectedComeHereIcon.svg"), for: .normal)
+            RequestResultViewController.meetingSheet.pickStyle = "트레이너님이 와주세요."
         }
     }
     

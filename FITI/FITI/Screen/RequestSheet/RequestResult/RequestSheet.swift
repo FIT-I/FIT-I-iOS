@@ -6,107 +6,98 @@
 //
 
 import Foundation
-import SnapKit
 import UIKit
+
+import SnapKit
 
 class RequestSheet : UIView {
     
-    var requsetIcon : UIImageView = {
+    private lazy var requsetIcon : UIImageView = {
         let image = UIImageView()
         image.image =  UIImage(named: "pickService.svg")
         return image
     }()
-    
-    var titleLabel : UILabel = {
+    private lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 15.0)
         label.text = "서비스 종류"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    
-    var hourLabel : UILabel = {
+    private lazy var hourLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "1시간"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    
-    var hourPriceLabel : UILabel = {
+    lazy var hourPriceLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
-        label.text = "20,000원"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    
-    var addServiceLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15.0)
-        label.text = "추가관리"
-        label.textColor = UIColor.customColor(.blue)
-        return label
-    }()
-    
-    var addPriceLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15.0)
-        label.text = "10,000원"
-        label.textColor = UIColor.customColor(.blue)
-        return label
-    }()
-    
-    var totalLabel : UILabel = {
+    private lazy var totalLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "총 금액"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    
-    var totalPriceLabel : UILabel = {
+    lazy var totalPriceLabel : UILabel = {
         let label = UILabel()
-//        label.font = UIFont.systemFont(ofSize: 15.0)
         label.font = UIFont(name: "Avenir-Black", size: 15.0)
-        label.text = "30,000원"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    
-    var meetingDateLabel : UILabel = {
+    private lazy var meetingDateLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "매칭 날짜"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    
-    var meetingDate : UILabel = {
+    // MARK: - FIX ME
+    lazy var meetingStartDate : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 15.0)
-        label.text = "23.1.18~23.1.25 (8일)"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    
-    var pickUpLabel : UILabel = {
+    lazy var toText : UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Avenir-Black", size: 15.0)
+        label.text = "~"
+        label.textColor = UIColor.customColor(.blue)
+        return label
+    }()
+    lazy var meetingEndDate : UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Avenir-Black", size: 15.0)
+        label.textColor = UIColor.customColor(.blue)
+        return label
+    }()
+    private lazy var meetingDate : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [meetingStartDate,toText,meetingEndDate])
+        stackView.axis = .horizontal
+        stackView.alignment = .leading
+        stackView.spacing = 2
+        return stackView
+    }()
+    private lazy var pickUpLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "픽업 형태"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    
-    var pickUp : UILabel = {
+    lazy var pickUp : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 15.0)
-        label.text = "제가 매칭 상대의 주소로 갈게요."
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    
-    var lineView0 : UIView = {
+    private lazy var lineView0 : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.gray)
         view.snp.makeConstraints { make in
@@ -114,8 +105,7 @@ class RequestSheet : UIView {
         }
         return view
     }()
-    
-    var lineView1 : UIView = {
+    private lazy var lineView1 : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.gray)
         view.snp.makeConstraints { make in
@@ -123,8 +113,7 @@ class RequestSheet : UIView {
         }
         return view
     }()
-    
-    var lineView2 : UIView = {
+    private lazy var lineView2 : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.gray)
         view.snp.makeConstraints { make in
@@ -132,8 +121,7 @@ class RequestSheet : UIView {
         }
         return view
     }()
-    
-    var lineView3 : UIView = {
+    private lazy var lineView3 : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.gray)
         view.snp.makeConstraints { make in
@@ -141,8 +129,7 @@ class RequestSheet : UIView {
         }
         return view
     }()
-    
-    lazy var topStackView : UIStackView = {
+    private lazy var topStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [requsetIcon,titleLabel])
         stackView.axis = .horizontal
         stackView.alignment = .center
@@ -150,21 +137,7 @@ class RequestSheet : UIView {
         return stackView
     }()
     
-    lazy var hourLabelStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [hourLabel,addServiceLabel])
-        stackView.axis = .vertical
-        stackView.alignment = .leading
-        stackView.spacing = 5
-        return stackView
-    }()
-    
-    lazy var hourPriceStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [hourPriceLabel,addPriceLabel])
-        stackView.axis = .vertical
-        stackView.alignment = .leading
-        stackView.spacing = 5
-        return stackView
-    }()
+    // MARK: - init
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -178,23 +151,20 @@ class RequestSheet : UIView {
     }
     
     func setViewHierarchy(){
-        self.addSubview(topStackView)
-        self.addSubview(lineView0)
-        
-        self.addSubview(hourLabelStackView)
-        self.addSubview(hourPriceStackView)
-        
-        self.addSubview(lineView1)
-        self.addSubview(totalLabel)
-        self.addSubview(totalPriceLabel)
-        
-        self.addSubview(lineView2)
-        self.addSubview(meetingDateLabel)
-        self.addSubview(meetingDate)
-        
-        self.addSubview(lineView3)
-        self.addSubview(pickUpLabel)
-        self.addSubview(pickUp)
+        self.addSubviews(topStackView,
+                         lineView0,
+                         hourLabel,
+                         hourPriceLabel,
+                         lineView1,
+                         totalLabel,
+                         totalPriceLabel,
+                         lineView2,
+                         meetingDateLabel,
+                         meetingDate,
+                         lineView3,
+                         pickUpLabel,
+                         pickUp
+        )
     }
     
     func setConstraints(){
@@ -208,16 +178,16 @@ class RequestSheet : UIView {
             make.leading.equalToSuperview().offset(18)
             make.trailing.equalToSuperview().offset(-22)
         }
-        hourLabelStackView.snp.makeConstraints { make in
+        hourLabel.snp.makeConstraints { make in
             make.top.equalTo(lineView0.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(18)
         }
-        hourPriceStackView.snp.makeConstraints { make in
+        hourPriceLabel.snp.makeConstraints { make in
             make.top.equalTo(lineView0.snp.bottom).offset(20)
             make.trailing.equalToSuperview().offset(-18)
         }
         lineView1.snp.makeConstraints { make in
-            make.top.equalTo(hourLabelStackView.snp.bottom).offset(20)
+            make.top.equalTo(hourLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(18)
             make.trailing.equalToSuperview().offset(-22)
         }
