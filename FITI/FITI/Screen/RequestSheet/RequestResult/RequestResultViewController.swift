@@ -8,9 +8,22 @@
 import UIKit
 import SnapKit
 
+struct meetSheet {
+    var price: String = "0"
+    var startDate: String = "시작일"
+    var endDate: String = "종료일"
+    var pickStyle: String = "픽업 형태를 선택해주세요."
+}
+
 class RequestResultViewController: UIViewController {
 
-    var titleLabel : UILabel = {
+    // MARK: - Properties
+
+    static var meetingSheet = meetSheet()
+    
+    // MARK: - UI Components
+    
+    private lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
         label.text = "매칭요청 확인"
@@ -18,7 +31,7 @@ class RequestResultViewController: UIViewController {
         return label
     }()
     
-    private var progressView : UIView = {
+    private lazy var progressView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
         view.snp.makeConstraints { make in
@@ -26,12 +39,8 @@ class RequestResultViewController: UIViewController {
         }
         return view
     }()
-    
-    // 매칭 시트
-    var requestSheetView : UIView = RequestSheet()
-
-    
-    private let nextBtn : UIButton = {
+    private lazy var requestSheetView = RequestSheet()
+    private lazy var nextBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.blue)
         btn.layer.cornerRadius = 8
@@ -43,28 +52,26 @@ class RequestResultViewController: UIViewController {
         btn.addTarget(self, action: #selector(nextEvent), for: .touchUpInside)
         return btn
     }()
+    
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.topItem?.title = ""
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
-        
-        // Do any additional setup after loading the view.
+        setNavigationController()
         setViewHierarchy()
         setConstraints()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        setData()
+    }
     
     func setViewHierarchy(){
-        view.addSubview(titleLabel)
-        view.addSubview(nextBtn)
-        view.addSubview(progressView)
-        view.addSubview(requestSheetView)
-
+        view.addSubviews(titleLabel,
+                         nextBtn,
+                         progressView,
+                         requestSheetView
+        )
     }
     
     func setConstraints(){
@@ -90,6 +97,8 @@ class RequestResultViewController: UIViewController {
         }
     }
     
+    // MARK: - @objc
+    
     @objc func nextEvent(){
         let alert = UIAlertController(title: "매칭 요청", message: "매칭을 요청하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
 
@@ -108,6 +117,22 @@ class RequestResultViewController: UIViewController {
     
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - Func
+    
+    func setNavigationController(){
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.topItem?.title = ""
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
+    }
+    
+    func setData(){
+        requestSheetView.hourPriceLabel.text = RequestResultViewController.meetingSheet.price + "원"
+        requestSheetView.totalPriceLabel.text = RequestResultViewController.meetingSheet.price + "원"
+        requestSheetView.pickUp.text = RequestResultViewController.meetingSheet.pickStyle
+        requestSheetView.meetingStartDate.text = RequestResultViewController.meetingSheet.startDate
+        requestSheetView.meetingEndDate.text = RequestResultViewController.meetingSheet.endDate
     }
 }
 

@@ -64,7 +64,7 @@ class PickPlaceViewController: UIViewController {
     }()
     
     
-    private let nextBtn : UIButton = {
+    private lazy var nextBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.blue)
         btn.layer.cornerRadius = 8
@@ -112,7 +112,7 @@ class PickPlaceViewController: UIViewController {
         }
         grayView.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
-            make.width.equalToSuperview().dividedBy(3)
+            make.width.equalToSuperview().dividedBy(2)
         }
         nextBtn.snp.makeConstraints { make in
             make.height.equalTo(50)
@@ -144,6 +144,7 @@ class PickPlaceViewController: UIViewController {
             isComeHereSelected = false
             iWillGoBtn.setImage(UIImage(named: "selectedIWillGoIcon.svg"), for: .normal)
             comeHereBtn.setImage(UIImage(named: "comeHereIcon.svg"), for: .normal)
+            RequestResultViewController.meetingSheet.pickStyle = "제가 직접 갈게요."
         }
     }
     
@@ -156,6 +157,7 @@ class PickPlaceViewController: UIViewController {
             isComeHereSelected = true
             iWillGoBtn.setImage(UIImage(named: "iWillGoIcon.svg"), for: .normal)
             comeHereBtn.setImage(UIImage(named: "selectedComeHereIcon.svg"), for: .normal)
+            RequestResultViewController.meetingSheet.pickStyle = "트레이너님이 와주세요."
         }
     }
     

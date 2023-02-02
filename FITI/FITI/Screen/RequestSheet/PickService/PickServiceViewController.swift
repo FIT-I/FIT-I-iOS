@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class PickServiceViewController: UIViewController {
-
+    
     // MARK: - UI Components
 
     private lazy var titleLabel : UILabel = {
@@ -73,11 +73,13 @@ class PickServiceViewController: UIViewController {
     private lazy var startDatePicker : UIDatePicker = {
         let picker = UIDatePicker()
         picker.preferredDatePickerStyle = .compact
+        picker.datePickerMode = .date
         return picker
     }()
     private lazy var endDatePicker : UIDatePicker = {
         let picker = UIDatePicker()
         picker.preferredDatePickerStyle = .compact
+        picker.datePickerMode = .date
         return picker
     }()
     private lazy var datePickerStackView : UIStackView = {
@@ -105,20 +107,6 @@ class PickServiceViewController: UIViewController {
         label.textColor = UIColor.black
         return label
     }()
-    private lazy var wonLabel : UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20.0)
-        label.text = "원"
-        label.textColor = UIColor.black
-        return label
-    }()
-    private lazy var priceStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [priceLabel,wonLabel])
-        stackView.axis = .horizontal
-        stackView.spacing = 2
-        stackView.alignment = .center
-        return stackView
-    }()
     private lazy var pickStackView = PickServiceView()
 
     // MARK: - View Life Cycle
@@ -135,13 +123,17 @@ class PickServiceViewController: UIViewController {
         setPriceData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        setDate()
+    }
+    
     private func setViewHierarchy() {
         view.addSubviews(titleLabel,
                          progressView,
                          subTitleLabel,
                          nextBtn,
                          pickStackView,
-                         priceStackView,
+                         priceLabel,
                          meetingTitleLabel,
                          dateLabelStackView,
                          datePickerStackView
@@ -161,7 +153,7 @@ class PickServiceViewController: UIViewController {
         }
         grayView.snp.makeConstraints { make in
             make.leading.equalToSuperview()
-            make.width.equalToSuperview().dividedBy(3)
+            make.width.equalToSuperview().dividedBy(2)
         }
         subTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(grayView.snp.bottom).offset(33)
@@ -172,13 +164,13 @@ class PickServiceViewController: UIViewController {
             make.leading.equalToSuperview().offset(30)
             make.height.equalTo(80)
         }
-        priceStackView.snp.makeConstraints { make in
+        priceLabel.snp.makeConstraints { make in
             make.top.equalTo(subTitleLabel.snp.bottom).offset(30)
             make.trailing.equalToSuperview().offset(-30)
             make.height.equalTo(80)
         }
         meetingTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(priceStackView.snp.bottom).offset(20)
+            make.top.equalTo(priceLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(30)
         }
         dateLabelStackView.snp.makeConstraints { make in
@@ -200,7 +192,7 @@ class PickServiceViewController: UIViewController {
     // MARK: - @objc Func
     
     @objc func nextEvent(){
-        let nextVC = PickDateViewController()
+        let nextVC = PickPlaceViewController()
         navigationController?.pushViewController(nextVC, animated: false)
     }
     @objc func backTapped(sender: UIBarButtonItem) {
@@ -215,6 +207,15 @@ class PickServiceViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
     }
     func setPriceData(){
-        self.priceLabel.text = String(TrainerDetailViewController.specificTrainer.cost)
+        self.priceLabel.text = String(TrainerDetailViewController.specificTrainer.cost) + "원"
+    }
+}
+
+extension PickServiceViewController{
+    func setDate(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        RequestResultViewController.meetingSheet.startDate = dateFormatter.string(from: startDatePicker.date)
+        RequestResultViewController.meetingSheet.endDate = dateFormatter.string(from: endDatePicker.date)
     }
 }

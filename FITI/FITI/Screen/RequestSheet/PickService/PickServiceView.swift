@@ -67,9 +67,11 @@ class PickServiceView: UIView {
         if isFirstPickBtnTouched == false {
             firstPickBtn.setImage(UIImage(named: "fillBox.svg"), for: .normal)
             isFirstPickBtnTouched = true
+            RequestResultViewController.meetingSheet.price = String(TrainerDetailViewController.specificTrainer.cost)
         }else {
             firstPickBtn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
             isFirstPickBtnTouched = false
+            RequestResultViewController.meetingSheet.price = "0"
         }
     }
 }
