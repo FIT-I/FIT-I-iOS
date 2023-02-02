@@ -221,8 +221,6 @@ extension SearchViewController: UITableViewDelegate {
             case .success(let response):
                 do {
                     let responseData = try response.map(PetchLocationResponse.self)
-                    print(responseData.isSuccess)
-                    print(responseData.message)
                 }catch(let err) {
                     print(err.localizedDescription)
                 }

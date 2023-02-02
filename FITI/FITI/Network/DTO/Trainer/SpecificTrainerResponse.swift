@@ -56,11 +56,6 @@ struct Trainer: Codable {
     var matchingState: Bool? = nil
     var category: String? = nil
     init(){}
-//    enum CodingKeys: String, CodingKey {
-//        case name, profile, background, levelName, school, grade, cost, intro, service, reviewDto, imageList
-//        case matchingState = "matching_state"
-//        case category
-//    }
 }
 
 // MARK: - ReviewDto

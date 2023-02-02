@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         signInViewAddUI()
         signInViewSetUI()
-        setTableViewCell()
+        setTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Func
     
-    func setTableViewCell(){
+    func setTableView(){
         trainerTableView.register(TrainerTableCell.self, forCellReuseIdentifier: TrainerTableCell.identifier)
         trainerTableView.delegate = self
         trainerTableView.dataSource = self

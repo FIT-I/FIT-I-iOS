@@ -21,25 +21,23 @@ class TrainerTableCell: UITableViewCell {
     
     // MARK: - UI Components
     
-    private let imgView : UIImageView = {
+    private lazy var imgView : UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
-        view.image = UIImage(named: "reviewerIcon.svg")
         view.snp.makeConstraints { make in
             make.height.equalTo(70)
             make.width.equalTo(70)
         }
         return view
     }()
-    var name : UILabel = {
+    private lazy var name : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 15.0)
-        label.text = "김동현"
         label.textColor = UIColor.black
         return label
     }()
-    var starIcon : UIImageView = {
+    private lazy var starIcon : UIImageView = {
         let image = UIImageView()
         image.snp.makeConstraints { make in
             make.height.width.equalTo(10)
@@ -47,47 +45,45 @@ class TrainerTableCell: UITableViewCell {
         image.image = UIImage(named: "star.svg")
         return image
     }()
-    var purpose : UILabel = {
+    private lazy var purpose : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "개인PT"
         label.textColor = UIColor.black
         return label
     }()
-    var distance : UILabel = {
+    private lazy var distance : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "1Km"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    private let dot : UILabel = {
+    private lazy var dot : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
         label.text = "."
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    var yellowStarIcon : UIImageView = {
+    private lazy var yellowStarIcon : UIImageView = {
         let image = UIImageView()
         image.image =  UIImage(systemName: "star")
         return image
     }()
-    var grade : UILabel = {
+    private lazy var grade : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
-        label.text = "4.3"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    var school : UILabel = {
+    private lazy var school : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
-        label.text = "숭실대학교"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    var introTextView : UITextView = {
+    private lazy var introTextView : UITextView = {
         let textView = UITextView()
         textView.textColor = UIColor.black
         textView.isEditable = false
@@ -96,40 +92,37 @@ class TrainerTableCell: UITableViewCell {
         textView.font = UIFont.systemFont(ofSize: 10.0)
         return textView
     }()
-    var price : UILabel = {
+    private lazy var price : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
-        label.text = "20,000원"
         label.textColor = UIColor.black
         return label
     }()
-    let time : UILabel = {
+    private lazy var time : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10.0)
-        label.text = "원 /1시간"
         label.textColor = UIColor.customColor(.darkGray)
-        
         return label
     }()
-    var goldIcon : UIImageView = {
+    private lazy var goldIcon : UIImageView = {
         let image = UIImageView()
         return image
     }()
-    lazy var rateStackView : UIStackView = {
+    private lazy var rateStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [starIcon,grade])
         stackView.axis = .horizontal
         stackView.spacing = 3
         stackView.alignment = .center
         return stackView
     }()
-    lazy var gradeStackView : UIStackView = {
+    private lazy var gradeStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [rateStackView,school])
         stackView.axis = .horizontal
         stackView.spacing = 5
         stackView.alignment = .leading
         return stackView
     }()
-    lazy var priceStackView : UIStackView = {
+    private lazy var priceStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [price,time])
         stackView.axis = .horizontal
         stackView.spacing = 2
@@ -181,7 +174,7 @@ extension TrainerTableCell {
         name.text = model.name
         grade.text = String(model.grade)
         introTextView.text = model.contents
-        price.text = String(model.cost)
+        price.text = String(model.cost) + "원 /시간당"
         school.text = model.school
         // MARK: - FIX ME : 일단 더미 데이터
         if model.profile == "trainerProfile" {

@@ -26,7 +26,6 @@ class TrainerDetailViewController: UIViewController {
     
     private lazy var topView : UIImageView = {
         let imgView = UIImageView()
-        imgView.image = UIImage(named: "blueScreen.svg")
         return imgView
     }()
     private lazy var toolBarContainerView : UIView = {
@@ -177,6 +176,18 @@ class TrainerDetailViewController: UIViewController {
         self.bodyIntroAboutService.introServiceTextView.text = TrainerDetailViewController.specificTrainer.service
         self.bodyReviewView.reviewLabel.text = String(TrainerDetailViewController.specificTrainer.reviewDto?.count ?? 0)
         self.bodyReviewView.gradeLabel.text = String(TrainerDetailViewController.specificTrainer.grade) + "점"
+        if TrainerDetailViewController.specificTrainer.profile == "trainerProfile" {
+            self.headView.reviewerImage.image = UIImage(named: "reviewerIcon.svg")
+        } else {
+            let url = URL(string: TrainerDetailViewController.specificTrainer.profile ?? "")
+            self.headView.reviewerImage.kf.setImage(with: url)
+        }
+        if TrainerDetailViewController.specificTrainer.background == "trainerProfile" || TrainerDetailViewController.specificTrainer.background == nil {
+            self.topView.image = UIImage(named: "blueScreen.svg")
+        } else {
+            let url = URL(string: TrainerDetailViewController.specificTrainer.background ?? "")
+            self.topView.kf.setImage(with: url)
+        }
     }
     func resizePreviewReviewView(){
         let reviewNum = TrainerDetailViewController.specificTrainer.reviewDto?.count
