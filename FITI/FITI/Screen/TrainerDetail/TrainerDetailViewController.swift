@@ -84,6 +84,10 @@ class TrainerDetailViewController: UIViewController {
         resizePreviewReviewView()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        getHeartListServer()
+    }
+    
     // MARK: - @objc Func
     
     @objc func backTapped(sender: UIBarButtonItem) {
@@ -315,6 +319,13 @@ extension TrainerDetailViewController {
         CustomerAPI.shared.deleteHeartAPI(trainerIndex: trainerIndex) { response in
             guard let deleteHeartResponse = response?.result else { return }
             print(deleteHeartResponse)
+        }
+    }
+    func getHeartListServer(){
+        print("getHeartList")
+        MyPageAPI.shared.getHeartListAPI{ response in
+            guard let heartListResponse = response?.result else { return }
+            HeartListViewController.heartList = heartListResponse
         }
     }
 }
