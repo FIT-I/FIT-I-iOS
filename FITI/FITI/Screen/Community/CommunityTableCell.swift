@@ -11,35 +11,34 @@ import SnapKit
 
 class CommunityTableCell: UITableViewCell {
     
-    static let identifier = "CommunityTableCell"
+    // MARK: - Properties
     
-    var reviewerImage : UIImageView = {
+    static let identifier = "CommunityTableCell"
+    public var trainerId = Int()
+    public var matchingId = Int()
+    
+    // MARK: - UI Components
+    
+    private lazy var reviewerImage : UIImageView = {
         let imgView = UIImageView()
-        imgView.image = UIImage(named: "reviewerIcon.svg")
         imgView.snp.makeConstraints { make in
             make.height.width.equalTo(40)
         }
         return imgView
     }()
-
-
-    var name : UILabel = {
+    private lazy var name : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
-        label.text = "홍준혁"
         label.textColor = UIColor.black
         return label
     }()
-    
-    var date : UILabel = {
+    private lazy var date : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12.0)
-        label.text = "2022.12.2"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
-    var starIcon : UIImageView = {
+    private lazy var starIcon : UIImageView = {
         let image = UIImageView()
         image.snp.makeConstraints { make in
             make.height.width.equalTo(10)
@@ -47,42 +46,33 @@ class CommunityTableCell: UITableViewCell {
         image.image = UIImage(named: "star.svg")
         return image
     }()
-
-    var grade : UILabel = {
+    private lazy var grade : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12.0)
-        label.text = "4.3"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
-    var school : UILabel = {
+    private lazy var school : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12.0)
-        label.text = "숭실대학교"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
-    
-    lazy var rateStackView : UIStackView = {
+    private lazy var rateStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [starIcon,grade,school])
         stackView.axis = .horizontal
         stackView.spacing = 5
         stackView.alignment = .center
         return stackView
     }()
-
-    
-    lazy var nameStackView : UIStackView = {
+    private lazy var nameStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [name,rateStackView])
         stackView.axis = .vertical
         stackView.spacing = 5
         stackView.alignment = .leading
         return stackView
     }()
-
-    
-    lazy var globalStackView : UIStackView = {
+    private lazy var globalStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [reviewerImage,nameStackView])
         stackView.axis = .horizontal
         stackView.spacing = 10
@@ -90,31 +80,37 @@ class CommunityTableCell: UITableViewCell {
         return stackView
     }()
     
+    // MARK: - init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.globalStackView)
-
         globalStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
             make.leading.trailing.equalToSuperview()
         }
-        
-        print(globalStackView)
-
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been impl")
     }
-    
-    
-    
 }
 
-//
-//extension ReviewTabelCell {
-//    public func binding(){
-//        //
-//    }
-//}
+// MARK: - Extension
+
+extension CommunityTableCell {
+    public func bindingMatchingRequestList(model:MatchingList){
+        name.text = model.name
+        date.text = model.orderDate
+        grade.text = String(model.grade)
+        school.text = model.school
+        trainerId = model.trainerID
+        matchingId = model.matchingID
+        if model.profile == "trainerProfile" {
+            reviewerImage.image = UIImage(named: "reviewerIcon.svg")
+        }else {
+            let url = URL(string: model.profile)
+            reviewerImage.kf.setImage(with: url)
+        }
+    }
+}

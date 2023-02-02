@@ -27,7 +27,7 @@ class FindPwViewController: UIViewController {
         return label
     }()
     
-    let emailTextField : UITextField = {
+    lazy var emailTextField : UITextField = {
         let tf = UITextField()
         tf.textColor = UIColor.customColor(.blue)
         tf.font = UIFont.systemFont(ofSize: 20)

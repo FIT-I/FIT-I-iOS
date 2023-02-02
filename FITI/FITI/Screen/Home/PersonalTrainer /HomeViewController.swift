@@ -38,12 +38,13 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         signInViewAddUI()
         signInViewSetUI()
-        setTableViewCell()
+        setTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         getMyPageServer()
         getHeartListServer()
+        getMatchingRequestList()
     }
     
     func signInViewAddUI(){
@@ -67,10 +68,11 @@ class HomeViewController: UIViewController {
     
     // MARK: - Func
     
-    func setTableViewCell(){
+    func setTableView(){
         trainerTableView.register(TrainerTableCell.self, forCellReuseIdentifier: TrainerTableCell.identifier)
         trainerTableView.delegate = self
         trainerTableView.dataSource = self
+        trainerTableView.showsVerticalScrollIndicator = false
     }
     
 }
@@ -129,6 +131,11 @@ extension HomeViewController {
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             TrainerDetailViewController.trainerHeartList = heartListResponse
+        }
+    }
+    func getMatchingRequestList(){
+        CustomerAPI.shared.getMatchingListAPI(){ response in
+            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
         }
     }
 }

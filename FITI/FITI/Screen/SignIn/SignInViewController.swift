@@ -202,6 +202,7 @@ class SignInViewController: UIViewController {
     }
     private func ifSuccessPushHome(){
         self.getFirstTrainerListServer(category: "pt", page: 0, size: 33, sort: ["current"])
+        self.getMatchingRequestList()
         let nextVC = GradeTableViewController()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             self.navigationController?.pushViewController(nextVC, animated: true)
@@ -245,6 +246,11 @@ extension SignInViewController {
         TrainerAPI.shared.getFirstTrainerListAPI(category: category, page: page, size: size, sort: sort) { response in
             guard let trainerListResponse = response?.result.dto else { return }
             HomeViewController.trainerList = trainerListResponse
+        }
+    }
+    func getMatchingRequestList(){
+        CustomerAPI.shared.getMatchingListAPI(){ response in
+            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
         }
     }
 }

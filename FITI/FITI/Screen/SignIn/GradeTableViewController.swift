@@ -19,12 +19,9 @@ class GradeTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
-        // navigationItem 제거
         self.navigationItem.hidesBackButton = true
         pagingTimer()
-        // Do any additional setup after loading the view.
         setViewHierarchy()
         setConstraints()
     }

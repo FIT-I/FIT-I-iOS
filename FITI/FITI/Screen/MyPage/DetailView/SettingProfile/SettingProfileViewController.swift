@@ -28,7 +28,7 @@ class SettingProfileViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
         view.snp.makeConstraints { make in
-            make.height.equalTo(10)
+            make.height.equalTo(5)
         }
         return view
     }()
@@ -74,7 +74,6 @@ class SettingProfileViewController: UIViewController {
         bottomInfoView.snp.makeConstraints { make in
             make.top.equalTo(progressView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
-            
         }
     }
     

@@ -128,8 +128,11 @@ class RequestResultViewController: UIViewController {
     func metchingSuccessAlert(){
         let alert = UIAlertController(title: "매칭 요청", message: "매칭을 요청에 성공하였습니다. 트레이너가 매칭을 수락하면 매칭이 진행됩니다.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "확인", style: .default, handler: { okAction in
+            self.getMatchingRequestList()
             let nextVC = TabBarController()
-            self.navigationController?.pushViewController(nextVC, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
         })
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
@@ -172,6 +175,11 @@ extension RequestResultViewController {
             }else if response?.isSuccess == false {
                 self.metchingFailAlert(message: response?.message ?? "")
             }
+        }
+    }
+    func getMatchingRequestList(){
+        CustomerAPI.shared.getMatchingListAPI(){ response in
+            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
         }
     }
 }

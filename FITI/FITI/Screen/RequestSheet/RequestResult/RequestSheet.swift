@@ -84,7 +84,7 @@ class RequestSheet : UIView {
         stackView.spacing = 2
         return stackView
     }()
-    private lazy var pickUpLabel : UILabel = {
+    lazy var pickUpLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "픽업 형태"
