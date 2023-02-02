@@ -138,6 +138,9 @@ class TrainerDetailViewController: UIViewController {
             if TrainerDetailViewController.trainerHeartList[i].trainerIdx == TrainerDetailViewController.id {
                 TrainerDetailViewController.isHeartFull = true
                 TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+            }else {
+                TrainerDetailViewController.isHeartFull = false
+                TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.svg"), for: .normal)
             }
         }
     }
@@ -337,6 +340,7 @@ extension TrainerDetailViewController {
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             HeartListViewController.heartList = heartListResponse
+            TrainerDetailViewController.trainerHeartList = heartListResponse
         }
     }
 }

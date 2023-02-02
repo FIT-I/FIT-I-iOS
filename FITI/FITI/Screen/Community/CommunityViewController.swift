@@ -43,6 +43,12 @@ class CommunityViewController: UIViewController {
         setTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        getHeartListServer()
+        getFirstTrainerListServer(category:"pt",page:0,size:200,sort:["current"])
+    }
+    
     func setViewHierarchy(){
         view.addSubview(titleLabel)
         view.addSubview(progressView)
@@ -131,7 +137,14 @@ extension CommunityViewController {
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             TrainerDetailViewController.trainerHeartList = heartListResponse
+            HeartListViewController.heartList = heartListResponse
             self.setHeartIcon()
+        }
+    }
+    func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
+        TrainerAPI.shared.getFirstTrainerListAPI(category: category, page: page, size: size, sort: sort) { response in
+            guard let trainerListResponse = response?.result.dto else { return }
+            HomeViewController.trainerList = trainerListResponse
         }
     }
 }

@@ -6,11 +6,17 @@
 //
 
 import UIKit
+
 import SnapKit
+import Moya
 
 class WithdrawViewController: UIViewController {
-
+    
     // MARK: - Properties
+    
+    let realm = RealmService()
+    
+    // MARK: - UI Components
     
     private lazy var appImage : UIImageView = {
         let imgView = UIImageView()
@@ -34,9 +40,10 @@ class WithdrawViewController: UIViewController {
         btn.setTitle("계정 탈퇴", for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         btn.setTitleColor(UIColor.customColor(.blue), for: .normal)
+        btn.addTarget(self, action: #selector(withDraw), for: .touchUpInside)
         return btn
     }()
-
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -79,5 +86,33 @@ class WithdrawViewController: UIViewController {
     @objc func backBtn(){
         let nextVC = TabBarController()
         navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @objc func withDraw(){
+        try! realm.localRealm.write {
+            realm.localRealm.deleteAll()
+        }
+        self.withDrawServer()
+    }
+}
+
+extension WithdrawViewController {
+    func withDrawServer(){
+        MyPageAPI.shared.withDrawAPI(){ response in
+            if response?.isSuccess == true {
+                let alert = UIAlertController(title: "회원탈퇴", message: "정상적으로 탈퇴되었습니다.", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "확인", style: .default, handler: { okAction in
+                    let signInView = SignInViewController()
+                    self.navigationController?.pushViewController(signInView, animated: true)
+                })
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            }else {
+                let alert = UIAlertController(title: "회원탈퇴", message: "탈퇴에 실패하였습니다. 다시 시도해주세요.", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "확인", style: .default, handler: { okAction in
+                })
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 }

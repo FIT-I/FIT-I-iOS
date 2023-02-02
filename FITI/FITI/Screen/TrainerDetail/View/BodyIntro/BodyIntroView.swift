@@ -10,38 +10,34 @@ import SnapKit
 import UIKit
 
 class BodyIntroView : UIView {
-    var introImage : UIImageView = {
+    
+    // MARK: - UI Components
+    
+    private lazy var introImage : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "introIcon.svg")
         return imgView
     }()
-    
-    var introLabel : UILabel = {
+    private lazy var introLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "소개 글"
         label.textColor = UIColor.black
         return label
     }()
-    
-    lazy var introTopStackView : UIStackView = {
+    private lazy var introTopStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [introImage,introLabel])
         stackView.axis = .horizontal
         stackView.spacing = 8
         stackView.alignment = .trailing
         return stackView
     }()
-    
-    var introLineView : UIView = {
+    private lazy var introLineView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.gray)
-        view.snp.makeConstraints { make in
-            make.height.equalTo(1)
-        }
         return view
     }()
-    
-    var introTextView : UITextView = {
+    lazy var introTextView : UITextView = {
         let textView = UITextView()
         textView.backgroundColor = UIColor.customColor(.boxGray)
         textView.textColor = UIColor.customColor(.darkGray)
@@ -52,13 +48,14 @@ class BodyIntroView : UIView {
         textView.font = UIFont.systemFont(ofSize: 15.0)
         return textView
     }()
-    
-    var textDetailBtn: UIButton = {
+    lazy var textDetailBtn: UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.setImage(UIImage(named: "chevron.compact.down.svg"), for: .normal)
         return btn
     }()
+    
+    // MARK: - init
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -86,6 +83,7 @@ class BodyIntroView : UIView {
         }
         introLineView.snp.makeConstraints { make in
             make.top.equalTo(introTopStackView.snp.bottom).offset(10)
+            make.height.equalTo(1)
             make.leading.equalToSuperview().offset(18)
             make.trailing.equalToSuperview().offset(-22)
         }

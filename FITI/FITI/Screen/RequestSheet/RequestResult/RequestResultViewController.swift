@@ -178,6 +178,7 @@ extension RequestResultViewController {
         }
     }
     func getMatchingRequestList(){
+        print("getMatchingRequest")
         CustomerAPI.shared.getMatchingListAPI(){ response in
             CommunityViewController.matchingList = response?.result ?? [MatchingList]()
         }
