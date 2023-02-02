@@ -20,6 +20,7 @@ class RequestResultViewController: UIViewController {
     // MARK: - Properties
 
     static var meetingSheet = meetSheet()
+    private lazy var matchingRequestData = RequestMatchingRequest()
     
     // MARK: - UI Components
     
@@ -100,16 +101,13 @@ class RequestResultViewController: UIViewController {
     // MARK: - @objc
     
     @objc func nextEvent(){
-        let alert = UIAlertController(title: "매칭 요청", message: "매칭을 요청하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
-
+        setRequestData()
+        let alert = UIAlertController(title: "매칭 요청", message: "매칭을 요청하시겠습니까? 작성해주신 매칭 요청서가 트레이너에게 전달됩니다.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "요청", style: .default, handler: { okAction in
-            let nextVC = TabBarController()
-            self.navigationController?.pushViewController(nextVC, animated: true)
+            self.requestMatchSheetServer(trainerIndex: TrainerDetailViewController.id, body: self.matchingRequestData)
         })
-        
         let noAction = UIAlertAction(title: "취소", style: .destructive, handler: { okAction in
         })
-        
         alert.addAction(noAction)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
@@ -127,6 +125,24 @@ class RequestResultViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
     }
     
+    func metchingSuccessAlert(){
+        let alert = UIAlertController(title: "매칭 요청", message: "매칭을 요청에 성공하였습니다. 트레이너가 매칭을 수락하면 매칭이 진행됩니다.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: { okAction in
+            let nextVC = TabBarController()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func metchingFailAlert(message:String){
+        let alert = UIAlertController(title: "매칭 실패", message: message + "보낸 매칭내역을 확인해주세요.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: { okAction in
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     func setData(){
         requestSheetView.hourPriceLabel.text = RequestResultViewController.meetingSheet.price + "원"
         requestSheetView.totalPriceLabel.text = RequestResultViewController.meetingSheet.price + "원"
@@ -134,5 +150,28 @@ class RequestResultViewController: UIViewController {
         requestSheetView.meetingStartDate.text = RequestResultViewController.meetingSheet.startDate
         requestSheetView.meetingEndDate.text = RequestResultViewController.meetingSheet.endDate
     }
+    
+    func setRequestData(){
+        matchingRequestData.startAt = requestSheetView.meetingStartDate.text ?? ""
+        matchingRequestData.finishAt = requestSheetView.meetingEndDate.text ?? ""
+        if requestSheetView.pickUp.text == "제가 직접 갈게요." {
+            matchingRequestData.type = "CUSTOMER_GO"
+        }else {
+            matchingRequestData.type = "TRAINER_GO"
+        }
+    }
 }
 
+// MARK: - Network
+
+extension RequestResultViewController {
+    func requestMatchSheetServer(trainerIndex:Int, body:RequestMatchingRequest){
+        CustomerAPI.shared.requestMatchAPI(trainerIndex: trainerIndex, body: body){ response in
+            if response?.isSuccess == true {
+                self.metchingSuccessAlert()
+            }else if response?.isSuccess == false {
+                self.metchingFailAlert(message: response?.message ?? "")
+            }
+        }
+    }
+}

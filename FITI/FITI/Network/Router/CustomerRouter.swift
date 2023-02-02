@@ -12,7 +12,7 @@ import Realm
 enum CustomerRouter {
     case addHeart(_ trainerIndex: Int)
     case deleteHeart(_ trainerIndex: Int)
-    case requestTrain(_ trainerIndex: Int, _ param: RequestTrainerRequest)
+    case requestTrain(_ trainerIndex: Int, _ body: RequestMatchingRequest)
 }
 
 extension CustomerRouter: TargetType, AccessTokenAuthorizable {
@@ -46,8 +46,8 @@ extension CustomerRouter: TargetType, AccessTokenAuthorizable {
         switch self {
         case .addHeart, .deleteHeart:
             return .requestPlain
-        case .requestTrain(_, let param):
-            return .requestJSONEncodable(param)
+        case .requestTrain(_, let body):
+            return .requestJSONEncodable(body)
         }
     }
     

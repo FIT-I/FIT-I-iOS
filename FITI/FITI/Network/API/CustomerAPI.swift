@@ -17,6 +17,7 @@ final class CustomerAPI {
     
     private(set) var addHeartData: AddHeartResponse?
     private(set) var deleteHeartData: DeleteHeartResponse?
+    private(set) var requestMatchingData: RequestMatchingResponse?
     
     // 1. 트레이너 찜 등록 API
     func postAddHeartAPI(trainerIndex:Int, completion: @escaping (AddHeartResponse?) -> Void){
@@ -43,6 +44,23 @@ final class CustomerAPI {
                     do {
                         self.deleteHeartData = try moyaResponse.map(DeleteHeartResponse.self)
                         completion(deleteHeartData)
+                    } catch(let err) {
+                        print(err.localizedDescription, 500)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+            }
+        }
+    }
+    
+    // 3. 트레이너 매칭 요청 API
+    func requestMatchAPI(trainerIndex:Int, body:RequestMatchingRequest ,completion: @escaping (RequestMatchingResponse?) -> Void){
+        customerProvider.request(.requestTrain(trainerIndex, body)) { [self] (response) in
+            switch response {
+                case .success(let moyaResponse):
+                    do {
+                        self.requestMatchingData = try moyaResponse.map(RequestMatchingResponse.self)
+                        completion(requestMatchingData)
                     } catch(let err) {
                         print(err.localizedDescription, 500)
                     }

@@ -96,6 +96,8 @@
 		91CFCFE1298004CF0009944D /* SignUpRepsonse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFE0298004CF0009944D /* SignUpRepsonse.swift */; };
 		91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C51029649C78005AF859 /* ReviewViewController.swift */; };
 		91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C5152964A034005AF859 /* ReviewTableCell.swift */; };
+		91E0824D298BA96D0033D39E /* RequestMatchingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0824C298BA96D0033D39E /* RequestMatchingRequest.swift */; };
+		91E0824F298BA9AD0033D39E /* RequestMatchingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0824E298BA9AD0033D39E /* RequestMatchingResponse.swift */; };
 		91F75B00296C109200B31F3B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 91F75AFF296C109200B31F3B /* Tabman */; };
 		91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B01296C10A800B31F3B /* TabManViewController.swift */; };
 		91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B04296C111900B31F3B /* DietTrainerViewController.swift */; };
@@ -104,7 +106,6 @@
 		91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B0A296C11D700B31F3B /* FriendTrainerViewController.swift */; };
 		91FDB3E12982637200053795 /* CustomerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDB3E02982637200053795 /* CustomerRouter.swift */; };
 		91FDB3E52982662700053795 /* WriteReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDB3E42982662700053795 /* WriteReviewRequest.swift */; };
-		91FDB3E72982671100053795 /* RequestTrainerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDB3E62982671100053795 /* RequestTrainerRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -191,6 +192,8 @@
 		91CFCFE0298004CF0009944D /* SignUpRepsonse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepsonse.swift; sourceTree = "<group>"; };
 		91D7C51029649C78005AF859 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		91D7C5152964A034005AF859 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
+		91E0824C298BA96D0033D39E /* RequestMatchingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMatchingRequest.swift; sourceTree = "<group>"; };
+		91E0824E298BA9AD0033D39E /* RequestMatchingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMatchingResponse.swift; sourceTree = "<group>"; };
 		91F75B01296C10A800B31F3B /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
 		91F75B04296C111900B31F3B /* DietTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietTrainerViewController.swift; sourceTree = "<group>"; };
 		91F75B06296C116500B31F3B /* FoodTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrainerViewController.swift; sourceTree = "<group>"; };
@@ -198,7 +201,6 @@
 		91F75B0A296C11D700B31F3B /* FriendTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTrainerViewController.swift; sourceTree = "<group>"; };
 		91FDB3E02982637200053795 /* CustomerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRouter.swift; sourceTree = "<group>"; };
 		91FDB3E42982662700053795 /* WriteReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewRequest.swift; sourceTree = "<group>"; };
-		91FDB3E62982671100053795 /* RequestTrainerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTrainerRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -694,9 +696,10 @@
 			isa = PBXGroup;
 			children = (
 				91FDB3E42982662700053795 /* WriteReviewRequest.swift */,
-				91FDB3E62982671100053795 /* RequestTrainerRequest.swift */,
 				91783EB22986B73800B8CC2E /* DeleteHeartResponse.swift */,
 				91783EB42986B76100B8CC2E /* AddHeartResponse.swift */,
+				91E0824C298BA96D0033D39E /* RequestMatchingRequest.swift */,
+				91E0824E298BA9AD0033D39E /* RequestMatchingResponse.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -805,7 +808,6 @@
 				91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */,
 				91185FC9296D8C360099B641 /* BookCVC.swift in Sources */,
 				91F75B07296C116500B31F3B /* FoodTrainerViewController.swift in Sources */,
-				91FDB3E72982671100053795 /* RequestTrainerRequest.swift in Sources */,
 				9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */,
 				91783EA6298640FA00B8CC2E /* TrainerRouter.swift in Sources */,
 				91BE526E29854BD2006DA3AB /* TrainerArrayListRequest.swift in Sources */,
@@ -817,10 +819,12 @@
 				91CFCFCE297FFAFC0009944D /* Profile.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */,
+				91E0824F298BA9AD0033D39E /* RequestMatchingResponse.swift in Sources */,
 				91185FC3296D86900099B641 /* BodyIntroAboutServiceView.swift in Sources */,
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
 				91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */,
 				9181B6EC2983C448001D9427 /* MyPageResponse.swift in Sources */,
+				91E0824D298BA96D0033D39E /* RequestMatchingRequest.swift in Sources */,
 				91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */,
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
 				9181B6E72982BACD001D9427 /* PetchLocationResponse.swift in Sources */,
