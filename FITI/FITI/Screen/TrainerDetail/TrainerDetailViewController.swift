@@ -172,7 +172,7 @@ class TrainerDetailViewController: UIViewController {
         default:
             self.headView.goldIcon.image = nil
         }
-        self.bodyPriceView.priceForTimeLabel.text = String(TrainerDetailViewController.specificTrainer.cost) + "원"
+        self.bodyPriceView.priceForTimeLabel.text = (TrainerDetailViewController.specificTrainer.cost ?? "0") + "원"
         self.bodyIntroView.introTextView.text = TrainerDetailViewController.specificTrainer.intro
         self.bodyIntroAboutService.introServiceTextView.text = TrainerDetailViewController.specificTrainer.service
         self.bodyReviewView.reviewLabel.text = String(TrainerDetailViewController.specificTrainer.reviewDto?.count ?? 0)

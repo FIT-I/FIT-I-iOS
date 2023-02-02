@@ -207,7 +207,7 @@ class PickServiceViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
     }
     func setPriceData(){
-        self.priceLabel.text = String(TrainerDetailViewController.specificTrainer.cost) + "원"
+        self.priceLabel.text = TrainerDetailViewController.specificTrainer.cost ?? "0" + "원"
     }
 }
 

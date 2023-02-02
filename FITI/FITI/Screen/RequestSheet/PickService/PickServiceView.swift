@@ -67,7 +67,7 @@ class PickServiceView: UIView {
         if isFirstPickBtnTouched == false {
             firstPickBtn.setImage(UIImage(named: "fillBox.svg"), for: .normal)
             isFirstPickBtnTouched = true
-            RequestResultViewController.meetingSheet.price = String(TrainerDetailViewController.specificTrainer.cost)
+            RequestResultViewController.meetingSheet.price = TrainerDetailViewController.specificTrainer.cost ?? "0"
         }else {
             firstPickBtn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
             isFirstPickBtnTouched = false
