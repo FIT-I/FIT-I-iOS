@@ -24,15 +24,15 @@ final class TrainerAPI {
         let param = TrainerArrayListRequest(page: page, size: size, sort: sort)
         self.trainerProvider.request(.getFristTrainerList(category, param)){ [self] (response) in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        self.getFirstTrainerListData = try moyaResponse.map(TrainerListResponse.self)
-                        completion(getFirstTrainerListData)
-                    } catch(let err) {
-                        print(err.localizedDescription, 500)
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
+            case .success(let moyaResponse):
+                do {
+                    self.getFirstTrainerListData = try moyaResponse.map(TrainerListResponse.self)
+                    completion(getFirstTrainerListData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }
@@ -42,15 +42,15 @@ final class TrainerAPI {
         let param = TrainerArrayListRequest(page: page, size: size, sort: sort)
         self.trainerProvider.request(.getTrainerList(category, lastTrainerIdx, param)){ [self] (response) in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        self.getTrainerListData = try moyaResponse.map(TrainerListResponse.self)
-                        completion(getTrainerListData)
-                    } catch(let err) {
-                        print(err.localizedDescription, 500)
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
+            case .success(let moyaResponse):
+                do {
+                    self.getTrainerListData = try moyaResponse.map(TrainerListResponse.self)
+                    completion(getTrainerListData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }
@@ -59,15 +59,15 @@ final class TrainerAPI {
     func getSpecificTrainerAPI(trainerIdx:Int,completion: @escaping (SpecificTrainerResponse?) -> Void){
         self.trainerProvider.request(.getSpecificTrainer(trainerIdx)){ [self] (response) in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        self.getSpecificTrainerData = try moyaResponse.map(SpecificTrainerResponse.self)
-                        completion(getSpecificTrainerData)
-                    } catch(let err) {
-                        print(err.localizedDescription, 500)
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
+            case .success(let moyaResponse):
+                do {
+                    self.getSpecificTrainerData = try moyaResponse.map(SpecificTrainerResponse.self)
+                    completion(getSpecificTrainerData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }

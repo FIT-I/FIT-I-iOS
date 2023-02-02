@@ -97,7 +97,8 @@
 		91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C5152964A034005AF859 /* ReviewTableCell.swift */; };
 		91E0824D298BA96D0033D39E /* RequestMatchingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0824C298BA96D0033D39E /* RequestMatchingRequest.swift */; };
 		91E0824F298BA9AD0033D39E /* RequestMatchingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0824E298BA9AD0033D39E /* RequestMatchingResponse.swift */; };
-		91E08251298BE4FB0033D39E /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08250298BE4FB0033D39E /* BaseURL.swift */; };
+		91E08253298BEF2B0033D39E /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08252298BEF2B0033D39E /* BaseURL.swift */; };
+		91E08255298BEFA80033D39E /* MatchingListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08254298BEFA80033D39E /* MatchingListResponse.swift */; };
 		91F75B00296C109200B31F3B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 91F75AFF296C109200B31F3B /* Tabman */; };
 		91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B01296C10A800B31F3B /* TabManViewController.swift */; };
 		91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B04296C111900B31F3B /* DietTrainerViewController.swift */; };
@@ -193,7 +194,8 @@
 		91D7C5152964A034005AF859 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
 		91E0824C298BA96D0033D39E /* RequestMatchingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMatchingRequest.swift; sourceTree = "<group>"; };
 		91E0824E298BA9AD0033D39E /* RequestMatchingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMatchingResponse.swift; sourceTree = "<group>"; };
-		91E08250298BE4FB0033D39E /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		91E08252298BEF2B0033D39E /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseURL.swift; path = "../../../../../.Trash/FIT-I-iOS 오후 10.09.39/FITI/FITI/Network/DTO/BaseURL.swift"; sourceTree = "<group>"; };
+		91E08254298BEFA80033D39E /* MatchingListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MatchingListResponse.swift; path = "../../../../../../.Trash/FIT-I-iOS 오후 10.09.39/FITI/FITI/Network/DTO/Customer/MatchingListResponse.swift"; sourceTree = "<group>"; };
 		91F75B01296C10A800B31F3B /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
 		91F75B04296C111900B31F3B /* DietTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietTrainerViewController.swift; sourceTree = "<group>"; };
 		91F75B06296C116500B31F3B /* FoodTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrainerViewController.swift; sourceTree = "<group>"; };
@@ -479,7 +481,7 @@
 		91783E9729863C5100B8CC2E /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				91E08250298BE4FB0033D39E /* BaseURL.swift */,
+				91E08252298BEF2B0033D39E /* BaseURL.swift */,
 				91783EA429863E9900B8CC2E /* Trainer */,
 				91783E9D29863D4100B8CC2E /* MyPage */,
 				91FDB3DF2982634200053795 /* Customer */,
@@ -700,6 +702,7 @@
 				91783EB42986B76100B8CC2E /* AddHeartResponse.swift */,
 				91E0824C298BA96D0033D39E /* RequestMatchingRequest.swift */,
 				91E0824E298BA9AD0033D39E /* RequestMatchingResponse.swift */,
+				91E08254298BEFA80033D39E /* MatchingListResponse.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -806,6 +809,7 @@
 				91CFCFE1298004CF0009944D /* SignUpRepsonse.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
 				91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */,
+				91E08255298BEFA80033D39E /* MatchingListResponse.swift in Sources */,
 				91185FC9296D8C360099B641 /* BookCVC.swift in Sources */,
 				91F75B07296C116500B31F3B /* FoodTrainerViewController.swift in Sources */,
 				9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */,
@@ -829,7 +833,7 @@
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
 				9181B6E72982BACD001D9427 /* PetchLocationResponse.swift in Sources */,
 				91783EB32986B73800B8CC2E /* DeleteHeartResponse.swift in Sources */,
-				91E08251298BE4FB0033D39E /* BaseURL.swift in Sources */,
+				91E08253298BEF2B0033D39E /* BaseURL.swift in Sources */,
 				91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */,
 				91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,

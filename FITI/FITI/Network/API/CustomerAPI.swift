@@ -18,20 +18,21 @@ final class CustomerAPI {
     private(set) var addHeartData: AddHeartResponse?
     private(set) var deleteHeartData: DeleteHeartResponse?
     private(set) var requestMatchingData: RequestMatchingResponse?
+    private(set) var matchListData: MatchingListResponse?
     
     // 1. 트레이너 찜 등록 API
     func postAddHeartAPI(trainerIndex:Int, completion: @escaping (AddHeartResponse?) -> Void){
         customerProvider.request(.addHeart(trainerIndex)) { [self] (response) in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        self.addHeartData = try moyaResponse.map(AddHeartResponse.self)
-                        completion(addHeartData)
-                    } catch(let err) {
-                        print(err.localizedDescription, 500)
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
+            case .success(let moyaResponse):
+                do {
+                    self.addHeartData = try moyaResponse.map(AddHeartResponse.self)
+                    completion(addHeartData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }
@@ -40,15 +41,15 @@ final class CustomerAPI {
     func deleteHeartAPI(trainerIndex:Int, completion: @escaping (DeleteHeartResponse?) -> Void){
         customerProvider.request(.deleteHeart(trainerIndex)) { [self] (response) in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        self.deleteHeartData = try moyaResponse.map(DeleteHeartResponse.self)
-                        completion(deleteHeartData)
-                    } catch(let err) {
-                        print(err.localizedDescription, 500)
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
+            case .success(let moyaResponse):
+                do {
+                    self.deleteHeartData = try moyaResponse.map(DeleteHeartResponse.self)
+                    completion(deleteHeartData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }
@@ -57,15 +58,32 @@ final class CustomerAPI {
     func requestMatchAPI(trainerIndex:Int, body:RequestMatchingRequest ,completion: @escaping (RequestMatchingResponse?) -> Void){
         customerProvider.request(.requestTrain(trainerIndex, body)) { [self] (response) in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        self.requestMatchingData = try moyaResponse.map(RequestMatchingResponse.self)
-                        completion(requestMatchingData)
-                    } catch(let err) {
-                        print(err.localizedDescription, 500)
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
+            case .success(let moyaResponse):
+                do {
+                    self.requestMatchingData = try moyaResponse.map(RequestMatchingResponse.self)
+                    completion(requestMatchingData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    // 4. 매칭 목록 조회 API
+    func getMatchingListAPI(completion: @escaping (MatchingListResponse?) -> Void){
+        customerProvider.request(.getMatchingList) { [self] (response) in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    self.matchListData = try moyaResponse.map(MatchingListResponse.self)
+                    completion(matchListData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }

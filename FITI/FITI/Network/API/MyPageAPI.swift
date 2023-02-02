@@ -23,15 +23,15 @@ final class MyPageAPI {
     func getMyPageDataAPI(completion: @escaping (MyPageResponse?) -> Void){
         myPageProvider.request(.getMyPage) { [self] (response) in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        self.myPageData = try moyaResponse.map(MyPageResponse.self)
-                        completion(myPageData)
-                    } catch(let err) {
-                        print(err.localizedDescription, 500)
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
+            case .success(let moyaResponse):
+                do {
+                    self.myPageData = try moyaResponse.map(MyPageResponse.self)
+                    completion(myPageData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }
@@ -40,15 +40,15 @@ final class MyPageAPI {
     func postLoctionAPI(location:String, completion: @escaping (PetchLocationResponse?) -> Void){
         myPageProvider.request(.locationSetting(location)) { [self] (response) in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        self.locationSettingData = try moyaResponse.map(PetchLocationResponse.self)
-                        completion(locationSettingData)
-                    } catch(let err) {
-                        print(err.localizedDescription, 500)
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
+            case .success(let moyaResponse):
+                do {
+                    self.locationSettingData = try moyaResponse.map(PetchLocationResponse.self)
+                    completion(locationSettingData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }
@@ -57,15 +57,15 @@ final class MyPageAPI {
     func getHeartListAPI(completion: @escaping (HeartListResponse?) -> Void){
         myPageProvider.request(.getHeartList) { [self] (response) in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        self.heartListData = try moyaResponse.map(HeartListResponse.self)
-                        completion(heartListData)
-                    } catch(let err) {
-                        print(err.localizedDescription, 500)
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
+            case .success(let moyaResponse):
+                do {
+                    self.heartListData = try moyaResponse.map(HeartListResponse.self)
+                    completion(heartListData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }

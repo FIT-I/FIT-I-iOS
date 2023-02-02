@@ -23,15 +23,15 @@ final class SignAPI {
         let param = SignInRequest.init(email,password)
         signProvider.request(.signIn(param: param)) { [self] (response) in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        self.signInData = try moyaResponse.map(SignInResponse.self)
-                        completion(signInData)
-                    } catch(let err) {
-                        print(err.localizedDescription, 500)
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
+            case .success(let moyaResponse):
+                do {
+                    self.signInData = try moyaResponse.map(SignInResponse.self)
+                    completion(signInData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }
@@ -41,15 +41,15 @@ final class SignAPI {
         let param = SignUpRequest.init(name, email, password, profileImage)
         signProvider.request(.signUp(param: param)){ [self] (response) in
             switch response {
-                case .success(let moyaResponse):
-                    do {
-                        self.signUpData = try moyaResponse.map(SignUpResponse.self)
-                        completion(signUpData)
-                    } catch(let err) {
-                        print(err.localizedDescription, 500)
-                    }
-                case .failure(let err):
-                    print(err.localizedDescription)
+            case .success(let moyaResponse):
+                do {
+                    self.signUpData = try moyaResponse.map(SignUpResponse.self)
+                    completion(signUpData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
             }
         }
     }
