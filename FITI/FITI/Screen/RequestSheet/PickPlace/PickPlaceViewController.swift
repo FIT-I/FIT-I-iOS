@@ -136,22 +136,26 @@ class PickPlaceViewController: UIViewController {
     }
 
     @objc func iWillGoEvent(sender: UIBarButtonItem) {
-        if isIWillGoSelected == false && isComeHereSelected == false {
-            isIWillGoSelected = true
-            iWillGoBtn.setImage(UIImage(named: "selectedIWillGoIcon.svg"), for: .normal)
-        }else{
+        if isIWillGoSelected == true {
             isIWillGoSelected = false
             iWillGoBtn.setImage(UIImage(named: "iWillGoIcon.svg"), for: .normal)
+        }else {
+            isIWillGoSelected = true
+            isComeHereSelected = false
+            iWillGoBtn.setImage(UIImage(named: "selectedIWillGoIcon.svg"), for: .normal)
+            comeHereBtn.setImage(UIImage(named: "comeHereIcon.svg"), for: .normal)
         }
     }
     
     @objc func comeHereEvent(sender: UIBarButtonItem) {
-        if isComeHereSelected == false && isIWillGoSelected == false {
-            isComeHereSelected = true
-            comeHereBtn.setImage(UIImage(named: "selectedComeHereIcon.svg"), for: .normal)
-        }else{
+        if isComeHereSelected == true {
             isComeHereSelected = false
             comeHereBtn.setImage(UIImage(named: "comeHereIcon.svg"), for: .normal)
+        }else {
+            isIWillGoSelected = false
+            isComeHereSelected = true
+            iWillGoBtn.setImage(UIImage(named: "iWillGoIcon.svg"), for: .normal)
+            comeHereBtn.setImage(UIImage(named: "selectedComeHereIcon.svg"), for: .normal)
         }
     }
     

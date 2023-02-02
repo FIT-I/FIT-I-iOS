@@ -67,7 +67,6 @@ class PickServiceView: UIView {
         if isFirstPickBtnTouched == false {
             firstPickBtn.setImage(UIImage(named: "fillBox.svg"), for: .normal)
             isFirstPickBtnTouched = true
-            
         }else {
             firstPickBtn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
             isFirstPickBtnTouched = false

@@ -42,6 +42,51 @@ class PickServiceViewController: UIViewController {
         label.textColor = UIColor.black
         return label
     }()
+    private lazy var meetingTitleLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Avenir-Black", size: 20.0)
+        label.text = "매칭기간 선택하기"
+        label.textColor = UIColor.black
+        return label
+    }()
+    private lazy var startDateLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17.0)
+        label.text = "시작"
+        label.textColor = UIColor.black
+        return label
+    }()
+    private lazy var endDateLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17.0)
+        label.text = "종료"
+        label.textColor = UIColor.black
+        return label
+    }()
+    private lazy var dateLabelStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [startDateLabel,endDateLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 20
+        stackView.alignment = .leading
+        return stackView
+    }()
+    private lazy var startDatePicker : UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.preferredDatePickerStyle = .compact
+        return picker
+    }()
+    private lazy var endDatePicker : UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.preferredDatePickerStyle = .compact
+        return picker
+    }()
+    private lazy var datePickerStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [startDatePicker,endDatePicker])
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.alignment = .leading
+        return stackView
+    }()
     private lazy var nextBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.customColor(.blue)
@@ -96,7 +141,10 @@ class PickServiceViewController: UIViewController {
                          subTitleLabel,
                          nextBtn,
                          pickStackView,
-                         priceStackView
+                         priceStackView,
+                         meetingTitleLabel,
+                         dateLabelStackView,
+                         datePickerStackView
         )
         progressView.addSubview(grayView)
     }
@@ -120,14 +168,26 @@ class PickServiceViewController: UIViewController {
             make.leading.equalToSuperview().offset(30)
         }
         pickStackView.snp.makeConstraints { make in
-            make.top.equalTo(subTitleLabel.snp.bottom).offset(40)
+            make.top.equalTo(subTitleLabel.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(30)
             make.height.equalTo(80)
         }
         priceStackView.snp.makeConstraints { make in
-            make.top.equalTo(subTitleLabel.snp.bottom).offset(40)
+            make.top.equalTo(subTitleLabel.snp.bottom).offset(30)
             make.trailing.equalToSuperview().offset(-30)
             make.height.equalTo(80)
+        }
+        meetingTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(priceStackView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(30)
+        }
+        dateLabelStackView.snp.makeConstraints { make in
+            make.top.equalTo(meetingTitleLabel.snp.bottom).offset(38)
+            make.leading.equalToSuperview().offset(30)
+        }
+        datePickerStackView.snp.makeConstraints { make in
+            make.top.equalTo(meetingTitleLabel.snp.bottom).offset(30)
+            make.trailing.equalToSuperview().offset(-30)
         }
         nextBtn.snp.makeConstraints { make in
             make.height.equalTo(50)
