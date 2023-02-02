@@ -18,6 +18,7 @@ final class MyPageAPI {
     private(set) var myPageData: MyPageResponse?
     private(set) var locationSettingData: PetchLocationResponse?
     private(set) var heartListData: HeartListResponse?
+    private(set) var withDrawData: WithDrawResponse?
     
     // 1. 마이페이지 조회 API
     func getMyPageDataAPI(completion: @escaping (MyPageResponse?) -> Void){
@@ -25,6 +26,7 @@ final class MyPageAPI {
             switch response {
             case .success(let moyaResponse):
                 do {
+                    print(moyaResponse.statusCode)
                     self.myPageData = try moyaResponse.map(MyPageResponse.self)
                     completion(myPageData)
                 } catch(let err) {
@@ -61,6 +63,23 @@ final class MyPageAPI {
                 do {
                     self.heartListData = try moyaResponse.map(HeartListResponse.self)
                     completion(heartListData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    // 4. 회원탈퇴 API
+    func withDrawAPI(completion: @escaping (WithDrawResponse?) -> Void){
+        myPageProvider.request(.withDraw) { [self] (response) in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    self.withDrawData = try moyaResponse.map(WithDrawResponse.self)
+                    completion(withDrawData)
                 } catch(let err) {
                     print(err.localizedDescription, 500)
                 }

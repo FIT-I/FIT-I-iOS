@@ -39,12 +39,13 @@ class HomeViewController: UIViewController {
         signInViewAddUI()
         signInViewSetUI()
         setTableView()
+        getMatchingRequestList()
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
         getMyPageServer()
         getHeartListServer()
-        getMatchingRequestList()
     }
     
     func signInViewAddUI(){

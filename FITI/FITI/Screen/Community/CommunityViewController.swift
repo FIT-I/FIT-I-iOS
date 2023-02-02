@@ -43,6 +43,11 @@ class CommunityViewController: UIViewController {
         setTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        getHeartListServer()
+    }
+    
     func setViewHierarchy(){
         view.addSubview(titleLabel)
         view.addSubview(progressView)
@@ -131,6 +136,7 @@ extension CommunityViewController {
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             TrainerDetailViewController.trainerHeartList = heartListResponse
+            HeartListViewController.heartList = heartListResponse
             self.setHeartIcon()
         }
     }

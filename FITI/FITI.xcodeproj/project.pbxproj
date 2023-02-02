@@ -101,6 +101,7 @@
 		91E08257298C01A10033D39E /* RequestSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08256298C01A10033D39E /* RequestSheetViewController.swift */; };
 		91E0825A298C06620033D39E /* MatchSheetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08259298C06620033D39E /* MatchSheetResponse.swift */; };
 		91E0825C298C0F570033D39E /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0825B298C0F570033D39E /* BaseURL.swift */; };
+		91E0825E298C37520033D39E /* WithDrawResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0825D298C37520033D39E /* WithDrawResponse.swift */; };
 		91F75B00296C109200B31F3B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 91F75AFF296C109200B31F3B /* Tabman */; };
 		91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B01296C10A800B31F3B /* TabManViewController.swift */; };
 		91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B04296C111900B31F3B /* DietTrainerViewController.swift */; };
@@ -200,6 +201,7 @@
 		91E08256298C01A10033D39E /* RequestSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSheetViewController.swift; sourceTree = "<group>"; };
 		91E08259298C06620033D39E /* MatchSheetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSheetResponse.swift; sourceTree = "<group>"; };
 		91E0825B298C0F570033D39E /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		91E0825D298C37520033D39E /* WithDrawResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawResponse.swift; sourceTree = "<group>"; };
 		91F75B01296C10A800B31F3B /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
 		91F75B04296C111900B31F3B /* DietTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietTrainerViewController.swift; sourceTree = "<group>"; };
 		91F75B06296C116500B31F3B /* FoodTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrainerViewController.swift; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 				9181B6EB2983C448001D9427 /* MyPageResponse.swift */,
 				9181B6E62982BACD001D9427 /* PetchLocationResponse.swift */,
 				9181B6E42982AA73001D9427 /* HeartListResponse.swift */,
+				91E0825D298C37520033D39E /* WithDrawResponse.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -840,6 +843,7 @@
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
 				9181B6E72982BACD001D9427 /* PetchLocationResponse.swift in Sources */,
 				91783EB32986B73800B8CC2E /* DeleteHeartResponse.swift in Sources */,
+				91E0825E298C37520033D39E /* WithDrawResponse.swift in Sources */,
 				91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */,
 				91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,

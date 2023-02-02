@@ -29,7 +29,7 @@ final class TrainerAPI {
                     self.getFirstTrainerListData = try moyaResponse.map(TrainerListResponse.self)
                     completion(getFirstTrainerListData)
                 } catch(let err) {
-                    print(err.localizedDescription, 500)
+                    print("트레이너 목록조회"+err.localizedDescription, 500)
                 }
             case .failure(let err):
                 print(err.localizedDescription)

@@ -15,6 +15,7 @@ enum MyPageRouter {
     case fixProfile(_ profile:String)
     case notificationSetting(_ notIdx:Int)
     case getHeartList
+    case withDraw
 }
 
 extension MyPageRouter: TargetType, AccessTokenAuthorizable {
@@ -36,6 +37,8 @@ extension MyPageRouter: TargetType, AccessTokenAuthorizable {
             return "/api/customer/notification/\(notIdx)"
         case .getHeartList:
             return "/api/customer/wish"
+        case .withDraw:
+            return "/api/accounts/close"
         }
     }
     
@@ -45,23 +48,17 @@ extension MyPageRouter: TargetType, AccessTokenAuthorizable {
             return .get
         case .writeReview:
             return .post
-        case .locationSetting, .fixProfile, .notificationSetting:
+        case .locationSetting, .fixProfile, .notificationSetting, .withDraw:
             return .patch
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .getMyPage, .locationSetting:
+        case .getMyPage, .locationSetting, .notificationSetting, .fixProfile, .getHeartList, .withDraw:
             return .requestPlain
         case .writeReview(let param):
             return .requestJSONEncodable(param)
-        case .fixProfile:
-            return .requestPlain
-        case .notificationSetting:
-            return .requestPlain
-        case .getHeartList:
-            return .requestPlain
         }
     }
     
