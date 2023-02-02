@@ -97,7 +97,6 @@
 		91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D7C5152964A034005AF859 /* ReviewTableCell.swift */; };
 		91E0824D298BA96D0033D39E /* RequestMatchingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0824C298BA96D0033D39E /* RequestMatchingRequest.swift */; };
 		91E0824F298BA9AD0033D39E /* RequestMatchingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0824E298BA9AD0033D39E /* RequestMatchingResponse.swift */; };
-		91E08251298BE4FB0033D39E /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08250298BE4FB0033D39E /* BaseURL.swift */; };
 		91F75B00296C109200B31F3B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 91F75AFF296C109200B31F3B /* Tabman */; };
 		91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B01296C10A800B31F3B /* TabManViewController.swift */; };
 		91F75B05296C111900B31F3B /* DietTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B04296C111900B31F3B /* DietTrainerViewController.swift */; };
@@ -106,6 +105,10 @@
 		91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B0A296C11D700B31F3B /* FriendTrainerViewController.swift */; };
 		91FDB3E12982637200053795 /* CustomerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDB3E02982637200053795 /* CustomerRouter.swift */; };
 		91FDB3E52982662700053795 /* WriteReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDB3E42982662700053795 /* WriteReviewRequest.swift */; };
+		C2B355E5298BF97100A009C6 /* MatchingReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B355E4298BF97100A009C6 /* MatchingReviewViewController.swift */; };
+		C2B355E7298BFA0800A009C6 /* MatchingReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B355E6298BFA0800A009C6 /* MatchingReview.swift */; };
+		C2B355EA298BFA4900A009C6 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B355E9298BFA4900A009C6 /* BaseView.swift */; };
+		C2CF5C23298BFA80005F2FA9 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF5C22298BFA80005F2FA9 /* RateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -193,7 +196,6 @@
 		91D7C5152964A034005AF859 /* ReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCell.swift; sourceTree = "<group>"; };
 		91E0824C298BA96D0033D39E /* RequestMatchingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMatchingRequest.swift; sourceTree = "<group>"; };
 		91E0824E298BA9AD0033D39E /* RequestMatchingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMatchingResponse.swift; sourceTree = "<group>"; };
-		91E08250298BE4FB0033D39E /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		91F75B01296C10A800B31F3B /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
 		91F75B04296C111900B31F3B /* DietTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietTrainerViewController.swift; sourceTree = "<group>"; };
 		91F75B06296C116500B31F3B /* FoodTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrainerViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,10 @@
 		91F75B0A296C11D700B31F3B /* FriendTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTrainerViewController.swift; sourceTree = "<group>"; };
 		91FDB3E02982637200053795 /* CustomerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRouter.swift; sourceTree = "<group>"; };
 		91FDB3E42982662700053795 /* WriteReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewRequest.swift; sourceTree = "<group>"; };
+		C2B355E4298BF97100A009C6 /* MatchingReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingReviewViewController.swift; sourceTree = "<group>"; };
+		C2B355E6298BFA0800A009C6 /* MatchingReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingReview.swift; sourceTree = "<group>"; };
+		C2B355E9298BFA4900A009C6 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		C2CF5C22298BFA80005F2FA9 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,7 +485,6 @@
 		91783E9729863C5100B8CC2E /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				91E08250298BE4FB0033D39E /* BaseURL.swift */,
 				91783EA429863E9900B8CC2E /* Trainer */,
 				91783E9D29863D4100B8CC2E /* MyPage */,
 				91FDB3DF2982634200053795 /* Customer */,
@@ -568,6 +573,7 @@
 		91CFCFBC297FF5280009944D /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				C2B355E3298BF94200A009C6 /* MatchingReview */,
 				91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */,
 				91C32D4B2961866100F29DA5 /* TabBarController.swift */,
 				910182BC29618CA100FC10DB /* Home */,
@@ -704,6 +710,25 @@
 			path = Customer;
 			sourceTree = "<group>";
 		};
+		C2B355E3298BF94200A009C6 /* MatchingReview */ = {
+			isa = PBXGroup;
+			children = (
+				C2B355E8298BFA2E00A009C6 /* RatingView */,
+				C2B355E4298BF97100A009C6 /* MatchingReviewViewController.swift */,
+				C2B355E6298BFA0800A009C6 /* MatchingReview.swift */,
+			);
+			path = MatchingReview;
+			sourceTree = "<group>";
+		};
+		C2B355E8298BFA2E00A009C6 /* RatingView */ = {
+			isa = PBXGroup;
+			children = (
+				C2B355E9298BFA4900A009C6 /* BaseView.swift */,
+				C2CF5C22298BFA80005F2FA9 /* RateView.swift */,
+			);
+			path = RatingView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -800,6 +825,7 @@
 				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
 				91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */,
+				C2B355E5298BF97100A009C6 /* MatchingReviewViewController.swift in Sources */,
 				917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */,
 				91877D6A2969269D0074386B /* RequestSheet.swift in Sources */,
 				91783E9F29863D9700B8CC2E /* MyPageAPI.swift in Sources */,
@@ -811,6 +837,7 @@
 				9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */,
 				91783EA6298640FA00B8CC2E /* TrainerRouter.swift in Sources */,
 				91BE526E29854BD2006DA3AB /* TrainerArrayListRequest.swift in Sources */,
+				C2B355EA298BFA4900A009C6 /* BaseView.swift in Sources */,
 				9163A4C5297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift in Sources */,
 				91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */,
 				91783EB129869FFB00B8CC2E /* SpecificTrainerResponse.swift in Sources */,
@@ -829,7 +856,7 @@
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
 				9181B6E72982BACD001D9427 /* PetchLocationResponse.swift in Sources */,
 				91783EB32986B73800B8CC2E /* DeleteHeartResponse.swift in Sources */,
-				91E08251298BE4FB0033D39E /* BaseURL.swift in Sources */,
+				C2CF5C23298BFA80005F2FA9 /* RateView.swift in Sources */,
 				91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */,
 				91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */,
 				91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */,
@@ -858,6 +885,7 @@
 				91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */,
 				91FDB3E12982637200053795 /* CustomerRouter.swift in Sources */,
 				91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */,
+				C2B355E7298BFA0800A009C6 /* MatchingReview.swift in Sources */,
 				9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */,
 				9130CA09296B055100FC5107 /* SearchViewController.swift in Sources */,
 				9181B6E52982AA73001D9427 /* HeartListResponse.swift in Sources */,
