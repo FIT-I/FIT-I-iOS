@@ -61,7 +61,7 @@ class DetailBodyIntroViewController: UIViewController {
             $0.top.equalToSuperview().offset(30)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-15)
-            $0.height.equalTo(160)
+            $0.height.equalTo(150)
         }
         introTextView.snp.makeConstraints {
             $0.top.equalTo(introView.snp.bottom).offset(-95)
@@ -83,9 +83,6 @@ class DetailBodyIntroViewController: UIViewController {
     // MARK: - @objc
     
     @objc func backTapped(sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
-    }
-    @objc func tapOKBtn(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
     

@@ -57,11 +57,8 @@ class DetailBodyIntroAboutServiceView: UIView {
     func setViewHierarchy(){
         self.addSubview(introTopStackView)
         self.addSubview(introLineView)
-        //self.addSubview(introTextView)
-           
        }
     func setConstraints() {
-        
         introTopStackView.snp.makeConstraints{ make in
             make.top.equalToSuperview().offset(17)
             make.leading.equalToSuperview().offset(20)

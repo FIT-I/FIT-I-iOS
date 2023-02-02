@@ -201,7 +201,7 @@ class SignInViewController: UIViewController {
         }
     }
     private func ifSuccessPushHome(){
-        self.getFirstTrainerListServer(category: "pt", page: 0, size: 33, sort: ["current"])
+        self.getFirstTrainerListServer(category: "pt", page: 0, size: 200, sort: ["current"])
         self.getMatchingRequestList()
         let nextVC = GradeTableViewController()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {

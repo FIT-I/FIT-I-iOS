@@ -53,7 +53,8 @@ class DetailBodyIntroAboutServiceViewController: UIViewController {
         introTextView.backgroundColor = UIColor.customColor(.boxGray)
     }
     
-    func setViewLayer() {        aboutService.layer.cornerRadius = 16
+    func setViewLayer() {
+        aboutService.layer.cornerRadius = 16
         contentScrollView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.bottom.equalToSuperview()
@@ -62,7 +63,7 @@ class DetailBodyIntroAboutServiceViewController: UIViewController {
             $0.top.equalToSuperview().offset(30)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-15)
-            $0.height.equalTo(160)
+            $0.height.equalTo(150)
         }
         introTextView.snp.makeConstraints {
             $0.top.equalTo(aboutService.snp.bottom).offset(-95)
@@ -75,10 +76,6 @@ class DetailBodyIntroAboutServiceViewController: UIViewController {
     // MARK: - @objc
     
     @objc func backTapped(sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    @objc func tapOKBtn(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
     
