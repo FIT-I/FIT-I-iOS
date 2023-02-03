@@ -145,9 +145,14 @@ class RequestSheet : UIView {
        
     override init(frame: CGRect) {
         super .init(frame: .zero)
-        
         setViewHierarchy()
         setConstraints()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.backgroundColor = UIColor.customColor(.boxGray)
+        self.layer.cornerRadius = 8
     }
     
     func setViewHierarchy(){

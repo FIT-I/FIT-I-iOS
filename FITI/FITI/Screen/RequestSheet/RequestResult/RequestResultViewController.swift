@@ -95,6 +95,7 @@ class RequestResultViewController: UIViewController {
             make.top.equalTo(progressView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalTo(nextBtn.snp.top).offset(-100)
         }
     }
     

@@ -109,6 +109,7 @@ class RequestSheetViewController: UIViewController {
             make.top.equalTo(progressView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalTo(nextBtn.snp.top).offset(-80)
         }
         lineView.snp.makeConstraints { make in
             make.top.equalTo(requestSheet.pickUp.snp.bottom).offset(20)
