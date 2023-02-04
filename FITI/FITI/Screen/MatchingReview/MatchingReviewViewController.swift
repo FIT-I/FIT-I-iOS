@@ -98,15 +98,7 @@ class MatchingReviewViewController: UIViewController {
         view.addSubviews(contentScrollView, toolBarContainerView)
         toolBarContainerView.addSubview(requestButton)
         contentScrollView.addSubviews(reviewLabel, rectView, matchingReview, reviewTextView)
-        
-       
-//        view.addSubview(requestButton)
-//        view.addSubview(reviewLabel)
-//        view.addSubview(rectView)
-//        view.addSubview(matchingReview)
-//        view.addSubview(reviewTextView)
-//        view.addSubview(requestButton)
-       
+
         
         view.backgroundColor = .systemBackground
         matchingReview.backgroundColor = UIColor.customColor(.boxGray)

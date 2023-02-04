@@ -109,6 +109,8 @@
 		C2B355E7298BFA0800A009C6 /* MatchingReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B355E6298BFA0800A009C6 /* MatchingReview.swift */; };
 		C2B355EA298BFA4900A009C6 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B355E9298BFA4900A009C6 /* BaseView.swift */; };
 		C2CF5C23298BFA80005F2FA9 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF5C22298BFA80005F2FA9 /* RateView.swift */; };
+		C2CF5C2A298C0ED8005F2FA9 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF5C29298C0ED8005F2FA9 /* ReportViewController.swift */; };
+		C2CF5C2C298C167F005F2FA9 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF5C2B298C167F005F2FA9 /* ReportView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +209,8 @@
 		C2B355E6298BFA0800A009C6 /* MatchingReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingReview.swift; sourceTree = "<group>"; };
 		C2B355E9298BFA4900A009C6 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		C2CF5C22298BFA80005F2FA9 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
+		C2CF5C29298C0ED8005F2FA9 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		C2CF5C2B298C167F005F2FA9 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,6 +577,7 @@
 		91CFCFBC297FF5280009944D /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				C2CF5C28298C0E03005F2FA9 /* Report */,
 				C2B355E3298BF94200A009C6 /* MatchingReview */,
 				91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */,
 				91C32D4B2961866100F29DA5 /* TabBarController.swift */,
@@ -729,6 +734,15 @@
 			path = RatingView;
 			sourceTree = "<group>";
 		};
+		C2CF5C28298C0E03005F2FA9 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				C2CF5C29298C0ED8005F2FA9 /* ReportViewController.swift */,
+				C2CF5C2B298C167F005F2FA9 /* ReportView.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -829,6 +843,8 @@
 				917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */,
 				91877D6A2969269D0074386B /* RequestSheet.swift in Sources */,
 				91783E9F29863D9700B8CC2E /* MyPageAPI.swift in Sources */,
+				C2CF5C2A298C0ED8005F2FA9 /* ReportViewController.swift in Sources */,
+				C2CF5C2C298C167F005F2FA9 /* ReportView.swift in Sources */,
 				91CFCFE1298004CF0009944D /* SignUpRepsonse.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
 				91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */,
