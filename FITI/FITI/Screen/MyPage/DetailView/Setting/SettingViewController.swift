@@ -116,13 +116,28 @@ class SettingViewController: UIViewController {
     }
     
     func logOut(){
+        self.cleanData()
+        let signInView = SignInViewController()
+        self.navigationController?.pushViewController(signInView, animated: true)
+    }
+    
+    func cleanData(){
         try! realm.localRealm.write {
             realm.localRealm.deleteAll()
         }
         TrainerDetailViewController.isHeartFull = false
         TrainerDetailViewController.trainerHeartList = .init()
-        print(realm.getToken())
-        let signInView = SignInViewController()
-        self.navigationController?.pushViewController(signInView, animated: true)
+        HomeViewController.trainerList = .init()
+        DietTrainerViewController.trainerList = .init()
+        FoodTrainerViewController.trainerList = .init()
+        RehabilitationTrainerViewController.trainerList = .init()
+        FriendTrainerViewController.trainerList = .init()
+        BodyReviewView.previewReviewData = .init()
+        RequestResultViewController.meetingSheet = .init()
+        CommunityViewController.matchingList = .init()
+        RequestSheetViewController.requestSheetData = .init()
+        RequestSheetViewController.trainerIndex = Int()
+        MatchViewController.successMatchList = .init()
+        HeartListViewController.heartList = .init()
     }
 }

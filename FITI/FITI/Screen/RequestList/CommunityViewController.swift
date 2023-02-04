@@ -51,6 +51,7 @@ class CommunityViewController: UIViewController {
         getFirstTrainerListServer(category:"pt",page:0,size:200,sort:["current"])
         getFirstTrainerListServer(category:"diet",page:0,size:200,sort:["current"])
         getSuccessMatchingListServer()
+        requestTableView.reloadData()
     }
     
     func setViewHierarchy(){
@@ -135,7 +136,13 @@ extension CommunityViewController {
     }
     func getMatchingRequestList(){
         CustomerAPI.shared.getMatchingListAPI(){ response in
-            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
+//            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
+            guard let requestListresponse = response?.result else {return}
+            if requestListresponse.count != 0 {
+                CommunityViewController.matchingList = requestListresponse
+            }else {
+                CommunityViewController.matchingList = [MatchingList]()
+            }
         }
     }
     func getHeartListServer(){

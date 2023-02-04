@@ -267,11 +267,17 @@ extension SignInViewController {
     }
     func getMatchingRequestList(){
         CustomerAPI.shared.getMatchingListAPI(){ response in
-            guard let matchingListResponse = response?.result else { return }
-            if response?.isSuccess == true {
-                CommunityViewController.matchingList = matchingListResponse
+//            guard let matchingListResponse = response?.result else { return }
+//            if response?.isSuccess == true {
+//                CommunityViewController.matchingList = matchingListResponse
+//            }else {
+//                print("매칭 보낸 목록을 불러오는데 실패했습니다.")
+//            }
+            guard let requestListresponse = response?.result else {return}
+            if requestListresponse.count != 0 {
+                CommunityViewController.matchingList = requestListresponse
             }else {
-                print("매칭 보낸 목록을 불러오는데 실패했습니다.")
+                CommunityViewController.matchingList = [MatchingList]()
             }
         }
     }

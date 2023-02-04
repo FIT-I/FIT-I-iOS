@@ -81,6 +81,7 @@ class TrainerDetailViewController: UIViewController {
         setHeartIcon()
         setData()
         resizePreviewReviewView()
+        bodyReviewView.previewReviewTableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

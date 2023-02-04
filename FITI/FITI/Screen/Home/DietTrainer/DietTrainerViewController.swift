@@ -43,6 +43,7 @@ class DietTrainerViewController: UIViewController {
         self.getFirstTrainerListServer(category: "friend", page: 0, size: 100, sort: ["recent,DESC"])
         self.getMatchingRequestList()
         self.getSuccessMatchingListServer()
+        trainerTableView.reloadData()
     }
     
     func signInViewAddUI(){
@@ -113,7 +114,13 @@ extension DietTrainerViewController {
     }
     func getMatchingRequestList(){
         CustomerAPI.shared.getMatchingListAPI(){ response in
-            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
+//            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
+            guard let requestListresponse = response?.result else {return}
+            if requestListresponse.count != 0 {
+                CommunityViewController.matchingList = requestListresponse
+            }else {
+                CommunityViewController.matchingList = [MatchingList]()
+            }
         }
     }
     func getHeartListServer(){

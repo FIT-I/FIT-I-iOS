@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		910182C32961961D00FC10DB /* TrainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTableCell.swift */; };
 		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
-		910D805629656AA400828E4B /* PickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805529656AA400828E4B /* PickDateViewController.swift */; };
 		910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805829656ACE00828E4B /* PickPlaceViewController.swift */; };
 		910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805A2965878300828E4B /* RequestResultViewController.swift */; };
 		910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805C2965DBEE00828E4B /* PickServiceView.swift */; };
@@ -122,7 +121,6 @@
 /* Begin PBXFileReference section */
 		910182C22961961D00FC10DB /* TrainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTableCell.swift; sourceTree = "<group>"; };
 		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
-		910D805529656AA400828E4B /* PickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewController.swift; sourceTree = "<group>"; };
 		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
 		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
 		910D805C2965DBEE00828E4B /* PickServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceView.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				910D805E2965E26200828E4B /* PickService */,
-				910D805F2965E2DC00828E4B /* PickDate */,
 				910D80602965E2EB00828E4B /* PickPlace */,
 				910D80622965E30600828E4B /* RequestResult */,
 			);
@@ -327,14 +324,6 @@
 				910D805C2965DBEE00828E4B /* PickServiceView.swift */,
 			);
 			path = PickService;
-			sourceTree = "<group>";
-		};
-		910D805F2965E2DC00828E4B /* PickDate */ = {
-			isa = PBXGroup;
-			children = (
-				910D805529656AA400828E4B /* PickDateViewController.swift */,
-			);
-			path = PickDate;
 			sourceTree = "<group>";
 		};
 		910D80602965E2EB00828E4B /* PickPlace */ = {
@@ -930,7 +919,6 @@
 				91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */,
 				91CFCFC2297FF8D40009944D /* RealmService.swift in Sources */,
 				9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */,
-				910D805629656AA400828E4B /* PickDateViewController.swift in Sources */,
 				9141D823298E55ED00A201BB /* BaseView.swift in Sources */,
 				91E0825C298C0F570033D39E /* BaseURL.swift in Sources */,
 				91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */,

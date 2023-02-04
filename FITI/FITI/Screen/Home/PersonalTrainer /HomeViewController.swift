@@ -44,6 +44,7 @@ class HomeViewController: UIViewController {
         self.getFirstTrainerListServer(category: "friend", page: 0, size: 100, sort: ["recent,DESC"])
         self.getMatchingRequestList()
         self.getSuccessMatchingListServer()
+        trainerTableView.reloadData()
     }
     
     func signInViewAddUI(){
@@ -134,7 +135,12 @@ extension HomeViewController {
     }
     func getMatchingRequestList(){
         CustomerAPI.shared.getMatchingListAPI(){ response in
-            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
+            guard let requestListresponse = response?.result else {return}
+            if requestListresponse.count != 0 {
+                CommunityViewController.matchingList = requestListresponse
+            }else {
+                CommunityViewController.matchingList = [MatchingList]()
+            }
         }
     }
     func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
