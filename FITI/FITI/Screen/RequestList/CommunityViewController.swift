@@ -43,10 +43,15 @@ class CommunityViewController: UIViewController {
         setTableView()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         getHeartListServer()
-//        getFirstTrainerListServer(category:"pt",page:0,size:200,sort:["current"])
+        getMatchingRequestList()
+        getFirstTrainerListServer(category:"pt",page:0,size:200,sort:["current"])
+        getFirstTrainerListServer(category:"diet",page:0,size:200,sort:["current"])
+        getSuccessMatchingListServer()
+        requestTableView.reloadData()
     }
     
     func setViewHierarchy(){
@@ -119,9 +124,6 @@ extension CommunityViewController : UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
 }
 
 // MARK: - Network
@@ -130,6 +132,17 @@ extension CommunityViewController {
     func getMatchingSheetServer(matchingIndex:Int){
         CustomerAPI.shared.getMatchingSheetAPI(matchingIndex: matchingIndex){ response in
             RequestSheetViewController.requestSheetData = response?.result ?? MatchSheet()
+        }
+    }
+    func getMatchingRequestList(){
+        CustomerAPI.shared.getMatchingListAPI(){ response in
+//            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
+            guard let requestListresponse = response?.result else {return}
+            if requestListresponse.count != 0 {
+                CommunityViewController.matchingList = requestListresponse
+            }else {
+                CommunityViewController.matchingList = [MatchingList]()
+            }
         }
     }
     func getHeartListServer(){
@@ -144,7 +157,29 @@ extension CommunityViewController {
     func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
         TrainerAPI.shared.getFirstTrainerListAPI(category: category, page: page, size: size, sort: sort) { response in
             guard let trainerListResponse = response?.result.dto else { return }
-            HomeViewController.trainerList = trainerListResponse
+            switch category {
+            case "pt":
+                HomeViewController.trainerList = trainerListResponse
+            case "food":
+                FoodTrainerViewController.trainerList = trainerListResponse
+            case "diet":
+                DietTrainerViewController.trainerList = trainerListResponse
+            case "rehab":
+                RehabilitationTrainerViewController.trainerList = trainerListResponse
+            case "friend":
+                FriendTrainerViewController.trainerList = trainerListResponse
+            default: break
+            }
+        }
+    }
+    func getSuccessMatchingListServer(){
+        CustomerAPI.shared.getSuccessMatchingListAPI(){ response in
+            guard let successMatchingListResponse = response?.result else { return }
+            if response?.isSuccess == true {
+                MatchViewController.successMatchList = successMatchingListResponse
+            }else {
+                print("성공된 매칭을 불러오는데 실패했습니다.")
+            }
         }
     }
 }

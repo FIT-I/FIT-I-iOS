@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		910182C32961961D00FC10DB /* TrainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTableCell.swift */; };
 		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
-		910D805629656AA400828E4B /* PickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805529656AA400828E4B /* PickDateViewController.swift */; };
 		910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805829656ACE00828E4B /* PickPlaceViewController.swift */; };
 		910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805A2965878300828E4B /* RequestResultViewController.swift */; };
 		910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805C2965DBEE00828E4B /* PickServiceView.swift */; };
@@ -41,6 +40,9 @@
 		9141D823298E55ED00A201BB /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D822298E55ED00A201BB /* BaseView.swift */; };
 		9141D825298E55F600A201BB /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D824298E55F600A201BB /* RateView.swift */; };
 		9141D827298E560500A201BB /* MatchingReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D826298E560500A201BB /* MatchingReviewViewController.swift */; };
+		9141D82A298E7B6C00A201BB /* SuccessMatchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */; };
+		9141D82C298E7F0700A201BB /* MatchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D82B298E7F0700A201BB /* MatchTableCell.swift */; };
+		9141D82E298E871500A201BB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D82D298E871500A201BB /* String+.swift */; };
 		9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4BC2976FC5C00577DC3 /* DetailBodyIntroViewController.swift */; };
 		9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4BE2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift */; };
 		9163A4C12977081600577DC3 /* DetailBodyIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4C02977081600577DC3 /* DetailBodyIntroView.swift */; };
@@ -119,7 +121,6 @@
 /* Begin PBXFileReference section */
 		910182C22961961D00FC10DB /* TrainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTableCell.swift; sourceTree = "<group>"; };
 		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
-		910D805529656AA400828E4B /* PickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewController.swift; sourceTree = "<group>"; };
 		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
 		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
 		910D805C2965DBEE00828E4B /* PickServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceView.swift; sourceTree = "<group>"; };
@@ -149,6 +150,9 @@
 		9141D822298E55ED00A201BB /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		9141D824298E55F600A201BB /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		9141D826298E560500A201BB /* MatchingReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingReviewViewController.swift; sourceTree = "<group>"; };
+		9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessMatchResponse.swift; sourceTree = "<group>"; };
+		9141D82B298E7F0700A201BB /* MatchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableCell.swift; sourceTree = "<group>"; };
+		9141D82D298E871500A201BB /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		9163A4BC2976FC5C00577DC3 /* DetailBodyIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroViewController.swift; sourceTree = "<group>"; };
 		9163A4BE2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroAboutServiceView.swift; sourceTree = "<group>"; };
 		9163A4C02977081600577DC3 /* DetailBodyIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroView.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 				91185FCD296DBD2A0099B641 /* UIView+.swift */,
 				917D3CFD296EB3330060F802 /* UITextField+.swift */,
 				917D3CFF296EBA2D0060F802 /* UIViewController+.swift */,
+				9141D82D298E871500A201BB /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				91C32D512961869000F29DA5 /* MatchViewController.swift */,
+				9141D82B298E7F0700A201BB /* MatchTableCell.swift */,
 			);
 			path = Match;
 			sourceTree = "<group>";
@@ -305,7 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				910D805E2965E26200828E4B /* PickService */,
-				910D805F2965E2DC00828E4B /* PickDate */,
 				910D80602965E2EB00828E4B /* PickPlace */,
 				910D80622965E30600828E4B /* RequestResult */,
 			);
@@ -319,14 +324,6 @@
 				910D805C2965DBEE00828E4B /* PickServiceView.swift */,
 			);
 			path = PickService;
-			sourceTree = "<group>";
-		};
-		910D805F2965E2DC00828E4B /* PickDate */ = {
-			isa = PBXGroup;
-			children = (
-				910D805529656AA400828E4B /* PickDateViewController.swift */,
-			);
-			path = PickDate;
 			sourceTree = "<group>";
 		};
 		910D80602965E2EB00828E4B /* PickPlace */ = {
@@ -732,6 +729,7 @@
 				91E0824E298BA9AD0033D39E /* RequestMatchingResponse.swift */,
 				91E08254298BEFA80033D39E /* MatchingListResponse.swift */,
 				91E08259298C06620033D39E /* MatchSheetResponse.swift */,
+				9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -835,6 +833,7 @@
 				917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */,
 				91877D6A2969269D0074386B /* RequestSheet.swift in Sources */,
 				9141D821298E55D100A201BB /* MatchingReview.swift in Sources */,
+				9141D82A298E7B6C00A201BB /* SuccessMatchResponse.swift in Sources */,
 				91783E9F29863D9700B8CC2E /* MyPageAPI.swift in Sources */,
 				91CFCFE1298004CF0009944D /* SignUpRepsonse.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
@@ -886,6 +885,7 @@
 				913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */,
 				91FDB3E52982662700053795 /* WriteReviewRequest.swift in Sources */,
 				9130CA1D296B3CAF00FC5107 /* BottomInfoView.swift in Sources */,
+				9141D82E298E871500A201BB /* String+.swift in Sources */,
 				91783E9C29863D1400B8CC2E /* SignInResponse.swift in Sources */,
 				91E0825A298C06620033D39E /* MatchSheetResponse.swift in Sources */,
 				91CFCFCC297FFA710009944D /* Token.swift in Sources */,
@@ -906,6 +906,7 @@
 				916A2C49297090D3005F0420 /* FindPwViewController.swift in Sources */,
 				9130CA0B296B055E00FC5107 /* NoticeViewController.swift in Sources */,
 				910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */,
+				9141D82C298E7F0700A201BB /* MatchTableCell.swift in Sources */,
 				9141D825298E55F600A201BB /* RateView.swift in Sources */,
 				91CFCFD0297FFB720009944D /* CustomNotification.swift in Sources */,
 				91783EA329863DAC00B8CC2E /* SignAPI.swift in Sources */,
@@ -918,7 +919,6 @@
 				91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */,
 				91CFCFC2297FF8D40009944D /* RealmService.swift in Sources */,
 				9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */,
-				910D805629656AA400828E4B /* PickDateViewController.swift in Sources */,
 				9141D823298E55ED00A201BB /* BaseView.swift in Sources */,
 				91E0825C298C0F570033D39E /* BaseURL.swift in Sources */,
 				91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */,

@@ -207,6 +207,7 @@ class SignInViewController: UIViewController {
         self.getFirstTrainerListServer(category: "rehab", page: 0, size: 100, sort: ["recent,DESC"])
         self.getFirstTrainerListServer(category: "friend", page: 0, size: 100, sort: ["recent,DESC"])
         self.getMatchingRequestList()
+        self.getSuccessMatchingListServer()
         let nextVC = GradeTableViewController()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             self.navigationController?.pushViewController(nextVC, animated: true)
@@ -266,7 +267,28 @@ extension SignInViewController {
     }
     func getMatchingRequestList(){
         CustomerAPI.shared.getMatchingListAPI(){ response in
-            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
+//            guard let matchingListResponse = response?.result else { return }
+//            if response?.isSuccess == true {
+//                CommunityViewController.matchingList = matchingListResponse
+//            }else {
+//                print("매칭 보낸 목록을 불러오는데 실패했습니다.")
+//            }
+            guard let requestListresponse = response?.result else {return}
+            if requestListresponse.count != 0 {
+                CommunityViewController.matchingList = requestListresponse
+            }else {
+                CommunityViewController.matchingList = [MatchingList]()
+            }
+        }
+    }
+    func getSuccessMatchingListServer(){
+        CustomerAPI.shared.getSuccessMatchingListAPI(){ response in
+            guard let successMatchingListResponse = response?.result else { return }
+            if response?.isSuccess == true {
+                MatchViewController.successMatchList = successMatchingListResponse
+            }else {
+                print("성공된 매칭을 불러오는데 실패했습니다.")
+            }
         }
     }
 }

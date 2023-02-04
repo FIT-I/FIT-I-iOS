@@ -147,7 +147,7 @@ class MatchingReviewViewController: UIViewController {
         }
 
         reviewTextView.snp.makeConstraints {
-            $0.top.equalTo(matchingReview.snp.bottom).offset(-10)
+            $0.top.equalTo(matchingReview.snp.bottom)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-15)
             $0.height.equalTo(210)

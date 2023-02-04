@@ -40,6 +40,7 @@ class ReviewViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        reviewTableView.reloadData()
         setReviewData()
     }
     
