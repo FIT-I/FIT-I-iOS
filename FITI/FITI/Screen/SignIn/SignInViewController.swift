@@ -201,7 +201,11 @@ class SignInViewController: UIViewController {
         }
     }
     private func ifSuccessPushHome(){
-        self.getFirstTrainerListServer(category: "pt", page: 0, size: 200, sort: ["current"])
+        self.getFirstTrainerListServer(category: "pt", page: 0, size: 100, sort: ["recent,DESC"])
+        self.getFirstTrainerListServer(category: "food", page: 0, size: 100, sort: ["recent,DESC"])
+        self.getFirstTrainerListServer(category: "diet", page: 0, size: 100, sort: ["recent,DESC"])
+        self.getFirstTrainerListServer(category: "rehab", page: 0, size: 100, sort: ["recent,DESC"])
+        self.getFirstTrainerListServer(category: "friend", page: 0, size: 100, sort: ["recent,DESC"])
         self.getMatchingRequestList()
         let nextVC = GradeTableViewController()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
@@ -245,7 +249,19 @@ extension SignInViewController {
     func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
         TrainerAPI.shared.getFirstTrainerListAPI(category: category, page: page, size: size, sort: sort) { response in
             guard let trainerListResponse = response?.result.dto else { return }
-            HomeViewController.trainerList = trainerListResponse
+            switch category {
+            case "pt":
+                HomeViewController.trainerList = trainerListResponse
+            case "food":
+                FoodTrainerViewController.trainerList = trainerListResponse
+            case "diet":
+                DietTrainerViewController.trainerList = trainerListResponse
+            case "rehab":
+                RehabilitationTrainerViewController.trainerList = trainerListResponse
+            case "friend":
+                FriendTrainerViewController.trainerList = trainerListResponse
+            default: break
+            }
         }
     }
     func getMatchingRequestList(){

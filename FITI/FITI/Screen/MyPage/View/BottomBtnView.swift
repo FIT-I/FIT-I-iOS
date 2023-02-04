@@ -10,7 +10,8 @@ import UIKit
 import SnapKit
 
 class BottomBtnView : UIView {
-    var heartListBtn : UIButton = {
+    
+    lazy var heartListBtn : UIButton = {
         let btn = UIButton()
         btn.snp.makeConstraints { make in
             make.height.equalTo(22)
@@ -20,7 +21,7 @@ class BottomBtnView : UIView {
         return btn
     }()
     
-    var userLocationBtn : UIButton = {
+    lazy var writeReviewBtn : UIButton = {
         let btn = UIButton()
         btn.snp.makeConstraints { make in
             make.height.equalTo(22)
@@ -30,7 +31,7 @@ class BottomBtnView : UIView {
         return btn
     }()
     
-    var noticeBtn : UIButton = {
+    lazy var userLocationBtn : UIButton = {
         let btn = UIButton()
         btn.snp.makeConstraints { make in
             make.height.equalTo(22)
@@ -40,7 +41,27 @@ class BottomBtnView : UIView {
         return btn
     }()
     
-    var clauseBtn : UIButton = {
+    lazy var petchPasswordBtn : UIButton = {
+        let btn = UIButton()
+        btn.snp.makeConstraints { make in
+            make.height.equalTo(22)
+        }
+        btn.backgroundColor = .systemBackground
+        btn.setImage(UIImage(named: "rightBtn"), for: .normal)
+        return btn
+    }()
+    
+    lazy var noticeBtn : UIButton = {
+        let btn = UIButton()
+        btn.snp.makeConstraints { make in
+            make.height.equalTo(22)
+        }
+        btn.backgroundColor = .systemBackground
+        btn.setImage(UIImage(named: "rightBtn"), for: .normal)
+        return btn
+    }()
+    
+    lazy var clauseBtn : UIButton = {
         let btn = UIButton()
         btn.snp.makeConstraints { make in
             make.height.equalTo(22)
@@ -51,7 +72,7 @@ class BottomBtnView : UIView {
     }()
     
     lazy var globalStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [heartListBtn,userLocationBtn,noticeBtn,clauseBtn])
+        let stackView = UIStackView(arrangedSubviews: [heartListBtn,writeReviewBtn,userLocationBtn,petchPasswordBtn,noticeBtn,clauseBtn])
         stackView.axis = .vertical
         stackView.spacing = 20
         stackView.alignment = .leading

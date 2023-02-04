@@ -17,15 +17,7 @@ class HomeViewController: UIViewController {
     static var trainerList = [Dto]()
     
     // MARK: - UI Components
-    
-    let lineView : UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.customColor(.boxGray)
-        view.snp.makeConstraints { make in
-            make.height.equalTo(10)
-        }
-        return view
-    }()
+
     let trainerTableView : UITableView = {
         let tableview = UITableView()
         return tableview
@@ -63,9 +55,9 @@ class HomeViewController: UIViewController {
 
     // MARK: - @objc Func
     
-    @objc func tapped(sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
-    }
+//    @objc func tapped(sender: UIBarButtonItem) {
+//        navigationController?.popViewController(animated: true)
+//    }
     
     // MARK: - Func
     

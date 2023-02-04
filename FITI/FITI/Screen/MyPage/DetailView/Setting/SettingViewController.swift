@@ -119,6 +119,8 @@ class SettingViewController: UIViewController {
         try! realm.localRealm.write {
             realm.localRealm.deleteAll()
         }
+        TrainerDetailViewController.isHeartFull = false
+        TrainerDetailViewController.trainerHeartList = .init()
         print(realm.getToken())
         let signInView = SignInViewController()
         self.navigationController?.pushViewController(signInView, animated: true)

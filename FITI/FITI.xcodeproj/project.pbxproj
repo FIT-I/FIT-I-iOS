@@ -37,6 +37,10 @@
 		9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA23296B558900FC5107 /* SearchTVC.swift */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
 		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
+		9141D821298E55D100A201BB /* MatchingReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D820298E55D100A201BB /* MatchingReview.swift */; };
+		9141D823298E55ED00A201BB /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D822298E55ED00A201BB /* BaseView.swift */; };
+		9141D825298E55F600A201BB /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D824298E55F600A201BB /* RateView.swift */; };
+		9141D827298E560500A201BB /* MatchingReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D826298E560500A201BB /* MatchingReviewViewController.swift */; };
 		9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4BC2976FC5C00577DC3 /* DetailBodyIntroViewController.swift */; };
 		9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4BE2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift */; };
 		9163A4C12977081600577DC3 /* DetailBodyIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4C02977081600577DC3 /* DetailBodyIntroView.swift */; };
@@ -80,7 +84,7 @@
 		91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D4B2961866100F29DA5 /* TabBarController.swift */; };
 		91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D4D2961867600F29DA5 /* HomeViewController.swift */; };
 		91C32D502961868500F29DA5 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D4F2961868500F29DA5 /* CommunityViewController.swift */; };
-		91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D512961869000F29DA5 /* ChatViewController.swift */; };
+		91C32D522961869000F29DA5 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D512961869000F29DA5 /* MatchViewController.swift */; };
 		91C32D542961869C00F29DA5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C32D532961869C00F29DA5 /* MyPageViewController.swift */; };
 		91CFCFC2297FF8D40009944D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFCFC1297FF8D40009944D /* RealmService.swift */; };
 		91CFCFC8297FFA4D0009944D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 91CFCFC7297FFA4D0009944D /* Realm */; };
@@ -141,6 +145,10 @@
 		9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserNameViewController.swift; sourceTree = "<group>"; };
 		9130CA23296B558900FC5107 /* SearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVC.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		9141D820298E55D100A201BB /* MatchingReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingReview.swift; sourceTree = "<group>"; };
+		9141D822298E55ED00A201BB /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		9141D824298E55F600A201BB /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
+		9141D826298E560500A201BB /* MatchingReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingReviewViewController.swift; sourceTree = "<group>"; };
 		9163A4BC2976FC5C00577DC3 /* DetailBodyIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroViewController.swift; sourceTree = "<group>"; };
 		9163A4BE2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroAboutServiceView.swift; sourceTree = "<group>"; };
 		9163A4C02977081600577DC3 /* DetailBodyIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroView.swift; sourceTree = "<group>"; };
@@ -183,7 +191,7 @@
 		91C32D4B2961866100F29DA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		91C32D4D2961867600F29DA5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		91C32D4F2961868500F29DA5 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
-		91C32D512961869000F29DA5 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		91C32D512961869000F29DA5 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		91C32D532961869C00F29DA5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		91CFCFC1297FF8D40009944D /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		91CFCFCB297FFA710009944D /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -255,22 +263,22 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		910182BD29618CA700FC10DB /* Community */ = {
+		910182BD29618CA700FC10DB /* RequestList */ = {
 			isa = PBXGroup;
 			children = (
 				91C32D4F2961868500F29DA5 /* CommunityViewController.swift */,
 				916A2C46297056F2005F0420 /* CommunityTableCell.swift */,
 				91E08256298C01A10033D39E /* RequestSheetViewController.swift */,
 			);
-			path = Community;
+			path = RequestList;
 			sourceTree = "<group>";
 		};
-		910182BE29618CAF00FC10DB /* Chat */ = {
+		910182BE29618CAF00FC10DB /* Match */ = {
 			isa = PBXGroup;
 			children = (
-				91C32D512961869000F29DA5 /* ChatViewController.swift */,
+				91C32D512961869000F29DA5 /* MatchViewController.swift */,
 			);
-			path = Chat;
+			path = Match;
 			sourceTree = "<group>";
 		};
 		910182BF29618CB500FC10DB /* MyPage */ = {
@@ -456,6 +464,17 @@
 			path = TrainerDetail;
 			sourceTree = "<group>";
 		};
+		9141D828298E5B4D00A201BB /* ReviewSheet */ = {
+			isa = PBXGroup;
+			children = (
+				9141D822298E55ED00A201BB /* BaseView.swift */,
+				9141D824298E55F600A201BB /* RateView.swift */,
+				9141D820298E55D100A201BB /* MatchingReview.swift */,
+				9141D826298E560500A201BB /* MatchingReviewViewController.swift */,
+			);
+			path = ReviewSheet;
+			sourceTree = "<group>";
+		};
 		9163A4C22977111D00577DC3 /* BodyIntro */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,9 +601,10 @@
 				910182BC29618CA100FC10DB /* Home */,
 				913E02C829634607001CC92B /* TrainerDetail */,
 				910D80522965667100828E4B /* RequestSheet */,
-				910182BD29618CA700FC10DB /* Community */,
-				910182BE29618CAF00FC10DB /* Chat */,
+				910182BD29618CA700FC10DB /* RequestList */,
+				910182BE29618CAF00FC10DB /* Match */,
 				910182BF29618CB500FC10DB /* MyPage */,
+				9141D828298E5B4D00A201BB /* ReviewSheet */,
 				910D80662966C98E00828E4B /* SignUp */,
 				910182C029618CCA00FC10DB /* SignIn */,
 			);
@@ -814,9 +834,11 @@
 				91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */,
 				917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */,
 				91877D6A2969269D0074386B /* RequestSheet.swift in Sources */,
+				9141D821298E55D100A201BB /* MatchingReview.swift in Sources */,
 				91783E9F29863D9700B8CC2E /* MyPageAPI.swift in Sources */,
 				91CFCFE1298004CF0009944D /* SignUpRepsonse.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
+				9141D827298E560500A201BB /* MatchingReviewViewController.swift in Sources */,
 				91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */,
 				91E08255298BEFA80033D39E /* MatchingListResponse.swift in Sources */,
 				91185FC9296D8C360099B641 /* BookCVC.swift in Sources */,
@@ -884,18 +906,20 @@
 				916A2C49297090D3005F0420 /* FindPwViewController.swift in Sources */,
 				9130CA0B296B055E00FC5107 /* NoticeViewController.swift in Sources */,
 				910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */,
+				9141D825298E55F600A201BB /* RateView.swift in Sources */,
 				91CFCFD0297FFB720009944D /* CustomNotification.swift in Sources */,
 				91783EA329863DAC00B8CC2E /* SignAPI.swift in Sources */,
 				91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
 				916A2C47297056F2005F0420 /* CommunityTableCell.swift in Sources */,
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
-				91C32D522961869000F29DA5 /* ChatViewController.swift in Sources */,
+				91C32D522961869000F29DA5 /* MatchViewController.swift in Sources */,
 				91F75B09296C11A800B31F3B /* RehabilitationTrainerViewController.swift in Sources */,
 				91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */,
 				91CFCFC2297FF8D40009944D /* RealmService.swift in Sources */,
 				9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */,
 				910D805629656AA400828E4B /* PickDateViewController.swift in Sources */,
+				9141D823298E55ED00A201BB /* BaseView.swift in Sources */,
 				91E0825C298C0F570033D39E /* BaseURL.swift in Sources */,
 				91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */,
 			);
