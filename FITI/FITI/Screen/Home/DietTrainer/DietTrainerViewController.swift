@@ -31,11 +31,18 @@ class DietTrainerViewController: UIViewController {
         signInViewAddUI()
         signInViewSetUI()
         setTableView()
-        getMatchingRequestList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         getHeartListServer()
+        getMatchingRequestList()
+        self.getFirstTrainerListServer(category: "pt", page: 0, size: 100, sort: ["recent,DESC"])
+        self.getFirstTrainerListServer(category: "food", page: 0, size: 100, sort: ["recent,DESC"])
+        self.getFirstTrainerListServer(category: "diet", page: 0, size: 100, sort: ["recent,DESC"])
+        self.getFirstTrainerListServer(category: "rehab", page: 0, size: 100, sort: ["recent,DESC"])
+        self.getFirstTrainerListServer(category: "friend", page: 0, size: 100, sort: ["recent,DESC"])
+        self.getMatchingRequestList()
+        self.getSuccessMatchingListServer()
     }
     
     func signInViewAddUI(){
@@ -114,6 +121,34 @@ extension DietTrainerViewController {
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             TrainerDetailViewController.trainerHeartList = heartListResponse
+        }
+    }
+    func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
+        TrainerAPI.shared.getFirstTrainerListAPI(category: category, page: page, size: size, sort: sort) { response in
+            guard let trainerListResponse = response?.result.dto else { return }
+            switch category {
+            case "pt":
+                HomeViewController.trainerList = trainerListResponse
+            case "food":
+                FoodTrainerViewController.trainerList = trainerListResponse
+            case "diet":
+                DietTrainerViewController.trainerList = trainerListResponse
+            case "rehab":
+                RehabilitationTrainerViewController.trainerList = trainerListResponse
+            case "friend":
+                FriendTrainerViewController.trainerList = trainerListResponse
+            default: break
+            }
+        }
+    }
+    func getSuccessMatchingListServer(){
+        CustomerAPI.shared.getSuccessMatchingListAPI(){ response in
+            guard let successMatchingListResponse = response?.result else { return }
+            if response?.isSuccess == true {
+                MatchViewController.successMatchList = successMatchingListResponse
+            }else {
+                print("성공된 매칭을 불러오는데 실패했습니다.")
+            }
         }
     }
 }
