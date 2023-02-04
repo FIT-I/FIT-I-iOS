@@ -7,31 +7,6 @@
 
 import Foundation
 
-//// MARK: - SpecificTrainerResponse
-//struct SpecificTrainerResponse: Codable {
-//    let isSuccess: Bool
-//    let code: Int
-//    let message: String
-//    var result: Trainer? = nil
-//}
-//
-//// MARK: - Trainer
-//struct Trainer: Codable {
-//    var name: String? = nil
-//    var profile: String? = nil
-//    var levelName: String? = nil
-//    var background: String? = nil
-//    var school: String? = nil
-//    var grade: Double = 0
-//    var cost: Int = 0
-//    var intro: String? = nil
-//    var service: String? = nil
-//    var reviewDto: [ReviewDto]? = nil
-//    var imageList: [String]? = nil
-//    init(){}
-//}
-//
-
 // MARK: - SpecificTrainerResponse
 struct SpecificTrainerResponse: Codable {
     let isSuccess: Bool
@@ -53,8 +28,6 @@ struct Trainer: Codable {
     var service: String? = nil
     var reviewDto: [ReviewDto]? = nil
     var imageList: [String]? = nil
-    var matchingState: Bool? = nil
-    var category: String? = nil
     init(){}
 }
 
