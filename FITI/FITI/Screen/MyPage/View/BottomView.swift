@@ -11,7 +11,7 @@ import UIKit
 
 class BottomView : UIView {
     
-    var heartList : UILabel = {
+    private lazy var heartList : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "찜 목록"
@@ -23,12 +23,36 @@ class BottomView : UIView {
         return label
     }()
     
-    var userLocation : UILabel = {
+    private lazy var writeReview : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
-        label.text = "본인 위치 설정"
+        label.text = "매칭 내역 보기 / 후기 작성란"
+        label.snp.makeConstraints { make in
+            make.width.equalTo(200)
+            make.height.equalTo(22)
+        }
+        label.textColor = UIColor.customColor(.blue)
+        return label
+    }()
+
+    private lazy var userLocation : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 15.0)
+        label.text = "매칭 위치 설정"
         label.snp.makeConstraints { make in
             make.width.equalTo(90)
+            make.height.equalTo(22)
+        }
+        label.textColor = UIColor.customColor(.blue)
+        return label
+    }()
+    
+    private lazy var petchPassword : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 15.0)
+        label.text = "비밀번호 재설정"
+        label.snp.makeConstraints { make in
+            make.width.equalTo(120)
             make.height.equalTo(22)
         }
         label.textColor = UIColor.customColor(.blue)
@@ -60,7 +84,7 @@ class BottomView : UIView {
     }()
     
     lazy var globalStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [heartList,userLocation,notice,clause])
+        let stackView = UIStackView(arrangedSubviews: [heartList,writeReview,userLocation,petchPassword,notice,clause])
         stackView.axis = .vertical
         stackView.spacing = 20
         stackView.alignment = .leading

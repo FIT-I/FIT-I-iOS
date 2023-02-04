@@ -46,7 +46,7 @@ class CommunityViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         getHeartListServer()
-        getFirstTrainerListServer(category:"pt",page:0,size:200,sort:["current"])
+//        getFirstTrainerListServer(category:"pt",page:0,size:200,sort:["current"])
     }
     
     func setViewHierarchy(){

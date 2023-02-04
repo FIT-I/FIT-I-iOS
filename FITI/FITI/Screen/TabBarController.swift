@@ -12,7 +12,7 @@ class TabBarController: UITabBarController {
     
     let homeVC = TabManViewController()
     let communityVC = CommunityViewController()
-    let chatVC = ChatViewController()
+    let chatVC = MatchViewController()
     let myPageVC = MyPageViewController()
     
     // 탭바 터치 바운스 이벤트
@@ -46,20 +46,17 @@ class TabBarController: UITabBarController {
         self.tabBar.backgroundColor = .systemBackground
         
         homeVC.title = "홈"
-        communityVC.title = "매칭내역"
-        chatVC.title = "채팅"
+        communityVC.title = "요청 내역"
+        chatVC.title = "매칭 내역"
         myPageVC.title = "마이페이지"
         
         let ViewControllers:[UIViewController] = [homeVC,communityVC,chatVC,myPageVC]
-        // assign view controllers to tab bar
         self.setViewControllers(ViewControllers, animated: true)
         
         homeVC.tabBarItem.image = UIImage(systemName: "house")
         communityVC.tabBarItem.image = UIImage(systemName: "globe.asia.australia")
         chatVC.tabBarItem.image = UIImage(systemName: "ellipsis.bubble")
         myPageVC.tabBarItem.image = UIImage(systemName: "person")
-        
-        //네비게이션 뷰컨으로 푸쉬했을 때 밑에 바가 사라지지 않도록
         self.hidesBottomBarWhenPushed = false
         viewWillLayoutSubviews()
     }
