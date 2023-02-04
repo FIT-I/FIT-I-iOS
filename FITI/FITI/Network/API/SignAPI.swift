@@ -27,7 +27,7 @@ final class SignAPI {
                 do {
                     self.signInData = try moyaResponse.map(SignInResponse.self)
                     completion(signInData)
-                } catch(let err) {
+                } catch(let err) { 
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):

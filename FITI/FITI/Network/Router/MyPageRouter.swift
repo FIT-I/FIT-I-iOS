@@ -28,7 +28,7 @@ extension MyPageRouter: TargetType, AccessTokenAuthorizable {
         case .getMyPage:
             return "/api/communal/mypage"
         case .locationSetting(let location):
-            return "/api/customer/location/\(location)"
+            return "/api/communal/location/\(location)"
         case .writeReview:
             return "/api/customer/review"
         case .fixProfile(let profile):
