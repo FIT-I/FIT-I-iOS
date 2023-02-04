@@ -20,6 +20,7 @@ final class CustomerAPI {
     private(set) var requestMatchingData: RequestMatchingResponse?
     private(set) var matchListData: MatchingListResponse?
     private(set) var getRequestData: MatchSheetResponse?
+    private(set) var getSuccessMatchListData: SuccessMatchResponse?
     
     // 1. 트레이너 찜 등록 API
     func postAddHeartAPI(trainerIndex:Int, completion: @escaping (AddHeartResponse?) -> Void){
@@ -97,6 +98,23 @@ final class CustomerAPI {
                 do {
                     self.getRequestData = try moyaResponse.map(MatchSheetResponse.self)
                     completion(getRequestData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    // 6. 매칭 수락된 매칭 내역 조회 API
+    func getSuccessMatchingListAPI(completion: @escaping (SuccessMatchResponse?) -> Void){
+        self.customerProvider.request(.getSuccessMatchList){ [self] (response) in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    self.getSuccessMatchListData = try moyaResponse.map(SuccessMatchResponse.self)
+                    completion(getSuccessMatchListData)
                 } catch(let err) {
                     print(err.localizedDescription, 500)
                 }

@@ -15,6 +15,7 @@ enum CustomerRouter {
     case requestTrain(_ trainerIndex: Int, _ body: RequestMatchingRequest)
     case getMatchingList
     case getMatchSheet(_ matchingIndex: Int)
+    case getSuccessMatchList
 }
 
 extension CustomerRouter: TargetType, AccessTokenAuthorizable {
@@ -36,6 +37,8 @@ extension CustomerRouter: TargetType, AccessTokenAuthorizable {
             return "/api/matching/customer"
         case .getMatchSheet(let matchingIndex):
             return "/api/matching/\(matchingIndex)"
+        case .getSuccessMatchList:
+            return "/api/chat/entered"
         }
     }
     
@@ -45,14 +48,14 @@ extension CustomerRouter: TargetType, AccessTokenAuthorizable {
             return .post
         case .deleteHeart:
             return .delete
-        case .getMatchingList, .getMatchSheet:
+        case .getMatchingList, .getMatchSheet, .getSuccessMatchList:
             return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .addHeart, .deleteHeart, .getMatchingList, .getMatchSheet:
+        case .addHeart, .deleteHeart, .getMatchingList, .getMatchSheet, .getSuccessMatchList:
             return .requestPlain
         case .requestTrain(_, let body):
             return .requestJSONEncodable(body)

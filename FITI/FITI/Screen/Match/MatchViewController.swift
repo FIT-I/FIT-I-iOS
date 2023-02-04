@@ -8,6 +8,9 @@
 import UIKit
 
 class MatchViewController: UIViewController {
+    
+    static var successMatchList = [SuccessMatchSheet]()
+    
     private lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
@@ -23,7 +26,7 @@ class MatchViewController: UIViewController {
         }
         return view
     }()
-    private lazy var requestTableView : UITableView = {
+    private lazy var matchTableView : UITableView = {
         let tableview = UITableView()
         return tableview
     }()
@@ -33,12 +36,12 @@ class MatchViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setViewHierarchy()
         setConstraints()
-//        setTableView()
+        setTableView()
     }
     func setViewHierarchy(){
         view.addSubview(titleLabel)
         view.addSubview(progressView)
-//        view.addSubview(requestTableView)
+        view.addSubview(matchTableView)
     }
     func setConstraints(){
         titleLabel.snp.makeConstraints { make in
@@ -51,31 +54,34 @@ class MatchViewController: UIViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
-//        requestTableView.snp.makeConstraints { make in
-//            make.top.equalTo(progressView.snp.bottom)
-//            make.leading.equalToSuperview().offset(20)
-//            make.trailing.equalToSuperview()
-//            make.bottom.equalToSuperview()
-//        }
+        matchTableView.snp.makeConstraints { make in
+            make.top.equalTo(progressView.snp.bottom)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
     }
-//    func setTableView(){
-//        requestTableView.register(CommunityTableCell.self, forCellReuseIdentifier: CommunityTableCell.identifier)
-//        requestTableView.delegate = self
-//        requestTableView.dataSource = self
-//    }
+    func setTableView(){
+        matchTableView.register(MatchTableCell.self, forCellReuseIdentifier: MatchTableCell.identifier)
+        matchTableView.delegate = self
+        matchTableView.dataSource = self
+    }
 }
 
-//extension MatchViewController : UITableViewDelegate {
-//
-//}
-//
-//extension MatchViewController : UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 0
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: )
-//        retr
-//    }
-//}
+extension MatchViewController : UITableViewDelegate {
+
+}
+
+extension MatchViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MatchViewController.successMatchList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MatchTableCell.identifier, for: indexPath) as? MatchTableCell ?? MatchTableCell()
+        cell.bindingMatchingRequestList(model: MatchViewController.successMatchList[indexPath.row])
+        cell.selectionStyle = .none
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+}

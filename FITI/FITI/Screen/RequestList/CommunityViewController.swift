@@ -119,9 +119,9 @@ extension CommunityViewController : UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 80
+//    }
 }
 
 // MARK: - Network

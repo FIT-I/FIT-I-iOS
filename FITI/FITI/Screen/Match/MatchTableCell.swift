@@ -1,26 +1,26 @@
 //
-//  CommunityTableCell.swift
+//  MatchTableCell.swift
 //  FITI
 //
-//  Created by 홍준혁 on 2023/01/12.
+//  Created by 홍준혁 on 2023/02/04.
 //
 
 import Foundation
 import UIKit
 import SnapKit
 
-class CommunityTableCell: UITableViewCell {
+class MatchTableCell: UITableViewCell {
     
     // MARK: - Properties
     
-    static let identifier = "CommunityTableCell"
+    static let identifier = "MatchTableCell"
     public var trainerId = Int()
-    public var matchingId = Int()
     
     // MARK: - UI Components
     
     private lazy var reviewerImage : UIImageView = {
         let imgView = UIImageView()
+        imgView.image = UIImage(named: "reviewerIcon.svg")
         imgView.snp.makeConstraints { make in
             make.height.width.equalTo(40)
         }
@@ -58,6 +58,12 @@ class CommunityTableCell: UITableViewCell {
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
+    private lazy var kakaoLink : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12.0)
+        label.textColor = UIColor.customColor(.darkGray)
+        return label
+    }()
     private lazy var rateStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [starIcon,grade,school])
         stackView.axis = .horizontal
@@ -66,7 +72,7 @@ class CommunityTableCell: UITableViewCell {
         return stackView
     }()
     private lazy var nameStackView : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [name,rateStackView])
+        let stackView = UIStackView(arrangedSubviews: [name,rateStackView,kakaoLink])
         stackView.axis = .vertical
         stackView.spacing = 5
         stackView.alignment = .leading
@@ -92,7 +98,8 @@ class CommunityTableCell: UITableViewCell {
             make.leading.equalToSuperview()
         }
         date.snp.makeConstraints { make in
-            make.centerY.equalTo(globalStackView)
+//            make.centerY.equalTo(globalStackView)
+            make.top.equalTo(name)
             make.trailing.equalToSuperview().offset(-10)
         }
     }
@@ -103,19 +110,20 @@ class CommunityTableCell: UITableViewCell {
 
 // MARK: - Extension
 
-extension CommunityTableCell {
-    public func bindingMatchingRequestList(model:MatchingList){
-        name.text = model.name
-        date.text = model.orderDate
-        grade.text = String(model.grade)
-        school.text = model.school
-        trainerId = model.trainerID
-        matchingId = model.matchingID
-        if model.profile == "trainerProfile" {
-            reviewerImage.image = UIImage(named: "reviewerIcon.svg")
-        }else {
-            let url = URL(string: model.profile)
-            reviewerImage.kf.setImage(with: url)
-        }
+extension MatchTableCell {
+    public func bindingMatchingRequestList(model:SuccessMatchSheet){
+        name.text = model.trainerName
+        date.text = model.createdAt.substring(from: 0, to: 9)
+        grade.text = String(model.trainerGrade)
+        school.text = model.trainerSchool
+        trainerId = model.trainerId
+        // MARK: - FIX ME
+        kakaoLink.text = model.openChatLink ?? "https://open.kakao.com/o/szgx3A2e"
+//        if model.profile == "trainerProfile" {
+//            reviewerImage.image = UIImage(named: "reviewerIcon.svg")
+//        }else {
+//            let url = URL(string: model.profile)
+//            reviewerImage.kf.setImage(with: url)
+//        }
     }
 }
