@@ -133,12 +133,14 @@ class TrainerDetailViewController: UIViewController {
     // MARK: Func
     
     func setHeartIcon() {
+        print(TrainerDetailViewController.trainerHeartList)
         for i in 0..<TrainerDetailViewController.trainerHeartList.count {
-            print(TrainerDetailViewController.trainerHeartList[i].trainerIdx)
-            print(TrainerDetailViewController.id)
+//            print(TrainerDetailViewController.trainerHeartList[i].trainerIdx)
+//            print(TrainerDetailViewController.id)
             if TrainerDetailViewController.trainerHeartList[i].trainerIdx == TrainerDetailViewController.id {
                 TrainerDetailViewController.isHeartFull = true
                 TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+                return
             }else {
                 TrainerDetailViewController.isHeartFull = false
                 TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.svg"), for: .normal)

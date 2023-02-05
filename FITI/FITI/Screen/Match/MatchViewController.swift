@@ -79,7 +79,18 @@ class MatchViewController: UIViewController {
 }
 
 extension MatchViewController : UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let touchedCell = tableView.cellForRow(at: indexPath) as! MatchTableCell
+        print(touchedCell.trainerId)
+        LoadingView.showLoading()
+        self.getSpecificTrainerServer(trainerIdx: touchedCell.trainerId)
+        let nextVC = TrainerDetailViewController()
+        TrainerDetailViewController.id = touchedCell.trainerId
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            LoadingView.hideLoading()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+    }
 }
 
 extension MatchViewController : UITableViewDataSource {
@@ -97,6 +108,15 @@ extension MatchViewController : UITableViewDataSource {
 }
 
 extension MatchViewController {
+    func getSpecificTrainerServer(trainerIdx:Int){
+        print("getSpecific")
+        TrainerAPI.shared.getSpecificTrainerAPI(trainerIdx: trainerIdx) { response in
+            guard let specificTrainerResponse = response?.result else { return }
+            TrainerDetailViewController.specificTrainer = specificTrainerResponse
+            BodyReviewView.previewReviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
+            print(specificTrainerResponse)
+        }
+    }
     func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
         TrainerAPI.shared.getFirstTrainerListAPI(category: category, page: page, size: size, sort: sort) { response in
             guard let trainerListResponse = response?.result.dto else { return }
