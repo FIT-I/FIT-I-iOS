@@ -106,7 +106,6 @@
 		91E08255298BEFA80033D39E /* MatchingListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08254298BEFA80033D39E /* MatchingListResponse.swift */; };
 		91E08257298C01A10033D39E /* RequestSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08256298C01A10033D39E /* RequestSheetViewController.swift */; };
 		91E0825A298C06620033D39E /* MatchSheetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08259298C06620033D39E /* MatchSheetResponse.swift */; };
-		91E0825C298C0F570033D39E /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0825B298C0F570033D39E /* BaseURL.swift */; };
 		91E0825E298C37520033D39E /* WithDrawResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0825D298C37520033D39E /* WithDrawResponse.swift */; };
 		91F75B00296C109200B31F3B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 91F75AFF296C109200B31F3B /* Tabman */; };
 		91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B01296C10A800B31F3B /* TabManViewController.swift */; };
@@ -116,6 +115,8 @@
 		91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B0A296C11D700B31F3B /* FriendTrainerViewController.swift */; };
 		91FDB3E12982637200053795 /* CustomerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDB3E02982637200053795 /* CustomerRouter.swift */; };
 		91FDB3E52982662700053795 /* WriteReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDB3E42982662700053795 /* WriteReviewRequest.swift */; };
+		C2CF5C3429900789005F2FA9 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF5C3329900789005F2FA9 /* ReportViewController.swift */; };
+		C2CF5C36299007B2005F2FA9 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF5C35299007B2005F2FA9 /* ReportView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,7 +213,6 @@
 		91E08254298BEFA80033D39E /* MatchingListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MatchingListResponse.swift; path = "../../../../../../.Trash/FIT-I-iOS 오후 10.09.39/FITI/FITI/Network/DTO/Customer/MatchingListResponse.swift"; sourceTree = "<group>"; };
 		91E08256298C01A10033D39E /* RequestSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSheetViewController.swift; sourceTree = "<group>"; };
 		91E08259298C06620033D39E /* MatchSheetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSheetResponse.swift; sourceTree = "<group>"; };
-		91E0825B298C0F570033D39E /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		91E0825D298C37520033D39E /* WithDrawResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawResponse.swift; sourceTree = "<group>"; };
 		91F75B01296C10A800B31F3B /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
 		91F75B04296C111900B31F3B /* DietTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietTrainerViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +221,8 @@
 		91F75B0A296C11D700B31F3B /* FriendTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTrainerViewController.swift; sourceTree = "<group>"; };
 		91FDB3E02982637200053795 /* CustomerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRouter.swift; sourceTree = "<group>"; };
 		91FDB3E42982662700053795 /* WriteReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewRequest.swift; sourceTree = "<group>"; };
+		C2CF5C3329900789005F2FA9 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		C2CF5C35299007B2005F2FA9 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -593,6 +595,7 @@
 		91CFCFBC297FF5280009944D /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				C2CF5C322990070D005F2FA9 /* Report */,
 				91C32D39296184AD00F29DA5 /* LaunchScreen.storyboard */,
 				91C32D4B2961866100F29DA5 /* TabBarController.swift */,
 				910182BC29618CA100FC10DB /* Home */,
@@ -642,7 +645,6 @@
 				91783E9A29863C6D00B8CC2E /* Router */,
 				91783E9829863C5B00B8CC2E /* API */,
 				91783E9729863C5100B8CC2E /* DTO */,
-				91E0825B298C0F570033D39E /* BaseURL.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -732,6 +734,15 @@
 				9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */,
 			);
 			path = Customer;
+			sourceTree = "<group>";
+		};
+		C2CF5C322990070D005F2FA9 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				C2CF5C3329900789005F2FA9 /* ReportViewController.swift */,
+				C2CF5C35299007B2005F2FA9 /* ReportView.swift */,
+			);
+			path = Report;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -837,6 +848,7 @@
 				91783E9F29863D9700B8CC2E /* MyPageAPI.swift in Sources */,
 				91CFCFE1298004CF0009944D /* SignUpRepsonse.swift in Sources */,
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
+				C2CF5C36299007B2005F2FA9 /* ReportView.swift in Sources */,
 				9141D827298E560500A201BB /* MatchingReviewViewController.swift in Sources */,
 				91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */,
 				91E08255298BEFA80033D39E /* MatchingListResponse.swift in Sources */,
@@ -851,6 +863,7 @@
 				91783EA129863DA300B8CC2E /* TrainerAPI.swift in Sources */,
 				9181B6EA2983C33C001D9427 /* MyPageRouter.swift in Sources */,
 				91CFCFCE297FFAFC0009944D /* Profile.swift in Sources */,
+				C2CF5C3429900789005F2FA9 /* ReportViewController.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				91E08257298C01A10033D39E /* RequestSheetViewController.swift in Sources */,
 				9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */,
@@ -920,7 +933,6 @@
 				91CFCFC2297FF8D40009944D /* RealmService.swift in Sources */,
 				9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */,
 				9141D823298E55ED00A201BB /* BaseView.swift in Sources */,
-				91E0825C298C0F570033D39E /* BaseURL.swift in Sources */,
 				91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
