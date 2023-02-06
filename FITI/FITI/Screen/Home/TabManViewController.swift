@@ -14,7 +14,25 @@ import SwiftUI
 
 class TabManViewController: TabmanViewController {
     
-    let customContainer = UIView()
+    private let logoImage : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named:"logo.svg")
+        return imageView
+    }()
+    
+    private lazy var heartListButton : UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(named: "redHeart.svg"), for: .normal)
+        btn.snp.makeConstraints { make in
+            make.height.width.equalTo(40)
+        }
+        return btn
+    }()
+    
+    let customContainer : UIView = {
+        let view = UIView()
+        return view
+    }()
     
     let titleLabel = UILabel().then {
         $0.text = "Home"
@@ -42,23 +60,29 @@ class TabManViewController: TabmanViewController {
     
     func setUI(){
         view.addSubview(customContainer)
+        customContainer.addSubviews(logoImage, heartListButton)
 
         customContainer.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(70)
+            make.top.equalToSuperview()
+            make.height.equalTo(110)
             make.leading.equalToSuperview().offset(25)
             make.trailing.equalToSuperview().offset(-25)
-//            make.bottom.equalToSuperview()
         }
-        
+        logoImage.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(65)
+            make.leading.equalToSuperview()
+        }
+        heartListButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(80)
+            make.trailing.equalToSuperview()
+        }
         addBar(bar, dataSource: self, at: .custom(view: customContainer, layout: { (bar) in
             bar.snp.makeConstraints { make in
-//                make.height.equalTo(50)
-                make.top.equalToSuperview()
+                make.top.equalToSuperview().offset(140)
                 make.leading.equalToSuperview()
                 make.trailing.equalToSuperview()
             }
         }))
-        
     }
     
     func settingTabBar (ctBar : TMBar.ButtonBar) {
