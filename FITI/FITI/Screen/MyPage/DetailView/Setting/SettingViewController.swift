@@ -122,8 +122,8 @@ class SettingViewController: UIViewController {
     }
     
     func cleanData(){
-        try! realm.localRealm.write {
-            realm.localRealm.deleteAll()
+        try! realm.localRealm?.write {
+            realm.localRealm?.deleteAll()
         }
         TrainerDetailViewController.isHeartFull = false
         TrainerDetailViewController.trainerHeartList = .init()

@@ -16,6 +16,7 @@ enum MyPageRouter {
     case notificationSetting(_ notIdx:Int)
     case getHeartList
     case withDraw
+    case patchPassword(_ body:PatchPasswordRequest)
 }
 
 extension MyPageRouter: TargetType, AccessTokenAuthorizable {
@@ -39,6 +40,8 @@ extension MyPageRouter: TargetType, AccessTokenAuthorizable {
             return "/api/customer/wish"
         case .withDraw:
             return "/api/accounts/close"
+        case .patchPassword:
+            return "/api/accounts/password"
         }
     }
     
@@ -48,7 +51,7 @@ extension MyPageRouter: TargetType, AccessTokenAuthorizable {
             return .get
         case .writeReview:
             return .post
-        case .locationSetting, .fixProfile, .notificationSetting, .withDraw:
+        case .locationSetting, .fixProfile, .notificationSetting, .withDraw, .patchPassword:
             return .patch
         }
     }
@@ -59,6 +62,8 @@ extension MyPageRouter: TargetType, AccessTokenAuthorizable {
             return .requestPlain
         case .writeReview(let param):
             return .requestJSONEncodable(param)
+        case .patchPassword(let body):
+            return .requestJSONEncodable(body)
         }
     }
     

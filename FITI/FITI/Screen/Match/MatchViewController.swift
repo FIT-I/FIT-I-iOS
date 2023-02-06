@@ -11,14 +11,14 @@ class MatchViewController: UIViewController {
     
     static var successMatchList = [SuccessMatchSheet]()
     
-    private lazy var titleLabel : UILabel = {
+    lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
         label.text = "매칭 내역 확인"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    private lazy var progressView : UIView = {
+    lazy var progressView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
         view.snp.makeConstraints { make in
@@ -57,7 +57,6 @@ class MatchViewController: UIViewController {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(70)
             make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
         }
         progressView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)

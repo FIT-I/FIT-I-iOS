@@ -67,7 +67,7 @@ class TabManViewController: TabmanViewController {
         ctBar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         
         // 간격
-        ctBar.layout.interButtonSpacing = 30
+        ctBar.layout.interButtonSpacing = 20
             
         ctBar.backgroundView.style = .blur(style: .light)
         

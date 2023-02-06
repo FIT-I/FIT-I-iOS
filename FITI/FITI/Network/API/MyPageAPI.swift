@@ -13,12 +13,13 @@ final class MyPageAPI {
     static let shared = MyPageAPI()
     private var myPageProvider = MoyaProvider<MyPageRouter>()
     
-    private init() { }
+    private init() {}
     
     private(set) var myPageData: MyPageResponse?
     private(set) var locationSettingData: PetchLocationResponse?
     private(set) var heartListData: HeartListResponse?
     private(set) var withDrawData: WithDrawResponse?
+    private(set) var patchPasswordData: PatchPasswordResponse?
     
     // 1. 마이페이지 조회 API
     func getMyPageDataAPI(completion: @escaping (MyPageResponse?) -> Void){
@@ -80,6 +81,23 @@ final class MyPageAPI {
                 do {
                     self.withDrawData = try moyaResponse.map(WithDrawResponse.self)
                     completion(withDrawData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    // 5. 비밀번호 변경 API
+    func patchPasswordAPI(body:PatchPasswordRequest, completion: @escaping (PatchPasswordResponse?) -> Void){
+        myPageProvider.request(.patchPassword(body)) { [self] (response) in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    self.patchPasswordData = try moyaResponse.map(PatchPasswordResponse.self)
+                    completion(patchPasswordData)
                 } catch(let err) {
                     print(err.localizedDescription, 500)
                 }
