@@ -12,10 +12,10 @@ import Moya
 
 class GradeTableViewController: UIViewController {
     private let gradeImage : UIImageView = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named:"gradeTable.svg")
-            return imageView
-        }()
+        let imageView = UIImageView()
+        imageView.image = UIImage(named:"gradeTable.svg")
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
