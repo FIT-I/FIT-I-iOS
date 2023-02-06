@@ -106,7 +106,8 @@ class SignInViewController: UIViewController {
         // MARK: - FIXME
 //        self.realm.resetDB()
         if checkRealmToken() {
-            print(self.realm.getToken())
+            print("accessToken : " + self.realm.getToken())
+            print("refreshToken : " + self.realm.getRefreshToken())
             ifSuccessPushHome()
         }
         self.dismissKeyboard()
@@ -213,8 +214,8 @@ class SignInViewController: UIViewController {
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
-    private func addTokenInRealm(item:String){
-        realm.addToken(item: item)
+    private func addTokenInRealm(accessToken:String,refreshToken:String){
+        realm.addToken(accessToken: accessToken, refreshToken: refreshToken)
         print(realm.getToken())
     }
     private func showFailAlert(){
@@ -239,8 +240,9 @@ extension SignInViewController {
             print(response?.message ?? "")
             guard let signInResponse = response?.result else { return }
             print(signInResponse.accessToken)
+            print(signInResponse.refreshToken)
             if response?.code == 1000 {
-                self.addTokenInRealm(item: signInResponse.accessToken)
+                self.addTokenInRealm(accessToken: signInResponse.accessToken, refreshToken: signInResponse.refreshToken)
                 self.ifSuccessPushHome()
             } else {
                 self.showFailAlert()
@@ -267,12 +269,6 @@ extension SignInViewController {
     }
     func getMatchingRequestList(){
         CustomerAPI.shared.getMatchingListAPI(){ response in
-//            guard let matchingListResponse = response?.result else { return }
-//            if response?.isSuccess == true {
-//                CommunityViewController.matchingList = matchingListResponse
-//            }else {
-//                print("매칭 보낸 목록을 불러오는데 실패했습니다.")
-//            }
             guard let requestListresponse = response?.result else {return}
             if requestListresponse.count != 0 {
                 CommunityViewController.matchingList = requestListresponse

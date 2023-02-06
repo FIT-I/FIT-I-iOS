@@ -11,14 +11,14 @@ class MatchViewController: UIViewController {
     
     static var successMatchList = [SuccessMatchSheet]()
     
-    private lazy var titleLabel : UILabel = {
+    lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
         label.text = "매칭 내역 확인"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
-    private lazy var progressView : UIView = {
+    lazy var progressView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
         view.snp.makeConstraints { make in
@@ -57,7 +57,6 @@ class MatchViewController: UIViewController {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(70)
             make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
         }
         progressView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
@@ -79,7 +78,18 @@ class MatchViewController: UIViewController {
 }
 
 extension MatchViewController : UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let touchedCell = tableView.cellForRow(at: indexPath) as! MatchTableCell
+        print(touchedCell.trainerId)
+        LoadingView.showLoading()
+        self.getSpecificTrainerServer(trainerIdx: touchedCell.trainerId)
+        let nextVC = TrainerDetailViewController()
+        TrainerDetailViewController.id = touchedCell.trainerId
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            LoadingView.hideLoading()
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+    }
 }
 
 extension MatchViewController : UITableViewDataSource {
@@ -97,6 +107,15 @@ extension MatchViewController : UITableViewDataSource {
 }
 
 extension MatchViewController {
+    func getSpecificTrainerServer(trainerIdx:Int){
+        print("getSpecific")
+        TrainerAPI.shared.getSpecificTrainerAPI(trainerIdx: trainerIdx) { response in
+            guard let specificTrainerResponse = response?.result else { return }
+            TrainerDetailViewController.specificTrainer = specificTrainerResponse
+            BodyReviewView.previewReviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
+            print(specificTrainerResponse)
+        }
+    }
     func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
         TrainerAPI.shared.getFirstTrainerListAPI(category: category, page: page, size: size, sort: sort) { response in
             guard let trainerListResponse = response?.result.dto else { return }

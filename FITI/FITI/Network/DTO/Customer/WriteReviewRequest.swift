@@ -6,13 +6,14 @@
 //
 
 struct WriteReviewRequest: Codable {
-    var trainerIdx: Int
-    var grade: Int
-    var contents: String
+    var trainerIdx: Int? = nil
+    var grade: Int? = nil
+    var contents: String? = nil
     
     init(trainerIdx: Int, grade: Int, contents: String) {
         self.trainerIdx = trainerIdx
         self.grade = grade
         self.contents = contents
     }
+    init(){}
 }

@@ -1,21 +1,21 @@
 //
-//  MatchTableCell.swift
+//  WriteReviewTableCell.swift
 //  FITI
 //
-//  Created by 홍준혁 on 2023/02/04.
+//  Created by 홍준혁 on 2023/02/06.
 //
 
 import Foundation
 import UIKit
 import SnapKit
 
-class MatchTableCell: UITableViewCell {
+class WriteReviewTableCell: UITableViewCell {
     
     // MARK: - Properties
     
-    static let identifier = "MatchTableCell"
+    static let identifier = "WriteReviewTableCell"
     public var trainerId = Int()
-    
+
     // MARK: - UI Components
     
     private lazy var reviewerImage : UIImageView = {
@@ -32,9 +32,10 @@ class MatchTableCell: UITableViewCell {
         label.textColor = UIColor.black
         return label
     }()
-    private lazy var date : UILabel = {
+    private lazy var writeReviewLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12.0)
+        label.text = "후기 작성하기"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()
@@ -91,15 +92,14 @@ class MatchTableCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.globalStackView)
-        self.contentView.addSubview(self.date)
+        self.contentView.addSubview(self.writeReviewLabel)
         globalStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
             make.leading.equalToSuperview()
         }
-        date.snp.makeConstraints { make in
-//            make.centerY.equalTo(globalStackView)
-            make.top.equalTo(name)
+        writeReviewLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(globalStackView)
             make.trailing.equalToSuperview().offset(-10)
         }
     }
@@ -110,20 +110,14 @@ class MatchTableCell: UITableViewCell {
 
 // MARK: - Extension
 
-extension MatchTableCell {
-    public func bindingMatchingRequestList(model:SuccessMatchSheet){
+extension WriteReviewTableCell {
+    public func bindingMatchingWriteReviewList(model:SuccessMatchSheet){
         name.text = model.trainerName
-        date.text = model.createdAt.substring(from: 0, to: 9)
         grade.text = String(model.trainerGrade)
         school.text = model.trainerSchool
         trainerId = model.trainerId
         // MARK: - FIX ME
         kakaoLink.text = model.openChatLink ?? "채팅방 링크가 없습니다."
-//        if model.profile == "trainerProfile" {
-//            reviewerImage.image = UIImage(named: "reviewerIcon.svg")
-//        }else {
-//            let url = URL(string: model.profile)
-//            reviewerImage.kf.setImage(with: url)
-//        }
     }
 }
+

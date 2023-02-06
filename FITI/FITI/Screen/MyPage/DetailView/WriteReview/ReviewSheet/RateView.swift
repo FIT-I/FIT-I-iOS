@@ -21,7 +21,6 @@ class RateView: BaseView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 10
-     //   stackView.backgroundColor = UIColor.customColor(.boxGray)
         return stackView
     }()
 
@@ -70,7 +69,6 @@ class RateView: BaseView {
         for i in end + 1..<starNumber {
             buttons[i].setImage(UIImage(named: "starEmpty.svg"), for: .normal)
         }
-
         currentStar = end + 1
     }
 

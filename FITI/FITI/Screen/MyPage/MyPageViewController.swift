@@ -79,6 +79,7 @@ class MyPageViewController: UIViewController {
         view.backgroundColor = .systemBackground
         self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
+        setNavigationController()
         setServerData()
         getMyPageServer()
         setViewLayer()
@@ -90,6 +91,7 @@ class MyPageViewController: UIViewController {
         setServerData()
         getHeartListServer()
         getMyPageServer()
+        getSuccessMatchingListServer()
     }
 
     func setViewLayer(){
@@ -97,21 +99,19 @@ class MyPageViewController: UIViewController {
     }
     
     func setViewHierarchy(){
-        
         self.setBtnEvents()
-        
-        view.addSubview(myPageTitleLabel)
-        view.addSubview(settingBtn)
-        view.addSubview(progressView)
-        view.addSubview(midProfileStackView)
-        view.addSubview(notiView)
-        view.addSubview(lineView)
-        view.addSubview(bottomView)
-        view.addSubview(bottomBtn)
+        view.addSubviews(myPageTitleLabel,
+                         settingBtn,
+                         progressView,
+                         midProfileStackView,
+                         notiView,
+                         lineView,
+                         bottomView,
+                         bottomBtn
+        )
     }
     
     func setConstraints(){
-        
         myPageTitleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(70)
             make.leading.equalToSuperview().offset(24)
@@ -152,11 +152,48 @@ class MyPageViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-20)
         }
     }
+    
+    // MARK: - @objc
 
     @objc func settingBtnEvent(){
         let nextVC = SettingViewController()
         navigationController?.pushViewController(nextVC, animated: true)
     }
+    
+    @objc func settingProfileBtnEvent(){
+        let nextVC = SettingProfileViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    @objc func heartListBtnEvent(){
+        let nextVC = HeartListViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @objc func reviewBtnEvent(){
+        let nextVC = WriteReviewViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @objc func localtionBtnEvent(){
+        let nextVC = SearchViewController()
+        self.present(nextVC, animated: true, completion: nil)
+    }
+    @objc func patchPasswordBtnEvent(){
+        let nextVC = PatchPasswordViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @objc func noticeBtnEvent(){
+        let nextVC = NoticeViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @objc func clauseBtnEvent(){
+        let nextVC = ClauseViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @objc func backTapped(sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - func
     
     func getMyPageServer(){
         self.myPageProvider.request(.getMyPage){ response in
@@ -178,43 +215,24 @@ class MyPageViewController: UIViewController {
         }
     }
     
-    
     func setBtnEvents(){
         bottomBtn.heartListBtn.addTarget(self, action: #selector(heartListBtnEvent), for: .touchUpInside)
+        bottomBtn.writeReviewBtn.addTarget(self, action: #selector(reviewBtnEvent), for: .touchUpInside)
         bottomBtn.userLocationBtn.addTarget(self, action: #selector(localtionBtnEvent), for: .touchUpInside)
         bottomBtn.noticeBtn.addTarget(self, action: #selector(noticeBtnEvent), for: .touchUpInside)
         bottomBtn.clauseBtn.addTarget(self, action: #selector(clauseBtnEvent), for: .touchUpInside)
         midProfileStackView.fixProfileBtn.addTarget(self, action: #selector(settingProfileBtnEvent), for: .touchUpInside)
-    }
-    
-    @objc func settingProfileBtnEvent(){
-        let nextVC = SettingProfileViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
-    }
-    
-    @objc func heartListBtnEvent(){
-        let nextVC = HeartListViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
-    }
-    
-    @objc func localtionBtnEvent(){
-        let nextVC = SearchViewController()
-        self.present(nextVC, animated: true, completion: nil)
-    }
-    
-    @objc func noticeBtnEvent(){
-        let nextVC = NoticeViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
-    }
-    
-    @objc func clauseBtnEvent(){
-        let nextVC = ClauseViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
+        bottomBtn.petchPasswordBtn.addTarget(self, action: #selector(patchPasswordBtnEvent), for: .touchUpInside)
     }
     
     private func setServerData(){
         midProfileStackView.name.text = MyPageViewController.MyInfo.userName
         midProfileStackView.userId.text = MyPageViewController.MyInfo.email
+    }
+    func setNavigationController(){
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.topItem?.title = ""
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
     }
 }
 
@@ -226,6 +244,16 @@ extension MyPageViewController {
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             HeartListViewController.heartList = heartListResponse
+        }
+    }
+    func getSuccessMatchingListServer(){
+        CustomerAPI.shared.getSuccessMatchingListAPI(){ response in
+            guard let successMatchingListResponse = response?.result else { return }
+            if response?.isSuccess == true {
+                MatchViewController.successMatchList = successMatchingListResponse
+            }else {
+                print("성공된 매칭을 불러오는데 실패했습니다.")
+            }
         }
     }
 }

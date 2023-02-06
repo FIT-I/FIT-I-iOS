@@ -12,6 +12,9 @@ import Then
 
 class MatchingReviewViewController: UIViewController {
 
+    static var tainerId = Int()
+    private var reviewSheet = WriteReviewRequest()
+    
     //MARK: - UI Components
 
     private lazy var reviewLabel: UILabel = {
@@ -93,6 +96,11 @@ class MatchingReviewViewController: UIViewController {
         self.dismissKeyboard()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.reviewSheet = WriteReviewRequest()
+        print(MatchingReviewViewController.tainerId)
+    }
 
     func setMRLayout() {
 
@@ -161,8 +169,33 @@ class MatchingReviewViewController: UIViewController {
     }
 
     @objc func requestButtonTouched(){
-    //    let nextVC =
-    //    navigationController?.pushViewController(nextVC, animated: true)
+        self.reviewSheet.grade = self.matchingReview.rateView.currentStar
+        self.reviewSheet.contents = self.reviewTextView.text
+        self.reviewSheet.trainerIdx = MatchingReviewViewController.tainerId
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            self.postReviewServer(body: self.reviewSheet)
+        }
+    }
+    
+    // MARK: - func
+    
+    func successAlert(message:String){
+        let alert = UIAlertController(title: "리뷰 작성", message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: { okAction in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func failAlert(message:String){
+        let alert = UIAlertController(title: "리뷰 작성 실패", message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: { okAction in
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -177,6 +210,17 @@ extension MatchingReviewViewController: UITextViewDelegate {
         if reviewTextView.textColor == UIColor.lightGray {
             reviewTextView.text = nil
             reviewTextView.textColor = UIColor.black
+        }
+    }
+}
+
+// MARK: - Network
+
+extension MatchingReviewViewController {
+    func postReviewServer(body: WriteReviewRequest){
+        CustomerAPI.shared.postReviewAPI(body: body){ response in
+            guard let postReviewResponse = response?.message else {return}
+            self.successAlert(message: postReviewResponse)
         }
     }
 }

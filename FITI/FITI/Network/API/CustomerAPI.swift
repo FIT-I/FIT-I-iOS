@@ -21,6 +21,7 @@ final class CustomerAPI {
     private(set) var matchListData: MatchingListResponse?
     private(set) var getRequestData: MatchSheetResponse?
     private(set) var getSuccessMatchListData: SuccessMatchResponse?
+    private(set) var postReviewData: WriteReviewResponse?
     
     // 1. 트레이너 찜 등록 API
     func postAddHeartAPI(trainerIndex:Int, completion: @escaping (AddHeartResponse?) -> Void){
@@ -116,6 +117,24 @@ final class CustomerAPI {
                     self.getSuccessMatchListData = try moyaResponse.map(SuccessMatchResponse.self)
                     completion(getSuccessMatchListData)
                 } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    // 7. 리뷰 작성 API
+    func postReviewAPI(body:WriteReviewRequest, completion: @escaping (WriteReviewResponse?) -> Void){
+        self.customerProvider.request(.postReview(body)) { [self] (response) in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    self.postReviewData = try moyaResponse.map(WriteReviewResponse.self)
+                    completion(postReviewData)
+                } catch(let err) {
+                    
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):

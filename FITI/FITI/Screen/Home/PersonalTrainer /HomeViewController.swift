@@ -60,12 +60,6 @@ class HomeViewController: UIViewController {
         }
     }
 
-    // MARK: - @objc Func
-    
-//    @objc func tapped(sender: UIBarButtonItem) {
-//        navigationController?.popViewController(animated: true)
-//    }
-    
     // MARK: - Func
     
     func setTableView(){

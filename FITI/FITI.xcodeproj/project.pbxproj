@@ -43,6 +43,12 @@
 		9141D82A298E7B6C00A201BB /* SuccessMatchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */; };
 		9141D82C298E7F0700A201BB /* MatchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D82B298E7F0700A201BB /* MatchTableCell.swift */; };
 		9141D82E298E871500A201BB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D82D298E871500A201BB /* String+.swift */; };
+		916195952990ED0B00703596 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195942990ED0B00703596 /* WriteReviewViewController.swift */; };
+		916195972990ED1F00703596 /* WriteReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195962990ED1F00703596 /* WriteReviewTableCell.swift */; };
+		916195992990F53F00703596 /* WriteReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195982990F53F00703596 /* WriteReviewResponse.swift */; };
+		9161959B2991073700703596 /* PatchPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9161959A2991073700703596 /* PatchPasswordRequest.swift */; };
+		9161959D2991082800703596 /* PatchPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9161959C2991082800703596 /* PatchPasswordResponse.swift */; };
+		9161959F2991090C00703596 /* PatchPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9161959E2991090C00703596 /* PatchPasswordViewController.swift */; };
 		9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4BC2976FC5C00577DC3 /* DetailBodyIntroViewController.swift */; };
 		9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4BE2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift */; };
 		9163A4C12977081600577DC3 /* DetailBodyIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163A4C02977081600577DC3 /* DetailBodyIntroView.swift */; };
@@ -153,6 +159,12 @@
 		9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessMatchResponse.swift; sourceTree = "<group>"; };
 		9141D82B298E7F0700A201BB /* MatchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableCell.swift; sourceTree = "<group>"; };
 		9141D82D298E871500A201BB /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		916195942990ED0B00703596 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
+		916195962990ED1F00703596 /* WriteReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewTableCell.swift; sourceTree = "<group>"; };
+		916195982990F53F00703596 /* WriteReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewResponse.swift; sourceTree = "<group>"; };
+		9161959A2991073700703596 /* PatchPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchPasswordRequest.swift; sourceTree = "<group>"; };
+		9161959C2991082800703596 /* PatchPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchPasswordResponse.swift; sourceTree = "<group>"; };
+		9161959E2991090C00703596 /* PatchPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchPasswordViewController.swift; sourceTree = "<group>"; };
 		9163A4BC2976FC5C00577DC3 /* DetailBodyIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroViewController.swift; sourceTree = "<group>"; };
 		9163A4BE2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroAboutServiceView.swift; sourceTree = "<group>"; };
 		9163A4C02977081600577DC3 /* DetailBodyIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBodyIntroView.swift; sourceTree = "<group>"; };
@@ -369,10 +381,12 @@
 		9130CA10296B07D900FC5107 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				916195932990ECBE00703596 /* WriteReview */,
 				9130CA12296B0F2000FC5107 /* Setting */,
 				9130CA19296B136100FC5107 /* SettingProfile */,
 				9130CA15296B133200FC5107 /* HeartList */,
 				9130CA16296B134000FC5107 /* Location */,
+				916195A02991092C00703596 /* PatchPassword */,
 				9130CA17296B134B00FC5107 /* Notice */,
 				9130CA18296B135400FC5107 /* Clause */,
 			);
@@ -472,6 +486,24 @@
 			path = ReviewSheet;
 			sourceTree = "<group>";
 		};
+		916195932990ECBE00703596 /* WriteReview */ = {
+			isa = PBXGroup;
+			children = (
+				916195942990ED0B00703596 /* WriteReviewViewController.swift */,
+				916195962990ED1F00703596 /* WriteReviewTableCell.swift */,
+				9141D828298E5B4D00A201BB /* ReviewSheet */,
+			);
+			path = WriteReview;
+			sourceTree = "<group>";
+		};
+		916195A02991092C00703596 /* PatchPassword */ = {
+			isa = PBXGroup;
+			children = (
+				9161959E2991090C00703596 /* PatchPasswordViewController.swift */,
+			);
+			path = PatchPassword;
+			sourceTree = "<group>";
+		};
 		9163A4C22977111D00577DC3 /* BodyIntro */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +573,8 @@
 				9181B6E62982BACD001D9427 /* PetchLocationResponse.swift */,
 				9181B6E42982AA73001D9427 /* HeartListResponse.swift */,
 				91E0825D298C37520033D39E /* WithDrawResponse.swift */,
+				9161959A2991073700703596 /* PatchPasswordRequest.swift */,
+				9161959C2991082800703596 /* PatchPasswordResponse.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -601,7 +635,6 @@
 				910182BD29618CA700FC10DB /* RequestList */,
 				910182BE29618CAF00FC10DB /* Match */,
 				910182BF29618CB500FC10DB /* MyPage */,
-				9141D828298E5B4D00A201BB /* ReviewSheet */,
 				910D80662966C98E00828E4B /* SignUp */,
 				910182C029618CCA00FC10DB /* SignIn */,
 			);
@@ -730,6 +763,7 @@
 				91E08254298BEFA80033D39E /* MatchingListResponse.swift */,
 				91E08259298C06620033D39E /* MatchSheetResponse.swift */,
 				9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */,
+				916195982990F53F00703596 /* WriteReviewResponse.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -823,6 +857,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9161959D2991082800703596 /* PatchPasswordResponse.swift in Sources */,
 				91877D6C2969A0A00074386B /* ProfileView.swift in Sources */,
 				917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */,
 				910182C32961961D00FC10DB /* TrainerTableCell.swift in Sources */,
@@ -831,6 +866,7 @@
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
 				91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */,
 				917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */,
+				916195992990F53F00703596 /* WriteReviewResponse.swift in Sources */,
 				91877D6A2969269D0074386B /* RequestSheet.swift in Sources */,
 				9141D821298E55D100A201BB /* MatchingReview.swift in Sources */,
 				9141D82A298E7B6C00A201BB /* SuccessMatchResponse.swift in Sources */,
@@ -843,6 +879,7 @@
 				91185FC9296D8C360099B641 /* BookCVC.swift in Sources */,
 				91F75B07296C116500B31F3B /* FoodTrainerViewController.swift in Sources */,
 				9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */,
+				9161959F2991090C00703596 /* PatchPasswordViewController.swift in Sources */,
 				91783EA6298640FA00B8CC2E /* TrainerRouter.swift in Sources */,
 				91BE526E29854BD2006DA3AB /* TrainerArrayListRequest.swift in Sources */,
 				9163A4C5297711A500577DC3 /* DetailBodyIntroAboutServiceViewController.swift in Sources */,
@@ -873,6 +910,7 @@
 				91F75B0B296C11D700B31F3B /* FriendTrainerViewController.swift in Sources */,
 				910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */,
 				91185FD0296DBD6C0099B641 /* PreviewReviewTableCell.swift in Sources */,
+				916195952990ED0B00703596 /* WriteReviewViewController.swift in Sources */,
 				917D3CFE296EB3330060F802 /* UITextField+.swift in Sources */,
 				9163A4C12977081600577DC3 /* DetailBodyIntroView.swift in Sources */,
 				91185FCC296DBCC80099B641 /* TrainerDetailViewController.swift in Sources */,
@@ -886,6 +924,7 @@
 				91FDB3E52982662700053795 /* WriteReviewRequest.swift in Sources */,
 				9130CA1D296B3CAF00FC5107 /* BottomInfoView.swift in Sources */,
 				9141D82E298E871500A201BB /* String+.swift in Sources */,
+				9161959B2991073700703596 /* PatchPasswordRequest.swift in Sources */,
 				91783E9C29863D1400B8CC2E /* SignInResponse.swift in Sources */,
 				91E0825A298C06620033D39E /* MatchSheetResponse.swift in Sources */,
 				91CFCFCC297FFA710009944D /* Token.swift in Sources */,
@@ -895,6 +934,7 @@
 				91D7C5162964A034005AF859 /* ReviewTableCell.swift in Sources */,
 				91FDB3E12982637200053795 /* CustomerRouter.swift in Sources */,
 				91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */,
+				916195972990ED1F00703596 /* WriteReviewTableCell.swift in Sources */,
 				9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */,
 				9130CA09296B055100FC5107 /* SearchViewController.swift in Sources */,
 				9181B6E52982AA73001D9427 /* HeartListResponse.swift in Sources */,

@@ -10,58 +10,30 @@ import Realm
 
 class RealmService{
     
-    let localRealm = try! Realm()
+    lazy var localRealm: Realm? = {
+        do {
+            return try Realm()
+        } catch {
+            print("Could not access Realm, \(error)")
+            return nil
+        }
+    }()
     
-    func addToken(item:String){
-        let token =  Token(token: item)
-        try! localRealm.write{
-            localRealm.add(token)
-            
+    func addToken(accessToken:String,refreshToken:String){
+        let token = Token(token: accessToken,refreshToken: refreshToken)
+        try! localRealm?.write{
+            localRealm?.add(token)
         }
     }
-    
-    func addProfile(Name:String,PW:String,Email:String,Location:String){
-        let profile = Profile(Name: Name, PW: PW, Email: Email, Location: Location)
-        try! localRealm.write{
-            localRealm.add(profile)
-        }
-    }
-    
-    func addNotification(title:String,body:String,link:String){
-        let CustomNotification = CustomNotification(title: title, body: body, link: link)
-        try! localRealm.write{
-            localRealm.add(CustomNotification)
-        }
-    }
-    
+
     func getToken()->String{
-        let token = localRealm.objects(Token.self)
-        return token.last?.token ?? ""
+        let token = localRealm?.objects(Token.self)
+        return token?.last?.token ?? ""
     }
     
-    func getProfileName()->String{
-        let profile = localRealm.objects(Profile.self)
-        return profile.last?.Name ?? ""
-    }
-    
-    func getProfilePW()->String{
-        let profile = localRealm.objects(Profile.self)
-        return profile.last?.PW ?? ""
-    }
-    
-    func getNotificationTitle()->String{
-        let CustomNotification = localRealm.objects(CustomNotification.self)
-        return CustomNotification.last?.title ?? ""
-    }
-    
-    func getNotificationBody(index:Int)->String{
-        let CustomNotification = localRealm.objects(CustomNotification.self)
-        return CustomNotification.last?.body ?? ""
-    }
-    
-    func getNotificationLink(index:Int)->String{
-        let CustomNotification = localRealm.objects(CustomNotification.self)
-        return CustomNotification.last?.link ?? ""
+    func getRefreshToken()->String{
+        let token = localRealm?.objects(Token.self)
+        return token?.last?.refreshToken ?? ""
     }
 
     // 스키마 수정시 한번 돌려야 한다.
