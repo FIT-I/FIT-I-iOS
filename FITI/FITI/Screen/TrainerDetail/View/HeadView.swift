@@ -93,7 +93,7 @@ class HeadView : UIView {
             make.leading.equalToSuperview().offset(30)
         }
         goldIcon.snp.makeConstraints { make in
-            make.top.equalTo(reviewerImage.snp.bottom).offset(14)
+            make.top.equalTo(reviewerImage.snp.bottom).offset(15)
             make.leading.equalTo(name.snp.trailing).offset(6)
         }
         gradeStackView.snp.makeConstraints { make in

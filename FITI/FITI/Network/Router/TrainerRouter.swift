@@ -13,6 +13,7 @@ enum TrainerRouter {
     case getFristTrainerList(_ category:String, _ pageable: TrainerArrayListRequest)
     case getTrainerList(_ category:String, _ lastTrainerIdx:Int, _ pageable: TrainerArrayListRequest)
     case getSpecificTrainer(_ trainerIdx:Int)
+    case postReport(_ body: ReportRequest)
 }
 
 extension TrainerRouter: TargetType, AccessTokenAuthorizable {
@@ -28,6 +29,8 @@ extension TrainerRouter: TargetType, AccessTokenAuthorizable {
             return "/api/customer/trainer-list"
         case .getSpecificTrainer(let trainerIdx):
             return "/api/communal/trainer/\(trainerIdx)"
+        case .postReport:
+            return "/api/redbell"
         }
     }
     
@@ -35,6 +38,8 @@ extension TrainerRouter: TargetType, AccessTokenAuthorizable {
         switch self {
         case .getFristTrainerList, .getTrainerList, .getSpecificTrainer:
             return .get
+        case .postReport:
+            return .post
         }
     }
     
@@ -46,6 +51,8 @@ extension TrainerRouter: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: ["category":category,"lastTrainerIdx":lastTrainerIdx,"page":pageable.page,"size":pageable.size,"sort":pageable.sort], encoding: URLEncoding.queryString)
         case .getSpecificTrainer:
             return .requestPlain
+        case .postReport(let body):
+            return .requestJSONEncodable(body)
         }
     }
     

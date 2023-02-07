@@ -172,7 +172,9 @@ extension RequestResultViewController {
     func requestMatchSheetServer(trainerIndex:Int, body:RequestMatchingRequest){
         CustomerAPI.shared.requestMatchAPI(trainerIndex: trainerIndex, body: body){ response in
             if response?.isSuccess == true {
-                self.metchingSuccessAlert()
+//                self.metchingSuccessAlert()
+                let nextVC = RequestSuccessViewController()
+                self.navigationController?.pushViewController(nextVC, animated: true)
             }else if response?.isSuccess == false {
                 self.metchingFailAlert(message: response?.message ?? "")
             }

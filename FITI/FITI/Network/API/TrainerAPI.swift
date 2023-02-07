@@ -18,6 +18,7 @@ final class TrainerAPI {
     private(set) var getFirstTrainerListData: TrainerListResponse?
     private(set) var getTrainerListData: TrainerListResponse?
     private(set) var getSpecificTrainerData: SpecificTrainerResponse?
+    private(set) var getReportData: ReportResponse?
     
     // 1. 처음 트레이너 목록 조회 API
     func getFirstTrainerListAPI(category:String,page:Int,size:Int,sort:[String],completion: @escaping (TrainerListResponse?) -> Void){
@@ -64,6 +65,25 @@ final class TrainerAPI {
                     self.getSpecificTrainerData = try moyaResponse.map(SpecificTrainerResponse.self)
                     completion(getSpecificTrainerData)
                 } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+
+    // 4. 특정 트레이너 신고 API
+    func reportTrainerAPI(body:ReportRequest, completion: @escaping (ReportResponse?) -> Void){
+        self.trainerProvider.request(.postReport(body)){ [self] (response) in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    self.getReportData = try moyaResponse.map(ReportResponse.self)
+                    completion(getReportData)
+                } catch(let err) {
+                    print(moyaResponse.statusCode)
+                    print(moyaResponse.data)
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):

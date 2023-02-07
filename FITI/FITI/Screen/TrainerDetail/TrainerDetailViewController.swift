@@ -44,11 +44,12 @@ class TrainerDetailViewController: UIViewController {
         btn.addTarget(self, action: #selector(matchingRequestTouched), for: .touchUpInside)
         return btn
     }()
+
     static var heartBtn : UIButton = {
         let btn = UIButton()
         btn.backgroundColor = UIColor.systemBackground
         btn.layer.cornerRadius = 8
-        btn.setImage(UIImage(named: "heart"), for: .normal)
+        btn.setImage(UIImage(named: "heart.svg"), for: .normal)
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.customColor(.blue).cgColor
         btn.addTarget(self, action: #selector(heartTouchEvent), for: .touchUpInside)
@@ -59,6 +60,13 @@ class TrainerDetailViewController: UIViewController {
         $0.backgroundColor = .white
         $0.showsVerticalScrollIndicator = true
     }
+    private lazy var redBellButton : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("신고하기", for: .normal)
+        btn.setTitleColor(UIColor.customColor(.gray), for: .normal)
+        btn.addTarget(self, action: #selector(moveToReportView), for: .touchUpInside)
+        return btn
+    }()
     let headView = HeadView()
     let bodyPriceView = BodyPriceView()
     let bodyIntroView = BodyIntroView()
@@ -121,13 +129,19 @@ class TrainerDetailViewController: UIViewController {
     @objc func heartTouchEvent(){
         if TrainerDetailViewController.isHeartFull == false {
             TrainerDetailViewController.isHeartFull = true
-            TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+            TrainerDetailViewController.heartBtn.setImage(UIImage(named: "redHeartFill.svg"), for: .normal)
             self.postHeartServer(trainerIndex: TrainerDetailViewController.id)
         }else{
             TrainerDetailViewController.isHeartFull = false
             TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.svg"), for: .normal)
             self.deleteHeartServer(trainerIndex: TrainerDetailViewController.id)
         }
+    }
+    
+    @objc func moveToReportView(){
+        print("movetoto")
+        let nextVC = ReportViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     // MARK: Func
@@ -139,7 +153,7 @@ class TrainerDetailViewController: UIViewController {
 //            print(TrainerDetailViewController.id)
             if TrainerDetailViewController.trainerHeartList[i].trainerIdx == TrainerDetailViewController.id {
                 TrainerDetailViewController.isHeartFull = true
-                TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+                TrainerDetailViewController.heartBtn.setImage(UIImage(named: "redHeartFill.svg"), for: .normal)
                 return
             }else {
                 TrainerDetailViewController.isHeartFull = false
@@ -245,7 +259,8 @@ extension TrainerDetailViewController {
             bodyIntroView,
             bodyIntroAboutService,
             bodyReviewView,
-            bottomPhotoView
+            bottomPhotoView,
+            redBellButton
         )
         
         //MARK: - naviViewLayout
@@ -288,12 +303,19 @@ extension TrainerDetailViewController {
         headView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(145)
             make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
         }
         bodyPriceView.snp.makeConstraints {
             $0.top.equalTo(headView.snp.bottom).offset(20)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
             $0.height.equalTo(90)
+        }
+        redBellButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(195)
+            make.height.equalTo(20)
+            make.width.equalTo(65)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
         }
         bodyIntroView.snp.makeConstraints {
             $0.top.equalTo(bodyPriceView.snp.bottom).offset(25)

@@ -51,7 +51,7 @@ class DietTrainerViewController: UIViewController {
     }
     func signInViewSetUI(){
         trainerTableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(180)
+            make.top.equalToSuperview().offset(170)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
             make.bottom.equalToSuperview().offset(-50)
@@ -76,12 +76,7 @@ extension DietTrainerViewController : UITableViewDelegate {
         let touchedCell = tableView.cellForRow(at: indexPath) as! TrainerTableCell
         LoadingView.showLoading()
         self.getSpecificTrainerServer(trainerIdx: touchedCell.id)
-        let nextVC = TrainerDetailViewController()
         TrainerDetailViewController.id = touchedCell.id
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            LoadingView.hideLoading()
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        }
     }
 }
 
@@ -110,6 +105,9 @@ extension DietTrainerViewController {
             TrainerDetailViewController.specificTrainer = specificTrainerResponse
             BodyReviewView.previewReviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
             print(specificTrainerResponse)
+            let nextVC = TrainerDetailViewController()
+            LoadingView.hideLoading()
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
     func getMatchingRequestList(){
