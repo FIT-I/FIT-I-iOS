@@ -24,8 +24,8 @@ struct Trainer: Codable {
     var school: String? = nil
     var grade: Double = 0
     var cost: String? = ""
-    var intro: String? = nil
-    var service: String? = nil
+    var intro: String? = ""
+    var service: String? = ""
     var reviewDto: [ReviewDto]? = nil
     var imageList: [String]? = nil
     init(){}

@@ -202,13 +202,24 @@ class SignInViewController: UIViewController {
         }
     }
     private func ifSuccessPushHome(){
-        self.getFirstTrainerListServer(category: "pt", page: 0, size: 100, sort: ["recent,DESC"])
-        self.getFirstTrainerListServer(category: "food", page: 0, size: 100, sort: ["recent,DESC"])
-        self.getFirstTrainerListServer(category: "diet", page: 0, size: 100, sort: ["recent,DESC"])
-        self.getFirstTrainerListServer(category: "rehab", page: 0, size: 100, sort: ["recent,DESC"])
-        self.getFirstTrainerListServer(category: "friend", page: 0, size: 100, sort: ["recent,DESC"])
-        self.getMatchingRequestList()
-        self.getSuccessMatchingListServer()
+        DispatchQueue.global().async {
+            self.getFirstTrainerListServer(category: "pt", page: 0, size: 100, sort: ["recent,DESC"])
+            self.getFirstTrainerListServer(category: "food", page: 0, size: 100, sort: ["recent,DESC"])
+        }
+        DispatchQueue.global().async {
+            self.getFirstTrainerListServer(category: "diet", page: 0, size: 100, sort: ["recent,DESC"])
+            self.getFirstTrainerListServer(category: "rehab", page: 0, size: 100, sort: ["recent,DESC"])
+            self.getFirstTrainerListServer(category: "friend", page: 0, size: 100, sort: ["recent,DESC"])
+        }
+        DispatchQueue.global().async {
+            self.getMatchingRequestList()
+        }
+        DispatchQueue.global().async {
+            self.getHeartListServer()
+        }
+        DispatchQueue.global().async {
+            self.getSuccessMatchingListServer()
+        }
         let nextVC = GradeTableViewController()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             self.navigationController?.pushViewController(nextVC, animated: true)
@@ -266,6 +277,7 @@ extension SignInViewController {
             default: break
             }
         }
+        print("getTrainerList : \(category)")
     }
     func getMatchingRequestList(){
         CustomerAPI.shared.getMatchingListAPI(){ response in
@@ -276,6 +288,7 @@ extension SignInViewController {
                 CommunityViewController.matchingList = [MatchingList]()
             }
         }
+        print("getMatchRequestList")
     }
     func getSuccessMatchingListServer(){
         CustomerAPI.shared.getSuccessMatchingListAPI(){ response in
@@ -286,5 +299,13 @@ extension SignInViewController {
                 print("성공된 매칭을 불러오는데 실패했습니다.")
             }
         }
+        print("getSuccessMatchList")
+    }
+    func getHeartListServer(){
+        MyPageAPI.shared.getHeartListAPI{ response in
+            guard let heartListResponse = response?.result else { return }
+            HeartListViewController.heartList = heartListResponse
+        }
+        print("getHeartList")
     }
 }

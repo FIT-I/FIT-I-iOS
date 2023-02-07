@@ -22,10 +22,10 @@ class TabManViewController: TabmanViewController {
     
     private lazy var heartListButton : UIButton = {
         let btn = UIButton()
-        btn.setImage(UIImage(named: "redHeart.svg"), for: .normal)
         btn.snp.makeConstraints { make in
-            make.height.width.equalTo(40)
+            make.height.width.equalTo(60)
         }
+        btn.addTarget(self, action: #selector(moveToHeartList), for: .touchUpInside)
         return btn
     }()
     
@@ -58,6 +58,10 @@ class TabManViewController: TabmanViewController {
         setUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setHeartIcon()
+    }
+    
     func setUI(){
         view.addSubview(customContainer)
         customContainer.addSubviews(logoImage, heartListButton)
@@ -75,7 +79,7 @@ class TabManViewController: TabmanViewController {
             make.leading.equalToSuperview()
         }
         heartListButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(65)
+            make.top.equalToSuperview().offset(55)
             make.trailing.equalToSuperview()
         }
         addBar(bar, dataSource: self, at: .custom(view: customContainer, layout: { (bar) in
@@ -87,7 +91,12 @@ class TabManViewController: TabmanViewController {
         }))
     }
     
-    func settingTabBar (ctBar : TMBar.ButtonBar) {
+    @objc func moveToHeartList(){
+        let nextVC = HeartListViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    func settingTabBar(ctBar : TMBar.ButtonBar) {
         ctBar.layout.transitionStyle = .snap
         // 왼쪽 여백주기
         ctBar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
@@ -109,9 +118,18 @@ class TabManViewController: TabmanViewController {
         ctBar.indicator.weight = .custom(value: 2)
         ctBar.indicator.tintColor = UIColor.customColor(.blue)
     }
+    
+    func setHeartIcon(){
+        print(HeartListViewController.heartList)
+        if HeartListViewController.heartList.count > 0 {
+            self.heartListButton.setImage(UIImage(named: "redHeartFill.svg"), for: .normal)
+        }else {
+            self.heartListButton.setImage(UIImage(named: "redHeart.svg"), for: .normal)
+        }
+    }
 }
 
-
+// MARK: - Extension
 
 extension TabManViewController : PageboyViewControllerDataSource, TMBarDataSource {
   

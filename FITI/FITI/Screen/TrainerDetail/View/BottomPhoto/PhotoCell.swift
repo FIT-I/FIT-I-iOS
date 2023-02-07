@@ -9,43 +9,45 @@ import Foundation
 import UIKit
 import SnapKit
 import Then
+import Kingfisher
 
-class BookCVC: UICollectionViewCell {
+class PhotoCell: UICollectionViewCell {
     
-    private let editerChoiceImageView = UIImageView()
-    
-    
-    
+    static let identifier = "CustomCollectionCell"
+
+    let editerChoiceImageView : UIImageView = {
+        let img = UIImageView()
+        return img
+    }()
+
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
         contentView.backgroundColor = .clear
         editerChoiceImageView.contentMode = .scaleToFill
         setLayout()
         editerChoiceImageView.layer.cornerRadius = 12
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func dataBind(image : UIImage) {
-        editerChoiceImageView.image = image
-        
-    }
-    
     private func setLayout() {
         contentView.addSubview(editerChoiceImageView)
-        
+        self.backgroundColor = .systemGroupedBackground
+        addSubview(editerChoiceImageView)
         editerChoiceImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.trailing.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
-    
 }
+
+extension PhotoCell {
+    func bindImage(img:String){
+        let imgUrl = URL(string: img)
+        self.editerChoiceImageView.kf.setImage(with: imgUrl)
+    }
+}
+

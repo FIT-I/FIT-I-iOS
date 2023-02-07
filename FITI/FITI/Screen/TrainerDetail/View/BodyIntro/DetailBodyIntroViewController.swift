@@ -23,7 +23,8 @@ class DetailBodyIntroViewController: UIViewController {
     private lazy var introTextView : UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.backgroundColor = UIColor.customColor(.boxGray)
+//        textView.backgroundColor = UIColor.customColor(.boxGray)
+        textView.backgroundColor = .systemBackground
         textView.textColor = UIColor.customColor(.darkGray)
         textView.layer.cornerRadius = 16
         textView.isEditable = true
@@ -52,6 +53,15 @@ class DetailBodyIntroViewController: UIViewController {
         self.dismissKeyboard()
     }
     
+    func setIntroLayout() {
+        contentScrollView.addSubviews(introView,introTextView)
+        view.addSubview(contentScrollView)
+        view.backgroundColor = .systemBackground
+        introView.layer.cornerRadius = 16
+        introView.backgroundColor = UIColor.customColor(.boxGray)
+        introTextView.backgroundColor = UIColor.customColor(.boxGray)
+    }
+    
     func setViewLayer() {
         contentScrollView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
@@ -69,15 +79,6 @@ class DetailBodyIntroViewController: UIViewController {
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-15)
             $0.bottom.equalToSuperview().offset(-20)
         }
-    }
-    
-    func setIntroLayout() {
-        contentScrollView.addSubviews(introView,introTextView)
-        view.addSubview(contentScrollView)
-        view.backgroundColor = .systemBackground
-        introView.layer.cornerRadius = 16
-        introView.backgroundColor = UIColor.customColor(.boxGray)
-        introTextView.backgroundColor = UIColor.customColor(.boxGray)
     }
     
     // MARK: - @objc

@@ -20,8 +20,9 @@ class BodyReviewView : UIView {
     
     var reviewView : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.customColor(.boxGray)
-        view.layer.borderColor = UIColor.customColor(.boxGray).cgColor
+//        view.backgroundColor = UIColor.customColor(.boxGray)
+        view.backgroundColor = .systemBackground
+//        view.layer.borderColor = UIColor.customColor(.boxGray).cgColor
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 8
         return view
@@ -30,6 +31,13 @@ class BodyReviewView : UIView {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "reviewIcon.svg")
         return imgView
+    }()
+    private lazy var emptyReviewLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 15.0)
+        label.text = "작성된 후기가 없습니다."
+        label.textColor = UIColor.customColor(.darkGray)
+        return label
     }()
     private lazy var review : UILabel = {
         let label = UILabel()
@@ -93,13 +101,15 @@ class BodyReviewView : UIView {
             make.height.equalTo(16)
             make.width.equalTo(12)
         }
-        btn.backgroundColor = UIColor.customColor(.boxGray)
+//        btn.backgroundColor = UIColor.customColor(.boxGray)
+        btn.backgroundColor = .systemBackground
         btn.setImage(UIImage(named: "rightGray"), for: .normal)
         return btn
     }()
     lazy var previewReviewTableView : UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = UIColor.customColor(.boxGray)
+//        tableView.backgroundColor = UIColor.customColor(.boxGray)
+        tableView.backgroundColor = .systemBackground
         tableView.separatorStyle = .none
         tableView.isScrollEnabled = false
         tableView.dataSource = self
@@ -137,31 +147,47 @@ class BodyReviewView : UIView {
     // MARK: - Func
     
     func setViewHierarchy(){
-        self.addSubview(reviewTopLeftStackView)
-        self.addSubview(reviewTopRightStackView)
-        self.addSubview(bodyReviewLineView)
-        self.addSubview(previewReviewTableView)
+        self.addSubviews(reviewTopLeftStackView,
+                         reviewTopRightStackView,
+                         bodyReviewLineView,
+                         previewReviewTableView,
+                         emptyReviewLabel
+        )
     }
     
     func setConstraints(){
         reviewTopLeftStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(17)
-            make.leading.equalToSuperview().offset(20)
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
         }
         reviewTopRightStackView.snp.makeConstraints { make in
             make.bottom.equalTo(reviewTopLeftStackView.snp.bottom)
-            make.trailing.equalToSuperview().offset(-20)
+            make.trailing.equalToSuperview()
         }
         bodyReviewLineView.snp.makeConstraints { make in
             make.top.equalTo(reviewTopLeftStackView.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-22)
+//            make.leading.equalToSuperview().offset(20)
+//            make.trailing.equalToSuperview().offset(-22)
+            make.leading.trailing.equalToSuperview()
+        }
+        emptyReviewLabel.snp.makeConstraints { make in
+            make.top.equalTo(bodyReviewLineView.snp.bottom).offset(10)
+            make.leading.equalTo(bodyReviewLineView.snp.leading)
         }
         previewReviewTableView.snp.makeConstraints { make in
             make.top.equalTo(bodyReviewLineView.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-22)
+//            make.leading.equalToSuperview().offset(20)
+//            make.trailing.equalToSuperview().offset(-22)
+            make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(-5)
+        }
+    }
+    
+    func setEmptyLable(isEmpty:Int){
+        if isEmpty != 0 {
+            self.emptyReviewLabel.isHidden = true
+        }else {
+            self.emptyReviewLabel.isHidden = false
         }
     }
 }
@@ -178,6 +204,7 @@ extension BodyReviewView {
 extension BodyReviewView : UITableViewDelegate {}
 extension BodyReviewView : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.setEmptyLable(isEmpty: TrainerDetailViewController.specificTrainer.reviewDto?.count ?? 0)
         let cellNum = TrainerDetailViewController.specificTrainer.reviewDto?.count ?? 0
         switch cellNum {
         case 0...3:

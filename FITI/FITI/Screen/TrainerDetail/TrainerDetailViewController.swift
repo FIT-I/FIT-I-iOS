@@ -62,6 +62,7 @@ class TrainerDetailViewController: UIViewController {
     }
     private lazy var redBellButton : UIButton = {
         let btn = UIButton()
+        btn.titleLabel?.font = .systemFont(ofSize: 15)
         btn.setTitle("신고하기", for: .normal)
         btn.setTitleColor(UIColor.customColor(.gray), for: .normal)
         btn.addTarget(self, action: #selector(moveToReportView), for: .touchUpInside)
@@ -89,7 +90,11 @@ class TrainerDetailViewController: UIViewController {
         setHeartIcon()
         setData()
         resizePreviewReviewView()
+        resizeBottomImageView()
+        setHidButton()
+        setEmptyLable(introText: TrainerDetailViewController.specificTrainer.intro ?? "", serviceText: TrainerDetailViewController.specificTrainer.service ?? "")
         bodyReviewView.previewReviewTableView.reloadData()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -161,22 +166,52 @@ class TrainerDetailViewController: UIViewController {
             }
         }
     }
+    
     func setButtonEvent(){
         bodyReviewView.reviewDetailBtn.addTarget(self, action: #selector(moveToReviewTableView), for: .touchUpInside)
         bodyIntroView.textDetailBtn.addTarget(self, action: #selector(moveToBodyIntroDetailIntroView), for: .touchUpInside)
         bodyIntroAboutService.textDetailBtn.addTarget(self, action: #selector(moveToAboutServiceDetailIntroView), for: .touchUpInside)
     }
+    
+    func setHidButton(){
+        if TrainerDetailViewController.specificTrainer.service ?? "" == "" {
+            self.bodyIntroAboutService.textDetailBtn.isHidden = true
+        }else {
+            self.bodyIntroAboutService.textDetailBtn.isHidden = false
+        }
+        if TrainerDetailViewController.specificTrainer.intro ?? "" == "" {
+            self.bodyIntroView.textDetailBtn.isHidden = true
+        }else {
+            self.bodyIntroView.textDetailBtn.isHidden = false
+        }
+    }
+    
+    func setEmptyLable(introText:String,serviceText:String){
+        if introText != "" {
+            self.bodyIntroAboutService.emptyIntroServiceLabel.isHidden = true
+        }else {
+            self.bodyIntroAboutService.emptyIntroServiceLabel.isHidden = false
+        }
+        if serviceText != "" {
+            self.bodyIntroView.emptyIntroLabel.isHidden = true
+        }else {
+            self.bodyIntroView.emptyIntroLabel.isHidden = false
+        }
+    }
+    
     func setViewLayer(){
         bodyPriceView.layer.cornerRadius = 8
         bodyIntroView.layer.cornerRadius = 8
         bodyIntroAboutService.layer.cornerRadius = 8
         bodyReviewView.layer.cornerRadius = 8
     }
+    
     func setNavigationController(){
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.topItem?.title = ""
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
     }
+    
     func setData(){
         self.headView.name.text = TrainerDetailViewController.specificTrainer.name
         self.headView.school.text = TrainerDetailViewController.specificTrainer.school
@@ -209,34 +244,48 @@ class TrainerDetailViewController: UIViewController {
             self.topView.kf.setImage(with: url)
         }
     }
+    
     func resizePreviewReviewView(){
         let reviewNum = TrainerDetailViewController.specificTrainer.reviewDto?.count
         switch reviewNum {
-        case 0:
+        case 1:
             bodyReviewView.snp.remakeConstraints {
                 $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
-                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
                 $0.height.equalTo(100)
             }
             bodyReviewView.reviewDetailBtn.layer.isHidden = true
             return
-        case 1:
-            bodyReviewView.snp.remakeConstraints {
-                $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
-                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-                $0.height.equalTo(170)
-            }
         case 2:
             bodyReviewView.snp.remakeConstraints {
                 $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
-                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-                $0.height.equalTo(260)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
+                $0.height.equalTo(170)
+            }
+        case 3:
+            bodyReviewView.snp.remakeConstraints {
+                $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
+                $0.height.equalTo(300)
             }
         default:
             return
+        }
+    }
+    
+    func resizeBottomImageView(){
+        let isImageExist = TrainerDetailViewController.specificTrainer.imageList?.count ?? 0
+        if (isImageExist != 0) {
+            bottomPhotoView.snp.remakeConstraints {
+                $0.top.equalTo(bodyReviewView.snp.bottom).offset(50)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
+                $0.height.equalTo(200)
+                $0.bottom.equalToSuperview().inset(45)
+            }
         }
     }
 }
@@ -267,10 +316,10 @@ extension TrainerDetailViewController {
         
         view.backgroundColor = .systemBackground
         toolBarContainerView.backgroundColor = .systemBackground
-        bodyPriceView.backgroundColor = UIColor.customColor(.boxGray)
-        bodyIntroView.backgroundColor = UIColor.customColor(.boxGray)
-        bodyIntroAboutService.backgroundColor = UIColor.customColor(.boxGray)
-        bodyReviewView.backgroundColor = UIColor.customColor(.boxGray)
+        bodyPriceView.backgroundColor = .systemBackground
+        bodyIntroView.backgroundColor = .systemBackground
+        bodyIntroAboutService.backgroundColor = .systemBackground
+        bodyReviewView.backgroundColor = .systemBackground
         
         //MARK: - toolBarLayout
     
@@ -305,41 +354,40 @@ extension TrainerDetailViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
-        bodyPriceView.snp.makeConstraints {
-            $0.top.equalTo(headView.snp.bottom).offset(20)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.height.equalTo(90)
-        }
         redBellButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(195)
             make.height.equalTo(20)
             make.width.equalTo(65)
             make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
         }
-        bodyIntroView.snp.makeConstraints {
-            $0.top.equalTo(bodyPriceView.snp.bottom).offset(25)
+        bodyPriceView.snp.makeConstraints {
+            $0.top.equalTo(headView.snp.bottom).offset(20)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            $0.height.equalTo(90)
+        }
+        bodyIntroView.snp.makeConstraints {
+            $0.top.equalTo(bodyPriceView.snp.bottom).offset(20)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
             $0.bottom.equalTo(bodyIntroView.textDetailBtn.snp.bottom).offset(5)
         }
         bodyIntroAboutService.snp.makeConstraints {
-            $0.top.equalTo(bodyIntroView.snp.bottom).offset(25)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            $0.top.equalTo(bodyIntroView.snp.bottom).offset(10)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
             $0.bottom.equalTo(bodyIntroAboutService.textDetailBtn.snp.bottom).offset(5)
         }
         bodyReviewView.snp.makeConstraints {
-            $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(15)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.height.equalTo(330)
+            $0.top.equalTo(bodyIntroAboutService.snp.bottom)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
+//            $0.height.equalTo(330)
         }
         bottomPhotoView.snp.makeConstraints {
-            $0.top.equalTo(bodyReviewView.snp.bottom).offset(25)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.height.equalTo(200)
+            $0.top.equalTo(bodyReviewView.snp.bottom).offset(50)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
             $0.bottom.equalToSuperview().inset(45)
         }
     }

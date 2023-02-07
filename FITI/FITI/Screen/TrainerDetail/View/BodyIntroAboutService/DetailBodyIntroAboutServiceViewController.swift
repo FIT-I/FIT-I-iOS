@@ -38,11 +38,14 @@ class DetailBodyIntroAboutServiceViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.systemBackground
         
-        setData()
         setIntroLayout()
         setViewLayer()
         setNavigationController()
         self.dismissKeyboard()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setData()
     }
     
     func setIntroLayout() {
