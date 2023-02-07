@@ -70,15 +70,17 @@ class TabManViewController: TabmanViewController {
         }
         logoImage.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(65)
+            make.height.equalTo(35)
+            make.width.equalTo(60)
             make.leading.equalToSuperview()
         }
         heartListButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(80)
+            make.top.equalToSuperview().offset(65)
             make.trailing.equalToSuperview()
         }
         addBar(bar, dataSource: self, at: .custom(view: customContainer, layout: { (bar) in
             bar.snp.makeConstraints { make in
-                make.top.equalToSuperview().offset(130)
+                make.top.equalToSuperview().offset(120)
                 make.leading.equalToSuperview()
                 make.trailing.equalToSuperview()
             }
