@@ -401,14 +401,12 @@ extension TrainerDetailViewController {
             guard let postHeartResponse = response?.result else { return }
             print(postHeartResponse)
         }
-//        self.getHeartListServer()
     }
     func deleteHeartServer(trainerIndex:Int) {
         CustomerAPI.shared.deleteHeartAPI(trainerIndex: trainerIndex) { response in
             guard let deleteHeartResponse = response?.result else { return }
             print(deleteHeartResponse)
         }
-//        self.getHeartListServer()
     }
     func getHeartListServer(){
         print("getHeartList")

@@ -52,9 +52,6 @@ class ReportViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.gray)
         view.layer.cornerRadius = 8
-        view.snp.makeConstraints { make in
-            make.height.equalTo(70)
-        }
         return view
     }()
     private lazy var reportingimgView: UIImageView = {
@@ -66,16 +63,16 @@ class ReportViewController: UIViewController {
         let label = UILabel()
         label.text = "신고하기 사유 확인이 불가능한 경우 해당 신고는 미조치됩니다."
         label.textColor = UIColor.black
-        label.font = UIFont(name: "Noto Sans", size: 5.0)
-        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 15)
+        label.numberOfLines = 2
         return label
     }()
     private lazy var bottomLabel: UILabel = {
         let label = UILabel()
         label.text = "서비스 진행중 문제가 생겼다면 증빙자료(사진, 녹취록, 대화 내역)와 함께 이메일 fitiofficial@naver.com로 접수해주세요. 신고 결과는 별도의 안내를 드리지 않습니다."
-        label.textColor = UIColor.customColor(.gray)
-        label.font = UIFont(name: "Noto Sans", size: 15.0)
-        label.numberOfLines = 0
+        label.textColor = UIColor.customColor(.darkGray)
+        label.font = .systemFont(ofSize: 12)
+        label.numberOfLines = 3
         return label
     }()
     private lazy var contentScrollView = UIScrollView().then {
@@ -98,19 +95,12 @@ class ReportViewController: UIViewController {
     }
 
     private func setViewHierarchy() {
-        view.addSubviews(reportLabel, rectView, contentScrollView)
-        contentScrollView.addSubviews(topLabel, requestButton, grayView, reportingimgView, middleLabel, reportStackView, bottomLabel)
+        view.addSubviews(reportLabel, rectView, contentScrollView, requestButton)
+        contentScrollView.addSubviews(topLabel, grayView, reportingimgView, middleLabel, reportStackView, bottomLabel)
     }
 
     private func setConstraints() {
         reportStackView.layer.cornerRadius = 8
-        requestButton.snp.makeConstraints { make in
-            make.height.equalTo(50)
-            make.top.equalTo(bottomLabel.snp.bottom).offset(34)
-            make.bottom.equalToSuperview().offset(-25)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-15)
-        }
         reportLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(60)
             $0.centerX.equalToSuperview()
@@ -133,16 +123,17 @@ class ReportViewController: UIViewController {
         }
         grayView.snp.makeConstraints { make in
             make.top.equalTo(topLabel.snp.bottom).offset(25)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-15)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            make.height.equalTo(70)
         }
         reportingimgView.snp.makeConstraints { make in
             make.top.equalTo(topLabel.snp.bottom).offset(50)
-            make.leading.equalToSuperview().offset(40)
+            make.leading.equalToSuperview().offset(30)
         }
         middleLabel.snp.makeConstraints { make in
             make.top.equalTo(topLabel.snp.bottom).offset(40)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(68)
+            make.leading.equalTo(reportingimgView.snp.trailing).offset(10)
             make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-29)
         }
         reportStackView.snp.makeConstraints { make in
@@ -152,9 +143,16 @@ class ReportViewController: UIViewController {
             make.height.equalTo(186)
         }
         bottomLabel.snp.makeConstraints { make in
-            make.top.equalTo(reportStackView.snp.bottom).offset(115)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            make.top.equalTo(reportStackView.snp.bottom).offset(15)
+            make.height.equalTo(70)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-15)
+        }
+        requestButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.bottom.equalToSuperview().offset(-25)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-15)
         }
     }
 

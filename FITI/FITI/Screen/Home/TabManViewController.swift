@@ -23,8 +23,9 @@ class TabManViewController: TabmanViewController {
     private lazy var heartListButton : UIButton = {
         let btn = UIButton()
         btn.snp.makeConstraints { make in
-            make.height.width.equalTo(40)
+            make.height.width.equalTo(60)
         }
+        btn.addTarget(self, action: #selector(moveToHeartList), for: .touchUpInside)
         return btn
     }()
     
@@ -78,7 +79,7 @@ class TabManViewController: TabmanViewController {
             make.leading.equalToSuperview()
         }
         heartListButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(65)
+            make.top.equalToSuperview().offset(55)
             make.trailing.equalToSuperview()
         }
         addBar(bar, dataSource: self, at: .custom(view: customContainer, layout: { (bar) in
@@ -88,6 +89,11 @@ class TabManViewController: TabmanViewController {
                 make.trailing.equalToSuperview()
             }
         }))
+    }
+    
+    @objc func moveToHeartList(){
+        let nextVC = HeartListViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     func settingTabBar(ctBar : TMBar.ButtonBar) {
@@ -123,7 +129,7 @@ class TabManViewController: TabmanViewController {
     }
 }
 
-
+// MARK: - Extension
 
 extension TabManViewController : PageboyViewControllerDataSource, TMBarDataSource {
   
