@@ -9,12 +9,17 @@ import Foundation
 import UIKit
 import SnapKit
 import Then
+import Kingfisher
 
 class BookCVC: UICollectionViewCell {
     
-    private let editerChoiceImageView = UIImageView()
-    
-    
+    static let identifier = "CustomCollectionCell"
+
+    let editerChoiceImageView : UIImageView = {
+        let img = UIImageView()
+        return img
+    }()
+
     
     // MARK: - Life Cycles
     
@@ -33,19 +38,24 @@ class BookCVC: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func dataBind(image : UIImage) {
-        editerChoiceImageView.image = image
-        
-    }
-    
     private func setLayout() {
         contentView.addSubview(editerChoiceImageView)
+        self.backgroundColor = .systemGroupedBackground
         
+        addSubview(editerChoiceImageView)
+                
         editerChoiceImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.trailing.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview()
+            make.edges.equalToSuperview()
         }
+        
     }
     
 }
+
+extension BookCVC {
+    func bindImage(img:String){
+        let imgUrl = URL(string: img)
+        self.editerChoiceImageView.kf.setImage(with: imgUrl)
+    }
+}
+
