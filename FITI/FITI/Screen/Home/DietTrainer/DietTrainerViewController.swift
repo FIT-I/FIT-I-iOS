@@ -51,7 +51,7 @@ class DietTrainerViewController: UIViewController {
     }
     func signInViewSetUI(){
         trainerTableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(190)
+            make.top.equalToSuperview().offset(180)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
             make.bottom.equalToSuperview().offset(-50)
