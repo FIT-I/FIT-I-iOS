@@ -79,12 +79,7 @@ extension HomeViewController : UITableViewDelegate {
         print(touchedCell.id)
         LoadingView.showLoading()
         self.getSpecificTrainerServer(trainerIdx: touchedCell.id)
-        let nextVC = TrainerDetailViewController()
         TrainerDetailViewController.id = touchedCell.id
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            LoadingView.hideLoading()
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        }
     }
 }
 extension HomeViewController: UITableViewDataSource {
@@ -118,6 +113,9 @@ extension HomeViewController {
             TrainerDetailViewController.specificTrainer = specificTrainerResponse
             BodyReviewView.previewReviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
             print(specificTrainerResponse)
+            let nextVC = TrainerDetailViewController()
+            LoadingView.hideLoading()
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
     func getHeartListServer(){

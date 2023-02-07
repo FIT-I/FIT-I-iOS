@@ -48,7 +48,7 @@ class TrainerDetailViewController: UIViewController {
         let btn = UIButton()
         btn.backgroundColor = UIColor.systemBackground
         btn.layer.cornerRadius = 8
-        btn.setImage(UIImage(named: "heart"), for: .normal)
+        btn.setImage(UIImage(named: "heart.svg"), for: .normal)
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.customColor(.blue).cgColor
         btn.addTarget(self, action: #selector(heartTouchEvent), for: .touchUpInside)
@@ -121,7 +121,7 @@ class TrainerDetailViewController: UIViewController {
     @objc func heartTouchEvent(){
         if TrainerDetailViewController.isHeartFull == false {
             TrainerDetailViewController.isHeartFull = true
-            TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+            TrainerDetailViewController.heartBtn.setImage(UIImage(named: "redHeartFill.svg"), for: .normal)
             self.postHeartServer(trainerIndex: TrainerDetailViewController.id)
         }else{
             TrainerDetailViewController.isHeartFull = false
@@ -139,7 +139,7 @@ class TrainerDetailViewController: UIViewController {
 //            print(TrainerDetailViewController.id)
             if TrainerDetailViewController.trainerHeartList[i].trainerIdx == TrainerDetailViewController.id {
                 TrainerDetailViewController.isHeartFull = true
-                TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
+                TrainerDetailViewController.heartBtn.setImage(UIImage(named: "redHeartFill.svg"), for: .normal)
                 return
             }else {
                 TrainerDetailViewController.isHeartFull = false
