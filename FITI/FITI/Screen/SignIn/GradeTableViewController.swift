@@ -40,7 +40,7 @@ class GradeTableViewController: UIViewController {
     }
     
     func pagingTimer() {
-            let _: Timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (Timer) in
+            let _: Timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (Timer) in
                 self.pagingMove()
             }
         }

@@ -16,14 +16,21 @@ struct SuccessMatchResponse: Codable {
 }
 
 // MARK: - Result
-struct SuccessMatchSheet: Codable {
+struct SuccessMatchSheet: Codable {    
     var openChatLink: String? = nil
     let trainerId: Int
     let trainerName: String
-    let trainerGrade: Int
-    let trainerSchool: String
+    let trainerGrade: Double
+    var trainerSchool: String? = nil
     let customerId: Int
+    var customerName: String? = nil
+    let createdAt: String
     var pickUp: String? = nil
     var customerLocation: String? = nil
-    let createdAt: String
+    let matchingId: Int
+    var trainerProfile: String? = nil
+    var trainerLocation: String? = nil
+    var customerProfile: String? = nil
+
 }
+

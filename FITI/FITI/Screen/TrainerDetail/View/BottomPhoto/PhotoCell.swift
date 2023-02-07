@@ -11,7 +11,7 @@ import SnapKit
 import Then
 import Kingfisher
 
-class BookCVC: UICollectionViewCell {
+class PhotoCell: UICollectionViewCell {
     
     static let identifier = "CustomCollectionCell"
 
@@ -20,18 +20,14 @@ class BookCVC: UICollectionViewCell {
         return img
     }()
 
-    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
         contentView.backgroundColor = .clear
         editerChoiceImageView.contentMode = .scaleToFill
         setLayout()
         editerChoiceImageView.layer.cornerRadius = 12
-        
     }
     
     required init?(coder: NSCoder) {
@@ -41,18 +37,14 @@ class BookCVC: UICollectionViewCell {
     private func setLayout() {
         contentView.addSubview(editerChoiceImageView)
         self.backgroundColor = .systemGroupedBackground
-        
         addSubview(editerChoiceImageView)
-                
         editerChoiceImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
     }
-    
 }
 
-extension BookCVC {
+extension PhotoCell {
     func bindImage(img:String){
         let imgUrl = URL(string: img)
         self.editerChoiceImageView.kf.setImage(with: imgUrl)

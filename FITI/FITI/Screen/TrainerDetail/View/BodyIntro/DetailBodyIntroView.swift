@@ -12,9 +12,9 @@ import UIKit
 class DetailBodyIntroView:UIView {
 
     private lazy var introImage: UIImageView = {
-            let imgView = UIImageView()
-            imgView.image = UIImage(named: "introIcon.svg")
-            return imgView
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "introIcon.svg")
+        return imgView
     }()
     
     private lazy var introLabel : UILabel = {
@@ -62,13 +62,15 @@ class DetailBodyIntroView:UIView {
         
         introTopStackView.snp.makeConstraints{ make in
             make.top.equalToSuperview().offset(17)
-            make.leading.equalToSuperview().offset(20)
+            make.leading.equalToSuperview()
         }
         introLineView.snp.makeConstraints { make in
             make.top.equalTo(introTopStackView.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(18)
-            make.trailing.equalToSuperview().offset(-22)
+//            make.leading.equalToSuperview().offset(18)
+//            make.trailing.equalToSuperview().offset(-22)
+            make.leading.trailing.equalToSuperview()
         }
+        
     }
 }
 

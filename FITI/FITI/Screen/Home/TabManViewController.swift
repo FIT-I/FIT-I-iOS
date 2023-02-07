@@ -22,7 +22,6 @@ class TabManViewController: TabmanViewController {
     
     private lazy var heartListButton : UIButton = {
         let btn = UIButton()
-        btn.setImage(UIImage(named: "redHeart.svg"), for: .normal)
         btn.snp.makeConstraints { make in
             make.height.width.equalTo(40)
         }
@@ -58,6 +57,10 @@ class TabManViewController: TabmanViewController {
         setUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setHeartIcon()
+    }
+    
     func setUI(){
         view.addSubview(customContainer)
         customContainer.addSubviews(logoImage, heartListButton)
@@ -87,7 +90,7 @@ class TabManViewController: TabmanViewController {
         }))
     }
     
-    func settingTabBar (ctBar : TMBar.ButtonBar) {
+    func settingTabBar(ctBar : TMBar.ButtonBar) {
         ctBar.layout.transitionStyle = .snap
         // 왼쪽 여백주기
         ctBar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
@@ -108,6 +111,15 @@ class TabManViewController: TabmanViewController {
         // 인디케이터 (영상에서 주황색 아래 바 부분)
         ctBar.indicator.weight = .custom(value: 2)
         ctBar.indicator.tintColor = UIColor.customColor(.blue)
+    }
+    
+    func setHeartIcon(){
+        print(HeartListViewController.heartList)
+        if HeartListViewController.heartList.count > 0 {
+            self.heartListButton.setImage(UIImage(named: "redHeartFill.svg"), for: .normal)
+        }else {
+            self.heartListButton.setImage(UIImage(named: "redHeart.svg"), for: .normal)
+        }
     }
 }
 

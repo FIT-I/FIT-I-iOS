@@ -47,6 +47,12 @@ class HeartListViewController: UIViewController {
         setViewHierarchy()
         setConstraints()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        self.getHeartListServer()
+//        heartListTableView.reloadData()
+    }
 
     func setViewHierarchy(){
         view.addSubview(myPageTitleLabel)

@@ -24,7 +24,7 @@
 		91185FC3296D86900099B641 /* BodyIntroAboutServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FC2296D86900099B641 /* BodyIntroAboutServiceView.swift */; };
 		91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FC4296D87930099B641 /* BodyReviewView.swift */; };
 		91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FC6296D88DA0099B641 /* BottomPhotoView.swift */; };
-		91185FC9296D8C360099B641 /* BookCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FC8296D8C360099B641 /* BookCVC.swift */; };
+		91185FC9296D8C360099B641 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FC8296D8C360099B641 /* PhotoCell.swift */; };
 		91185FCC296DBCC80099B641 /* TrainerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */; };
 		91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCD296DBD2A0099B641 /* UIView+.swift */; };
 		91185FD0296DBD6C0099B641 /* PreviewReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91185FCF296DBD6C0099B641 /* PreviewReviewTableCell.swift */; };
@@ -146,7 +146,7 @@
 		91185FC2296D86900099B641 /* BodyIntroAboutServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyIntroAboutServiceView.swift; sourceTree = "<group>"; };
 		91185FC4296D87930099B641 /* BodyReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyReviewView.swift; sourceTree = "<group>"; };
 		91185FC6296D88DA0099B641 /* BottomPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPhotoView.swift; sourceTree = "<group>"; };
-		91185FC8296D8C360099B641 /* BookCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCVC.swift; sourceTree = "<group>"; };
+		91185FC8296D8C360099B641 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		91185FCB296DBCC80099B641 /* TrainerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerDetailViewController.swift; sourceTree = "<group>"; };
 		91185FCD296DBD2A0099B641 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		91185FCF296DBD6C0099B641 /* PreviewReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewReviewTableCell.swift; sourceTree = "<group>"; };
@@ -384,6 +384,15 @@
 			path = ReportView;
 			sourceTree = "<group>";
 		};
+		9115510D29929FFD00667A8B /* BottomPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				91185FC6296D88DA0099B641 /* BottomPhotoView.swift */,
+				91185FC8296D8C360099B641 /* PhotoCell.swift */,
+			);
+			path = BottomPhoto;
+			sourceTree = "<group>";
+		};
 		91185FCA296D8CB10099B641 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,8 +402,7 @@
 				9163A4C22977111D00577DC3 /* BodyIntro */,
 				9163A4C32977114600577DC3 /* BodyIntroAboutService */,
 				9163A4C6297716A400577DC3 /* BodyReview */,
-				91185FC6296D88DA0099B641 /* BottomPhotoView.swift */,
-				91185FC8296D8C360099B641 /* BookCVC.swift */,
+				9115510D29929FFD00667A8B /* BottomPhoto */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -900,7 +908,7 @@
 				9141D827298E560500A201BB /* MatchingReviewViewController.swift in Sources */,
 				91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */,
 				91E08255298BEFA80033D39E /* MatchingListResponse.swift in Sources */,
-				91185FC9296D8C360099B641 /* BookCVC.swift in Sources */,
+				91185FC9296D8C360099B641 /* PhotoCell.swift in Sources */,
 				91F75B07296C116500B31F3B /* FoodTrainerViewController.swift in Sources */,
 				9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */,
 				9161959F2991090C00703596 /* PatchPasswordViewController.swift in Sources */,
