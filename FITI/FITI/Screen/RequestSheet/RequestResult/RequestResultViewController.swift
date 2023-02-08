@@ -9,10 +9,10 @@ import UIKit
 import SnapKit
 
 struct meetSheet {
-    var price: String = "0"
+    var price: String = ""
     var startDate: String = "시작일"
     var endDate: String = "종료일"
-    var pickStyle: String = "픽업 형태를 선택해주세요."
+    var pickStyle: String = "픽업 형태를 선택하지 않았습니다."
 }
 
 class RequestResultViewController: UIViewController {
@@ -148,11 +148,16 @@ class RequestResultViewController: UIViewController {
     }
     
     func setData(){
-        requestSheetView.hourPriceLabel.text = RequestResultViewController.meetingSheet.price + "원"
-        requestSheetView.totalPriceLabel.text = RequestResultViewController.meetingSheet.price + "원"
         requestSheetView.pickUp.text = RequestResultViewController.meetingSheet.pickStyle
         requestSheetView.meetingStartDate.text = RequestResultViewController.meetingSheet.startDate
         requestSheetView.meetingEndDate.text = RequestResultViewController.meetingSheet.endDate
+        if  RequestResultViewController.meetingSheet.price == "" {
+            requestSheetView.hourPriceLabel.text = "요금을 선택하지 않았습니다."
+            requestSheetView.totalPriceLabel.text = "요금을 선택하지 않았습니다."
+        }else {
+            requestSheetView.hourPriceLabel.text = RequestResultViewController.meetingSheet.price + "원"
+            requestSheetView.totalPriceLabel.text = RequestResultViewController.meetingSheet.price + "원"
+        }
     }
     
     func setRequestData(){

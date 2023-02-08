@@ -16,7 +16,7 @@ class PickServiceView: UIView {
     
     // MARK: - UI Components
     
-    private lazy var firstPickBtn : UIButton = {
+    lazy var firstPickBtn : UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
         btn.addTarget(self, action: #selector(hourBtnClicked), for: .touchUpInside)
@@ -67,11 +67,11 @@ class PickServiceView: UIView {
         if isFirstPickBtnTouched == false {
             firstPickBtn.setImage(UIImage(named: "fillBox.svg"), for: .normal)
             isFirstPickBtnTouched = true
-            RequestResultViewController.meetingSheet.price = TrainerDetailViewController.specificTrainer.cost ?? "0"
+            RequestResultViewController.meetingSheet.price = TrainerDetailViewController.specificTrainer.cost ?? ""
         }else {
             firstPickBtn.setImage(UIImage(named: "emptyBox.svg"), for: .normal)
             isFirstPickBtnTouched = false
-            RequestResultViewController.meetingSheet.price = "0"
+            RequestResultViewController.meetingSheet.price = ""
         }
     }
 }
