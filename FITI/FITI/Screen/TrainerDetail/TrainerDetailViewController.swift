@@ -98,6 +98,7 @@ class TrainerDetailViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        print("willDisappear")
         getHeartListServer()
     }
     
@@ -105,10 +106,6 @@ class TrainerDetailViewController: UIViewController {
     
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
-    }
-    
-    @objc private func dismissVC() {
-        self.dismiss(animated: true)
     }
     
     @objc func matchingRequestTouched(){
@@ -135,10 +132,12 @@ class TrainerDetailViewController: UIViewController {
         if TrainerDetailViewController.isHeartFull == false {
             TrainerDetailViewController.isHeartFull = true
             TrainerDetailViewController.heartBtn.setImage(UIImage(named: "redHeartFill.svg"), for: .normal)
+            LoadingView.showLoading()
             self.postHeartServer(trainerIndex: TrainerDetailViewController.id)
         }else{
             TrainerDetailViewController.isHeartFull = false
             TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.svg"), for: .normal)
+            LoadingView.showLoading()
             self.deleteHeartServer(trainerIndex: TrainerDetailViewController.id)
         }
     }
@@ -379,7 +378,7 @@ extension TrainerDetailViewController {
             $0.bottom.equalTo(bodyIntroAboutService.textDetailBtn.snp.bottom).offset(5)
         }
         bodyReviewView.snp.makeConstraints {
-            $0.top.equalTo(bodyIntroAboutService.snp.bottom)
+            $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(20)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
 //            $0.height.equalTo(330)
@@ -400,12 +399,22 @@ extension TrainerDetailViewController {
         CustomerAPI.shared.postAddHeartAPI(trainerIndex: trainerIndex) { response in
             guard let postHeartResponse = response?.result else { return }
             print(postHeartResponse)
+            self.getHeartListServer()
+            // MARK: - FIXME : 네트워크 타임 고려
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//                print("heart List : ",TrainerDetailViewController.trainerHeartList)
+//            }
         }
     }
     func deleteHeartServer(trainerIndex:Int) {
         CustomerAPI.shared.deleteHeartAPI(trainerIndex: trainerIndex) { response in
             guard let deleteHeartResponse = response?.result else { return }
             print(deleteHeartResponse)
+            self.getHeartListServer()
+            // MARK: - FIXME : 네트워크 타임 고려
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//                print("heart List : ",TrainerDetailViewController.trainerHeartList)
+//            }
         }
     }
     func getHeartListServer(){
@@ -414,6 +423,8 @@ extension TrainerDetailViewController {
             guard let heartListResponse = response?.result else { return }
             HeartListViewController.heartList = heartListResponse
             TrainerDetailViewController.trainerHeartList = heartListResponse
+            print("heart List : ",TrainerDetailViewController.trainerHeartList)
+            LoadingView.hideLoading()
         }
     }
 }

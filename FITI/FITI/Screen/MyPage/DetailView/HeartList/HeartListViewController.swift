@@ -51,7 +51,7 @@ class HeartListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        self.getHeartListServer()
-//        heartListTableView.reloadData()
+        heartListTableView.reloadData()
     }
 
     func setViewHierarchy(){
