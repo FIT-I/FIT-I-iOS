@@ -1,4 +1,8 @@
 # FIT-I-iOS (For Customer)
+
+![](https://velog.velcdn.com/images/bricksky/post/35f2ac84-73e3-4c61-bc18-39376c97fd21/image.png)
+&nbsp;&nbsp;
+
 # 협업 규칙
 
 
