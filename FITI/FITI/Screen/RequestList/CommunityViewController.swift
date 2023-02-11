@@ -62,9 +62,11 @@ class CommunityViewController: UIViewController {
     }
     
     func setViewHierarchy(){
-        view.addSubview(titleLabel)
-        view.addSubview(progressView)
-        view.addSubview(requestTableView)
+        view.addSubviews(titleLabel,
+                         progressView,
+                         requestTableView,
+                         requestEmptyImage
+        )
     }
     
     func setConstraints(){
@@ -111,13 +113,9 @@ class CommunityViewController: UIViewController {
     func setEmptyImage(){
         if CommunityViewController.matchingList.count > 0 {
             requestEmptyImage.isHidden = true
-            titleLabel.isHidden = false
-            progressView.isHidden = false
             requestTableView.isHidden = false
         }else {
             requestEmptyImage.isHidden = false
-            titleLabel.isHidden = true
-            progressView.isHidden = true
             requestTableView.isHidden = true
         }
     }

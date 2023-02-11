@@ -7,9 +7,17 @@
 
 import UIKit
 
+import SnapKit
+
 class MatchViewController: UIViewController {
     
     static var successMatchList = [SuccessMatchSheet]()
+    
+    private let matchEmptyImage : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named:"matchEmptyImage.svg")
+        return imageView
+    }()
     
     lazy var titleLabel : UILabel = {
         let label = UILabel()
@@ -47,13 +55,22 @@ class MatchViewController: UIViewController {
         self.getFirstTrainerListServer(category: "rehab", page: 0, size: 100, sort: ["recent,DESC"])
         self.getFirstTrainerListServer(category: "friend", page: 0, size: 100, sort: ["recent,DESC"])
         matchTableView.reloadData()
+        setEmptyImage()
     }
     func setViewHierarchy(){
-        view.addSubview(titleLabel)
-        view.addSubview(progressView)
-        view.addSubview(matchTableView)
+        view.addSubviews(titleLabel,
+                         progressView,
+                         matchTableView,
+                         matchEmptyImage
+        )
+        
     }
     func setConstraints(){
+        matchEmptyImage.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalTo(265)
+            make.width.equalTo(243)
+        }
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(70)
             make.leading.equalToSuperview().offset(20)
@@ -70,10 +87,21 @@ class MatchViewController: UIViewController {
             make.bottom.equalToSuperview()
         }
     }
+    
     func setTableView(){
         matchTableView.register(MatchTableCell.self, forCellReuseIdentifier: MatchTableCell.identifier)
         matchTableView.delegate = self
         matchTableView.dataSource = self
+    }
+    
+    func setEmptyImage(){
+        if MatchViewController.successMatchList.count > 0 {
+            matchEmptyImage.isHidden = true
+            matchTableView.isHidden = false
+        }else {
+            matchEmptyImage.isHidden = false
+            matchTableView.isHidden = true
+        }
     }
 }
 

@@ -18,6 +18,12 @@ class DietTrainerViewController: UIViewController {
     
     // MARK: - UI Components
     
+    private let trainerEmptyImage : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named:"trainerEmptyImage.svg")
+        return imageView
+    }()
+    
     let trainerTableView : UITableView = {
         let tableview = UITableView()
         return tableview
@@ -44,12 +50,19 @@ class DietTrainerViewController: UIViewController {
         self.getMatchingRequestList()
         self.getSuccessMatchingListServer()
         trainerTableView.reloadData()
+        setEmptyImage()
     }
     
     func signInViewAddUI(){
         view.addSubview(trainerTableView)
+        view.addSubview(trainerEmptyImage)
     }
     func signInViewSetUI(){
+        trainerEmptyImage.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalTo(126)
+            make.width.equalTo(300)
+        }
         trainerTableView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(170)
             make.leading.equalToSuperview().offset(15)
@@ -67,6 +80,15 @@ class DietTrainerViewController: UIViewController {
         trainerTableView.showsVerticalScrollIndicator = false
     }
 
+    func setEmptyImage(){
+        if DietTrainerViewController.trainerList.count > 0 {
+            trainerTableView.isHidden = false
+            trainerEmptyImage.isHidden = true
+        }else {
+            trainerTableView.isHidden = true
+            trainerEmptyImage.isHidden = false
+        }
+    }
 }
 
 // MARK: - Extension
