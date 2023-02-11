@@ -48,6 +48,7 @@
 		9141D82A298E7B6C00A201BB /* SuccessMatchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */; };
 		9141D82C298E7F0700A201BB /* MatchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D82B298E7F0700A201BB /* MatchTableCell.swift */; };
 		9141D82E298E871500A201BB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D82D298E871500A201BB /* String+.swift */; };
+		9149EBE72997F9FF004F3283 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149EBE62997F9FF004F3283 /* BaseURL.swift */; };
 		916195952990ED0B00703596 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195942990ED0B00703596 /* WriteReviewViewController.swift */; };
 		916195972990ED1F00703596 /* WriteReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195962990ED1F00703596 /* WriteReviewTableCell.swift */; };
 		916195992990F53F00703596 /* WriteReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195982990F53F00703596 /* WriteReviewResponse.swift */; };
@@ -117,7 +118,6 @@
 		91E08255298BEFA80033D39E /* MatchingListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08254298BEFA80033D39E /* MatchingListResponse.swift */; };
 		91E08257298C01A10033D39E /* RequestSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08256298C01A10033D39E /* RequestSheetViewController.swift */; };
 		91E0825A298C06620033D39E /* MatchSheetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E08259298C06620033D39E /* MatchSheetResponse.swift */; };
-		91E0825C298C0F570033D39E /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0825B298C0F570033D39E /* BaseURL.swift */; };
 		91E0825E298C37520033D39E /* WithDrawResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0825D298C37520033D39E /* WithDrawResponse.swift */; };
 		91F75B00296C109200B31F3B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 91F75AFF296C109200B31F3B /* Tabman */; };
 		91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F75B01296C10A800B31F3B /* TabManViewController.swift */; };
@@ -169,6 +169,7 @@
 		9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessMatchResponse.swift; sourceTree = "<group>"; };
 		9141D82B298E7F0700A201BB /* MatchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableCell.swift; sourceTree = "<group>"; };
 		9141D82D298E871500A201BB /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		9149EBE62997F9FF004F3283 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		916195942990ED0B00703596 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		916195962990ED1F00703596 /* WriteReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewTableCell.swift; sourceTree = "<group>"; };
 		916195982990F53F00703596 /* WriteReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewResponse.swift; sourceTree = "<group>"; };
@@ -234,7 +235,6 @@
 		91E08254298BEFA80033D39E /* MatchingListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MatchingListResponse.swift; path = "../../../../../../.Trash/FIT-I-iOS 오후 10.09.39/FITI/FITI/Network/DTO/Customer/MatchingListResponse.swift"; sourceTree = "<group>"; };
 		91E08256298C01A10033D39E /* RequestSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSheetViewController.swift; sourceTree = "<group>"; };
 		91E08259298C06620033D39E /* MatchSheetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSheetResponse.swift; sourceTree = "<group>"; };
-		91E0825B298C0F570033D39E /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		91E0825D298C37520033D39E /* WithDrawResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawResponse.swift; sourceTree = "<group>"; };
 		91F75B01296C10A800B31F3B /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
 		91F75B04296C111900B31F3B /* DietTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietTrainerViewController.swift; sourceTree = "<group>"; };
@@ -706,7 +706,7 @@
 				91783E9A29863C6D00B8CC2E /* Router */,
 				91783E9829863C5B00B8CC2E /* API */,
 				91783E9729863C5100B8CC2E /* DTO */,
-				91E0825B298C0F570033D39E /* BaseURL.swift */,
+				9149EBE62997F9FF004F3283 /* BaseURL.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -920,6 +920,7 @@
 				91783EA129863DA300B8CC2E /* TrainerAPI.swift in Sources */,
 				9181B6EA2983C33C001D9427 /* MyPageRouter.swift in Sources */,
 				91CFCFCE297FFAFC0009944D /* Profile.swift in Sources */,
+				9149EBE72997F9FF004F3283 /* BaseURL.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				91E08257298C01A10033D39E /* RequestSheetViewController.swift in Sources */,
 				9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */,
@@ -996,7 +997,6 @@
 				91CFCFC2297FF8D40009944D /* RealmService.swift in Sources */,
 				9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */,
 				9141D823298E55ED00A201BB /* BaseView.swift in Sources */,
-				91E0825C298C0F570033D39E /* BaseURL.swift in Sources */,
 				91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

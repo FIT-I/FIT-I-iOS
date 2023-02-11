@@ -36,6 +36,11 @@ class HeartListViewController: UIViewController {
         let tableview = UITableView()
         return tableview
     }()
+    private lazy var emptyHeartListImage : UIImageView = {
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "emptyHeartList.svg")
+        return imgView
+    }()
 
     // MARK: - View Life Cycle
     
@@ -50,19 +55,25 @@ class HeartListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.getHeartListServer()
+        self.getHeartListServer()
         heartListTableView.reloadData()
+        setEmptyImage()
     }
 
     func setViewHierarchy(){
-        view.addSubview(myPageTitleLabel)
         view.addSubviews(myPageTitleLabel,
                          progressView,
-                         heartListTableView
+                         heartListTableView,
+                         emptyHeartListImage
         )
     }
     
     func setConstraints(){
+        emptyHeartListImage.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalTo(233)
+            make.width.equalTo(173)
+        }
         myPageTitleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(60)
             make.centerX.equalToSuperview()
@@ -97,6 +108,16 @@ class HeartListViewController: UIViewController {
         heartListTableView.register(HeartListTableCell.self, forCellReuseIdentifier: HeartListTableCell.identifier)
         heartListTableView.delegate = self
         heartListTableView.dataSource = self
+    }
+    
+    func setEmptyImage(){
+        if HeartListViewController.heartList.count > 0 {
+            heartListTableView.isHidden = false
+            emptyHeartListImage.isHidden = true
+        }else {
+            heartListTableView.isHidden = true
+            emptyHeartListImage.isHidden =  false
+        }
     }
     
 }

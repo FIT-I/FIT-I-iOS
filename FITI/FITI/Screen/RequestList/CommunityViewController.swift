@@ -14,6 +14,12 @@ class CommunityViewController: UIViewController {
     
     static var matchingList = [MatchingList]()
     
+    private let requestEmptyImage : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named:"requestEmptyImage.svg")
+        return imageView
+    }()
+    
     var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 20.0)
@@ -52,6 +58,7 @@ class CommunityViewController: UIViewController {
         getFirstTrainerListServer(category:"diet",page:0,size:200,sort:["current"])
         getSuccessMatchingListServer()
         requestTableView.reloadData()
+        setEmptyImage()
     }
     
     func setViewHierarchy(){
@@ -61,6 +68,11 @@ class CommunityViewController: UIViewController {
     }
     
     func setConstraints(){
+        requestEmptyImage.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalTo(233)
+            make.width.equalTo(173)
+        }
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(70)
             make.leading.equalToSuperview().offset(20)
@@ -93,6 +105,20 @@ class CommunityViewController: UIViewController {
                 TrainerDetailViewController.isHeartFull = true
                 TrainerDetailViewController.heartBtn.setImage(UIImage(named: "heart.fill.svg"), for: .normal)
             }
+        }
+    }
+    
+    func setEmptyImage(){
+        if CommunityViewController.matchingList.count > 0 {
+            requestEmptyImage.isHidden = true
+            titleLabel.isHidden = false
+            progressView.isHidden = false
+            requestTableView.isHidden = false
+        }else {
+            requestEmptyImage.isHidden = false
+            titleLabel.isHidden = true
+            progressView.isHidden = true
+            requestTableView.isHidden = true
         }
     }
 }
