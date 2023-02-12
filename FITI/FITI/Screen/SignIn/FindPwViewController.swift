@@ -284,11 +284,11 @@ class FindPwViewController: UIViewController {
     
     func showFindPasswordSuccessNotification(description:String){
         let alertController = UIAlertController(
-            title: description,
-            message: "로그인 페이지로 이동",
+            title: "비밀번호",
+            message: description,
             preferredStyle: .alert
         )
-        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+        let okAction = UIAlertAction(title: "로그인 페이지로 이동", style: .default) { _ in
             let nextVC = SignInViewController()
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
