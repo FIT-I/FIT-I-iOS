@@ -60,8 +60,8 @@ class FoodTrainerViewController: UIViewController {
     func signInViewSetUI(){
         trainerEmptyImage.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(126)
-            make.width.equalTo(300)
+            make.height.equalTo(125)
+            make.width.equalTo(250)
         }
         trainerTableView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(170)

@@ -8,6 +8,7 @@
 import Foundation
 
 import Moya
+import UIKit
 
 final class SignAPI {
     static let shared = SignAPI()
@@ -27,7 +28,7 @@ final class SignAPI {
                 do {
                     self.signInData = try moyaResponse.map(SignInResponse.self)
                     completion(signInData)
-                } catch(let err) { 
+                } catch(let err) {
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):

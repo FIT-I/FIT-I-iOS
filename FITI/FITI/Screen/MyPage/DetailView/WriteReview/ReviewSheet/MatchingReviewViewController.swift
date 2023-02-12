@@ -197,6 +197,19 @@ class MatchingReviewViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    func showExceptionNotification(description:String){
+        let alertController = UIAlertController(
+            title: description,
+            message: "다른 트레이너에게 리뷰를 남겨주세요.",
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "확인", style: .destructive) { _ in
+            self.dismiss(animated: true)
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
 extension MatchingReviewViewController: UITextViewDelegate {
@@ -219,8 +232,12 @@ extension MatchingReviewViewController: UITextViewDelegate {
 extension MatchingReviewViewController {
     func postReviewServer(body: WriteReviewRequest){
         CustomerAPI.shared.postReviewAPI(body: body){ response in
-            guard let postReviewResponse = response?.message else {return}
-            self.successAlert(message: postReviewResponse)
+            if response?.isSuccess == false {
+                self.showExceptionNotification(description: response?.message ?? "리뷰 작성 실패")
+            }else {
+                let postReviewResponse = response?.message
+                self.successAlert(message: postReviewResponse ?? "리뷰 작성 성공")
+            }
         }
     }
 }

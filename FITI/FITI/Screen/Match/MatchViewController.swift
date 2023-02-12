@@ -68,8 +68,8 @@ class MatchViewController: UIViewController {
     func setConstraints(){
         matchEmptyImage.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(265)
-            make.width.equalTo(243)
+            make.height.equalTo(343)
+            make.width.equalTo(246)
         }
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(70)

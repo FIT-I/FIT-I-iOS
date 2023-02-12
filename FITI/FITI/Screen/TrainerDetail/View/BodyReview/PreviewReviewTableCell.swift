@@ -91,6 +91,8 @@ class PreviewReviewTableCell: UITableViewCell {
         textView.isEditable = false
         textView.isScrollEnabled = false
 //        textView.backgroundColor = UIColor.customColor(.boxGray)
+        textView.textContainer.maximumNumberOfLines = 2
+        textView.textContainer.lineBreakMode = .byTruncatingTail
         textView.backgroundColor = .systemBackground
         textView.font = UIFont.systemFont(ofSize: 12.0)
         textView.snp.makeConstraints { make in

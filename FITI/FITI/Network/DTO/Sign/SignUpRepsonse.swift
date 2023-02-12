@@ -9,5 +9,6 @@
 struct SignUpResponse: Codable {
     let isSuccess: Bool
     let code: Int
-    let message, result: String
+    let message: String
+    var result: String? = nil
 }

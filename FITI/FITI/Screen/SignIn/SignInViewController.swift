@@ -201,6 +201,7 @@ class SignInViewController: UIViewController {
             return true
         }
     }
+    
     private func ifSuccessPushHome(){
         DispatchQueue.global().async {
             self.getFirstTrainerListServer(category: "pt", page: 0, size: 100, sort: ["recent,DESC"])
@@ -225,10 +226,12 @@ class SignInViewController: UIViewController {
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
+    
     private func addTokenInRealm(accessToken:String,refreshToken:String){
         realm.addToken(accessToken: accessToken, refreshToken: refreshToken)
         print(realm.getToken())
     }
+    
     private func showFailAlert(){
         let alert = UIAlertController(title: "로그인 실패", message: "이메일 또는 비밀번호를 확인해주세요.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { okAction in
@@ -238,8 +241,22 @@ class SignInViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
+    
     func setNavigationItem(){
         self.navigationItem.hidesBackButton = true
+    }
+    
+    func showExceptionNotification(description:String){
+        let alertController = UIAlertController(
+            title: description,
+            message: "다시 시도해주세요.",
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "확인", style: .destructive) { _ in
+            self.dismiss(animated: true)
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -249,14 +266,14 @@ extension SignInViewController {
     func signInServer(email:String, password:String){
         SignAPI.shared.postSignInAPI(email: email, password: password){ response in
             print(response?.message ?? "")
-            guard let signInResponse = response?.result else { return }
-            print(signInResponse.accessToken)
-            print(signInResponse.refreshToken)
-            if response?.code == 1000 {
-                self.addTokenInRealm(accessToken: signInResponse.accessToken, refreshToken: signInResponse.refreshToken)
+            guard let signInResponse = response else { return }
+            print(signInResponse.result?.accessToken as Any)
+            print(signInResponse.result?.refreshToken as Any)
+            if signInResponse.isSuccess == false {
+                self.showExceptionNotification(description: signInResponse.message)
+            }else {
+                self.addTokenInRealm(accessToken: signInResponse.result?.accessToken ?? "", refreshToken: signInResponse.result?.refreshToken ?? "")
                 self.ifSuccessPushHome()
-            } else {
-                self.showFailAlert()
             }
         }
     }

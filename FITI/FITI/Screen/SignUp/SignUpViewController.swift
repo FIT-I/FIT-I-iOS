@@ -387,6 +387,19 @@ class SignUpViewController: UIViewController {
         return  NSPredicate(format: "SELF MATCHES %@", pwRegex).evaluate(with: str)
     }
     
+    func showExceptionNotification(description:String){
+        let alertController = UIAlertController(
+            title: description,
+            message: "다시 시도해주세요.",
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "확인", style: .destructive) { _ in
+            self.dismiss(animated: true)
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: - Network
@@ -394,11 +407,12 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController {
     func signUpServer(name:String, email:String, password:String, profileImage:String){
         SignAPI.shared.postSignUpAPI(name: name, email: email, password: password, profileImage: profileImage) { response in
-            guard let signUpMessageResponse = response?.result else { return }
-            guard let signUpIsSuccessResponse = response?.isSuccess else { return }
-            // MARK: - FIX ME : Just Best Case, 회원 가입 실패 시 예외처리 필요
+            let signUpMessageResponse = response?.result
+            let signUpIsSuccessResponse = response?.isSuccess
             if signUpIsSuccessResponse == true {
-                self.showSuccessAlert(message: signUpMessageResponse)
+                self.showSuccessAlert(message: signUpMessageResponse ?? "회원가입 성공")
+            }else {
+                self.showExceptionNotification(description: response?.message ?? "회원가입 실페")
             }
         }
     }

@@ -247,15 +247,21 @@ class TrainerDetailViewController: UIViewController {
     func resizePreviewReviewView(){
         let reviewNum = TrainerDetailViewController.specificTrainer.reviewDto?.count
         switch reviewNum {
+        case 0:
+            bodyReviewView.reviewDetailBtn.isHidden = true
+            bodyReviewView.snp.remakeConstraints {
+                $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
+                $0.height.equalTo(70)
+            }
         case 1:
             bodyReviewView.snp.remakeConstraints {
                 $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
                 $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
                 $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
-                $0.height.equalTo(100)
+                $0.height.equalTo(120)
             }
-            bodyReviewView.reviewDetailBtn.layer.isHidden = true
-            return
         case 2:
             bodyReviewView.snp.remakeConstraints {
                 $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
