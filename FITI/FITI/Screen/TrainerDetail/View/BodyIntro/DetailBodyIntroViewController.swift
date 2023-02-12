@@ -17,7 +17,7 @@ class DetailBodyIntroViewController: UIViewController {
 
     private lazy var rectView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.customColor(.boxGray)
+//        view.backgroundColor = UIColor.customColor(.boxGray)
         return view
     }()
     private lazy var introTextView : UITextView = {
@@ -58,8 +58,8 @@ class DetailBodyIntroViewController: UIViewController {
         view.addSubview(contentScrollView)
         view.backgroundColor = .systemBackground
         introView.layer.cornerRadius = 16
-        introView.backgroundColor = UIColor.customColor(.boxGray)
-        introTextView.backgroundColor = UIColor.customColor(.boxGray)
+//        introView.backgroundColor = UIColor.customColor(.boxGray)
+//        introTextView.backgroundColor = UIColor.customColor(.boxGray)
     }
     
     func setViewLayer() {

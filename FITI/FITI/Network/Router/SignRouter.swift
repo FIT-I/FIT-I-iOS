@@ -11,6 +11,8 @@ import Foundation
 enum SignRouter {
     case signUp(param: SignUpRequest)
     case signIn(param: SignInRequest)
+    case sendEmail(param: String)
+    case getPassword(param: String)
 }
 
 extension SignRouter: TargetType {
@@ -24,6 +26,10 @@ extension SignRouter: TargetType {
         return "/api/accounts/customer"
     case .signIn:
         return "/api/accounts/login"
+    case .sendEmail(let param):
+        return "/api/accounts/email/\(param)"
+    case .getPassword(let param):
+        return "/api/accounts/password/\(param)"
     }
   }
   
@@ -32,6 +38,8 @@ extension SignRouter: TargetType {
     case .signUp,
          .signIn:
       return .post
+    case .sendEmail, .getPassword:
+        return .get
     }
   }
   
@@ -41,6 +49,10 @@ extension SignRouter: TargetType {
         return .requestJSONEncodable(param)
     case .signIn(let param):
         return .requestJSONEncodable(param)
+    case .sendEmail:
+        return .requestPlain
+    case .getPassword:
+        return .requestPlain
     }
   }
 

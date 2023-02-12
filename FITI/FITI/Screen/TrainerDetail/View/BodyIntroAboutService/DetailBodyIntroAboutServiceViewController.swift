@@ -16,7 +16,7 @@ class DetailBodyIntroAboutServiceViewController: UIViewController {
     private var introTextView : UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.backgroundColor = UIColor.customColor(.boxGray)
+//        textView.backgroundColor = UIColor.customColor(.boxGray)
         textView.textColor = UIColor.customColor(.darkGray)
         textView.layer.cornerRadius = 16
         textView.isEditable = true
@@ -52,8 +52,8 @@ class DetailBodyIntroAboutServiceViewController: UIViewController {
         contentScrollView.addSubviews(aboutService,introTextView)
         view.addSubview(contentScrollView)
         view.backgroundColor = .systemBackground
-        aboutService.backgroundColor = UIColor.customColor(.boxGray)
-        introTextView.backgroundColor = UIColor.customColor(.boxGray)
+//        aboutService.backgroundColor = UIColor.customColor(.boxGray)
+//        introTextView.backgroundColor = UIColor.customColor(.boxGray)
     }
     
     func setViewLayer() {

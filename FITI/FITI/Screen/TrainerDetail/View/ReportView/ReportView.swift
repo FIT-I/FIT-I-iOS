@@ -10,7 +10,7 @@ import SnapKit
 
 class ReportView: UIView {
 
-    lazy var isFull: [String] = ["","","","",""]
+    lazy var reportReason = ""
 
     // Buttons
     lazy var firstPickBtn: UIButton = {
@@ -163,51 +163,76 @@ class ReportView: UIView {
 
     @objc func firstBtnPressed (_ sender: UIButton) {
         if firstPickBtn.imageView?.image == UIImage(named: "circle.fill.svg"){ firstPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
-            self.isFull[0] = ""
+            reportReason = ""
         }
         else if firstPickBtn.imageView?.image == UIImage(named: "lessthan.circle.svg"){
             firstPickBtn.setImage(UIImage(named: "circle.fill.svg"), for: .normal)
-            self.isFull[0] = "요청서와 관련없는 광고/홍보/영업"
+            
+            secondPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            thirdPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            fourthPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            fifthPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            reportReason = "AD"
         }
     }
 
     @objc func secondBtnPressed (_ sender: UIButton) {
         if secondPickBtn.imageView?.image == UIImage(named: "circle.fill.svg"){ secondPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
-            self.isFull[1] = ""
+            reportReason = ""
         }
         else if secondPickBtn.imageView?.image == UIImage(named: "lessthan.circle.svg"){
             secondPickBtn.setImage(UIImage(named: "circle.fill.svg"), for: .normal)
-            self.isFull[1] = "허위 프로필 작성"
+            
+            firstPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            thirdPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            fourthPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            fifthPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            reportReason = "FAKE_PROFILE"
         }
     }
 
     @objc func thirdBtnPressed (_ sender: UIButton) {
         if thirdPickBtn.imageView?.image == UIImage(named: "circle.fill.svg"){ thirdPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
-            self.isFull[2] = ""
+            reportReason = ""
         }
         else if thirdPickBtn.imageView?.image == UIImage(named: "lessthan.circle.svg"){
             thirdPickBtn.setImage(UIImage(named: "circle.fill.svg"), for: .normal)
-            self.isFull[2] = "유효하지 않은 카카오톡 링크"
+            
+            secondPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            firstPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            fourthPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            fifthPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            reportReason = "INVALID_LINK"
         }
     }
 
     @objc func fourthBtnPressed (_ sender: UIButton) {
         if fourthPickBtn.imageView?.image == UIImage(named: "circle.fill.svg"){ fourthPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
-            self.isFull[3] = ""
+            reportReason = ""
         }
         else if fourthPickBtn.imageView?.image == UIImage(named: "lessthan.circle.svg"){
             fourthPickBtn.setImage(UIImage(named: "circle.fill.svg"), for: .normal)
-            self.isFull[3] = "부적절한 언어(욕설, 성희롱 등) 사용"
+            
+            thirdPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            secondPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            firstPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            fifthPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            reportReason = "BAD_WORD"
         }
     }
 
     @objc func fifthBtnPressed (_ sender: UIButton) {
         if fifthPickBtn.imageView?.image == UIImage(named: "circle.fill.svg"){ fifthPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
-            self.isFull[4] = ""
+            reportReason = ""
         }
         else if fifthPickBtn.imageView?.image == UIImage(named: "lessthan.circle.svg"){
-        fifthPickBtn.setImage(UIImage(named: "circle.fill.svg"), for: .normal)
-            self.isFull[4] = "관련 법령 등을 위반하는 요청"
+            fifthPickBtn.setImage(UIImage(named: "circle.fill.svg"), for: .normal)
+            
+            fourthPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            thirdPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            secondPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            firstPickBtn.setImage(UIImage(named: "lessthan.circle.svg"), for: .normal)
+            reportReason = "ILLEGAL"
         }
     }
 

@@ -53,14 +53,7 @@ class MyPageViewController: UIViewController {
         }
         return view
     }()
-    
-    // 프로필 스택 뷰
     let midProfileStackView = ProfileView()
-    
-    // 알림 뷰
-    let notiView = NotificationSwitch()
-    
-    // line 뷰
     let lineView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
@@ -69,8 +62,6 @@ class MyPageViewController: UIViewController {
         }
         return view
     }()
-    
-    // 하단 뷰
     let bottomView = BottomView()
     let bottomBtn = BottomBtnView()
     
@@ -78,11 +69,9 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         self.navigationItem.hidesBackButton = true
-        // Do any additional setup after loading the view.
         setNavigationController()
         setServerData()
         getMyPageServer()
-        setViewLayer()
         setViewHierarchy()
         setConstraints()
     }
@@ -94,17 +83,12 @@ class MyPageViewController: UIViewController {
         getSuccessMatchingListServer()
     }
 
-    func setViewLayer(){
-        notiView.layer.cornerRadius = 10
-    }
-    
     func setViewHierarchy(){
         self.setBtnEvents()
         view.addSubviews(myPageTitleLabel,
                          settingBtn,
                          progressView,
                          midProfileStackView,
-                         notiView,
                          lineView,
                          bottomView,
                          bottomBtn
@@ -132,14 +116,8 @@ class MyPageViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-23)
             make.height.equalTo(85)
         }
-        notiView.snp.makeConstraints { make in
-            make.top.equalTo(midProfileStackView.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(15)
-            make.trailing.equalToSuperview().offset(-15)
-            make.height.equalTo(50)
-        }
         lineView.snp.makeConstraints { make in
-            make.top.equalTo(notiView.snp.bottom).offset(15)
+            make.top.equalTo(midProfileStackView.snp.bottom).offset(15)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }

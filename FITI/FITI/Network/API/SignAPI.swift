@@ -18,6 +18,8 @@ final class SignAPI {
     
     private(set) var signInData: SignInResponse?
     private(set) var signUpData: SignUpResponse?
+    private(set) var sendEmailData: SendEmailResponse?
+    private(set) var getPasswordData: FindPasswordResponse?
 
     // 1. 로그인 API
     func postSignInAPI(email:String, password:String, completion: @escaping (SignInResponse?) -> Void){
@@ -46,6 +48,40 @@ final class SignAPI {
                 do {
                     self.signUpData = try moyaResponse.map(SignUpResponse.self)
                     completion(signUpData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    // 3. 인증 메일 전송 API (비밀번호 찾기 1차)
+    func sendEmailAPI(email:String, completion: @escaping (SendEmailResponse?) -> Void){
+        signProvider.request(.sendEmail(param: email)){ [self] (response) in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    self.sendEmailData = try moyaResponse.map(SendEmailResponse.self)
+                    completion(sendEmailData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    // 4. 계정 비밀번호 조회 API (비밀번호 찾기 2차)
+    func getPasswordAPI(email:String, completion: @escaping (FindPasswordResponse?) -> Void){
+        signProvider.request(.getPassword(param: email)){ [self] (response) in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    self.getPasswordData = try moyaResponse.map(FindPasswordResponse.self)
+                    completion(getPasswordData)
                 } catch(let err) {
                     print(err.localizedDescription, 500)
                 }

@@ -82,8 +82,6 @@ final class TrainerAPI {
                     self.getReportData = try moyaResponse.map(ReportResponse.self)
                     completion(getReportData)
                 } catch(let err) {
-                    print(moyaResponse.statusCode)
-                    print(moyaResponse.data)
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):

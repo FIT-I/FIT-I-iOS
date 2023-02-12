@@ -162,8 +162,12 @@ class ReportViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @objc func reportBtnEvent(){
-        let reportData = ReportRequest(trainerId: TrainerDetailViewController.id, reason: makeReportReasonString())
-        self.reportAlert(reportData: reportData)
+        if self.reportStackView.reportReason == "" {
+            showToast(message: "신고 사유를 선택해주세요.")
+        }else {
+            let reportData = ReportRequest(trainerId: TrainerDetailViewController.id, reason: self.reportStackView.reportReason)
+            self.reportAlert(reportData: reportData)
+        }
     }
     
     // MARK: - Func
@@ -192,16 +196,36 @@ class ReportViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func makeReportReasonString()->String{
-        var reportReason = String()
-        for i in reportStackView.isFull {
-            if i != "" {
-                reportReason += i
-            }else {
-                continue
-            }
+    func showToast(message : String, font: UIFont = UIFont.systemFont(ofSize: 14.0)) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-170, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 10.0, delay: 0.1, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
+    
+    func showExceptionNotification(description:String){
+        let alertController = UIAlertController(
+            title: description,
+            message: "이미 신고한 트레이너입니다.",
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "확인", style: .destructive) { _ in
+            self.dismiss(animated: true)
         }
-        return reportReason
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -210,9 +234,12 @@ class ReportViewController: UIViewController {
 extension ReportViewController {
     func postReportServer(body:ReportRequest){
         TrainerAPI.shared.reportTrainerAPI(body: body){ response in
-            guard let reportResponse = response?.message else {return}
-            print(reportResponse)
-            self.navigationController?.popViewController(animated: true)
+            guard let reportResponse = response else { return }
+            if reportResponse.isSuccess == false {
+                self.showExceptionNotification(description: reportResponse.message)
+            }else {
+                self.showToast(message: "신고에 성공하였습니다.")
+            }
         }
     }
 }

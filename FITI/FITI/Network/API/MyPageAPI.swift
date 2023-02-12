@@ -22,15 +22,6 @@ final class MyPageAPI {
     private(set) var withDrawData: WithDrawResponse?
     private(set) var patchPasswordData: PatchPasswordResponse?
     
-//    private func showExceptionNotification(description:String){
-//        DispatchQueue.main.async {
-//            let networkViewController = ExceptionNotificationViewController()
-//            networkViewController.descrip = description
-//            networkViewController.modalPresentationStyle = .fullScreen
-//            UIApplication.shared.windows.first?.rootViewController?.show(networkViewController, sender: nil)
-//        }
-//    }
-    
     // 1. 마이페이지 조회 API
     func getMyPageDataAPI(completion: @escaping (MyPageResponse?) -> Void){
         myPageProvider.request(.getMyPage) { [self] (response) in
@@ -41,7 +32,6 @@ final class MyPageAPI {
                     self.myPageData = try moyaResponse.map(MyPageResponse.self)
                     completion(myPageData)
                 } catch(let err) {
-//                    showExceptionNotification(description: moyaResponse.description)
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):
@@ -59,7 +49,6 @@ final class MyPageAPI {
                     self.locationSettingData = try moyaResponse.map(PetchLocationResponse.self)
                     completion(locationSettingData)
                 } catch(let err) {
-//                    showExceptionNotification(description: moyaResponse.description)
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):
@@ -77,7 +66,6 @@ final class MyPageAPI {
                     self.heartListData = try moyaResponse.map(HeartListResponse.self)
                     completion(heartListData)
                 } catch(let err) {
-//                    showExceptionNotification(description: moyaResponse.description)
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):
@@ -95,7 +83,6 @@ final class MyPageAPI {
                     self.withDrawData = try moyaResponse.map(WithDrawResponse.self)
                     completion(withDrawData)
                 } catch(let err) {
-//                    showExceptionNotification(description: moyaResponse.description)
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):
@@ -113,7 +100,6 @@ final class MyPageAPI {
                     self.patchPasswordData = try moyaResponse.map(PatchPasswordResponse.self)
                     completion(patchPasswordData)
                 } catch(let err) {
-//                    showExceptionNotification(description: moyaResponse.description)
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):

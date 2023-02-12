@@ -41,7 +41,7 @@ class BodyIntroView : UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "작성된 소개 글이 없습니다."
-        label.textColor = UIColor.customColor(.darkGray)
+        label.textColor = UIColor.customColor(.gray)
         return label
     }()
     lazy var introTextView : UITextView = {

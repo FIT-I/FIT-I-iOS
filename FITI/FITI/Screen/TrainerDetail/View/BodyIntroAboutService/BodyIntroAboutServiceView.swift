@@ -41,7 +41,7 @@ class BodyIntroAboutServiceView : UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "작성된 서비스 상세 설명이 없습니다."
-        label.textColor = UIColor.customColor(.darkGray)
+        label.textColor = UIColor.customColor(.gray)
         return label
     }()
     lazy var introServiceTextView : UITextView = {

@@ -187,14 +187,14 @@ class TrainerDetailViewController: UIViewController {
     
     func setEmptyLable(introText:String,serviceText:String){
         if introText != "" {
-            self.bodyIntroAboutService.emptyIntroServiceLabel.isHidden = true
-        }else {
-            self.bodyIntroAboutService.emptyIntroServiceLabel.isHidden = false
-        }
-        if serviceText != "" {
             self.bodyIntroView.emptyIntroLabel.isHidden = true
         }else {
             self.bodyIntroView.emptyIntroLabel.isHidden = false
+        }
+        if serviceText != "" {
+            self.bodyIntroAboutService.emptyIntroServiceLabel.isHidden = true
+        }else {
+            self.bodyIntroAboutService.emptyIntroServiceLabel.isHidden = false
         }
     }
     

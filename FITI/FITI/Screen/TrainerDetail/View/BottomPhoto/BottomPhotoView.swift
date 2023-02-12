@@ -29,7 +29,7 @@ class BottomPhotoView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.text = "트레이너가 등록한 사진이 없습니다."
-        label.textColor = UIColor.customColor(.darkGray)
+        label.textColor = UIColor.customColor(.gray)
         return label
     }()
     private lazy var editPhotoButton : UIButton = {
