@@ -13,10 +13,10 @@ class ProfileView : UIView {
     
     var reviewerImage : UIImageView = {
         let imgView = UIImageView()
-        imgView.image = UIImage(named: "reviewerIcon.svg")
-        imgView.snp.makeConstraints { make in
-            make.height.width.equalTo(45)
-        }
+//        imgView.snp.makeConstraints { make in
+//            make.height.equalTo(56)
+//            make.width.equalTo(41)
+//        }
         return imgView
     }()
 
@@ -31,7 +31,6 @@ class ProfileView : UIView {
     var userId : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0)
-        label.text = "junhyeon2111@daum.net"
         label.textColor = UIColor.customColor(.darkGray)
         return label
     }()

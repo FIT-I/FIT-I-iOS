@@ -140,6 +140,23 @@ class MyPageViewController: UIViewController {
     
     @objc func settingProfileBtnEvent(){
         let nextVC = SettingProfileViewController()
+        nextVC.name.text = MyPageViewController.MyInfo.userName
+        switch MyPageViewController.MyInfo.profile {
+        case "customerProfile1":
+            nextVC.customerProfile1.backgroundColor = UIColor.customColor(.blue)
+        case "customerProfile2":
+            nextVC.customerProfile2.backgroundColor = UIColor.customColor(.blue)
+        case "customerProfile3":
+            nextVC.customerProfile3.backgroundColor = UIColor.customColor(.blue)
+        case "customerProfile4":
+            nextVC.customerProfile4.backgroundColor = UIColor.customColor(.blue)
+        case "customerProfile5":
+            nextVC.customerProfile5.backgroundColor = UIColor.customColor(.blue)
+        case "customerProfile6":
+            nextVC.customerProfile6.backgroundColor = UIColor.customColor(.blue)
+        default:
+            return
+        }
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -206,6 +223,22 @@ class MyPageViewController: UIViewController {
     private func setServerData(){
         midProfileStackView.name.text = MyPageViewController.MyInfo.userName
         midProfileStackView.userId.text = MyPageViewController.MyInfo.email
+        switch MyPageViewController.MyInfo.profile {
+        case "customerProfile1":
+            midProfileStackView.reviewerImage.image = UIImage(named: "profile1.svg")
+        case "customerProfile2":
+            midProfileStackView.reviewerImage.image = UIImage(named: "profile2.svg")
+        case "customerProfile3":
+            midProfileStackView.reviewerImage.image = UIImage(named: "profile3.svg")
+        case "customerProfile4":
+            midProfileStackView.reviewerImage.image = UIImage(named: "profile4.svg")
+        case "customerProfile5":
+            midProfileStackView.reviewerImage.image = UIImage(named: "profile5.svg")
+        case "customerProfile6":
+            midProfileStackView.reviewerImage.image = UIImage(named: "profile6.svg")
+        default:
+            midProfileStackView.reviewerImage.image = UIImage(named: "profile1.svg")
+        }
     }
     func setNavigationController(){
         navigationController?.navigationBar.tintColor = .black
