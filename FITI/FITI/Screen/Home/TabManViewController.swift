@@ -16,7 +16,7 @@ class TabManViewController: TabmanViewController {
     
     private let logoImage : UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named:"logo.svg")
+        imageView.image = UIImage(named:"Logo.svg")
         return imageView
     }()
     
