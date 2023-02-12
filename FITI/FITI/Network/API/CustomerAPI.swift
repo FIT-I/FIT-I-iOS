@@ -134,7 +134,6 @@ final class CustomerAPI {
                     self.postReviewData = try moyaResponse.map(WriteReviewResponse.self)
                     completion(postReviewData)
                 } catch(let err) {
-                    
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):

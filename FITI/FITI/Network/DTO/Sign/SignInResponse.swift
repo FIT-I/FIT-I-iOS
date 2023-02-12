@@ -10,7 +10,7 @@ struct SignInResponse: Codable {
     let isSuccess: Bool
     let code: Int
     let message: String
-    let result: Result
+    var result: Result? = nil
 }
 
 // MARK: - Result

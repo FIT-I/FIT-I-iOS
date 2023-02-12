@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		910182C32961961D00FC10DB /* TrainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTableCell.swift */; };
+		910C1DF62998CEE80062845D /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1DF52998CEE80062845D /* BaseURL.swift */; };
+		910C1DF82998CF2C0062845D /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1DF72998CF2C0062845D /* NetworkCheck.swift */; };
+		910C1DFF2998D0690062845D /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1DFE2998D0690062845D /* NetworkViewController.swift */; };
 		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
 		910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805829656ACE00828E4B /* PickPlaceViewController.swift */; };
 		910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805A2965878300828E4B /* RequestResultViewController.swift */; };
 		910D805D2965DBEE00828E4B /* PickServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805C2965DBEE00828E4B /* PickServiceView.swift */; };
-		910D80652965E5C200828E4B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 910D80642965E5C200828E4B /* FSCalendar */; };
 		911551032992408700667A8B /* RequestSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911551022992408700667A8B /* RequestSuccessViewController.swift */; };
 		9115510529927A4B00667A8B /* ReportRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9115510429927A4B00667A8B /* ReportRequest.swift */; };
 		9115510729927AA700667A8B /* ReportResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9115510629927AA700667A8B /* ReportResponse.swift */; };
@@ -48,7 +50,6 @@
 		9141D82A298E7B6C00A201BB /* SuccessMatchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */; };
 		9141D82C298E7F0700A201BB /* MatchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D82B298E7F0700A201BB /* MatchTableCell.swift */; };
 		9141D82E298E871500A201BB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D82D298E871500A201BB /* String+.swift */; };
-		9149EBE72997F9FF004F3283 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149EBE62997F9FF004F3283 /* BaseURL.swift */; };
 		916195952990ED0B00703596 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195942990ED0B00703596 /* WriteReviewViewController.swift */; };
 		916195972990ED1F00703596 /* WriteReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195962990ED1F00703596 /* WriteReviewTableCell.swift */; };
 		916195992990F53F00703596 /* WriteReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195982990F53F00703596 /* WriteReviewResponse.swift */; };
@@ -131,6 +132,9 @@
 
 /* Begin PBXFileReference section */
 		910182C22961961D00FC10DB /* TrainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTableCell.swift; sourceTree = "<group>"; };
+		910C1DF52998CEE80062845D /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		910C1DF72998CF2C0062845D /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
+		910C1DFE2998D0690062845D /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
 		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
 		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +173,6 @@
 		9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessMatchResponse.swift; sourceTree = "<group>"; };
 		9141D82B298E7F0700A201BB /* MatchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableCell.swift; sourceTree = "<group>"; };
 		9141D82D298E871500A201BB /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		9149EBE62997F9FF004F3283 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		916195942990ED0B00703596 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		916195962990ED1F00703596 /* WriteReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewTableCell.swift; sourceTree = "<group>"; };
 		916195982990F53F00703596 /* WriteReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewResponse.swift; sourceTree = "<group>"; };
@@ -253,7 +256,6 @@
 				91CFCFCA297FFA4D0009944D /* RealmSwift in Frameworks */,
 				91C32D46296185B900F29DA5 /* SnapKit in Frameworks */,
 				91F75B00296C109200B31F3B /* Tabman in Frameworks */,
-				910D80652965E5C200828E4B /* FSCalendar in Frameworks */,
 				91783EAF298680BE00B8CC2E /* Kingfisher in Frameworks */,
 				913E02CD2963505A001CC92B /* Then in Frameworks */,
 				91CFCFD3298001ED0009944D /* Moya in Frameworks */,
@@ -327,6 +329,15 @@
 				917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		910C1DFD2998CFF80062845D /* NetworkStatus */ = {
+			isa = PBXGroup;
+			children = (
+				910C1DF72998CF2C0062845D /* NetworkCheck.swift */,
+				910C1DFE2998D0690062845D /* NetworkViewController.swift */,
+			);
+			path = NetworkStatus;
 			sourceTree = "<group>";
 		};
 		910D80522965667100828E4B /* RequestSheet */ = {
@@ -675,6 +686,7 @@
 		91CFCFBD297FF5EA0009944D /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				910C1DFD2998CFF80062845D /* NetworkStatus */,
 				918F5FF22989125300AADC10 /* Loading */,
 				910182B929618C7900FC10DB /* Extension */,
 				91CFCFBF297FF68A0009944D /* Resource */,
@@ -706,7 +718,7 @@
 				91783E9A29863C6D00B8CC2E /* Router */,
 				91783E9829863C5B00B8CC2E /* API */,
 				91783E9729863C5100B8CC2E /* DTO */,
-				9149EBE62997F9FF004F3283 /* BaseURL.swift */,
+				910C1DF52998CEE80062845D /* BaseURL.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -818,7 +830,6 @@
 			packageProductDependencies = (
 				91C32D45296185B900F29DA5 /* SnapKit */,
 				913E02CC2963505A001CC92B /* Then */,
-				910D80642965E5C200828E4B /* FSCalendar */,
 				91F75AFF296C109200B31F3B /* Tabman */,
 				91CFCFC7297FFA4D0009944D /* Realm */,
 				91CFCFC9297FFA4D0009944D /* RealmSwift */,
@@ -856,7 +867,6 @@
 			packageReferences = (
 				91C32D44296185B900F29DA5 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */,
-				910D80632965E5C200828E4B /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				91F75AFE296C109200B31F3B /* XCRemoteSwiftPackageReference "Tabman" */,
 				91CFCFC6297FFA4D0009944D /* XCRemoteSwiftPackageReference "realm-swift" */,
 				91CFCFD1298001ED0009944D /* XCRemoteSwiftPackageReference "Moya" */,
@@ -920,11 +930,12 @@
 				91783EA129863DA300B8CC2E /* TrainerAPI.swift in Sources */,
 				9181B6EA2983C33C001D9427 /* MyPageRouter.swift in Sources */,
 				91CFCFCE297FFAFC0009944D /* Profile.swift in Sources */,
-				9149EBE72997F9FF004F3283 /* BaseURL.swift in Sources */,
+				910C1DF62998CEE80062845D /* BaseURL.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				91E08257298C01A10033D39E /* RequestSheetViewController.swift in Sources */,
 				9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */,
 				91E0824F298BA9AD0033D39E /* RequestMatchingResponse.swift in Sources */,
+				910C1DFF2998D0690062845D /* NetworkViewController.swift in Sources */,
 				91185FC3296D86900099B641 /* BodyIntroAboutServiceView.swift in Sources */,
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
 				91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */,
@@ -989,6 +1000,7 @@
 				91783EA329863DAC00B8CC2E /* SignAPI.swift in Sources */,
 				91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
+				910C1DF82998CF2C0062845D /* NetworkCheck.swift in Sources */,
 				916A2C47297056F2005F0420 /* CommunityTableCell.swift in Sources */,
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
 				91C32D522961869000F29DA5 /* MatchViewController.swift in Sources */,
@@ -1207,14 +1219,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		910D80632965E5C200828E4B /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then.git";
@@ -1266,11 +1270,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		910D80642965E5C200828E4B /* FSCalendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 910D80632965E5C200828E4B /* XCRemoteSwiftPackageReference "FSCalendar" */;
-			productName = FSCalendar;
-		};
 		913E02CC2963505A001CC92B /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 913E02CB2963505A001CC92B /* XCRemoteSwiftPackageReference "Then" */;

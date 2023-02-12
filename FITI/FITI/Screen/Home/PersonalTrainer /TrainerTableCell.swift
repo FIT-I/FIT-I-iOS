@@ -180,7 +180,7 @@ extension TrainerTableCell {
         if model.profile == "trainerProfile" {
             imgView.image = UIImage(named: "reviewerIcon.svg")
         }else {
-            let url = URL(string: model.profile)
+            let url = URL(string: model.profile ?? "")
             imgView.kf.setImage(with: url)
         }
         switch model.levelName {

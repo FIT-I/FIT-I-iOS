@@ -10,15 +10,6 @@
       }
     },
     {
-      "identity" : "fscalendar",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/WenchaoD/FSCalendar.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "76afe5087f3ba0974d6e3ec9121c5e7f0d342f28"
-      }
-    },
-    {
       "identity" : "kingfisher",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher",

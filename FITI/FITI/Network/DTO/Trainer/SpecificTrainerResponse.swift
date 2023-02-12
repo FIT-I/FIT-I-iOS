@@ -17,8 +17,8 @@ struct SpecificTrainerResponse: Codable {
 
 // MARK: - Trainer
 struct Trainer: Codable {
-    var profile: String? = nil
-    var background: String? = nil
+    var profile: String? = "trainerProfile"
+    var background: String? = "trainerProfile"
     var name: String? = nil
     var levelName: String? = nil
     var school: String? = nil

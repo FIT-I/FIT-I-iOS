@@ -120,12 +120,12 @@ class TrainerDetailViewController: UIViewController {
     
     @objc func moveToBodyIntroDetailIntroView(){
         let nextVC = DetailBodyIntroViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
+        navigationController?.present(nextVC, animated: true)
     }
     
     @objc func moveToAboutServiceDetailIntroView(){
         let nextVC = DetailBodyIntroAboutServiceViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
+        navigationController?.present(nextVC, animated: true)
     }
 
     @objc func heartTouchEvent(){
@@ -247,15 +247,21 @@ class TrainerDetailViewController: UIViewController {
     func resizePreviewReviewView(){
         let reviewNum = TrainerDetailViewController.specificTrainer.reviewDto?.count
         switch reviewNum {
+        case 0:
+            bodyReviewView.reviewDetailBtn.isHidden = true
+            bodyReviewView.snp.remakeConstraints {
+                $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
+                $0.height.equalTo(70)
+            }
         case 1:
             bodyReviewView.snp.remakeConstraints {
                 $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
                 $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
                 $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
-                $0.height.equalTo(100)
+                $0.height.equalTo(120)
             }
-            bodyReviewView.reviewDetailBtn.layer.isHidden = true
-            return
         case 2:
             bodyReviewView.snp.remakeConstraints {
                 $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
@@ -297,7 +303,6 @@ extension TrainerDetailViewController {
     
     func setLayout() {
         
-        //MARK: addSubViews
         view.addSubviews(contentScrollView, toolBarContainerView)
         toolBarContainerView.addSubviews(TrainerDetailViewController.heartBtn,matchingRequest)
         contentScrollView.addSubviews(
@@ -400,10 +405,6 @@ extension TrainerDetailViewController {
             guard let postHeartResponse = response?.result else { return }
             print(postHeartResponse)
             self.getHeartListServer()
-            // MARK: - FIXME : 네트워크 타임 고려
-//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-//                print("heart List : ",TrainerDetailViewController.trainerHeartList)
-//            }
         }
     }
     func deleteHeartServer(trainerIndex:Int) {
@@ -411,10 +412,6 @@ extension TrainerDetailViewController {
             guard let deleteHeartResponse = response?.result else { return }
             print(deleteHeartResponse)
             self.getHeartListServer()
-            // MARK: - FIXME : 네트워크 타임 고려
-//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-//                print("heart List : ",TrainerDetailViewController.trainerHeartList)
-//            }
         }
     }
     func getHeartListServer(){

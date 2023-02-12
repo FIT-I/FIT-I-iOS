@@ -25,7 +25,8 @@ struct ListData: Codable {
 // MARK: - Dto
 struct Dto: Codable {
     let id: Int
-    let name, profile, levelName, school: String
+    let name, levelName, school: String
+    var profile: String? = "trainerProfile"
     let grade: Double
     let certificateNum: Int
     var contents: String? = nil
