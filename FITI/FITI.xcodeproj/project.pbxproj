@@ -13,6 +13,7 @@
 		910C1DFF2998D0690062845D /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1DFE2998D0690062845D /* NetworkViewController.swift */; };
 		910C1E04299928720062845D /* FindPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1E03299928720062845D /* FindPasswordResponse.swift */; };
 		910C1E06299928A70062845D /* SendEmailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1E05299928A70062845D /* SendEmailResponse.swift */; };
+		910C1E08299968880062845D /* ChangeProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1E07299968870062845D /* ChangeProfileResponse.swift */; };
 		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
 		910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805829656ACE00828E4B /* PickPlaceViewController.swift */; };
 		910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805A2965878300828E4B /* RequestResultViewController.swift */; };
@@ -41,7 +42,6 @@
 		9130CA0F296B063100FC5107 /* SettingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA0E296B063100FC5107 /* SettingProfileViewController.swift */; };
 		9130CA14296B0F9F00FC5107 /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA13296B0F9F00FC5107 /* WithdrawViewController.swift */; };
 		9130CA1D296B3CAF00FC5107 /* BottomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA1C296B3CAF00FC5107 /* BottomInfoView.swift */; };
-		9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */; };
 		9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130CA23296B558900FC5107 /* SearchTVC.swift */; };
 		913E02C7296334C4001CC92B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913E02C6296334C4001CC92B /* UIStackView+.swift */; };
 		913E02CD2963505A001CC92B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 913E02CC2963505A001CC92B /* Then */; };
@@ -138,6 +138,7 @@
 		910C1DFE2998D0690062845D /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		910C1E03299928720062845D /* FindPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordResponse.swift; sourceTree = "<group>"; };
 		910C1E05299928A70062845D /* SendEmailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailResponse.swift; sourceTree = "<group>"; };
+		910C1E07299968870062845D /* ChangeProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileResponse.swift; sourceTree = "<group>"; };
 		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
 		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
 		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +167,6 @@
 		9130CA0E296B063100FC5107 /* SettingProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileViewController.swift; sourceTree = "<group>"; };
 		9130CA13296B0F9F00FC5107 /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
 		9130CA1C296B3CAF00FC5107 /* BottomInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomInfoView.swift; sourceTree = "<group>"; };
-		9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserNameViewController.swift; sourceTree = "<group>"; };
 		9130CA23296B558900FC5107 /* SearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVC.swift; sourceTree = "<group>"; };
 		913E02C6296334C4001CC92B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		9141D820298E55D100A201BB /* MatchingReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingReview.swift; sourceTree = "<group>"; };
@@ -493,17 +493,8 @@
 			children = (
 				9130CA0E296B063100FC5107 /* SettingProfileViewController.swift */,
 				9130CA1C296B3CAF00FC5107 /* BottomInfoView.swift */,
-				9130CA20296B4D4800FC5107 /* SettingUserName */,
 			);
 			path = SettingProfile;
-			sourceTree = "<group>";
-		};
-		9130CA20296B4D4800FC5107 /* SettingUserName */ = {
-			isa = PBXGroup;
-			children = (
-				9130CA1E296B473200FC5107 /* SettingUserNameViewController.swift */,
-			);
-			path = SettingUserName;
 			sourceTree = "<group>";
 		};
 		913E02C829634607001CC92B /* TrainerDetail */ = {
@@ -616,6 +607,7 @@
 				91E0825D298C37520033D39E /* WithDrawResponse.swift */,
 				9161959A2991073700703596 /* PatchPasswordRequest.swift */,
 				9161959C2991082800703596 /* PatchPasswordResponse.swift */,
+				910C1E07299968870062845D /* ChangeProfileResponse.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -909,6 +901,7 @@
 				9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */,
 				910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */,
 				91D7C51129649C78005AF859 /* ReviewViewController.swift in Sources */,
+				910C1E08299968880062845D /* ChangeProfileResponse.swift in Sources */,
 				91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */,
 				917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */,
 				916195992990F53F00703596 /* WriteReviewResponse.swift in Sources */,
@@ -989,7 +982,6 @@
 				9181B6E52982AA73001D9427 /* HeartListResponse.swift in Sources */,
 				91CFCFDD298002E70009944D /* SignUpRequest.swift in Sources */,
 				917D3D00296EBA2D0060F802 /* UIViewController+.swift in Sources */,
-				9130CA1F296B473200FC5107 /* SettingUserNameViewController.swift in Sources */,
 				91783EA8298641DB00B8CC2E /* CustomerAPI.swift in Sources */,
 				9115510929927C9100667A8B /* ReportView.swift in Sources */,
 				918F5FF1298911C000AADC10 /* LoadingView.swift in Sources */,

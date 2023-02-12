@@ -21,6 +21,7 @@ final class MyPageAPI {
     private(set) var heartListData: HeartListResponse?
     private(set) var withDrawData: WithDrawResponse?
     private(set) var patchPasswordData: PatchPasswordResponse?
+    private(set) var changeProfile: ChangeProfileResponse?
     
     // 1. 마이페이지 조회 API
     func getMyPageDataAPI(completion: @escaping (MyPageResponse?) -> Void){
@@ -99,6 +100,23 @@ final class MyPageAPI {
                 do {
                     self.patchPasswordData = try moyaResponse.map(PatchPasswordResponse.self)
                     completion(patchPasswordData)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    // 6. 사용자 프로필 수정 API
+    func patchProfile(profile:String, completion: @escaping (ChangeProfileResponse?) -> Void){
+        myPageProvider.request(.changeProfile(profile)) { [self] (response) in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    self.changeProfile = try moyaResponse.map(ChangeProfileResponse.self)
+                    completion(changeProfile)
                 } catch(let err) {
                     print(err.localizedDescription, 500)
                 }

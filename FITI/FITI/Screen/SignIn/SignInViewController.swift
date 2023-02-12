@@ -221,6 +221,9 @@ class SignInViewController: UIViewController {
         DispatchQueue.global().async {
             self.getSuccessMatchingListServer()
         }
+        DispatchQueue.global().async {
+            self.getMyPageServer()
+        }
         let nextVC = GradeTableViewController()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             self.navigationController?.pushViewController(nextVC, animated: true)
@@ -324,5 +327,14 @@ extension SignInViewController {
             HeartListViewController.heartList = heartListResponse
         }
         print("getHeartList")
+    }
+    func getMyPageServer(){
+        MyPageAPI.shared.getMyPageDataAPI { response in
+            guard let myPageResponse = response?.result else { return }
+            MyPageViewController.MyInfo.userName = myPageResponse.userName
+            MyPageViewController.MyInfo.profile = myPageResponse.profile
+            MyPageViewController.MyInfo.email = myPageResponse.email
+            MyPageViewController.MyInfo.location = myPageResponse.location ?? "위치 설정을 해주세요."
+        }
     }
 }
