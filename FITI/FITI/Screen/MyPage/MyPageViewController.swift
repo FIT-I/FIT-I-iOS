@@ -140,6 +140,7 @@ class MyPageViewController: UIViewController {
     
     @objc func settingProfileBtnEvent(){
         let nextVC = SettingProfileViewController()
+        nextVC.name.text = MyPageViewController.MyInfo.userName
         navigationController?.pushViewController(nextVC, animated: true)
     }
     

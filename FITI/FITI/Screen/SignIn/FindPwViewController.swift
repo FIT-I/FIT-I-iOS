@@ -288,7 +288,7 @@ class FindPwViewController: UIViewController {
             message: description,
             preferredStyle: .alert
         )
-        let okAction = UIAlertAction(title: "로그인 페이지로 이동", style: .default) { _ in
+        let okAction = UIAlertAction(title: "로그인하러 가기", style: .default) { _ in
             let nextVC = SignInViewController()
             self.navigationController?.pushViewController(nextVC, animated: true)
         }

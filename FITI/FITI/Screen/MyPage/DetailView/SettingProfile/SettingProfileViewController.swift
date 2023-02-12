@@ -24,6 +24,90 @@ class SettingProfileViewController: UIViewController {
         imgView.image = UIImage(named: "reviewerIcon.svg")
         return imgView
     }()
+    private lazy var customerProfile1 : UIButton = {
+        let btn = UIButton()
+        btn.snp.makeConstraints { make in
+            make.height.width.equalTo(90)
+        }
+        btn.backgroundColor = .gray
+        btn.setImage(UIImage(named: "profile1.svg"), for: .normal)
+        return btn
+    }()
+    private lazy var customerProfile2 : UIButton = {
+        let btn = UIButton()
+        btn.snp.makeConstraints { make in
+            make.height.width.equalTo(90)
+        }
+        btn.backgroundColor = .gray
+        btn.setImage(UIImage(named: "profile2.svg"), for: .normal)
+        return btn
+    }()
+    private lazy var customerProfile3 : UIButton = {
+        let btn = UIButton()
+        btn.snp.makeConstraints { make in
+            make.height.width.equalTo(90)
+        }
+        btn.backgroundColor = .gray
+        btn.setImage(UIImage(named: "profile3.svg"), for: .normal)
+        return btn
+    }()
+    private lazy var customerProfile4 : UIButton = {
+        let btn = UIButton()
+        btn.snp.makeConstraints { make in
+            make.height.width.equalTo(90)
+        }
+        btn.backgroundColor = .gray
+        btn.setImage(UIImage(named: "profile4.svg"), for: .normal)
+        return btn
+    }()
+    private lazy var customerProfile5 : UIButton = {
+        let btn = UIButton()
+        btn.snp.makeConstraints { make in
+            make.height.width.equalTo(90)
+        }
+        btn.backgroundColor = .gray
+        btn.setImage(UIImage(named: "profile5.svg"), for: .normal)
+        return btn
+    }()
+    private lazy var customerProfile6 : UIButton = {
+        let btn = UIButton()
+        btn.snp.makeConstraints { make in
+            make.height.width.equalTo(90)
+        }
+        btn.backgroundColor = .gray
+        btn.setImage(UIImage(named: "profile6.svg"), for: .normal)
+        return btn
+    }()
+    private lazy var topHorizontalBtnStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [customerProfile1,customerProfile2,customerProfile3])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    private lazy var bottomHorizontalBtnStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [customerProfile4,customerProfile5,customerProfile6])
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    private lazy var btnStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [topHorizontalBtnStackView,bottomHorizontalBtnStackView])
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    lazy var name : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.textColor = UIColor.customColor(.blue)
+        return label
+    }()
     private lazy var progressView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customColor(.boxGray)
@@ -51,10 +135,12 @@ class SettingProfileViewController: UIViewController {
     }
     
     func setViewHierarchy(){
-        view.addSubview(myPageTitleLabel)
-        view.addSubview(topImageView)
-        view.addSubview(progressView)
-        view.addSubview(bottomInfoView)
+        view.addSubviews(myPageTitleLabel,
+                         btnStackView,
+                         progressView,
+                         name,
+                         bottomInfoView
+        )
     }
     
     func setConstraints(){
@@ -62,13 +148,16 @@ class SettingProfileViewController: UIViewController {
             make.top.equalToSuperview().offset(60)
             make.centerX.equalToSuperview()
         }
-        topImageView.snp.makeConstraints { make in
-            make.top.equalTo(myPageTitleLabel.snp.bottom).offset(35)
-            make.height.width.equalTo(60)
+        btnStackView.snp.makeConstraints { make in
+            make.top.equalTo(myPageTitleLabel.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
+        }
+        name.snp.makeConstraints { make in
+            make.top.equalTo(btnStackView.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
         }
         progressView.snp.makeConstraints { make in
-            make.top.equalTo(topImageView.snp.bottom).offset(20)
+            make.top.equalTo(name.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview()
         }
         bottomInfoView.snp.makeConstraints { make in
