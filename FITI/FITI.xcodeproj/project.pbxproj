@@ -11,6 +11,8 @@
 		910C1DF62998CEE80062845D /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1DF52998CEE80062845D /* BaseURL.swift */; };
 		910C1DF82998CF2C0062845D /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1DF72998CF2C0062845D /* NetworkCheck.swift */; };
 		910C1DFF2998D0690062845D /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1DFE2998D0690062845D /* NetworkViewController.swift */; };
+		910C1E04299928720062845D /* FindPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1E03299928720062845D /* FindPasswordResponse.swift */; };
+		910C1E06299928A70062845D /* SendEmailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1E05299928A70062845D /* SendEmailResponse.swift */; };
 		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
 		910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805829656ACE00828E4B /* PickPlaceViewController.swift */; };
 		910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805A2965878300828E4B /* RequestResultViewController.swift */; };
@@ -84,7 +86,6 @@
 		9181B6EC2983C448001D9427 /* MyPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9181B6EB2983C448001D9427 /* MyPageResponse.swift */; };
 		91877D6A2969269D0074386B /* RequestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D692969269D0074386B /* RequestSheet.swift */; };
 		91877D6C2969A0A00074386B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6B2969A0A00074386B /* ProfileView.swift */; };
-		91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6D2969A9260074386B /* NotificationSwitch.swift */; };
 		91877D702969B1970074386B /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91877D6F2969B1970074386B /* BottomView.swift */; };
 		918F5FF1298911C000AADC10 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F5FF0298911C000AADC10 /* LoadingView.swift */; };
 		91BE526C29854B31006DA3AB /* TrainerListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BE526B29854B31006DA3AB /* TrainerListResponse.swift */; };
@@ -135,6 +136,8 @@
 		910C1DF52998CEE80062845D /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		910C1DF72998CF2C0062845D /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
 		910C1DFE2998D0690062845D /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
+		910C1E03299928720062845D /* FindPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPasswordResponse.swift; sourceTree = "<group>"; };
+		910C1E05299928A70062845D /* SendEmailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailResponse.swift; sourceTree = "<group>"; };
 		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
 		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
 		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
@@ -206,7 +209,6 @@
 		9181B6EB2983C448001D9427 /* MyPageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageResponse.swift; sourceTree = "<group>"; };
 		91877D692969269D0074386B /* RequestSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSheet.swift; sourceTree = "<group>"; };
 		91877D6B2969A0A00074386B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		91877D6D2969A9260074386B /* NotificationSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSwitch.swift; sourceTree = "<group>"; };
 		91877D6F2969B1970074386B /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		918F5FF0298911C000AADC10 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		91BE526B29854B31006DA3AB /* TrainerListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerListResponse.swift; sourceTree = "<group>"; };
@@ -437,7 +439,6 @@
 			isa = PBXGroup;
 			children = (
 				91877D6B2969A0A00074386B /* ProfileView.swift */,
-				91877D6D2969A9260074386B /* NotificationSwitch.swift */,
 				91877D6F2969B1970074386B /* BottomView.swift */,
 				9130CA02296AFBFE00FC5107 /* BottomBtnView.swift */,
 			);
@@ -741,6 +742,8 @@
 				91CFCFDA298002DF0009944D /* SignInRequest.swift */,
 				91CFCFE0298004CF0009944D /* SignUpRepsonse.swift */,
 				91CFCFDC298002E70009944D /* SignUpRequest.swift */,
+				910C1E03299928720062845D /* FindPasswordResponse.swift */,
+				910C1E05299928A70062845D /* SendEmailResponse.swift */,
 			);
 			path = Sign;
 			sourceTree = "<group>";
@@ -909,6 +912,7 @@
 				91185FC7296D88DA0099B641 /* BottomPhotoView.swift in Sources */,
 				917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */,
 				916195992990F53F00703596 /* WriteReviewResponse.swift in Sources */,
+				910C1E04299928720062845D /* FindPasswordResponse.swift in Sources */,
 				91877D6A2969269D0074386B /* RequestSheet.swift in Sources */,
 				9141D821298E55D100A201BB /* MatchingReview.swift in Sources */,
 				9141D82A298E7B6C00A201BB /* SuccessMatchResponse.swift in Sources */,
@@ -1004,12 +1008,12 @@
 				916A2C47297056F2005F0420 /* CommunityTableCell.swift in Sources */,
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
 				91C32D522961869000F29DA5 /* MatchViewController.swift in Sources */,
+				910C1E06299928A70062845D /* SendEmailResponse.swift in Sources */,
 				91F75B09296C11A800B31F3B /* RehabilitationTrainerViewController.swift in Sources */,
 				91C32D4A2961863E00F29DA5 /* UIColor+.swift in Sources */,
 				91CFCFC2297FF8D40009944D /* RealmService.swift in Sources */,
 				9130CA0D296B056B00FC5107 /* ClauseViewController.swift in Sources */,
 				9141D823298E55ED00A201BB /* BaseView.swift in Sources */,
-				91877D6E2969A9260074386B /* NotificationSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
