@@ -120,12 +120,12 @@ class TrainerDetailViewController: UIViewController {
     
     @objc func moveToBodyIntroDetailIntroView(){
         let nextVC = DetailBodyIntroViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
+        navigationController?.present(nextVC, animated: true)
     }
     
     @objc func moveToAboutServiceDetailIntroView(){
         let nextVC = DetailBodyIntroAboutServiceViewController()
-        navigationController?.pushViewController(nextVC, animated: true)
+        navigationController?.present(nextVC, animated: true)
     }
 
     @objc func heartTouchEvent(){
@@ -303,7 +303,6 @@ extension TrainerDetailViewController {
     
     func setLayout() {
         
-        //MARK: addSubViews
         view.addSubviews(contentScrollView, toolBarContainerView)
         toolBarContainerView.addSubviews(TrainerDetailViewController.heartBtn,matchingRequest)
         contentScrollView.addSubviews(
@@ -406,10 +405,6 @@ extension TrainerDetailViewController {
             guard let postHeartResponse = response?.result else { return }
             print(postHeartResponse)
             self.getHeartListServer()
-            // MARK: - FIXME : 네트워크 타임 고려
-//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-//                print("heart List : ",TrainerDetailViewController.trainerHeartList)
-//            }
         }
     }
     func deleteHeartServer(trainerIndex:Int) {
@@ -417,10 +412,6 @@ extension TrainerDetailViewController {
             guard let deleteHeartResponse = response?.result else { return }
             print(deleteHeartResponse)
             self.getHeartListServer()
-            // MARK: - FIXME : 네트워크 타임 고려
-//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-//                print("heart List : ",TrainerDetailViewController.trainerHeartList)
-//            }
         }
     }
     func getHeartListServer(){
