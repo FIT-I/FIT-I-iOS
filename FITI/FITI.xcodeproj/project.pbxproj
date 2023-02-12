@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		910182C32961961D00FC10DB /* TrainerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910182C22961961D00FC10DB /* TrainerTableCell.swift */; };
+		910C1DF62998CEE80062845D /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1DF52998CEE80062845D /* BaseURL.swift */; };
+		910C1DF82998CF2C0062845D /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1DF72998CF2C0062845D /* NetworkCheck.swift */; };
+		910C1DFF2998D0690062845D /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C1DFE2998D0690062845D /* NetworkViewController.swift */; };
 		910D8054296566D100828E4B /* PickServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D8053296566D100828E4B /* PickServiceViewController.swift */; };
 		910D805929656ACE00828E4B /* PickPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805829656ACE00828E4B /* PickPlaceViewController.swift */; };
 		910D805B2965878300828E4B /* RequestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910D805A2965878300828E4B /* RequestResultViewController.swift */; };
@@ -48,7 +51,6 @@
 		9141D82A298E7B6C00A201BB /* SuccessMatchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */; };
 		9141D82C298E7F0700A201BB /* MatchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D82B298E7F0700A201BB /* MatchTableCell.swift */; };
 		9141D82E298E871500A201BB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141D82D298E871500A201BB /* String+.swift */; };
-		9149EBE72997F9FF004F3283 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149EBE62997F9FF004F3283 /* BaseURL.swift */; };
 		916195952990ED0B00703596 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195942990ED0B00703596 /* WriteReviewViewController.swift */; };
 		916195972990ED1F00703596 /* WriteReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195962990ED1F00703596 /* WriteReviewTableCell.swift */; };
 		916195992990F53F00703596 /* WriteReviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916195982990F53F00703596 /* WriteReviewResponse.swift */; };
@@ -131,6 +133,9 @@
 
 /* Begin PBXFileReference section */
 		910182C22961961D00FC10DB /* TrainerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerTableCell.swift; sourceTree = "<group>"; };
+		910C1DF52998CEE80062845D /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		910C1DF72998CF2C0062845D /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
+		910C1DFE2998D0690062845D /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		910D8053296566D100828E4B /* PickServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickServiceViewController.swift; sourceTree = "<group>"; };
 		910D805829656ACE00828E4B /* PickPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPlaceViewController.swift; sourceTree = "<group>"; };
 		910D805A2965878300828E4B /* RequestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResultViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +174,6 @@
 		9141D829298E7B6C00A201BB /* SuccessMatchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessMatchResponse.swift; sourceTree = "<group>"; };
 		9141D82B298E7F0700A201BB /* MatchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableCell.swift; sourceTree = "<group>"; };
 		9141D82D298E871500A201BB /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		9149EBE62997F9FF004F3283 /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		916195942990ED0B00703596 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		916195962990ED1F00703596 /* WriteReviewTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewTableCell.swift; sourceTree = "<group>"; };
 		916195982990F53F00703596 /* WriteReviewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewResponse.swift; sourceTree = "<group>"; };
@@ -327,6 +331,15 @@
 				917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		910C1DFD2998CFF80062845D /* NetworkStatus */ = {
+			isa = PBXGroup;
+			children = (
+				910C1DF72998CF2C0062845D /* NetworkCheck.swift */,
+				910C1DFE2998D0690062845D /* NetworkViewController.swift */,
+			);
+			path = NetworkStatus;
 			sourceTree = "<group>";
 		};
 		910D80522965667100828E4B /* RequestSheet */ = {
@@ -675,6 +688,7 @@
 		91CFCFBD297FF5EA0009944D /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				910C1DFD2998CFF80062845D /* NetworkStatus */,
 				918F5FF22989125300AADC10 /* Loading */,
 				910182B929618C7900FC10DB /* Extension */,
 				91CFCFBF297FF68A0009944D /* Resource */,
@@ -706,7 +720,7 @@
 				91783E9A29863C6D00B8CC2E /* Router */,
 				91783E9829863C5B00B8CC2E /* API */,
 				91783E9729863C5100B8CC2E /* DTO */,
-				9149EBE62997F9FF004F3283 /* BaseURL.swift */,
+				910C1DF52998CEE80062845D /* BaseURL.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -920,11 +934,12 @@
 				91783EA129863DA300B8CC2E /* TrainerAPI.swift in Sources */,
 				9181B6EA2983C33C001D9427 /* MyPageRouter.swift in Sources */,
 				91CFCFCE297FFAFC0009944D /* Profile.swift in Sources */,
-				9149EBE72997F9FF004F3283 /* BaseURL.swift in Sources */,
+				910C1DF62998CEE80062845D /* BaseURL.swift in Sources */,
 				91C32D4E2961867600F29DA5 /* HomeViewController.swift in Sources */,
 				91E08257298C01A10033D39E /* RequestSheetViewController.swift in Sources */,
 				9163A4BF2976FC6D00577DC3 /* DetailBodyIntroAboutServiceView.swift in Sources */,
 				91E0824F298BA9AD0033D39E /* RequestMatchingResponse.swift in Sources */,
+				910C1DFF2998D0690062845D /* NetworkViewController.swift in Sources */,
 				91185FC3296D86900099B641 /* BodyIntroAboutServiceView.swift in Sources */,
 				91C32D2F296184AA00F29DA5 /* AppDelegate.swift in Sources */,
 				91F75B02296C10A800B31F3B /* TabManViewController.swift in Sources */,
@@ -989,6 +1004,7 @@
 				91783EA329863DAC00B8CC2E /* SignAPI.swift in Sources */,
 				91185FCE296DBD2A0099B641 /* UIView+.swift in Sources */,
 				91C32D4C2961866100F29DA5 /* TabBarController.swift in Sources */,
+				910C1DF82998CF2C0062845D /* NetworkCheck.swift in Sources */,
 				916A2C47297056F2005F0420 /* CommunityTableCell.swift in Sources */,
 				91C32D31296184AA00F29DA5 /* SceneDelegate.swift in Sources */,
 				91C32D522961869000F29DA5 /* MatchViewController.swift in Sources */,
