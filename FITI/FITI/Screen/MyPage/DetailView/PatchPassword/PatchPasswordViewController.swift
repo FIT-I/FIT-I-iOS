@@ -340,6 +340,19 @@ class PatchPasswordViewController: UIViewController {
         MatchViewController.successMatchList = .init()
         HeartListViewController.heartList = .init()
     }
+    
+    func showExceptionNotification(){
+        let alertController = UIAlertController(
+            title: "비밀번호 변경 실패",
+            message: "다시 시도해주세요.",
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "확인", style: .destructive) { _ in
+            self.dismiss(animated: true)
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Network
@@ -347,9 +360,13 @@ class PatchPasswordViewController: UIViewController {
 extension PatchPasswordViewController {
     func patchPasswordServer(body:PatchPasswordRequest){
         MyPageAPI.shared.patchPasswordAPI(body: body){ response in
-            guard let patchPasswordResponse = response?.result else { return }
-            print(patchPasswordResponse)
-            self.logOut()
+            guard let patchPasswordResponse = response else { return }
+            print(patchPasswordResponse.result as Any)
+            if patchPasswordResponse.isSuccess == false {
+                self.showExceptionNotification()
+            }else {
+                self.logOut()
+            }
         }
     }
 }

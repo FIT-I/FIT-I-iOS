@@ -196,7 +196,7 @@ class ReportViewController: UIViewController {
         var reportReason = String()
         for i in reportStackView.isFull {
             if i != "" {
-                reportReason += (i+" & ")
+                reportReason += i
             }else {
                 continue
             }

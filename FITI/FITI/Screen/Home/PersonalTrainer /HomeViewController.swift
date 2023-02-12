@@ -62,8 +62,8 @@ class HomeViewController: UIViewController {
     func signInViewSetUI(){
         trainerEmptyImage.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(125)
-            make.width.equalTo(250)
+            make.height.equalTo(155)
+            make.width.equalTo(185)
         }
         trainerTableView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(170)
