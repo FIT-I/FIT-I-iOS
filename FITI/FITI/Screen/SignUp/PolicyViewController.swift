@@ -392,5 +392,4 @@ class PolicyViewController: UIViewController {
             navigationController?.pushViewController(nextVC, animated: true)
         }
     }
-    
 }
