@@ -75,6 +75,8 @@
 		91783EB129869FFB00B8CC2E /* SpecificTrainerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EB029869FFB00B8CC2E /* SpecificTrainerResponse.swift */; };
 		91783EB32986B73800B8CC2E /* DeleteHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EB22986B73800B8CC2E /* DeleteHeartResponse.swift */; };
 		91783EB52986B76100B8CC2E /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EB42986B76100B8CC2E /* AddHeartResponse.swift */; };
+		917D2C782999F8CB0091E82E /* AnnouncementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D2C772999F8CB0091E82E /* AnnouncementResponse.swift */; };
+		917D2C7A2999FA450091E82E /* NoticeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D2C792999FA450091E82E /* NoticeTableCell.swift */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
 		917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* SignUpViewController.swift */; };
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
@@ -198,6 +200,8 @@
 		91783EB029869FFB00B8CC2E /* SpecificTrainerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificTrainerResponse.swift; sourceTree = "<group>"; };
 		91783EB22986B73800B8CC2E /* DeleteHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteHeartResponse.swift; sourceTree = "<group>"; };
 		91783EB42986B76100B8CC2E /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
+		917D2C772999F8CB0091E82E /* AnnouncementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementResponse.swift; sourceTree = "<group>"; };
+		917D2C792999FA450091E82E /* NoticeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableCell.swift; sourceTree = "<group>"; };
 		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
 		917D3CF7296EB2D30060F802 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
@@ -476,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				9130CA0A296B055E00FC5107 /* NoticeViewController.swift */,
+				917D2C792999FA450091E82E /* NoticeTableCell.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -608,6 +613,7 @@
 				9161959A2991073700703596 /* PatchPasswordRequest.swift */,
 				9161959C2991082800703596 /* PatchPasswordResponse.swift */,
 				910C1E07299968870062845D /* ChangeProfileResponse.swift */,
+				917D2C772999F8CB0091E82E /* AnnouncementResponse.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -896,6 +902,7 @@
 				911551032992408700667A8B /* RequestSuccessViewController.swift in Sources */,
 				9161959D2991082800703596 /* PatchPasswordResponse.swift in Sources */,
 				91877D6C2969A0A00074386B /* ProfileView.swift in Sources */,
+				917D2C782999F8CB0091E82E /* AnnouncementResponse.swift in Sources */,
 				917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */,
 				910182C32961961D00FC10DB /* TrainerTableCell.swift in Sources */,
 				9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */,
@@ -942,6 +949,7 @@
 				9130CA07296B034600FC5107 /* HeartListViewController.swift in Sources */,
 				9181B6E72982BACD001D9427 /* PetchLocationResponse.swift in Sources */,
 				91783EB32986B73800B8CC2E /* DeleteHeartResponse.swift in Sources */,
+				917D2C7A2999FA450091E82E /* NoticeTableCell.swift in Sources */,
 				91E0825E298C37520033D39E /* WithDrawResponse.swift in Sources */,
 				91783EAC29867A0400B8CC2E /* HeartListTableCell.swift in Sources */,
 				91185FC5296D87930099B641 /* BodyReviewView.swift in Sources */,

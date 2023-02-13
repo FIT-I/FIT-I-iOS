@@ -18,6 +18,7 @@ enum MyPageRouter {
     case withDraw
     case patchPassword(_ body:PatchPasswordRequest)
     case changeProfile(_ param:String)
+    case getAnnouncement
 }
 
 extension MyPageRouter: TargetType, AccessTokenAuthorizable {
@@ -45,12 +46,14 @@ extension MyPageRouter: TargetType, AccessTokenAuthorizable {
             return "/api/accounts/password"
         case .changeProfile(let param):
             return "/api/customer/profile/\(param)"
+        case .getAnnouncement:
+            return "/api/communal/announcement"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getMyPage, .getHeartList:
+        case .getMyPage, .getHeartList, .getAnnouncement:
             return .get
         case .writeReview:
             return .post
@@ -61,7 +64,7 @@ extension MyPageRouter: TargetType, AccessTokenAuthorizable {
     
     var task: Moya.Task {
         switch self {
-        case .getMyPage, .locationSetting, .notificationSetting, .fixProfile, .getHeartList, .withDraw, .changeProfile:
+        case .getMyPage, .locationSetting, .notificationSetting, .fixProfile, .getHeartList, .withDraw, .changeProfile, .getAnnouncement:
             return .requestPlain
         case .writeReview(let param):
             return .requestJSONEncodable(param)

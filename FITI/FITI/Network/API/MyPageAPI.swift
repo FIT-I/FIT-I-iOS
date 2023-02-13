@@ -22,6 +22,7 @@ final class MyPageAPI {
     private(set) var withDrawData: WithDrawResponse?
     private(set) var patchPasswordData: PatchPasswordResponse?
     private(set) var changeProfile: ChangeProfileResponse?
+    private(set) var announcementData: AnnouncementResponse?
     
     // 1. 마이페이지 조회 API
     func getMyPageDataAPI(completion: @escaping (MyPageResponse?) -> Void){
@@ -117,6 +118,23 @@ final class MyPageAPI {
                 do {
                     self.changeProfile = try moyaResponse.map(ChangeProfileResponse.self)
                     completion(changeProfile)
+                } catch(let err) {
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    // 7. 공지사항 불러오는 API
+    func getAnnouncement(completion: @escaping (AnnouncementResponse?) -> Void){
+        myPageProvider.request(.getAnnouncement) { [self] (response) in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    self.announcementData = try moyaResponse.map(AnnouncementResponse.self)
+                    completion(announcementData)
                 } catch(let err) {
                     print(err.localizedDescription, 500)
                 }
