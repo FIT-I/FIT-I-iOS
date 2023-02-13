@@ -30,7 +30,7 @@ class SettingProfileViewController: UIViewController {
             make.height.width.equalTo(80)
         }
         btn.layer.cornerRadius = 20
-        btn.backgroundColor = UIColor.lightGray
+        btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.setImage(UIImage(named: "profile1.svg"), for: .normal)
         return btn
     }()
@@ -40,7 +40,7 @@ class SettingProfileViewController: UIViewController {
             make.height.width.equalTo(80)
         }
         btn.layer.cornerRadius = 20
-        btn.backgroundColor = UIColor.lightGray
+        btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.setImage(UIImage(named: "profile2.svg"), for: .normal)
         return btn
     }()
@@ -50,7 +50,7 @@ class SettingProfileViewController: UIViewController {
             make.height.width.equalTo(80)
         }
         btn.layer.cornerRadius = 20
-        btn.backgroundColor = UIColor.lightGray
+        btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.setImage(UIImage(named: "profile3.svg"), for: .normal)
         return btn
     }()
@@ -60,7 +60,7 @@ class SettingProfileViewController: UIViewController {
             make.height.width.equalTo(80)
         }
         btn.layer.cornerRadius = 20
-        btn.backgroundColor = UIColor.lightGray
+        btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.setImage(UIImage(named: "profile4.svg"), for: .normal)
         return btn
     }()
@@ -70,7 +70,7 @@ class SettingProfileViewController: UIViewController {
             make.height.width.equalTo(80)
         }
         btn.layer.cornerRadius = 20
-        btn.backgroundColor = UIColor.lightGray
+        btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.setImage(UIImage(named: "profile5.svg"), for: .normal)
         return btn
     }()
@@ -80,7 +80,7 @@ class SettingProfileViewController: UIViewController {
             make.height.width.equalTo(80)
         }
         btn.layer.cornerRadius = 20
-        btn.backgroundColor = UIColor.lightGray
+        btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.setImage(UIImage(named: "profile6.svg"), for: .normal)
         return btn
     }()
@@ -208,50 +208,50 @@ class SettingProfileViewController: UIViewController {
         case 1:
             self.patchProfile(profile: "customerProfile1")
             customerProfile1.backgroundColor = UIColor.customColor(.blue)
-            customerProfile2.backgroundColor = UIColor.lightGray
-            customerProfile3.backgroundColor = UIColor.lightGray
-            customerProfile4.backgroundColor = UIColor.lightGray
-            customerProfile5.backgroundColor = UIColor.lightGray
-            customerProfile6.backgroundColor = UIColor.lightGray
+            customerProfile2.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile3.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile4.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile5.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile6.backgroundColor = UIColor.customColor(.boxGray)
         case 2:
             self.patchProfile(profile: "customerProfile2")
-            customerProfile1.backgroundColor = UIColor.lightGray
+            customerProfile1.backgroundColor = UIColor.customColor(.boxGray)
             customerProfile2.backgroundColor = UIColor.customColor(.blue)
-            customerProfile3.backgroundColor = UIColor.lightGray
-            customerProfile4.backgroundColor = UIColor.lightGray
-            customerProfile5.backgroundColor = UIColor.lightGray
-            customerProfile6.backgroundColor = UIColor.lightGray
+            customerProfile3.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile4.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile5.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile6.backgroundColor = UIColor.customColor(.boxGray)
         case 3:
             self.patchProfile(profile: "customerProfile3")
-            customerProfile1.backgroundColor = UIColor.lightGray
-            customerProfile2.backgroundColor = UIColor.lightGray
+            customerProfile1.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile2.backgroundColor = UIColor.customColor(.boxGray)
             customerProfile3.backgroundColor = UIColor.customColor(.blue)
-            customerProfile4.backgroundColor = UIColor.lightGray
-            customerProfile5.backgroundColor = UIColor.lightGray
-            customerProfile6.backgroundColor = UIColor.lightGray
+            customerProfile4.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile5.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile6.backgroundColor = UIColor.customColor(.boxGray)
         case 4:
             self.patchProfile(profile: "customerProfile4")
-            customerProfile1.backgroundColor = UIColor.lightGray
-            customerProfile2.backgroundColor = UIColor.lightGray
-            customerProfile3.backgroundColor = UIColor.lightGray
+            customerProfile1.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile2.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile3.backgroundColor = UIColor.customColor(.boxGray)
             customerProfile4.backgroundColor = UIColor.customColor(.blue)
-            customerProfile5.backgroundColor = UIColor.lightGray
-            customerProfile6.backgroundColor = UIColor.lightGray
+            customerProfile5.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile6.backgroundColor = UIColor.customColor(.boxGray)
         case 5:
             self.patchProfile(profile: "customerProfile5")
-            customerProfile1.backgroundColor = UIColor.lightGray
-            customerProfile2.backgroundColor = UIColor.lightGray
-            customerProfile3.backgroundColor = UIColor.lightGray
-            customerProfile4.backgroundColor = UIColor.lightGray
+            customerProfile1.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile2.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile3.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile4.backgroundColor = UIColor.customColor(.boxGray)
             customerProfile5.backgroundColor = UIColor.customColor(.blue)
-            customerProfile6.backgroundColor = UIColor.lightGray
+            customerProfile6.backgroundColor = UIColor.customColor(.boxGray)
         case 6:
             self.patchProfile(profile: "customerProfile6")
-            customerProfile1.backgroundColor = UIColor.lightGray
-            customerProfile2.backgroundColor = UIColor.lightGray
-            customerProfile3.backgroundColor = UIColor.lightGray
-            customerProfile4.backgroundColor = UIColor.lightGray
-            customerProfile5.backgroundColor = UIColor.lightGray
+            customerProfile1.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile2.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile3.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile4.backgroundColor = UIColor.customColor(.boxGray)
+            customerProfile5.backgroundColor = UIColor.customColor(.boxGray)
             customerProfile6.backgroundColor = UIColor.customColor(.blue)
         default:
             return
