@@ -40,8 +40,6 @@ class PolicyViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 12
-//        stackView.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1.00)
-//        stackView.layer.cornerRadius = 10
         stackView.distribution = .fill
         return stackView
     }()
@@ -129,11 +127,38 @@ class PolicyViewController: UIViewController {
         return stackView
     }()
     
+    private lazy var detailButton1 : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("보기", for: .normal)
+        btn.setTitleColor(UIColor.customColor(.gray), for: .normal)
+        return btn
+    }()
+    
+    private lazy var detailButton2 : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("보기", for: .normal)
+        btn.setTitleColor(UIColor.customColor(.gray), for: .normal)
+        return btn
+    }()
+    
+    private lazy var detailButton3 : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("보기", for: .normal)
+        btn.setTitleColor(UIColor.customColor(.gray), for: .normal)
+        return btn
+    }()
+    
+    lazy var  globalRightStackView : UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [detailButton1,detailButton2,detailButton3])
+        stackView.axis = .vertical
+        stackView.spacing = 15
+        stackView.alignment = .trailing
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
     lazy var  globalStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [lineStackView1,lineStackView2,lineStackView3])
-//        lineStackView0.snp.makeConstraints { make in
-//            make.leading.equalToSuperview().offset(12)
-//        }
         stackView.axis = .vertical
         stackView.spacing = 20
         stackView.alignment = .leading
@@ -162,7 +187,6 @@ class PolicyViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
         
-        // Do any additional setup after loading the view.
         setViewHierarchy()
         setConstraints()
     }
@@ -185,6 +209,7 @@ class PolicyViewController: UIViewController {
         view.addSubview(lineStackView0)
         view.addSubview(grayView)
         view.addSubview(globalStackView)
+        view.addSubview(globalRightStackView)
         view.addSubview(nextButton)
 
     }
@@ -211,7 +236,13 @@ class PolicyViewController: UIViewController {
         globalStackView.snp.makeConstraints { make in
             make.top.equalTo(grayView.snp.bottom).offset(15)
             make.leading.equalToSuperview().offset(20)
+            make.width.equalTo(280)
+        }
+        
+        globalRightStackView.snp.makeConstraints { make in
+            make.top.equalTo(grayView.snp.bottom).offset(15)
             make.trailing.equalToSuperview().offset(-20)
+            make.width.equalTo(40)
         }
         
         nextButton.snp.makeConstraints { make in
@@ -361,5 +392,4 @@ class PolicyViewController: UIViewController {
             navigationController?.pushViewController(nextVC, animated: true)
         }
     }
-    
 }

@@ -13,10 +13,6 @@ class ProfileView : UIView {
     
     var reviewerImage : UIImageView = {
         let imgView = UIImageView()
-//        imgView.snp.makeConstraints { make in
-//            make.height.equalTo(56)
-//            make.width.equalTo(41)
-//        }
         return imgView
     }()
 
@@ -46,7 +42,7 @@ class ProfileView : UIView {
     lazy var midLeftStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [reviewerImage,leftStackView])
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = 20
         stackView.alignment = .center
         return stackView
     }()
@@ -64,7 +60,6 @@ class ProfileView : UIView {
         let stackView = UIStackView(arrangedSubviews: [midLeftStackView,fixProfileBtn])
         stackView.axis = .horizontal
         stackView.spacing = 45
-//        stackView.alignment = .center
         return stackView
     }()
     
