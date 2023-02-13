@@ -13,6 +13,7 @@ import UIKit
 final class SignAPI {
     static let shared = SignAPI()
     private var signProvider = MoyaProvider<SignRouter>()
+    let realm = RealmService()
     
     private init() { }
     
@@ -20,6 +21,7 @@ final class SignAPI {
     private(set) var signUpData: SignUpResponse?
     private(set) var sendEmailData: SendEmailResponse?
     private(set) var getPasswordData: FindPasswordResponse?
+    private(set) var refreshTokenData: TokenResponse?
 
     // 1. 로그인 API
     func postSignInAPI(email:String, password:String, completion: @escaping (SignInResponse?) -> Void){
@@ -31,6 +33,11 @@ final class SignAPI {
                     self.signInData = try moyaResponse.map(SignInResponse.self)
                     completion(signInData)
                 } catch(let err) {
+                    // MARK: - 여기로 401이 들어오나?
+                    if moyaResponse.statusCode == 401 || moyaResponse.statusCode == 406 {
+                        let oldToken = TokenRequest(accessToken: self.realm.getToken(), refreshToken: self.realm.getRefreshToken())
+                        MoyaLoggerPlugin.shared.userTokenReissueWithAPI(request: oldToken)
+                    }
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):
@@ -49,6 +56,11 @@ final class SignAPI {
                     self.signUpData = try moyaResponse.map(SignUpResponse.self)
                     completion(signUpData)
                 } catch(let err) {
+                    // MARK: - 여기로 401이 들어오나?
+                    if moyaResponse.statusCode == 401 || moyaResponse.statusCode == 406 {
+                        let oldToken = TokenRequest(accessToken: self.realm.getToken(), refreshToken: self.realm.getRefreshToken())
+                        MoyaLoggerPlugin.shared.userTokenReissueWithAPI(request: oldToken)
+                    }
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):
@@ -66,6 +78,11 @@ final class SignAPI {
                     self.sendEmailData = try moyaResponse.map(SendEmailResponse.self)
                     completion(sendEmailData)
                 } catch(let err) {
+                    // MARK: - 여기로 401이 들어오나?
+                    if moyaResponse.statusCode == 401 || moyaResponse.statusCode == 406 {
+                        let oldToken = TokenRequest(accessToken: self.realm.getToken(), refreshToken: self.realm.getRefreshToken())
+                        MoyaLoggerPlugin.shared.userTokenReissueWithAPI(request: oldToken)
+                    }
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):
@@ -83,6 +100,33 @@ final class SignAPI {
                     self.getPasswordData = try moyaResponse.map(FindPasswordResponse.self)
                     completion(getPasswordData)
                 } catch(let err) {
+                    // MARK: - 여기로 401이 들어오나?
+                    if moyaResponse.statusCode == 401 || moyaResponse.statusCode == 406 {
+                        let oldToken = TokenRequest(accessToken: self.realm.getToken(), refreshToken: self.realm.getRefreshToken())
+                        MoyaLoggerPlugin.shared.userTokenReissueWithAPI(request: oldToken)
+                    }
+                    print(err.localizedDescription, 500)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    // 5. 토큰 리프레쉬 API
+    func refreshTokenAPI(request:TokenRequest, completion: @escaping (TokenResponse?) -> Void){
+        signProvider.request(.refreshToken(request: request)) { [self] (response) in
+            switch response {
+            case .success(let moyaResponse):
+                do {
+                    self.refreshTokenData = try moyaResponse.map(TokenResponse.self)
+                    completion(refreshTokenData)
+                } catch(let err) {
+                    // MARK: - 여기로 401이 들어오나?
+                    if moyaResponse.statusCode == 401 || moyaResponse.statusCode == 406 {
+                        let oldToken = TokenRequest(accessToken: self.realm.getToken(), refreshToken: self.realm.getRefreshToken())
+                        MoyaLoggerPlugin.shared.userTokenReissueWithAPI(request: oldToken)
+                    }
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):

@@ -86,7 +86,11 @@ class NoticeViewController: UIViewController {
 }
 
 extension NoticeViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let noticeDetailView = DetailNoticeViewController()
+        noticeDetailView.introTextView.text = NoticeViewController.announcementList[indexPath.row].contents
+        self.navigationController?.pushViewController(noticeDetailView, animated: true)
+    }
 }
 
 extension NoticeViewController: UITableViewDataSource {

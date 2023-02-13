@@ -90,7 +90,7 @@ class BottomPhotoView: UIView {
     private func setLayout(){
         photoTopStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(17)
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
         }
         editPhotoButton.snp.makeConstraints { make in
             make.top.equalTo(photoTopStackView)

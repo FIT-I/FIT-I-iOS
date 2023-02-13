@@ -10,5 +10,6 @@ import Foundation
 struct WithDrawResponse: Codable {
     let isSuccess: Bool
     let code: Int
-    let message, result: String
+    var message: String? = nil
+    var result: String? = nil
 }

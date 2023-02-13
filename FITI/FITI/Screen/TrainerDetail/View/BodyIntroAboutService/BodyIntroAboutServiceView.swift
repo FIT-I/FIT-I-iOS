@@ -47,8 +47,7 @@ class BodyIntroAboutServiceView : UIView {
     lazy var introServiceTextView : UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-//        textView.backgroundColor = UIColor.customColor(.boxGray)
-        textView.backgroundColor = .systemBackground
+        textView.backgroundColor = UIColor.customColor(.boxGray)
         textView.textColor = UIColor.customColor(.darkGray)
         textView.textContainer.maximumNumberOfLines = 10
         textView.textContainer.lineBreakMode = .byTruncatingTail
@@ -59,8 +58,7 @@ class BodyIntroAboutServiceView : UIView {
     }()
     lazy var textDetailBtn: UIButton = {
         let btn = UIButton()
-//        btn.backgroundColor = UIColor.customColor(.boxGray)
-        btn.backgroundColor = .systemBackground
+        btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.setImage(UIImage(named: "chevron.compact.down.svg"), for: .normal)
         return btn
     }()
@@ -89,15 +87,15 @@ class BodyIntroAboutServiceView : UIView {
     func setConstraints(){
         introServiceTopStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(17)
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
 //            make.height.equalTo(30)
         }
         introServiceLineView.snp.makeConstraints { make in
             make.top.equalTo(introServiceTopStackView.snp.bottom).offset(10)
             make.height.equalTo(1)
-//            make.leading.equalToSuperview().offset(18)
-//            make.trailing.equalToSuperview().offset(-22)
-            make.leading.trailing.equalToSuperview()
+            make.leading.equalToSuperview().offset(18)
+            make.trailing.equalToSuperview().offset(-22)
+//            make.leading.trailing.equalToSuperview()
         }
         emptyIntroServiceLabel.snp.makeConstraints { make in
             make.top.equalTo(introServiceLineView.snp.bottom).offset(10)
@@ -105,9 +103,9 @@ class BodyIntroAboutServiceView : UIView {
         }
         introServiceTextView.snp.makeConstraints { make in
             make.top.equalTo(introServiceLineView.snp.bottom).offset(10)
-//            make.leading.equalToSuperview().offset(20)
-//            make.trailing.equalToSuperview().offset(-20)
-            make.leading.trailing.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+//            make.leading.trailing.equalToSuperview()
         }
         textDetailBtn.snp.makeConstraints { make in
             make.top.equalTo(introServiceTextView.snp.bottom)

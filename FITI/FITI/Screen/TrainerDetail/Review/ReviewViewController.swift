@@ -57,7 +57,7 @@ class ReviewViewController: UIViewController {
         reviewTableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(40)
             make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-20)
             make.bottom.equalToSuperview().offset(-10)
         }
     }
@@ -75,6 +75,7 @@ class ReviewViewController: UIViewController {
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
         reviewTableView.separatorStyle = .none
+        reviewTableView.showsVerticalScrollIndicator = false
     }
     func setNavigationController(){
         navigationController?.navigationBar.tintColor = .black
@@ -83,17 +84,12 @@ class ReviewViewController: UIViewController {
     }
     func setReviewData(){
         self.reviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
-        print(reviewData)
     }
 }
 
 // MARK: - Extension
 
-extension ReviewViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("cell did touched")
-    }
-}
+extension ReviewViewController : UITableViewDelegate {}
 extension ReviewViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.reviewData.count

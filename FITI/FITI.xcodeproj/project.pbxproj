@@ -77,6 +77,10 @@
 		91783EB52986B76100B8CC2E /* AddHeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91783EB42986B76100B8CC2E /* AddHeartResponse.swift */; };
 		917D2C782999F8CB0091E82E /* AnnouncementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D2C772999F8CB0091E82E /* AnnouncementResponse.swift */; };
 		917D2C7A2999FA450091E82E /* NoticeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D2C792999FA450091E82E /* NoticeTableCell.swift */; };
+		917D2C7C299A25290091E82E /* DetailNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D2C7B299A25290091E82E /* DetailNoticeViewController.swift */; };
+		917D2C7E299A4E2A0091E82E /* MoyaLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D2C7D299A4E2A0091E82E /* MoyaLoggerPlugin.swift */; };
+		917D2C81299A4E960091E82E /* TokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D2C80299A4E960091E82E /* TokenRequest.swift */; };
+		917D2C83299A4ED40091E82E /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D2C82299A4ED40091E82E /* TokenResponse.swift */; };
 		917D3CF6296EB26C0060F802 /* GradeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */; };
 		917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF7296EB2D30060F802 /* SignUpViewController.swift */; };
 		917D3CFA296EB2E90060F802 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D3CF9296EB2E90060F802 /* PolicyViewController.swift */; };
@@ -202,6 +206,10 @@
 		91783EB42986B76100B8CC2E /* AddHeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHeartResponse.swift; sourceTree = "<group>"; };
 		917D2C772999F8CB0091E82E /* AnnouncementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementResponse.swift; sourceTree = "<group>"; };
 		917D2C792999FA450091E82E /* NoticeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableCell.swift; sourceTree = "<group>"; };
+		917D2C7B299A25290091E82E /* DetailNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNoticeViewController.swift; sourceTree = "<group>"; };
+		917D2C7D299A4E2A0091E82E /* MoyaLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggerPlugin.swift; sourceTree = "<group>"; };
+		917D2C80299A4E960091E82E /* TokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequest.swift; sourceTree = "<group>"; };
+		917D2C82299A4ED40091E82E /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		917D3CF5296EB26C0060F802 /* GradeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTableViewController.swift; sourceTree = "<group>"; };
 		917D3CF7296EB2D30060F802 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		917D3CF9296EB2E90060F802 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
@@ -481,6 +489,7 @@
 			children = (
 				9130CA0A296B055E00FC5107 /* NoticeViewController.swift */,
 				917D2C792999FA450091E82E /* NoticeTableCell.swift */,
+				917D2C7B299A25290091E82E /* DetailNoticeViewController.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -573,6 +582,7 @@
 		91783E9729863C5100B8CC2E /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				917D2C7F299A4E810091E82E /* Token */,
 				91783EA429863E9900B8CC2E /* Trainer */,
 				91783E9D29863D4100B8CC2E /* MyPage */,
 				91FDB3DF2982634200053795 /* Customer */,
@@ -628,6 +638,15 @@
 				9115510629927AA700667A8B /* ReportResponse.swift */,
 			);
 			path = Trainer;
+			sourceTree = "<group>";
+		};
+		917D2C7F299A4E810091E82E /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				917D2C80299A4E960091E82E /* TokenRequest.swift */,
+				917D2C82299A4ED40091E82E /* TokenResponse.swift */,
+			);
+			path = Token;
 			sourceTree = "<group>";
 		};
 		918F5FF22989125300AADC10 /* Loading */ = {
@@ -718,6 +737,7 @@
 				91783E9829863C5B00B8CC2E /* API */,
 				91783E9729863C5100B8CC2E /* DTO */,
 				910C1DF52998CEE80062845D /* BaseURL.swift */,
+				917D2C7D299A4E2A0091E82E /* MoyaLoggerPlugin.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -903,6 +923,7 @@
 				9161959D2991082800703596 /* PatchPasswordResponse.swift in Sources */,
 				91877D6C2969A0A00074386B /* ProfileView.swift in Sources */,
 				917D2C782999F8CB0091E82E /* AnnouncementResponse.swift in Sources */,
+				917D2C7E299A4E2A0091E82E /* MoyaLoggerPlugin.swift in Sources */,
 				917D3CF8296EB2D30060F802 /* SignUpViewController.swift in Sources */,
 				910182C32961961D00FC10DB /* TrainerTableCell.swift in Sources */,
 				9163A4BD2976FC5C00577DC3 /* DetailBodyIntroViewController.swift in Sources */,
@@ -921,10 +942,12 @@
 				91C32D432961857400F29DA5 /* SignInViewController.swift in Sources */,
 				9141D827298E560500A201BB /* MatchingReviewViewController.swift in Sources */,
 				91185FC1296D85160099B641 /* BodyIntroView.swift in Sources */,
+				917D2C83299A4ED40091E82E /* TokenResponse.swift in Sources */,
 				91E08255298BEFA80033D39E /* MatchingListResponse.swift in Sources */,
 				91185FC9296D8C360099B641 /* PhotoCell.swift in Sources */,
 				91F75B07296C116500B31F3B /* FoodTrainerViewController.swift in Sources */,
 				9130CA24296B558900FC5107 /* SearchTVC.swift in Sources */,
+				917D2C7C299A25290091E82E /* DetailNoticeViewController.swift in Sources */,
 				9161959F2991090C00703596 /* PatchPasswordViewController.swift in Sources */,
 				91783EA6298640FA00B8CC2E /* TrainerRouter.swift in Sources */,
 				91BE526E29854BD2006DA3AB /* TrainerArrayListRequest.swift in Sources */,
@@ -986,6 +1009,7 @@
 				91185FBD296D7E3A0099B641 /* HeadView.swift in Sources */,
 				916195972990ED1F00703596 /* WriteReviewTableCell.swift in Sources */,
 				9130CA05296B023C00FC5107 /* SettingViewController.swift in Sources */,
+				917D2C81299A4E960091E82E /* TokenRequest.swift in Sources */,
 				9130CA09296B055100FC5107 /* SearchViewController.swift in Sources */,
 				9181B6E52982AA73001D9427 /* HeartListResponse.swift in Sources */,
 				91CFCFDD298002E70009944D /* SignUpRequest.swift in Sources */,
