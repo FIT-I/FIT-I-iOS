@@ -224,6 +224,9 @@ class SignInViewController: UIViewController {
         DispatchQueue.global().async {
             self.getMyPageServer()
         }
+        DispatchQueue.global().async {
+            self.getAnnouncementServer()
+        }
         let nextVC = GradeTableViewController()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             self.navigationController?.pushViewController(nextVC, animated: true)
@@ -335,6 +338,14 @@ extension SignInViewController {
             MyPageViewController.MyInfo.profile = myPageResponse.profile
             MyPageViewController.MyInfo.email = myPageResponse.email
             MyPageViewController.MyInfo.location = myPageResponse.location ?? "위치 설정을 해주세요."
+        }
+    }
+    func getAnnouncementServer(){
+        MyPageAPI.shared.getAnnouncement { response in
+            guard let annouceResponse = response else { return }
+            if annouceResponse.isSuccess == true {
+                NoticeViewController.announcementList = annouceResponse.result ?? [news]()
+            }else { return }
         }
     }
 }

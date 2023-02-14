@@ -12,6 +12,7 @@ import Moya
 final class TrainerAPI {
     static let shared = TrainerAPI()
     private var trainerProvider = MoyaProvider<TrainerRouter>()
+    let realm = RealmService()
     
     private init() { }
     
@@ -30,6 +31,11 @@ final class TrainerAPI {
                     self.getFirstTrainerListData = try moyaResponse.map(TrainerListResponse.self)
                     completion(getFirstTrainerListData)
                 } catch(let err) {
+                    // MARK: - 여기로 401이 들어오나?
+                    if moyaResponse.statusCode == 401 || moyaResponse.statusCode == 406 {
+                        let oldToken = TokenRequest(accessToken: self.realm.getToken(), refreshToken: self.realm.getRefreshToken())
+                        MoyaLoggerPlugin.shared.userTokenReissueWithAPI(request: oldToken)
+                    }
                     print("트레이너 목록조회"+err.localizedDescription, 500)
                 }
             case .failure(let err):
@@ -48,6 +54,11 @@ final class TrainerAPI {
                     self.getTrainerListData = try moyaResponse.map(TrainerListResponse.self)
                     completion(getTrainerListData)
                 } catch(let err) {
+                    // MARK: - 여기로 401이 들어오나?
+                    if moyaResponse.statusCode == 401 || moyaResponse.statusCode == 406 {
+                        let oldToken = TokenRequest(accessToken: self.realm.getToken(), refreshToken: self.realm.getRefreshToken())
+                        MoyaLoggerPlugin.shared.userTokenReissueWithAPI(request: oldToken)
+                    }
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):
@@ -65,6 +76,11 @@ final class TrainerAPI {
                     self.getSpecificTrainerData = try moyaResponse.map(SpecificTrainerResponse.self)
                     completion(getSpecificTrainerData)
                 } catch(let err) {
+                    // MARK: - 여기로 401이 들어오나?
+                    if moyaResponse.statusCode == 401 || moyaResponse.statusCode == 406 {
+                        let oldToken = TokenRequest(accessToken: self.realm.getToken(), refreshToken: self.realm.getRefreshToken())
+                        MoyaLoggerPlugin.shared.userTokenReissueWithAPI(request: oldToken)
+                    }
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):
@@ -82,6 +98,11 @@ final class TrainerAPI {
                     self.getReportData = try moyaResponse.map(ReportResponse.self)
                     completion(getReportData)
                 } catch(let err) {
+                    // MARK: - 여기로 401이 들어오나?
+                    if moyaResponse.statusCode == 401 || moyaResponse.statusCode == 406 {
+                        let oldToken = TokenRequest(accessToken: self.realm.getToken(), refreshToken: self.realm.getRefreshToken())
+                        MoyaLoggerPlugin.shared.userTokenReissueWithAPI(request: oldToken)
+                    }
                     print(err.localizedDescription, 500)
                 }
             case .failure(let err):

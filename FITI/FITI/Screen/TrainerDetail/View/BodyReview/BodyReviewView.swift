@@ -101,15 +101,13 @@ class BodyReviewView : UIView {
             make.height.equalTo(16)
             make.width.equalTo(12)
         }
-//        btn.backgroundColor = UIColor.customColor(.boxGray)
-        btn.backgroundColor = .systemBackground
+        btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.setImage(UIImage(named: "rightGray"), for: .normal)
         return btn
     }()
     lazy var previewReviewTableView : UITableView = {
         let tableView = UITableView()
-//        tableView.backgroundColor = UIColor.customColor(.boxGray)
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = UIColor.customColor(.boxGray)
         tableView.separatorStyle = .none
         tableView.isScrollEnabled = false
         tableView.dataSource = self
@@ -157,18 +155,18 @@ class BodyReviewView : UIView {
     
     func setConstraints(){
         reviewTopLeftStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview()
+            make.top.equalToSuperview().offset(17)
+            make.leading.equalToSuperview().offset(20)
         }
         reviewTopRightStackView.snp.makeConstraints { make in
             make.bottom.equalTo(reviewTopLeftStackView.snp.bottom)
-            make.trailing.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-20)
         }
         bodyReviewLineView.snp.makeConstraints { make in
             make.top.equalTo(reviewTopLeftStackView.snp.bottom).offset(10)
-//            make.leading.equalToSuperview().offset(20)
-//            make.trailing.equalToSuperview().offset(-22)
-            make.leading.trailing.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-22)
+//            make.leading.trailing.equalToSuperview()
         }
         emptyReviewLabel.snp.makeConstraints { make in
             make.top.equalTo(bodyReviewLineView.snp.bottom).offset(10)
@@ -176,9 +174,9 @@ class BodyReviewView : UIView {
         }
         previewReviewTableView.snp.makeConstraints { make in
             make.top.equalTo(bodyReviewLineView.snp.bottom).offset(10)
-//            make.leading.equalToSuperview().offset(20)
-//            make.trailing.equalToSuperview().offset(-22)
-            make.leading.trailing.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-22)
+//            make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(-5)
         }
     }

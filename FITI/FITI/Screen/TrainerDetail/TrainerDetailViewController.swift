@@ -15,6 +15,8 @@ class TrainerDetailViewController: UIViewController {
     
     // MARK: - Properties
     
+    let realm = RealmService()
+    
     static var isHeartFull : Bool = false
     var isScrolled = false
     static var id = Int()
@@ -94,7 +96,6 @@ class TrainerDetailViewController: UIViewController {
         setHidButton()
         setEmptyLable(introText: TrainerDetailViewController.specificTrainer.intro ?? "", serviceText: TrainerDetailViewController.specificTrainer.service ?? "")
         bodyReviewView.previewReviewTableView.reloadData()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -251,29 +252,29 @@ class TrainerDetailViewController: UIViewController {
             bodyReviewView.reviewDetailBtn.isHidden = true
             bodyReviewView.snp.remakeConstraints {
                 $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
-                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
-                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
-                $0.height.equalTo(70)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+                $0.height.equalTo(120)
             }
         case 1:
             bodyReviewView.snp.remakeConstraints {
                 $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
-                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
-                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
-                $0.height.equalTo(120)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+                $0.height.equalTo(170)
             }
         case 2:
             bodyReviewView.snp.remakeConstraints {
                 $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
-                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
-                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
                 $0.height.equalTo(170)
             }
         case 3:
             bodyReviewView.snp.remakeConstraints {
                 $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
-                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
-                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
+                $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+                $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
                 $0.height.equalTo(300)
             }
         default:
@@ -320,10 +321,10 @@ extension TrainerDetailViewController {
         
         view.backgroundColor = .systemBackground
         toolBarContainerView.backgroundColor = .systemBackground
-        bodyPriceView.backgroundColor = .systemBackground
-        bodyIntroView.backgroundColor = .systemBackground
-        bodyIntroAboutService.backgroundColor = .systemBackground
-        bodyReviewView.backgroundColor = .systemBackground
+        bodyPriceView.backgroundColor = UIColor.customColor(.boxGray)
+        bodyIntroView.backgroundColor = UIColor.customColor(.boxGray)
+        bodyIntroAboutService.backgroundColor = UIColor.customColor(.boxGray)
+        bodyReviewView.backgroundColor = UIColor.customColor(.boxGray)
         
         //MARK: - toolBarLayout
     
@@ -368,31 +369,33 @@ extension TrainerDetailViewController {
             $0.top.equalTo(headView.snp.bottom).offset(20)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.height.equalTo(90)
+            $0.height.equalTo(86)
         }
         bodyIntroView.snp.makeConstraints {
-            $0.top.equalTo(bodyPriceView.snp.bottom).offset(20)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
+            $0.top.equalTo(bodyPriceView.snp.bottom).offset(25)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
             $0.bottom.equalTo(bodyIntroView.textDetailBtn.snp.bottom).offset(5)
         }
         bodyIntroAboutService.snp.makeConstraints {
-            $0.top.equalTo(bodyIntroView.snp.bottom).offset(10)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
+            $0.top.equalTo(bodyIntroView.snp.bottom).offset(25)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
             $0.bottom.equalTo(bodyIntroAboutService.textDetailBtn.snp.bottom).offset(5)
         }
         bodyReviewView.snp.makeConstraints {
-            $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(20)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
-//            $0.height.equalTo(330)
+            $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            $0.height.equalTo(350)
         }
         bottomPhotoView.snp.makeConstraints {
-            $0.top.equalTo(bodyReviewView.snp.bottom).offset(50)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
-            $0.bottom.equalToSuperview().inset(45)
+            $0.top.equalTo(bodyReviewView.snp.bottom).offset(5)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            $0.height.equalTo(200)
+//            $0.bottom.equalToSuperview().inset(45)
+            $0.bottom.equalToSuperview()
         }
     }
 }

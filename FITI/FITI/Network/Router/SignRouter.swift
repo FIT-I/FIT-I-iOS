@@ -13,6 +13,7 @@ enum SignRouter {
     case signIn(param: SignInRequest)
     case sendEmail(param: String)
     case getPassword(param: String)
+    case refreshToken(request: TokenRequest)
 }
 
 extension SignRouter: TargetType {
@@ -30,13 +31,14 @@ extension SignRouter: TargetType {
         return "/api/accounts/email/\(param)"
     case .getPassword(let param):
         return "/api/accounts/password/\(param)"
+    case .refreshToken:
+        return "/api/accounts/reissue"
     }
   }
   
   var method: Moya.Method {
     switch self {
-    case .signUp,
-         .signIn:
+    case .signUp, .signIn, .refreshToken:
       return .post
     case .sendEmail, .getPassword:
         return .get
@@ -53,6 +55,8 @@ extension SignRouter: TargetType {
         return .requestPlain
     case .getPassword:
         return .requestPlain
+    case .refreshToken(request: let request):
+        return .requestJSONEncodable(request)
     }
   }
 

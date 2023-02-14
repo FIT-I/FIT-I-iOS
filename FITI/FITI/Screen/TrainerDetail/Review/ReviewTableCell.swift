@@ -119,22 +119,22 @@ extension ReviewTableCell {
         grade.text = String(model.grade)
         reviewTextView.text = model.contents
         switch model.profile {
-        case "profile1":
+        case "customerProfile1":
             reviewerImage.image = UIImage(named:"profile1")
             return
-        case "profile2":
+        case "customerProfile2":
             reviewerImage.image = UIImage(named:"profile2")
             return
-        case "profile3":
+        case "customerProfile3":
             reviewerImage.image = UIImage(named:"profile3")
             return
-        case "profile4":
+        case "customerProfile4":
             reviewerImage.image = UIImage(named:"profile4")
             return
-        case "profile5":
+        case "customerProfile5":
             reviewerImage.image = UIImage(named:"profile5")
             return
-        case "profile6":
+        case "customerProfile6":
             reviewerImage.image = UIImage(named:"profile6")
             return
         default:

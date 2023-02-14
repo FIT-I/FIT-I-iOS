@@ -8,7 +8,8 @@
 import Foundation
 // MARK: - WithDrawResponse
 struct WithDrawResponse: Codable {
-    let isSuccess: Bool
-    let code: Int
-    let message, result: String
+    var isSuccess: Bool? = false
+    var code: Int? = nil
+    var message: String? = nil
+    var result: String? = nil
 }

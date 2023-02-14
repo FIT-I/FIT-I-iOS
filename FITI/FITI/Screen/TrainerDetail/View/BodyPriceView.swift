@@ -77,23 +77,23 @@ class BodyPriceView : UIView {
         priceTopStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(17)
 //            make.leading.equalToSuperview()
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
+            make.leading.equalToSuperview().offset(20)
+//            make.trailing.equalToSuperview().offset(-10)
         }
         priceLineView.snp.makeConstraints { make in
             make.top.equalTo(priceTopStackView.snp.bottom).offset(10)
-//            make.leading.equalToSuperview().offset(18)
-//            make.trailing.equalToSuperview().offset(-22)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
+            make.leading.equalToSuperview().offset(18)
+            make.trailing.equalToSuperview().offset(-22)
+//            make.leading.equalToSuperview().offset(10)
+//            make.trailing.equalToSuperview().offset(-10)
         }
         timeLabel.snp.makeConstraints { make in
             make.top.equalTo(priceLineView.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().offset(20)
         }
         priceForTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(priceLineView.snp.bottom).offset(10)
-            make.trailing.equalToSuperview().offset(-10)
+            make.trailing.equalToSuperview().offset(-20)
         }
     }
 }

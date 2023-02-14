@@ -46,8 +46,7 @@ class BodyIntroView : UIView {
     }()
     lazy var introTextView : UITextView = {
         let textView = UITextView()
-//        textView.backgroundColor = UIColor.customColor(.boxGray)
-        textView.backgroundColor = .systemBackground
+        textView.backgroundColor = UIColor.customColor(.boxGray)
         textView.textColor = UIColor.customColor(.darkGray)
         textView.isEditable = false
         textView.isScrollEnabled = false
@@ -58,8 +57,7 @@ class BodyIntroView : UIView {
     }()
     lazy var textDetailBtn: UIButton = {
         let btn = UIButton()
-//        btn.backgroundColor = UIColor.customColor(.boxGray)
-        btn.backgroundColor = .systemBackground
+        btn.backgroundColor = UIColor.customColor(.boxGray)
         btn.setImage(UIImage(named: "chevron.compact.down.svg"), for: .normal)
         return btn
     }()
@@ -89,15 +87,15 @@ class BodyIntroView : UIView {
     func setConstraints(){
         introTopStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(17)
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
 //            make.height.equalTo(30)
         }
         introLineView.snp.makeConstraints { make in
             make.top.equalTo(introTopStackView.snp.bottom).offset(10)
             make.height.equalTo(1)
-//            make.leading.equalToSuperview().offset(18)
-//            make.trailing.equalToSuperview().offset(-22)
-            make.leading.trailing.equalToSuperview()
+            make.leading.equalToSuperview().offset(18)
+            make.trailing.equalToSuperview().offset(-22)
+//            make.leading.trailing.equalToSuperview()
         }
         emptyIntroLabel.snp.makeConstraints { make in
             make.top.equalTo(introLineView.snp.bottom).offset(10)
@@ -105,9 +103,9 @@ class BodyIntroView : UIView {
         }
         introTextView.snp.makeConstraints { make in
             make.top.equalTo(introLineView.snp.bottom).offset(10)
-//            make.leading.equalToSuperview().offset(20)
-//            make.trailing.equalToSuperview().offset(-20)
-            make.leading.trailing.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+//            make.leading.trailing.equalToSuperview()
         }
         textDetailBtn.snp.makeConstraints { make in
             make.top.equalTo(introTextView.snp.bottom)

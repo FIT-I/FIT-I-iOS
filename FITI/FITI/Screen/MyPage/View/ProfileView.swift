@@ -19,7 +19,6 @@ class ProfileView : UIView {
     var name : UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 25.0)
-        label.text = "홍준혁"
         label.textColor = UIColor.customColor(.blue)
         return label
     }()
@@ -59,7 +58,7 @@ class ProfileView : UIView {
     lazy var midStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [midLeftStackView,fixProfileBtn])
         stackView.axis = .horizontal
-        stackView.spacing = 45
+        stackView.spacing = 5
         return stackView
     }()
     

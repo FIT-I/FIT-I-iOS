@@ -88,9 +88,6 @@ class WithdrawViewController: UIViewController {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func withDraw(){
-        try! realm.localRealm?.write {
-            realm.localRealm?.deleteAll()
-        }
         self.withDrawServer()
     }
 }

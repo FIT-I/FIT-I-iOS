@@ -126,7 +126,6 @@ class HeartListViewController: UIViewController {
 
 extension HeartListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("cell did touched")
         LoadingView.showLoading()
         self.getSpecificTrainerServer(trainerIdx: HeartListViewController.heartList[indexPath.row].trainerIdx)
         let trainerDetailVC = TrainerDetailViewController()

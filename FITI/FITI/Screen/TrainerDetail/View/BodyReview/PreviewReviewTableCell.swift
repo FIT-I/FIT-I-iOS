@@ -76,8 +76,7 @@ class PreviewReviewTableCell: UITableViewCell {
     lazy var topStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [reviewerImage,nameStackView])
         stackView.axis = .horizontal
-//        stackView.backgroundColor = UIColor.customColor(.boxGray)
-        stackView.backgroundColor = .systemBackground
+        stackView.backgroundColor = UIColor.customColor(.boxGray)
         stackView.spacing = 8
         stackView.alignment = .leading
         stackView.snp.makeConstraints { make in
@@ -90,10 +89,9 @@ class PreviewReviewTableCell: UITableViewCell {
         textView.textColor = UIColor.black
         textView.isEditable = false
         textView.isScrollEnabled = false
-//        textView.backgroundColor = UIColor.customColor(.boxGray)
+        textView.backgroundColor = UIColor.customColor(.boxGray)
         textView.textContainer.maximumNumberOfLines = 2
         textView.textContainer.lineBreakMode = .byTruncatingTail
-        textView.backgroundColor = .systemBackground
         textView.font = UIFont.systemFont(ofSize: 12.0)
         textView.snp.makeConstraints { make in
             make.height.equalTo(50)
@@ -103,8 +101,7 @@ class PreviewReviewTableCell: UITableViewCell {
     lazy var globalStackView : UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [topStackView,reviewTextView])
         stackView.axis = .vertical
-//        stackView.backgroundColor = UIColor.customColor(.boxGray)
-        stackView.backgroundColor = .systemBackground
+        stackView.backgroundColor = UIColor.customColor(.boxGray)
         stackView.alignment = .leading
         return stackView
     }()
@@ -114,8 +111,7 @@ class PreviewReviewTableCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.globalStackView)
-//        self.backgroundColor = UIColor.customColor(.boxGray)
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = UIColor.customColor(.boxGray)
         globalStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview()
@@ -136,22 +132,22 @@ extension PreviewReviewTableCell {
         grade.text = String(model.grade)
         reviewTextView.text = model.contents
         switch model.profile {
-        case "profile1":
+        case "customerProfile1":
             reviewerImage.image = UIImage(named:"profile1")
             return
-        case "profile2":
+        case "customerProfile2":
             reviewerImage.image = UIImage(named:"profile2")
             return
-        case "profile3":
+        case "customerProfile3":
             reviewerImage.image = UIImage(named:"profile3")
             return
-        case "profile4":
+        case "customerProfile4":
             reviewerImage.image = UIImage(named:"profile4")
             return
-        case "profile5":
+        case "customerProfile5":
             reviewerImage.image = UIImage(named:"profile5")
             return
-        case "profile6":
+        case "customerProfile6":
             reviewerImage.image = UIImage(named:"profile6")
             return
         default:

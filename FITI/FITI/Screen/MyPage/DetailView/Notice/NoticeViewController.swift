@@ -6,9 +6,12 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class NoticeViewController: UIViewController {
+    
+    static var announcementList = [news]()
     
     var myPageTitleLabel : UILabel = {
         let label = UILabel()
@@ -18,6 +21,20 @@ class NoticeViewController: UIViewController {
         return label
     }()
 
+    private var progressView : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.customColor(.boxGray)
+        view.snp.makeConstraints { make in
+            make.height.equalTo(5)
+        }
+        return view
+    }()
+    
+    private let noticeTableView: UITableView = {
+        let tableview = UITableView()
+        return tableview
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -29,10 +46,14 @@ class NoticeViewController: UIViewController {
         
         setViewHierarchy()
         setConstraints()
+        setTableCell()
     }
     
     func setViewHierarchy(){
-        view.addSubview(myPageTitleLabel)
+        view.addSubviews(myPageTitleLabel,
+                         progressView,
+                         noticeTableView
+        )
     }
     
     func setConstraints(){
@@ -40,11 +61,53 @@ class NoticeViewController: UIViewController {
             make.top.equalToSuperview().offset(60)
             make.centerX.equalToSuperview()
         }
+        progressView.snp.makeConstraints { make in
+            make.top.equalTo(myPageTitleLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        noticeTableView.snp.makeConstraints { make in
+            make.top.equalTo(progressView.snp.bottom)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+    }
+    
+    func setTableCell(){
+        noticeTableView.register(NoticeTableCell.self, forCellReuseIdentifier: NoticeTableCell.identifier)
+        noticeTableView.delegate = self
+        noticeTableView.dataSource = self
     }
     
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
-
-
 }
+
+extension NoticeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let noticeDetailView = DetailNoticeViewController()
+        noticeDetailView.introTextView.text = NoticeViewController.announcementList[indexPath.row].contents
+        self.navigationController?.pushViewController(noticeDetailView, animated: true)
+    }
+}
+
+extension NoticeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return NoticeViewController.announcementList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NoticeTableCell.identifier, for: indexPath) as? NoticeTableCell ?? NoticeTableCell()
+        cell.bindingNoticeList(model: NoticeViewController.announcementList[indexPath.row])
+        cell.selectionStyle = .none
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+}
+
