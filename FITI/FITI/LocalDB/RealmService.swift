@@ -14,7 +14,6 @@ class RealmService{
         do {
             return try Realm()
         } catch {
-            print("Could not access Realm, \(error)")
             return nil
         }
     }()

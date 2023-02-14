@@ -87,7 +87,6 @@ class PickPlaceViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "leftIcon.svg"), style: .plain, target: self, action: #selector(backTapped))
         
-        // Do any additional setup after loading the view.
         setViewHierarchy()
         setConstraints()
     }

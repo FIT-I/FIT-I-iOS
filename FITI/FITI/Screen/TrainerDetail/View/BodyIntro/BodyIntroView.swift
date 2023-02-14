@@ -88,14 +88,12 @@ class BodyIntroView : UIView {
         introTopStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(17)
             make.leading.equalToSuperview().offset(20)
-//            make.height.equalTo(30)
         }
         introLineView.snp.makeConstraints { make in
             make.top.equalTo(introTopStackView.snp.bottom).offset(10)
             make.height.equalTo(1)
             make.leading.equalToSuperview().offset(18)
             make.trailing.equalToSuperview().offset(-22)
-//            make.leading.trailing.equalToSuperview()
         }
         emptyIntroLabel.snp.makeConstraints { make in
             make.top.equalTo(introLineView.snp.bottom).offset(10)
@@ -105,7 +103,6 @@ class BodyIntroView : UIView {
             make.top.equalTo(introLineView.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
-//            make.leading.trailing.equalToSuperview()
         }
         textDetailBtn.snp.makeConstraints { make in
             make.top.equalTo(introTextView.snp.bottom)

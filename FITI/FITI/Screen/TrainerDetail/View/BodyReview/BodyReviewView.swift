@@ -166,7 +166,6 @@ class BodyReviewView : UIView {
             make.top.equalTo(reviewTopLeftStackView.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-22)
-//            make.leading.trailing.equalToSuperview()
         }
         emptyReviewLabel.snp.makeConstraints { make in
             make.top.equalTo(bodyReviewLineView.snp.bottom).offset(10)
@@ -176,7 +175,6 @@ class BodyReviewView : UIView {
             make.top.equalTo(bodyReviewLineView.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-22)
-//            make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(-5)
         }
     }

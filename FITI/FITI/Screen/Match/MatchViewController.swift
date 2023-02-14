@@ -136,12 +136,10 @@ extension MatchViewController : UITableViewDataSource {
 
 extension MatchViewController {
     func getSpecificTrainerServer(trainerIdx:Int){
-        print("getSpecific")
         TrainerAPI.shared.getSpecificTrainerAPI(trainerIdx: trainerIdx) { response in
             guard let specificTrainerResponse = response?.result else { return }
             TrainerDetailViewController.specificTrainer = specificTrainerResponse
             BodyReviewView.previewReviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
-            print(specificTrainerResponse)
         }
     }
     func getFirstTrainerListServer(category:String,page:Int,size:Int,sort:[String]){
@@ -165,12 +163,6 @@ extension MatchViewController {
         
     func getMatchingRequestList(){
         CustomerAPI.shared.getMatchingListAPI(){ response in
-//            guard let matchingListResponse = response?.result else { return }
-//            if response?.isSuccess == true {
-//                CommunityViewController.matchingList = matchingListResponse
-//            }else {
-//                print("매칭 보낸 목록을 불러오는데 실패했습니다.")
-//            }
             guard let requestListresponse = response?.result else {return}
             if requestListresponse.count != 0 {
                 CommunityViewController.matchingList = requestListresponse

@@ -251,7 +251,6 @@ class MyPageViewController: UIViewController {
 
 extension MyPageViewController {
     func getHeartListServer(){
-        print("getHeartList")
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             HeartListViewController.heartList = heartListResponse
@@ -262,9 +261,7 @@ extension MyPageViewController {
             guard let successMatchingListResponse = response?.result else { return }
             if response?.isSuccess == true {
                 MatchViewController.successMatchList = successMatchingListResponse
-            }else {
-                print("성공된 매칭을 불러오는데 실패했습니다.")
-            }
+            }else {}
         }
     }
 }

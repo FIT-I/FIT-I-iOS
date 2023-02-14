@@ -17,13 +17,11 @@ class DetailBodyIntroViewController: UIViewController {
 
     private lazy var rectView: UIView = {
         let view = UIView()
-//        view.backgroundColor = UIColor.customColor(.boxGray)
         return view
     }()
     private lazy var introTextView : UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-//        textView.backgroundColor = UIColor.customColor(.boxGray)
         textView.backgroundColor = .systemBackground
         textView.textColor = UIColor.customColor(.darkGray)
         textView.layer.cornerRadius = 16

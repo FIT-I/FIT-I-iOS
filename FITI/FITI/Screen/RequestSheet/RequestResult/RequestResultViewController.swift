@@ -177,7 +177,6 @@ extension RequestResultViewController {
     func requestMatchSheetServer(trainerIndex:Int, body:RequestMatchingRequest){
         CustomerAPI.shared.requestMatchAPI(trainerIndex: trainerIndex, body: body){ response in
             if response?.isSuccess == true {
-//                self.metchingSuccessAlert()
                 let nextVC = RequestSuccessViewController()
                 self.navigationController?.pushViewController(nextVC, animated: true)
             }else if response?.isSuccess == false {
@@ -186,7 +185,6 @@ extension RequestResultViewController {
         }
     }
     func getMatchingRequestList(){
-        print("getMatchingRequest")
         CustomerAPI.shared.getMatchingListAPI(){ response in
             CommunityViewController.matchingList = response?.result ?? [MatchingList]()
         }

@@ -40,7 +40,6 @@ class HomeViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear")
         getMyPageServer()
         getHeartListServer()
         self.getFirstTrainerListServer(category: "pt", page: 0, size: 100, sort: ["recent,DESC"])
@@ -98,7 +97,6 @@ class HomeViewController: UIViewController {
 extension HomeViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let touchedCell = tableView.cellForRow(at: indexPath) as! TrainerTableCell
-        print(touchedCell.id)
         LoadingView.showLoading()
         self.getSpecificTrainerServer(trainerIdx: touchedCell.id)
         TrainerDetailViewController.id = touchedCell.id
@@ -129,19 +127,16 @@ extension HomeViewController {
         }
     }
     func getSpecificTrainerServer(trainerIdx:Int){
-        print("getSpecific")
         TrainerAPI.shared.getSpecificTrainerAPI(trainerIdx: trainerIdx) { response in
             guard let specificTrainerResponse = response?.result else { return }
             TrainerDetailViewController.specificTrainer = specificTrainerResponse
             BodyReviewView.previewReviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
-            print(specificTrainerResponse)
             let nextVC = TrainerDetailViewController()
             LoadingView.hideLoading()
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
     func getHeartListServer(){
-        print("getHeartList")
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             TrainerDetailViewController.trainerHeartList = heartListResponse
@@ -180,9 +175,7 @@ extension HomeViewController {
             guard let successMatchingListResponse = response?.result else { return }
             if response?.isSuccess == true {
                 MatchViewController.successMatchList = successMatchingListResponse
-            }else {
-                print("성공된 매칭을 불러오는데 실패했습니다.")
-            }
+            }else {}
         }
     }
 

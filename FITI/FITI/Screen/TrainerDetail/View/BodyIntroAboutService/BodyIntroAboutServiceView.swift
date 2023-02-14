@@ -88,14 +88,12 @@ class BodyIntroAboutServiceView : UIView {
         introServiceTopStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(17)
             make.leading.equalToSuperview().offset(20)
-//            make.height.equalTo(30)
         }
         introServiceLineView.snp.makeConstraints { make in
             make.top.equalTo(introServiceTopStackView.snp.bottom).offset(10)
             make.height.equalTo(1)
             make.leading.equalToSuperview().offset(18)
             make.trailing.equalToSuperview().offset(-22)
-//            make.leading.trailing.equalToSuperview()
         }
         emptyIntroServiceLabel.snp.makeConstraints { make in
             make.top.equalTo(introServiceLineView.snp.bottom).offset(10)
@@ -105,7 +103,6 @@ class BodyIntroAboutServiceView : UIView {
             make.top.equalTo(introServiceLineView.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
-//            make.leading.trailing.equalToSuperview()
         }
         textDetailBtn.snp.makeConstraints { make in
             make.top.equalTo(introServiceTextView.snp.bottom)

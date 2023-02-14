@@ -106,8 +106,6 @@ class SignInViewController: UIViewController {
         // MARK: - FIXME
 //        self.realm.resetDB()
         if checkRealmToken() {
-            print("accessToken : " + self.realm.getToken())
-            print("refreshToken : " + self.realm.getRefreshToken())
             ifSuccessPushHome()
         }
         self.dismissKeyboard()
@@ -235,7 +233,6 @@ class SignInViewController: UIViewController {
     
     private func addTokenInRealm(accessToken:String,refreshToken:String){
         realm.addToken(accessToken: accessToken, refreshToken: refreshToken)
-        print(realm.getToken())
     }
     
     private func showFailAlert(){
@@ -271,10 +268,7 @@ class SignInViewController: UIViewController {
 extension SignInViewController {
     func signInServer(email:String, password:String){
         SignAPI.shared.postSignInAPI(email: email, password: password){ response in
-            print(response?.message ?? "")
             guard let signInResponse = response else { return }
-            print(signInResponse.result?.accessToken as Any)
-            print(signInResponse.result?.refreshToken as Any)
             if signInResponse.isSuccess == false {
                 self.showExceptionNotification(description: signInResponse.message)
             }else {
@@ -300,7 +294,6 @@ extension SignInViewController {
             default: break
             }
         }
-        print("getTrainerList : \(category)")
     }
     func getMatchingRequestList(){
         CustomerAPI.shared.getMatchingListAPI(){ response in
@@ -311,25 +304,20 @@ extension SignInViewController {
                 CommunityViewController.matchingList = [MatchingList]()
             }
         }
-        print("getMatchRequestList")
     }
     func getSuccessMatchingListServer(){
         CustomerAPI.shared.getSuccessMatchingListAPI(){ response in
             guard let successMatchingListResponse = response?.result else { return }
             if response?.isSuccess == true {
                 MatchViewController.successMatchList = successMatchingListResponse
-            }else {
-                print("성공된 매칭을 불러오는데 실패했습니다.")
-            }
+            }else {}
         }
-        print("getSuccessMatchList")
     }
     func getHeartListServer(){
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             HeartListViewController.heartList = heartListResponse
         }
-        print("getHeartList")
     }
     func getMyPageServer(){
         MyPageAPI.shared.getMyPageDataAPI { response in

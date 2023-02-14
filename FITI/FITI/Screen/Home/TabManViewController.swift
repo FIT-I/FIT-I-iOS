@@ -53,8 +53,7 @@ class TabManViewController: TabmanViewController {
         self.bounces = false
         
         settingTabBar(ctBar: bar)
-        
-        print("HomeTabView")
+
         setUI()
     }
     

@@ -121,12 +121,10 @@ extension DietTrainerViewController : UITableViewDataSource {
 
 extension DietTrainerViewController {
     func getSpecificTrainerServer(trainerIdx:Int){
-        print("getSpecific")
         TrainerAPI.shared.getSpecificTrainerAPI(trainerIdx: trainerIdx) { response in
             guard let specificTrainerResponse = response?.result else { return }
             TrainerDetailViewController.specificTrainer = specificTrainerResponse
             BodyReviewView.previewReviewData = TrainerDetailViewController.specificTrainer.reviewDto ?? [ReviewDto]()
-            print(specificTrainerResponse)
             let nextVC = TrainerDetailViewController()
             LoadingView.hideLoading()
             self.navigationController?.pushViewController(nextVC, animated: true)
@@ -134,7 +132,6 @@ extension DietTrainerViewController {
     }
     func getMatchingRequestList(){
         CustomerAPI.shared.getMatchingListAPI(){ response in
-//            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
             guard let requestListresponse = response?.result else {return}
             if requestListresponse.count != 0 {
                 CommunityViewController.matchingList = requestListresponse
@@ -144,7 +141,6 @@ extension DietTrainerViewController {
         }
     }
     func getHeartListServer(){
-        print("getHeartList")
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             TrainerDetailViewController.trainerHeartList = heartListResponse
@@ -173,9 +169,7 @@ extension DietTrainerViewController {
             guard let successMatchingListResponse = response?.result else { return }
             if response?.isSuccess == true {
                 MatchViewController.successMatchList = successMatchingListResponse
-            }else {
-                print("성공된 매칭을 불러오는데 실패했습니다.")
-            }
+            }else {}
         }
     }
 }

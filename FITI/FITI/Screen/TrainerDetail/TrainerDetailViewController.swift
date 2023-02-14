@@ -54,6 +54,7 @@ class TrainerDetailViewController: UIViewController {
         btn.setImage(UIImage(named: "heart.svg"), for: .normal)
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.customColor(.blue).cgColor
+        
         btn.addTarget(self, action: #selector(heartTouchEvent), for: .touchUpInside)
         return btn
     }()
@@ -144,7 +145,6 @@ class TrainerDetailViewController: UIViewController {
     }
     
     @objc func moveToReportView(){
-        print("movetoto")
         let nextVC = ReportViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -152,7 +152,6 @@ class TrainerDetailViewController: UIViewController {
     // MARK: Func
     
     func setHeartIcon() {
-        print(TrainerDetailViewController.trainerHeartList)
         for i in 0..<TrainerDetailViewController.trainerHeartList.count {
 //            print(TrainerDetailViewController.trainerHeartList[i].trainerIdx)
 //            print(TrainerDetailViewController.id)
@@ -394,7 +393,6 @@ extension TrainerDetailViewController {
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
             $0.height.equalTo(200)
-//            $0.bottom.equalToSuperview().inset(45)
             $0.bottom.equalToSuperview()
         }
     }
@@ -405,25 +403,21 @@ extension TrainerDetailViewController {
 extension TrainerDetailViewController {
     func postHeartServer(trainerIndex:Int) {
         CustomerAPI.shared.postAddHeartAPI(trainerIndex: trainerIndex) { response in
-            guard let postHeartResponse = response?.result else { return }
-            print(postHeartResponse)
+            guard (response?.result) != nil else { return }
             self.getHeartListServer()
         }
     }
     func deleteHeartServer(trainerIndex:Int) {
         CustomerAPI.shared.deleteHeartAPI(trainerIndex: trainerIndex) { response in
-            guard let deleteHeartResponse = response?.result else { return }
-            print(deleteHeartResponse)
+            guard (response?.result) != nil else { return }
             self.getHeartListServer()
         }
     }
     func getHeartListServer(){
-        print("getHeartList")
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             HeartListViewController.heartList = heartListResponse
             TrainerDetailViewController.trainerHeartList = heartListResponse
-            print("heart List : ",TrainerDetailViewController.trainerHeartList)
             LoadingView.hideLoading()
         }
     }

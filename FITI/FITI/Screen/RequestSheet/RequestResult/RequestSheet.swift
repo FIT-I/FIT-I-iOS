@@ -230,7 +230,5 @@ class RequestSheet : UIView {
             make.top.equalTo(lineView3.snp.bottom).offset(20)
             make.trailing.equalToSuperview().offset(-18)
         }
-        
     }
-    
 }

@@ -51,7 +51,6 @@ class CommunityViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear")
         getHeartListServer()
         getMatchingRequestList()
         getFirstTrainerListServer(category:"pt",page:0,size:200,sort:["current"])
@@ -160,7 +159,6 @@ extension CommunityViewController {
     }
     func getMatchingRequestList(){
         CustomerAPI.shared.getMatchingListAPI(){ response in
-//            CommunityViewController.matchingList = response?.result ?? [MatchingList]()
             guard let requestListresponse = response?.result else {return}
             if requestListresponse.count != 0 {
                 CommunityViewController.matchingList = requestListresponse
@@ -170,7 +168,6 @@ extension CommunityViewController {
         }
     }
     func getHeartListServer(){
-        print("getHeartList")
         MyPageAPI.shared.getHeartListAPI{ response in
             guard let heartListResponse = response?.result else { return }
             TrainerDetailViewController.trainerHeartList = heartListResponse
@@ -201,9 +198,7 @@ extension CommunityViewController {
             guard let successMatchingListResponse = response?.result else { return }
             if response?.isSuccess == true {
                 MatchViewController.successMatchList = successMatchingListResponse
-            }else {
-                print("성공된 매칭을 불러오는데 실패했습니다.")
-            }
+            }else {}
         }
     }
 }

@@ -160,6 +160,14 @@ class SearchViewController: UIViewController {
         searchCompleter.resultTypes = .address /// resultTypes은 검색 유형인데 address는 주소를 의미
     }
     
+    private func showFailAlert(message: String){
+        let alert = UIAlertController(title: "위치 설정 실패", message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { okAction in
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - @objc
     @objc func touchupCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -220,7 +228,10 @@ extension SearchViewController: UITableViewDelegate {
             switch response {
             case .success(let response):
                 do {
-//                    let responseData = try response.map(PetchLocationResponse.self)
+                    let responseData = try response.map(PetchLocationResponse.self)
+                    if responseData.isSuccess == false {
+                        self.showFailAlert(message: responseData.message)
+                    }
                 }catch(let err) {
                     print(err.localizedDescription)
                 }

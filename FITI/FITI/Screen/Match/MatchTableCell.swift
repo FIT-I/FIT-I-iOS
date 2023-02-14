@@ -98,7 +98,6 @@ class MatchTableCell: UITableViewCell {
             make.leading.equalToSuperview()
         }
         date.snp.makeConstraints { make in
-//            make.centerY.equalTo(globalStackView)
             make.top.equalTo(name)
             make.trailing.equalToSuperview().offset(-10)
         }
@@ -119,11 +118,5 @@ extension MatchTableCell {
         trainerId = model.trainerId
         // MARK: - FIX ME
         kakaoLink.text = model.openChatLink ?? "채팅방 링크가 없습니다."
-//        if model.profile == "trainerProfile" {
-//            reviewerImage.image = UIImage(named: "reviewerIcon.svg")
-//        }else {
-//            let url = URL(string: model.profile)
-//            reviewerImage.kf.setImage(with: url)
-//        }
     }
 }
