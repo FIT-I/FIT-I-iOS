@@ -58,8 +58,8 @@ class DetailBodyIntroViewController: UIViewController {
         view.addSubview(contentScrollView)
         view.backgroundColor = .systemBackground
         introView.layer.cornerRadius = 16
-//        introView.backgroundColor = UIColor.customColor(.boxGray)
-//        introTextView.backgroundColor = UIColor.customColor(.boxGray)
+        introView.backgroundColor = UIColor.customColor(.boxGray)
+        introTextView.backgroundColor = UIColor.customColor(.boxGray)
     }
     
     func setViewLayer() {
@@ -68,7 +68,7 @@ class DetailBodyIntroViewController: UIViewController {
             $0.top.bottom.equalToSuperview()
         }
         introView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(30)
+            $0.top.equalToSuperview().offset(15)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-15)
             $0.height.equalTo(150)

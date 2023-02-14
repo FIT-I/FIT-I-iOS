@@ -99,6 +99,9 @@ final class MyPageAPI {
             case .success(let moyaResponse):
                 do {
                     self.withDrawData = try moyaResponse.map(WithDrawResponse.self)
+                    try! realm.localRealm?.write {
+                        realm.localRealm?.deleteAll()
+                    }
                     completion(withDrawData)
                 } catch(let err) {
                     // MARK: - 여기로 401이 들어오나?

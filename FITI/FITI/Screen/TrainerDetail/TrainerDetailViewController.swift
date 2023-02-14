@@ -15,6 +15,8 @@ class TrainerDetailViewController: UIViewController {
     
     // MARK: - Properties
     
+    let realm = RealmService()
+    
     static var isHeartFull : Bool = false
     var isScrolled = false
     static var id = Int()
@@ -94,7 +96,6 @@ class TrainerDetailViewController: UIViewController {
         setHidButton()
         setEmptyLable(introText: TrainerDetailViewController.specificTrainer.intro ?? "", serviceText: TrainerDetailViewController.specificTrainer.service ?? "")
         bodyReviewView.previewReviewTableView.reloadData()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -253,7 +254,7 @@ class TrainerDetailViewController: UIViewController {
                 $0.top.equalTo(bodyIntroAboutService.snp.bottom).offset(25)
                 $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
                 $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
-                $0.height.equalTo(170)
+                $0.height.equalTo(120)
             }
         case 1:
             bodyReviewView.snp.remakeConstraints {

@@ -66,10 +66,10 @@ class DetailBodyIntroView:UIView {
             make.centerX.equalToSuperview()
         }
         introLineView.snp.makeConstraints { make in
-            make.top.equalTo(introTopStackView.snp.bottom).offset(15)
-//            make.leading.equalToSuperview().offset(18)
-//            make.trailing.equalToSuperview().offset(-22)
-            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(introTopStackView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(18)
+            make.trailing.equalToSuperview().offset(-22)
+//            make.leading.trailing.equalToSuperview()
         }
         
     }
